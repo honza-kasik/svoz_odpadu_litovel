@@ -1,0 +1,17 @@
+= Svoz odpadu v Litovli i místních částech
+
+*Stále ve vývoji, testujte na vlastní riziko, struktura souborů a adresářů se může změnit. Aktuálně chybí data pro svoz papíru.*
+
+Velmi jednoduchý a naivní skript pro vygenerování `ics` souborů se svozy odpadů pro jednotlivé ulice.
+
+Soubor `ics` lze importovat do Google kalendáře a pravděpodobně i dalších aplikací.
+
+Kalendáře jsou ke stažení ve složce link:calendars/[`calendars`].
+
+== Import do Google kalendáře
+
+https://support.google.com/calendar/answer/37118?hl=cs&co=GENIE.Platform%3DDesktop
+
+== Licence
+
+The GNU General Public License v3.0 dostupná na https://www.gnu.org/licenses/gpl-3.0.en.html
