@@ -1,12 +1,14 @@
 = Svoz odpadu v Litovli i místních částech
 
-*Stále ve vývoji, testujte na vlastní riziko, struktura souborů a adresářů se může změnit. Aktuálně chybí data pro svoz papíru.*
+*Stále ve vývoji, testujte na vlastní riziko, struktura souborů a adresářů se může změnit.*
 
-Velmi jednoduchý a naivní skript pro vygenerování `ics` souborů se svozy odpadů pro jednotlivé ulice.
+Velmi jednoduchý a naivní skript pro vygenerování `ics` souborů se svozy odpadů pro jednotlivé ulice i místní části.
 
 Soubor `ics` lze importovat do Google kalendáře a pravděpodobně i dalších aplikací.
 
 Kalendáře jsou ke stažení ve složce link:calendars/[`calendars`].
+
+https://svoz.litovle.cz
 
 == Import do Google kalendáře
 
