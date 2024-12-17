@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalendář svozu odpadu v Litovli</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        h1 {
+            margin-top: 20px;
+            font-size: 1.8em;
+        }
+        .month-header {
+            margin-top: 10px;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+        .calendar-month {
+            display: table;
+            margin: 10px auto;
+            border-collapse: collapse;
+            width: 100%;
+            table-layout: fixed; /* Ensures even spacing of columns */
+        }
+        .calendar-month th, .calendar-month td {
+            padding: 8px;
+            border: 1px solid #ccc;
+            width: 12%;
+            height: 60px;
+            text-align: center;
+            vertical-align: top;
+            box-sizing: border-box;
+        }
+        .calendar-month .today {
+            background-color: lightgreen;
+            font-weight: bold;
+        }
+        .calendar-month .collection {
+            font-size: 0.7em;
+            margin-top: 3px;
+            border-radius: 5px;
+            padding: 3px;
+            color: #333;
+        }
+        .collection.bio {
+            background-color: #683200; /* Light Green for Bio Waste */
+            color: #fff;
+        }
+        .collection.generic {
+            background-color: #000000; /* Light Orange for General Waste */
+            color: #fff;
+        }
+        .collection.plastics {
+            background-color: #fbff00; /* Light Red for Plastics */
+        }
+        .collection.paper {
+            background-color: #0044ff; /* Light Blue for Paper */
+            color: #fff;
+        }
+        #info, #controls {
+            margin-top: 15px;
+            font-size: 1em;
+        }
+        #controls {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            align-items: center;
+        }
+        #controls input, #controls select {
+            padding: 5px;
+            font-size: 0.9em;
+            width: auto;
+            max-width: 200px;
+        }
+        #locationSearch {
+            width: 200px;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            width: 200px;
+        }
+
+        .dropdown input {
+            width: 100%;
+            padding: 5px;
+            font-size: 0.9em;
+            box-sizing: border-box;
+        }
+
+        .dropdown-options {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            max-height: 150px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            z-index: 10;
+            display: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown-options div {
+            padding: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+
+        .dropdown-options div:hover {
+            background-color: #f1f1f1;
+        }
+        .disclaimer {
+            font-size: 70%;
+        }
+        #resetFilter {
+            cursor: pointer;
+            color: #007BFF;
+            font-size: 0.9em;
+            text-decoration: underline;
+        }
+        #resetFilter:hover {
+            color: #0056b3;
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5em;
+            }
+            .calendar-month th, .calendar-month td {
+                padding: 5px;
+                height: 50px;
+                font-size: 0.8em;
+            }
+            .collection {
+                font-size: 0.6em;
+            }
+            #controls {
+                flex-direction: column;
+                gap: 5px;
+            }
+            #controls label {
+                font-size: 0.9em;
+            }
+            #controls input, #controls select {
+                width: 90%;
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Kalendář svozu odpadu v Litovli</h1>
+    <div id="controls">
+        <label for="monthSelect">Měsíc </label>
+        <select id="monthSelect"></select>
+        <label for="yearSelect">Rok </label>
+        <select id="yearSelect"></select>
+        <label for="locationSearch">Filtr lokace </label>
+        <div id="locationDropdown" class="dropdown">
+            <input type="text" id="locationSearch" placeholder="Vyhledat lokaci..." autocomplete="off">
+            <div id="locationOptions" class="dropdown-options"></div>
+        </div>
+        <div id="resetFilter">Všechny lokace</div>
+    </div>
+    <div id="calendarContainer"></div>
+    <div id="info"></div>
+    <p class="disclaimer">Tento kalendář je nezávislým výtvorem. Město Litovel pouze poskytuje zdrojová data.</p>
+
+    <script>
+        const WASTE_TYPES = {
+            bio: 'Bio odpad',
+            generic: 'Směsný odpad',
+            plastics: 'Plasty',
+            paper: 'Papír'
+        };
+
+        let wasteSchedule = [];
+        let filteredLocation = "";
+        let selectedYear = new Date().getFullYear();
+        let selectedMonth = new Date().getMonth();
+
+        fetch('waste_schedule.csv')
+            .then(response => response.text())
+            .then(csv => {
+                parseCSV(csv);
+                populateFilters();
+                renderMonthCalendar();
+            });
+
+        function parseCSV(csv) {
+            const lines = csv.split('\n');
+            wasteSchedule = lines.map(line => {
+                const [date, type, location] = line.split(',');
+                if (!date || !type) return null; // Skip invalid lines
+                return { date: date.trim(), type: type.trim().toLowerCase(), location: location ? location.trim() : '' };
+            }).filter(entry => entry);
+        }
+
+        function populateFilters() {
+            const monthSelect = document.getElementById('monthSelect');
+            const yearSelect = document.getElementById('yearSelect');
+            const locationSearch = document.getElementById('locationSearch');
+            const locationOptions = document.getElementById('locationOptions');
+            const currentYear = new Date().getFullYear();
+
+            const months = ["Leden", "Únor", "Březen", "Duben", "Květen", "Červen", "Červenec", "Srpen", "Září", "Říjen", "Listopad", "Prosinec"];
+            months.forEach((month, index) => {
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = month;
+                if (index === selectedMonth) option.selected = true;
+                monthSelect.appendChild(option);
+            });
+
+            for (let i = currentYear - 5; i <= currentYear + 5; i++) {
+                const option = document.createElement('option');
+                option.value = i;
+                option.textContent = i;
+                if (i === selectedYear) option.selected = true;
+                yearSelect.appendChild(option);
+            }
+
+            const uniqueLocations = [...new Set(wasteSchedule.map(entry => entry.location).filter(loc => loc))];
+            
+            function renderLocationOptions(query = "") {
+                locationOptions.innerHTML = "";
+                const filtered = uniqueLocations.filter(loc => loc.toLowerCase().includes(query.toLowerCase()));
+                filtered.forEach(location => {
+                    const optionDiv = document.createElement('div');
+                    optionDiv.textContent = location;
+                    optionDiv.addEventListener('click', () => {
+                        filteredLocation = location;
+                        locationSearch.value = location;
+                        locationOptions.style.display = 'none';
+                        renderMonthCalendar();
+                    });
+                    locationOptions.appendChild(optionDiv);
+                });
+                locationOptions.style.display = filtered.length > 0 ? "block" : "none";
+            }
+
+            locationSearch.addEventListener('input', (e) => {
+                renderLocationOptions(e.target.value);
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('#locationDropdown')) {
+                    locationOptions.style.display = 'none';
+                }
+            });
+
+            renderLocationOptions();
+            monthSelect.addEventListener('change', (e) => {
+                selectedMonth = parseInt(e.target.value);
+                renderMonthCalendar();
+            });
+
+            yearSelect.addEventListener('change', (e) => {
+                selectedYear = parseInt(e.target.value);
+                renderMonthCalendar();
+            });
+
+
+            resetFilter.addEventListener('click', () => {
+                filteredLocation = "";
+                locationSearch.value = "";
+                renderMonthCalendar();
+            });
+        }
+
+        function renderMonthCalendar() {
+            const calendarContainer = document.getElementById('calendarContainer');
+            calendarContainer.innerHTML = '';
+            const today = new Date();
+            const daysInMonth = new Date(selectedYear, selectedMonth + 1, 0).getDate();
+            const firstDay = (new Date(selectedYear, selectedMonth, 1).getDay() + 6) % 7; // Monday-start adjustment
+
+            const table = document.createElement('table');
+            table.className = 'calendar-month';
+
+            const headerRow = document.createElement('tr');
+            ['Po', 'Út', 'St', 'Čt', 'Pá', 'So', 'Ne'].forEach(day => {
+                const th = document.createElement('th');
+                th.textContent = day;
+                headerRow.appendChild(th);
+            });
+            table.appendChild(headerRow);
+
+            let row = document.createElement('tr');
+            for (let i = 0; i < firstDay; i++) {
+                row.appendChild(document.createElement('td'));
+            }
+
+            for (let day = 1; day <= daysInMonth; day++) {
+                const cell = document.createElement('td');
+                const dateKey = `${selectedYear}-${(selectedMonth + 1).toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+                cell.textContent = day;
+
+                const matchingEntries = wasteSchedule.filter(entry => entry.date === dateKey);
+
+                // Group entries by type when filtering is NOT applied
+                const groupedEntries = {};
+                matchingEntries.forEach(entry => {
+                    if (!filteredLocation || entry.location === filteredLocation) {
+                        if (!groupedEntries[entry.type]) {
+                            groupedEntries[entry.type] = new Set();
+                        }
+                        groupedEntries[entry.type].add(entry.location);
+                    }
+                });
+
+                // Render grouped entries
+                for (const [type, locations] of Object.entries(groupedEntries)) {
+                    const collectionDiv = document.createElement('div');
+                    collectionDiv.className = `collection ${type}`;
+                    const locationText = filteredLocation 
+                        ? Array.from(locations).join(', ') // Show exact location if filtered
+                        : `(${locations.size} lokací)`; // Summary when no filtering is applied
+                    collectionDiv.textContent = `${WASTE_TYPES[type]} ${locationText}`;
+                    cell.appendChild(collectionDiv);
+                }
+
+                if (day === today.getDate() && selectedYear === today.getFullYear() && selectedMonth === today.getMonth()) {
+                    cell.classList.add('today');
+                }
+                row.appendChild(cell);
+
+                if ((firstDay + day) % 7 === 0) {
+                    table.appendChild(row);
+                    row = document.createElement('tr');
+                }
+            }
+            table.appendChild(row);
+            calendarContainer.appendChild(table);
+        }
+        
+    </script>
+</body>
+</html>

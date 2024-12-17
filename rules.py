@@ -134,14 +134,3 @@ litovel_lokace_7 = [
     'Novosady - sídliště',
     'Vítězná - sídliště'
 ]
-
-smesny_odpad_lokace = {
-    'Litovel': {
-        1: litovel_lokace_2,
-        2: litovel_lokace_3,
-        3: litovel_lokace_4,
-        4: litovel_lokace_5,
-        5: litovel_lokace_6,
-        6: litovel_lokace_7
-    }
-}

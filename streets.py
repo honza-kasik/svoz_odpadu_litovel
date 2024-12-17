@@ -90,3 +90,5 @@ all_streets = {
     'Severní - rodinné domy',
     ]
 }
+
+mistni_casti = ['Březové', 'Chořelice', 'Unčovice']
