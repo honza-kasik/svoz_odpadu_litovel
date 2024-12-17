@@ -25,7 +25,7 @@ lokace_svozu_plast = [
     #zacatek treti tyden v roce v pondeli, kazdy ctvrty tyden
     LokaceSvozu(lambda date: date.isocalendar().week % 4 == 3 and date.weekday() == 0, 'Březové'),
     LokaceSvozu(lambda date: date.isocalendar().week % 4 == 3 and date.weekday() == 0, 'Chořelice'),
-    LokaceSvozu(lambda date: date.isocalendar().week % 4 == 3 and date.weekday() == 4, 'Myslechovice'),
+    LokaceSvozu(lambda date: date.isocalendar().week % 4 == 2 and date.weekday() == 4, 'Myslechovice'),
     LokaceSvozu(lambda date: date.isocalendar().week % 4 == 2 and date.weekday() == 0, 'Unčovice')
 ]
 
