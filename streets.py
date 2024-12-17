@@ -5,7 +5,6 @@ all_streets = {
     'Bezručova',
     'Boskovicova',
     'Cholinská',
-    'Chořelice',
     'Družstevní',
     'Dukelská',
     'G. Frištenského',
