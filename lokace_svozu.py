@@ -56,10 +56,10 @@ lokace_svozu_bio = [
     LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.weekday() == 3, litovel_lokace_bio_0),
     LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.weekday() == 2, litovel_lokace_bio_1),
     #nektera data v lednu, unoru a prosinci svoz neprobiha
-    LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.isocalendar().week not in [3,7,51,53] and date.weekday() == 3, 'Březové'),
-    LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.isocalendar().week not in [3,7,51,53] and date.weekday() == 0, 'Chořelice'),
-    LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.isocalendar().week not in [3,7,51,53] and date.weekday() == 0, 'Myslechovice'),
-    LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.isocalendar().week not in [3,7,51,53] and date.weekday() == 0, 'Unčovice')
+    LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.isocalendar().week not in [1,3,7,51,53] and date.weekday() == 3, 'Březové'),
+    LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.isocalendar().week not in [1,3,7,51,53] and date.weekday() == 0, 'Chořelice'),
+    LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.isocalendar().week not in [1,3,7,51,53] and date.weekday() == 0, 'Myslechovice'),
+    LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.isocalendar().week not in [1,3,7,51,53] and date.weekday() == 0, 'Unčovice')
 ]
 
 #TODO Myslechovice
