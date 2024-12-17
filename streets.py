@@ -91,4 +91,4 @@ all_streets = {
     ]
 }
 
-mistni_casti = ['Březové', 'Chořelice', 'Unčovice']
+mistni_casti = ['Březové', 'Chořelice', 'Myslechovice', 'Unčovice']
