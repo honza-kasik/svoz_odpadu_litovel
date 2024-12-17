@@ -91,4 +91,4 @@ all_streets = {
     ]
 }
 
-mistni_casti = ['Březové', 'Chořelice', 'Chudobín', 'Myslechovice', 'Nasobůrky', 'Nová Ves', 'Unčovice', 'Rozvadovice', 'Savín','Víska']
+mistni_casti = ['Březové', 'Chořelice', 'Chudobín', 'Myslechovice', 'Nasobůrky', 'Nová Ves', 'Unčovice', 'Rozvadovice', 'Savín', 'Tři Dvory', 'Víska']

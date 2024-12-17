@@ -30,6 +30,7 @@ lokace_svozu_plast = [
     LokaceSvozu(lambda date: date.isocalendar().week % 4 == 3 and date.weekday() == 0, ['Nasobůrky', 'Víska']),
     LokaceSvozu(lambda date: date.isocalendar().week % 4 == 3 and date.weekday() == 0, 'Rozvadovice'),
     LokaceSvozu(lambda date: date.isocalendar().week % 4 == 2 and date.weekday() == 4, ['Savín', 'Nová Ves', 'Chudobín']),
+    LokaceSvozu(lambda date: date.isocalendar().week % 4 == 2 and date.weekday() == 4, 'Tři Dvory'),
     LokaceSvozu(lambda date: date.isocalendar().week % 4 == 3 and date.weekday() == 0, 'Unčovice')
 ]
 
@@ -43,6 +44,7 @@ lokace_svozu_papir = [
     LokaceSvozu(lambda date: date.isocalendar().week % 4 == 1 and date.weekday() == 0, ['Nasobůrky', 'Víska']),
     LokaceSvozu(lambda date: date.isocalendar().week % 4 == 1 and date.weekday() == 0, 'Rozvadovice'),
     LokaceSvozu(lambda date: date.isocalendar().week % 4 == 0 and date.weekday() == 4, ['Savín', 'Nová Ves', 'Chudobín']),
+    LokaceSvozu(lambda date: date.isocalendar().week % 4 == 0 and date.weekday() == 4, 'Tři Dvory'),
     LokaceSvozu(lambda date: date.isocalendar().week % 4 == 1 and date.weekday() == 0, 'Unčovice')
 ]
 
@@ -59,12 +61,13 @@ lokace_svozu_smes = [
     LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.weekday() == 4, ['Nasobůrky', 'Víska']),
     LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.weekday() == 0, 'Rozvadovice'),
     LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.weekday() == 2, ['Savín', 'Nová Ves', 'Chudobín']),
+    LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.weekday() == 2, 'Tři Dvory'),
     LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.weekday() == 1, 'Unčovice')
 ]
 
 lokace_svozu_bio = [
-    LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.weekday() == 3, litovel_lokace_bio_0),
-    LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.weekday() == 2, litovel_lokace_bio_1),
+    LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.isocalendar().week not in [1,3,7,51,53] and date.weekday() == 3, litovel_lokace_bio_0),
+    LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.isocalendar().week not in [1,3,7,51,53] and date.weekday() == 2, litovel_lokace_bio_1),
     #nektera data v lednu, unoru a prosinci svoz neprobiha
     LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.isocalendar().week not in [1,3,7,51,53] and date.weekday() == 3, 'Březové'),
     LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.isocalendar().week not in [1,3,7,51,53] and date.weekday() == 0, 'Chořelice'),
@@ -72,10 +75,9 @@ lokace_svozu_bio = [
     LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.isocalendar().week not in [1,3,7,51,53] and date.weekday() == 0, ['Nasobůrky', 'Víska']),
     LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.isocalendar().week not in [1,3,7,51,53] and date.weekday() == 3, 'Rozvadovice'),
     LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.isocalendar().week not in [1,3,7,51,53] and date.weekday() == 0, ['Savín', 'Nová Ves', 'Chudobín']),
+    LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.isocalendar().week not in [1,3,7,51,53] and date.weekday() == 3, 'Tři Dvory'),
     LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.isocalendar().week not in [1,3,7,51,53] and date.weekday() == 0, 'Unčovice')
 ]
 
-#TODO Rozvadovice
-#TODO Savin, Nova Ves, Chudobin
 #TODO Tri Dvory
 #TODO Litovel bio se nesvazi taky nektere tydny
