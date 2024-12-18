@@ -2,17 +2,19 @@
 
 *Stále ve vývoji, testujte na vlastní riziko, struktura souborů a adresářů se může změnit.*
 
-Velmi jednoduchý a naivní skript pro vygenerování `ics` souborů se svozy odpadů pro jednotlivé ulice i místní části.
+Velmi jednoduchý a naivní skript pro vygenerování `ics` souborů a `csv` souboru se svozy odpadů pro jednotlivé ulice i místní části.
 
-Soubor `ics` lze importovat do Google kalendáře a pravděpodobně i dalších aplikací.
+Soubor `ics` lze importovat do Google kalendáře a pravděpodobně i dalších aplikací. Kalendáře jsou ke stažení ve složce link:calendars/[`calendars`].
 
-Kalendáře jsou ke stažení ve složce link:calendars/[`calendars`].
+Soubor `csv` slouží primárně jako zdroj dat pro link:index.html[index.html] dostupný z https://svoz.litovle.cz
 
-https://svoz.litovle.cz
-
-== Import do Google kalendáře
+== Import ics do Google kalendáře
 
 https://support.google.com/calendar/answer/37118?hl=cs&co=GENIE.Platform%3DDesktop
+
+== Zdrojová data
+
+Zdrojová data se nachází v link:resources/[resources/]. Jsou to letáčky distribuované městem v PDF podobě. Součástí repozitáře jsou proto, aby byly dohledatelné případné změny.
 
 == Licence
 
