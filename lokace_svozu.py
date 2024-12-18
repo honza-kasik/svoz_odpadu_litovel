@@ -78,6 +78,3 @@ lokace_svozu_bio = [
     LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.isocalendar().week not in [1,3,7,51,53] and date.weekday() == 3, 'Tři Dvory'),
     LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.isocalendar().week not in [1,3,7,51,53] and date.weekday() == 0, 'Unčovice')
 ]
-
-#TODO Tri Dvory
-#TODO Litovel bio se nesvazi taky nektere tydny
