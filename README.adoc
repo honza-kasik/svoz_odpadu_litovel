@@ -16,6 +16,10 @@ https://support.google.com/calendar/answer/37118?hl=cs&co=GENIE.Platform%3DDeskt
 
 Zdrojová data se nachází v link:resources/[resources/]. Jsou to letáčky distribuované městem v PDF podobě. Součástí repozitáře jsou proto, aby byly dohledatelné případné změny.
 
+=== Změny svozu
+
+* 2024-12-18 https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu-v-dobe-vanocnich-svatku.html, archiv https://web.archive.org/web/20241218100710/https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu-v-dobe-vanocnich-svatku.html
+
 == Licence
 
 The GNU General Public License v3.0 dostupná na https://www.gnu.org/licenses/gpl-3.0.en.html
