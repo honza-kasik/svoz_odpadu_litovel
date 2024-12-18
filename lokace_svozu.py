@@ -20,8 +20,8 @@ class LokaceSvozu:
 
 
 lokace_svozu_plast = [
-    LokaceSvozu(lambda date: date.isocalendar().week % 2 == 0 and date.weekday() == 0, litovel_lokace_plast_0),
-    LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.weekday() == 0, litovel_lokace_plast_1),
+    LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.weekday() == 0, litovel_lokace_plast_0),
+    LokaceSvozu(lambda date: date.isocalendar().week % 2 == 0 and date.weekday() == 0, litovel_lokace_plast_1),
     #zacatek treti tyden v roce v pondeli, kazdy ctvrty tyden
     LokaceSvozu(lambda date: date.isocalendar().week % 4 == 3 and date.weekday() == 0, 'Březové'),
     LokaceSvozu(lambda date: date.isocalendar().week % 4 == 3 and date.weekday() == 0, 'Chořelice'),
