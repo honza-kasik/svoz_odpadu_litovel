@@ -19,6 +19,7 @@ Zdrojová data se nachází v link:resources/[resources/]. Jsou to letáčky dis
 === Změny svozu
 
 * 2024-12-18 https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu-v-dobe-vanocnich-svatku.html, archiv https://web.archive.org/web/20241218100710/https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu-v-dobe-vanocnich-svatku.html
+* 2024-12-30 https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-bioodpadu-v-mistnich-castech-z-30-12-na-2-1.html, archiv https://web.archive.org/web/20241230151257/https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-bioodpadu-v-mistnich-castech-z-30-12-na-2-1.html
 
 == Licence
 
