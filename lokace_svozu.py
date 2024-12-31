@@ -76,5 +76,5 @@ lokace_svozu_bio = [
     LokaceSvozu(lambda date: (date.isocalendar().week % 2 != 0 and date.isocalendar().week not in [1,3,7,51,53] and date.weekday() == 0) or date == datetime(2025,1,2), 'Chořelice'),
     LokaceSvozu(lambda date: (date.isocalendar().week % 2 != 0 and date.isocalendar().week not in [1,3,7,51,53] and date.weekday() == 0) or date == datetime(2025,1,2), 'Myslechovice'),
     LokaceSvozu(lambda date: (date.isocalendar().week % 2 != 0 and date.isocalendar().week not in [1,3,7,51,53] and date.weekday() == 0) or date == datetime(2025,1,2), ['Savín', 'Nová Ves', 'Chudobín']),
-    LokaceSvozu(lambda date: (date.isocalendar().week % 2 != 0 and date.isocalendar().week not in [1,3,7,51,53] and date.weekday() == 0), 'Unčovice')
+    LokaceSvozu(lambda date: (date.isocalendar().week % 2 != 0 and date.isocalendar().week not in [1,3,7,51,53] and date.weekday() == 0) or date == datetime(2025,1,2), 'Unčovice')
 ]
