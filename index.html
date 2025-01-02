@@ -132,12 +132,15 @@
         }
         #downloadLink {
             margin-top: 15px;
-            display: none;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
             font-size: 0.9em;
         }
         #downloadLink a {
             color: #007BFF;
             text-decoration: none;
+            cursor: pointer;
         }
         #downloadLink a:hover {
             text-decoration: underline;
@@ -183,7 +186,9 @@
         </div>
         <div id="resetFilter">Všechny lokace</div>
     </div>
-    <div id="downloadLink"><a href="#" id="icsLink" download>Stáhnout roční kalendář pro aktuální lokaci (.ics)</a></div>
+    <div id="downloadLink">
+        <a id="copyLink">Zkopírovat URL ICS souboru do schránky</a>
+    </div>
     <div id="calendarContainer"></div>
     <div id="info"></div>
     <p class="disclaimer">Tento kalendář je <a href="https://github.com/honza-kasik/svoz_odpadu_litovel">nezávislým výtvorem</a>. Město Litovel pouze poskytuje zdrojová data.</p>
@@ -223,7 +228,7 @@
             const yearSelect = document.getElementById('yearSelect');
             const locationSearch = document.getElementById('locationSearch');
             const locationOptions = document.getElementById('locationOptions');
-            const downloadLink = document.getElementById('downloadLink');
+            const copyLink = document.getElementById('copyLink');
             const currentYear = new Date().getFullYear();
 
             const urlParams = new URLSearchParams(window.location.search);
@@ -260,8 +265,8 @@
                         locationOptions.style.display = 'none';
                         renderMonthCalendar();
                         updateURL(location);
-                        icsLink.href = `calendars/${encodeURIComponent(location)}.ics`;
-                        downloadLink.style.display = 'block';
+                        downloadLink.style.display = 'flex';
+                        copyLink.setAttribute('data-url', `${window.location.origin}/calendars/${encodeURIComponent(location)}.ics`);
                     });
                     locationOptions.appendChild(optionDiv);
                 });
@@ -301,14 +306,25 @@
                 downloadLink.style.display = 'none';
             });
 
-            //also check whether the location is recognized to prevent unexpected behavior
+            copyLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                const icsUrl = copyLink.getAttribute('data-url');
+                navigator.clipboard.writeText(icsUrl).then(() => {
+                        console.log("URL " + icsUrl + " copied to clipboard.")
+                    }).catch(err => {
+                        console.error('Clipboard API failed:', err);
+                    });
+                }
+            );
+
+            //also check whether the location is recognized to prevent unexpected
             if (initialLocation && uniqueLocations.includes(initialLocation)) {
                 filteredLocation = initialLocation;
                 locationSearch.value = initialLocation;
                 renderMonthCalendar();
                 updateURL(initialLocation);
-                icsLink.href = `calendars/${encodeURIComponent(initialLocation)}.ics`;
-                downloadLink.style.display = 'block';
+                copyLink.setAttribute('data-url', `${window.location.origin}/calendars/${encodeURIComponent(initialLocation)}.ics`);
+                downloadLink.style.display = 'flex';
             } else if (initialLocation) {
                 updateURL(""); //invalid location, reset query parameter
             }
@@ -382,6 +398,7 @@
             table.appendChild(row);
             calendarContainer.appendChild(table);
         }
+
 
         function updateURL(location) {
             const url = new URL(window.location);

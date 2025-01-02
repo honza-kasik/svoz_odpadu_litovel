@@ -8,13 +8,21 @@ Tento postup funguje pouze ve webové verzi Google Kalendáře. Mobilní aplikac
 
 Změny v .ics souboru nemusí být reflektovány okamžitě, synchronizace může trvat několik hodin.
 
-=== Krok 1: Otevření Google Kalendáře
+=== Krok 1: Získání adresy .ics souboru s kalendářem
+
+Otevřete https://svoz.litovle.cz ve webovém prohlížeči.
+
+Pomocí políčka "Filtr lokace" zvolte lokaci, jejíž kalendář chcete synchronizovat.
+
+Kliknutím na "Zkopírovat URL ICS souboru do schránky" zkopírujte URL adresu kalendáře pro současnou lokaci do schránky.
+
+=== Krok 2 Otevření Google Kalendáře
 
 Otevřete Google Kalendář ve webovém prohlížeči.
 
 Přihlaste se ke svému Google účtu, pokud ještě nejste přihlášeni.
 
-=== Krok 2: Přidání nového kalendáře
+=== Krok 3: Přidání nového kalendáře
 
 V levém panelu najděte sekci "Jiné kalendáře".
 
@@ -22,9 +30,9 @@ Klikněte na ikonu "+" vedle názvu této sekce.
 
 Z nabídky vyberte možnost "Přidat pomocí adresy URL".
 
-=== Krok 3: Vložení URL adresy .ics souboru
+=== Krok 4: Vložení URL adresy .ics souboru
 
-Do pole "URL kalendáře" vložte adresu URL vašeho .ics souboru. Například https://svoz.litovle.cz/calendars/Olomouck%C3%A1.ics pro ulici Olomoucká. Adresu lze získat pokud je zvolan konrétní okace v kalendáři svozu.
+Do pole "URL kalendáře" vložte adresu URL .ics souboru ze schránky stisknutím Ctrl + V.
 
 Klikněte na tlačítko "Přidat kalendář".
 
@@ -38,6 +46,6 @@ Najeďte myší na jeho název a klikněte na ikonu "⋮" (tři vertikální te�
 
 Zvolte možnost "Nastavení".
 
-V poli "Název" zadejte požadovaný název kalendáře. Můžete také nastavit typ a četnost notifikací.
+V poli "Název" zadejte požadovaný název kalendáře. Můžete také nastavit typ a četnost notifikací pomocí "Oznámení o celodenních událostech".
 
 Nastavení se automaticky uloží.
