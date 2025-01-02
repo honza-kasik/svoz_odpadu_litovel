@@ -1,0 +1,43 @@
+= Synchronizace/notifikace pro svozy odpadů
+
+:toc:
+
+== Android/Google Kalendář
+
+Tento postup funguje pouze ve webové verzi Google Kalendáře. Mobilní aplikace Google Kalendáře tuto funkci nepodporuje.
+
+Změny v .ics souboru nemusí být reflektovány okamžitě, synchronizace může trvat několik hodin.
+
+=== Krok 1: Otevření Google Kalendáře
+
+Otevřete Google Kalendář ve webovém prohlížeči.
+
+Přihlaste se ke svému Google účtu, pokud ještě nejste přihlášeni.
+
+=== Krok 2: Přidání nového kalendáře
+
+V levém panelu najděte sekci "Jiné kalendáře".
+
+Klikněte na ikonu "+" vedle názvu této sekce.
+
+Z nabídky vyberte možnost "Přidat pomocí adresy URL".
+
+=== Krok 3: Vložení URL adresy .ics souboru
+
+Do pole "URL kalendáře" vložte adresu URL vašeho .ics souboru. Například https://svoz.litovle.cz/calendars/Olomouck%C3%A1.ics pro ulici Olomoucká. Adresu lze získat pokud je zvolan konrétní okace v kalendáři svozu.
+
+Klikněte na tlačítko "Přidat kalendář".
+
+Google Kalendář nyní automaticky načte data z .ics souboru a pravidelně je bude synchronizovat. Frekvence synchronizace závisí na nastaveních Google Kalendáře.
+
+=== Krok 4: Přizpůsobení nového kalendáře
+
+V sekci "Jiné kalendáře" najděte nově přidaný kalendář.
+
+Najeďte myší na jeho název a klikněte na ikonu "⋮" (tři vertikální tečky).
+
+Zvolte možnost "Nastavení".
+
+V poli "Název" zadejte požadovaný název kalendáře. Můžete také nastavit typ a četnost notifikací.
+
+Nastavení se automaticky uloží.
