@@ -226,6 +226,9 @@
             const downloadLink = document.getElementById('downloadLink');
             const currentYear = new Date().getFullYear();
 
+            const urlParams = new URLSearchParams(window.location.search);
+            const initialLocation = urlParams.get('location'); //pre-set location in URL
+
             const months = ["Leden", "Únor", "Březen", "Duben", "Květen", "Červen", "Červenec", "Srpen", "Září", "Říjen", "Listopad", "Prosinec"];
             months.forEach((month, index) => {
                 const option = document.createElement('option');
@@ -245,7 +248,7 @@
 
             const uniqueLocations = [...new Set(wasteSchedule.map(entry => entry.location).filter(loc => loc))];
             
-            function renderLocationOptions(query = "") {
+            function renderLocationOptions(query = "", forceDisplayNone = false) {
                 locationOptions.innerHTML = "";
                 const filtered = uniqueLocations.filter(loc => loc.toLowerCase().includes(query.toLowerCase()));
                 filtered.forEach(location => {
@@ -256,16 +259,21 @@
                         locationSearch.value = location;
                         locationOptions.style.display = 'none';
                         renderMonthCalendar();
+                        updateURL(location);
                         icsLink.href = `calendars/${encodeURIComponent(location)}.ics`;
                         downloadLink.style.display = 'block';
                     });
                     locationOptions.appendChild(optionDiv);
                 });
-                locationOptions.style.display = filtered.length > 0 ? "block" : "none";
+                locationOptions.style.display = (filtered.length > 0 && !forceDisplayNone) ? "block" : "none";
             }
 
             locationSearch.addEventListener('input', (e) => {
-                renderLocationOptions(e.target.value);
+                renderLocationOptions(query = e.target.value, forceDisplayNone = false);
+            });
+
+            locationSearch.addEventListener('click', (e) => {
+                renderLocationOptions(query = "", forceDisplayNone = false);
             });
 
             document.addEventListener('click', (e) => {
@@ -274,7 +282,6 @@
                 }
             });
 
-            renderLocationOptions();
             monthSelect.addEventListener('change', (e) => {
                 selectedMonth = parseInt(e.target.value);
                 renderMonthCalendar();
@@ -289,9 +296,25 @@
             resetFilter.addEventListener('click', () => {
                 filteredLocation = "";
                 locationSearch.value = "";
+                updateURL("")
                 renderMonthCalendar();
                 downloadLink.style.display = 'none';
             });
+
+            //also check whether the location is recognized to prevent unexpected behavior
+            if (initialLocation && uniqueLocations.includes(initialLocation)) {
+                filteredLocation = initialLocation;
+                locationSearch.value = initialLocation;
+                renderMonthCalendar();
+                updateURL(initialLocation);
+                icsLink.href = `calendars/${encodeURIComponent(initialLocation)}.ics`;
+                downloadLink.style.display = 'block';
+            } else if (initialLocation) {
+                updateURL(""); //invalid location, reset query parameter
+            }
+
+            //on first render with initial location no options will be shown
+            renderLocationOptions(query = "", forceDisplayNone = initialLocation);
         }
 
         function renderMonthCalendar() {
@@ -358,6 +381,16 @@
             }
             table.appendChild(row);
             calendarContainer.appendChild(table);
+        }
+
+        function updateURL(location) {
+            const url = new URL(window.location);
+            if (location) {
+                url.searchParams.set('location', location);
+            } else {
+                url.searchParams.delete('location');
+            }
+            window.history.replaceState({}, '', url);
         }
         
     </script>
