@@ -1,9 +1,10 @@
 from collections.abc import Callable
-from icalendar import Calendar, Event
 from datetime import datetime
 
-from streets import all_streets
-from rules import *
+from icalendar import Calendar, Event
+
+from streets import *
+
 
 class LokaceSvozu:
     """
@@ -49,12 +50,12 @@ lokace_svozu_papir = [
 ]
 
 lokace_svozu_smes = [
-    LokaceSvozu(lambda date: date.isocalendar().week % 2 == 0 and date.weekday() == 0, litovel_lokace_3),
-    LokaceSvozu(lambda date: date.isocalendar().week % 2 == 0 and date.weekday() == 3, litovel_lokace_7),
-    LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.weekday() == 0, litovel_lokace_2),
-    LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.weekday() == 1, litovel_lokace_4),
-    LokaceSvozu(lambda date: (date.isocalendar().week % 2 != 0 and date.weekday() == 2 and date != datetime(2025,1,1)) or date == datetime(2025,1,3), litovel_lokace_5),
-    LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.weekday() == 3, litovel_lokace_6),
+    LokaceSvozu(lambda date: date.isocalendar().week % 2 == 0 and date.weekday() == 0, litovel_lokace_smes_1),
+    LokaceSvozu(lambda date: date.isocalendar().week % 2 == 0 and date.weekday() == 3, litovel_lokace_smes_5),
+    LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.weekday() == 0, litovel_lokace_smes_0),
+    LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.weekday() == 1, litovel_lokace_smes_2),
+    LokaceSvozu(lambda date: (date.isocalendar().week % 2 != 0 and date.weekday() == 2 and date != datetime(2025,1,1)) or date == datetime(2025,1,3), litovel_lokace_smes_3),
+    LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.weekday() == 3, litovel_lokace_smes_4),
     LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.weekday() == 1, 'Březové'),
     LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.weekday() == 0, 'Chořelice'),
     LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.weekday() == 4, 'Myslechovice'),

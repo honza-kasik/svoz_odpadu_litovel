@@ -2,7 +2,7 @@ from rules import *
 from streets import *
 from generator_svozu_odpadu import *
 
-locations = litovel_lokace_2 + litovel_lokace_3 + litovel_lokace_4 + litovel_lokace_5 + litovel_lokace_6 + litovel_lokace_7
+locations = litovel_lokace_smes_0 + litovel_lokace_smes_1 + litovel_lokace_smes_2 + litovel_lokace_smes_3 + litovel_lokace_smes_4 + litovel_lokace_smes_5
 print("locations - all")
 print(list(set(locations) - set(all_streets['Litovel'])))
 print("all - locations")
