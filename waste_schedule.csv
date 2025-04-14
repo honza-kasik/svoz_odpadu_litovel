@@ -6429,8 +6429,8 @@
 2025-04-07,plastics,Březové
 2025-04-08,generic,Březové
 2025-04-10,bio,Březové
-2025-04-21,paper,Březové
 2025-04-22,generic,Březové
+2025-04-24,paper,Březové
 2025-04-24,bio,Březové
 2025-05-05,plastics,Březové
 2025-05-06,generic,Březové
@@ -6505,8 +6505,8 @@
 2025-04-07,plastics,Chořelice
 2025-04-07,bio,Chořelice
 2025-04-21,generic,Chořelice
-2025-04-21,paper,Chořelice
-2025-04-21,bio,Chořelice
+2025-04-24,paper,Chořelice
+2025-04-25,bio,Chořelice
 2025-05-05,generic,Chořelice
 2025-05-05,plastics,Chořelice
 2025-05-05,bio,Chořelice
@@ -6581,8 +6581,8 @@
 2025-04-07,bio,Chudobín
 2025-04-09,generic,Chudobín
 2025-04-18,paper,Chudobín
-2025-04-21,bio,Chudobín
 2025-04-23,generic,Chudobín
+2025-04-25,bio,Chudobín
 2025-05-02,plastics,Chudobín
 2025-05-05,bio,Chudobín
 2025-05-07,generic,Chudobín
@@ -6656,8 +6656,8 @@
 2025-04-07,bio,Myslechovice
 2025-04-11,generic,Myslechovice
 2025-04-18,paper,Myslechovice
-2025-04-21,bio,Myslechovice
 2025-04-25,generic,Myslechovice
+2025-04-25,bio,Myslechovice
 2025-05-02,plastics,Myslechovice
 2025-05-05,bio,Myslechovice
 2025-05-09,generic,Myslechovice
@@ -6730,9 +6730,9 @@
 2025-04-07,plastics,Nasobůrky
 2025-04-07,bio,Nasobůrky
 2025-04-11,generic,Nasobůrky
-2025-04-21,paper,Nasobůrky
-2025-04-21,bio,Nasobůrky
+2025-04-24,paper,Nasobůrky
 2025-04-25,generic,Nasobůrky
+2025-04-25,bio,Nasobůrky
 2025-05-05,plastics,Nasobůrky
 2025-05-05,bio,Nasobůrky
 2025-05-09,generic,Nasobůrky
@@ -6806,8 +6806,8 @@
 2025-04-07,bio,Nová Ves
 2025-04-09,generic,Nová Ves
 2025-04-18,paper,Nová Ves
-2025-04-21,bio,Nová Ves
 2025-04-23,generic,Nová Ves
+2025-04-25,bio,Nová Ves
 2025-05-02,plastics,Nová Ves
 2025-05-05,bio,Nová Ves
 2025-05-07,generic,Nová Ves
@@ -6879,9 +6879,9 @@
 2025-04-07,plastics,Unčovice
 2025-04-07,bio,Unčovice
 2025-04-08,generic,Unčovice
-2025-04-21,paper,Unčovice
-2025-04-21,bio,Unčovice
 2025-04-22,generic,Unčovice
+2025-04-24,paper,Unčovice
+2025-04-25,bio,Unčovice
 2025-05-05,plastics,Unčovice
 2025-05-05,bio,Unčovice
 2025-05-06,generic,Unčovice
@@ -6954,7 +6954,7 @@
 2025-04-07,plastics,Rozvadovice
 2025-04-10,bio,Rozvadovice
 2025-04-21,generic,Rozvadovice
-2025-04-21,paper,Rozvadovice
+2025-04-24,paper,Rozvadovice
 2025-04-24,bio,Rozvadovice
 2025-05-05,generic,Rozvadovice
 2025-05-05,plastics,Rozvadovice
@@ -7030,8 +7030,8 @@
 2025-04-07,bio,Savín
 2025-04-09,generic,Savín
 2025-04-18,paper,Savín
-2025-04-21,bio,Savín
 2025-04-23,generic,Savín
+2025-04-25,bio,Savín
 2025-05-02,plastics,Savín
 2025-05-05,bio,Savín
 2025-05-07,generic,Savín
@@ -7178,9 +7178,9 @@
 2025-04-07,plastics,Víska
 2025-04-07,bio,Víska
 2025-04-11,generic,Víska
-2025-04-21,paper,Víska
-2025-04-21,bio,Víska
+2025-04-24,paper,Víska
 2025-04-25,generic,Víska
+2025-04-25,bio,Víska
 2025-05-05,plastics,Víska
 2025-05-05,bio,Víska
 2025-05-09,generic,Víska
