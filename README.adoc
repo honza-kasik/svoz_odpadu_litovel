@@ -1,4 +1,20 @@
-= Svoz odpadu v Litovli i místních částech
+= link:https://svoz.litovle.cz[Svoz odpadu v Litovli i místních částech]
+
+== Proč vznikl web link:https://svoz.litovle.cz[svoz.litovle.cz]
+
+* *Rychlost kdekoliv* +
+Vše je minimalistické a velmi rychlé na jekémkoliv zařízení a připojení
+
+* *Přesné informace podle adresy* +
+Vybereš ulici, dostaneš kalendář.
+
+* *Reflektuje změny ve svozu* +
+Pokud město změní harmonogram (svátky, výluky), kalednář je upraven.
+
+* *Jednoduchost bez zbytečností* +
+Nechceš přemýšlet, jestli je zrovna sudý nebo lichý týden.
+
+== Obsah repozitáře
 
 Velmi jednoduchý a naivní skript pro vygenerování `ics` souborů a `csv` souboru se svozy odpadů pro jednotlivé ulice i místní části.
 
