@@ -37,7 +37,7 @@ lokace_svozu_plast = [
 
 lokace_svozu_papir = [
     #kazdy ctvrty tyden v cele Litovli
-    LokaceSvozu(lambda date: date.isocalendar().week % 4 == 0 and date.weekday() == 0, all_streets['Litovel']),
+    LokaceSvozu(lambda date: (date.isocalendar().week % 4 == 0 and date.weekday() == 0 and date != datetime(2025,5,12)) or date == datetime(2025,5,13), all_streets['Litovel']),
     #zacatek paty tyden v roce v pondeli, kazdy paty tyden
     LokaceSvozu(lambda date: date.isocalendar().week % 4 == 1 and date.weekday() == 0 and 
                             date != datetime(2025,4,21) or date == datetime(2025,4,24), 'Březové'),
