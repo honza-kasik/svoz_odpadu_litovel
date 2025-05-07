@@ -23,7 +23,7 @@
 2025-04-28,plastics,1. máje
 2025-05-01,generic,1. máje
 2025-05-07,bio,1. máje
-2025-05-12,paper,1. máje
+2025-05-13,paper,1. máje
 2025-05-15,generic,1. máje
 2025-05-21,bio,1. máje
 2025-05-26,plastics,1. máje
@@ -98,7 +98,7 @@
 2025-04-28,plastics,B. Němcové
 2025-05-07,bio,B. Němcové
 2025-05-08,generic,B. Němcové
-2025-05-12,paper,B. Němcové
+2025-05-13,paper,B. Němcové
 2025-05-21,bio,B. Němcové
 2025-05-22,generic,B. Němcové
 2025-05-26,plastics,B. Němcové
@@ -172,7 +172,7 @@
 2025-04-28,plastics,Bezručova
 2025-05-07,bio,Bezručova
 2025-05-12,generic,Bezručova
-2025-05-12,paper,Bezručova
+2025-05-13,paper,Bezručova
 2025-05-21,bio,Bezručova
 2025-05-26,generic,Bezručova
 2025-05-26,plastics,Bezručova
@@ -245,7 +245,7 @@
 2025-04-28,plastics,Boskovicova
 2025-05-01,generic,Boskovicova
 2025-05-07,bio,Boskovicova
-2025-05-12,paper,Boskovicova
+2025-05-13,paper,Boskovicova
 2025-05-15,generic,Boskovicova
 2025-05-21,bio,Boskovicova
 2025-05-26,plastics,Boskovicova
@@ -319,7 +319,7 @@
 2025-04-28,plastics,Cholinská
 2025-05-05,generic,Cholinská
 2025-05-07,bio,Cholinská
-2025-05-12,paper,Cholinská
+2025-05-13,paper,Cholinská
 2025-05-19,generic,Cholinská
 2025-05-21,bio,Cholinská
 2025-05-26,plastics,Cholinská
@@ -394,7 +394,7 @@
 2025-04-28,plastics,Družstevní
 2025-05-07,bio,Družstevní
 2025-05-12,generic,Družstevní
-2025-05-12,paper,Družstevní
+2025-05-13,paper,Družstevní
 2025-05-21,bio,Družstevní
 2025-05-26,generic,Družstevní
 2025-05-26,plastics,Družstevní
@@ -467,7 +467,7 @@
 2025-04-28,plastics,Dukelská
 2025-05-05,generic,Dukelská
 2025-05-07,bio,Dukelská
-2025-05-12,paper,Dukelská
+2025-05-13,paper,Dukelská
 2025-05-19,generic,Dukelská
 2025-05-21,bio,Dukelská
 2025-05-26,plastics,Dukelská
@@ -541,7 +541,7 @@
 2025-04-28,plastics,G. Frištenského
 2025-05-01,generic,G. Frištenského
 2025-05-07,bio,G. Frištenského
-2025-05-12,paper,G. Frištenského
+2025-05-13,paper,G. Frištenského
 2025-05-15,generic,G. Frištenského
 2025-05-21,bio,G. Frištenského
 2025-05-26,plastics,G. Frištenského
@@ -615,7 +615,7 @@
 2025-04-28,plastics,Gemerská - rodinné domy
 2025-05-06,generic,Gemerská - rodinné domy
 2025-05-07,bio,Gemerská - rodinné domy
-2025-05-12,paper,Gemerská - rodinné domy
+2025-05-13,paper,Gemerská - rodinné domy
 2025-05-20,generic,Gemerská - rodinné domy
 2025-05-21,bio,Gemerská - rodinné domy
 2025-05-26,plastics,Gemerská - rodinné domy
@@ -699,7 +699,7 @@
 2025-05-01,generic,Gemerská - sídliště
 2025-05-07,bio,Gemerská - sídliště
 2025-05-08,generic,Gemerská - sídliště
-2025-05-12,paper,Gemerská - sídliště
+2025-05-13,paper,Gemerská - sídliště
 2025-05-15,generic,Gemerská - sídliště
 2025-05-21,bio,Gemerská - sídliště
 2025-05-22,generic,Gemerská - sídliště
@@ -789,7 +789,7 @@
 2025-04-28,plastics,Havlíčkova
 2025-05-01,generic,Havlíčkova
 2025-05-07,bio,Havlíčkova
-2025-05-12,paper,Havlíčkova
+2025-05-13,paper,Havlíčkova
 2025-05-15,generic,Havlíčkova
 2025-05-21,bio,Havlíčkova
 2025-05-26,plastics,Havlíčkova
@@ -863,7 +863,7 @@
 2025-04-28,plastics,Hrnčířská
 2025-05-06,generic,Hrnčířská
 2025-05-07,bio,Hrnčířská
-2025-05-12,paper,Hrnčířská
+2025-05-13,paper,Hrnčířská
 2025-05-20,generic,Hrnčířská
 2025-05-21,bio,Hrnčířská
 2025-05-26,plastics,Hrnčířská
@@ -938,7 +938,7 @@
 2025-04-28,plastics,Husova
 2025-05-07,bio,Husova
 2025-05-12,generic,Husova
-2025-05-12,paper,Husova
+2025-05-13,paper,Husova
 2025-05-21,bio,Husova
 2025-05-26,generic,Husova
 2025-05-26,plastics,Husova
@@ -1011,7 +1011,7 @@
 2025-04-28,plastics,Javoříčská
 2025-05-05,generic,Javoříčská
 2025-05-07,bio,Javoříčská
-2025-05-12,paper,Javoříčská
+2025-05-13,paper,Javoříčská
 2025-05-19,generic,Javoříčská
 2025-05-21,bio,Javoříčská
 2025-05-26,plastics,Javoříčská
@@ -1086,7 +1086,7 @@
 2025-04-28,plastics,Jiráskova
 2025-05-07,bio,Jiráskova
 2025-05-12,generic,Jiráskova
-2025-05-12,paper,Jiráskova
+2025-05-13,paper,Jiráskova
 2025-05-21,bio,Jiráskova
 2025-05-26,generic,Jiráskova
 2025-05-26,plastics,Jiráskova
@@ -1159,7 +1159,7 @@
 2025-04-28,plastics,Jungmannova
 2025-05-01,generic,Jungmannova
 2025-05-07,bio,Jungmannova
-2025-05-12,paper,Jungmannova
+2025-05-13,paper,Jungmannova
 2025-05-15,generic,Jungmannova
 2025-05-21,bio,Jungmannova
 2025-05-26,plastics,Jungmannova
@@ -1243,7 +1243,7 @@
 2025-05-01,generic,Karla Sedláka - sídliště
 2025-05-07,bio,Karla Sedláka - sídliště
 2025-05-08,generic,Karla Sedláka - sídliště
-2025-05-12,paper,Karla Sedláka - sídliště
+2025-05-13,paper,Karla Sedláka - sídliště
 2025-05-15,generic,Karla Sedláka - sídliště
 2025-05-21,bio,Karla Sedláka - sídliště
 2025-05-22,generic,Karla Sedláka - sídliště
@@ -1324,7 +1324,7 @@
 2025-04-23,bio,Karlov
 2025-04-28,plastics,Karlov
 2025-05-07,bio,Karlov
-2025-05-12,paper,Karlov
+2025-05-13,paper,Karlov
 2025-05-21,bio,Karlov
 2025-05-26,plastics,Karlov
 2025-06-04,bio,Karlov
@@ -1382,7 +1382,7 @@
 2025-04-28,plastics,Karlovská
 2025-05-07,bio,Karlovská
 2025-05-12,generic,Karlovská
-2025-05-12,paper,Karlovská
+2025-05-13,paper,Karlovská
 2025-05-21,bio,Karlovská
 2025-05-26,generic,Karlovská
 2025-05-26,plastics,Karlovská
@@ -1456,7 +1456,7 @@
 2025-04-28,plastics,Kollárova
 2025-05-07,bio,Kollárova
 2025-05-08,generic,Kollárova
-2025-05-12,paper,Kollárova
+2025-05-13,paper,Kollárova
 2025-05-21,bio,Kollárova
 2025-05-22,generic,Kollárova
 2025-05-26,plastics,Kollárova
@@ -1530,7 +1530,7 @@
 2025-04-28,plastics,Komenského
 2025-05-07,bio,Komenského
 2025-05-08,generic,Komenského
-2025-05-12,paper,Komenského
+2025-05-13,paper,Komenského
 2025-05-21,bio,Komenského
 2025-05-22,generic,Komenského
 2025-05-26,plastics,Komenského
@@ -1603,7 +1603,7 @@
 2025-04-28,plastics,Komárov
 2025-05-05,generic,Komárov
 2025-05-07,bio,Komárov
-2025-05-12,paper,Komárov
+2025-05-13,paper,Komárov
 2025-05-19,generic,Komárov
 2025-05-21,bio,Komárov
 2025-05-26,plastics,Komárov
@@ -1678,7 +1678,7 @@
 2025-05-05,plastics,Kosmonautů
 2025-05-08,generic,Kosmonautů
 2025-05-08,bio,Kosmonautů
-2025-05-12,paper,Kosmonautů
+2025-05-13,paper,Kosmonautů
 2025-05-22,generic,Kosmonautů
 2025-05-22,bio,Kosmonautů
 2025-06-02,plastics,Kosmonautů
@@ -1751,7 +1751,7 @@
 2025-04-28,plastics,Kostelní
 2025-05-01,generic,Kostelní
 2025-05-07,bio,Kostelní
-2025-05-12,paper,Kostelní
+2025-05-13,paper,Kostelní
 2025-05-15,generic,Kostelní
 2025-05-21,bio,Kostelní
 2025-05-26,plastics,Kostelní
@@ -1816,7 +1816,7 @@
 2025-04-23,bio,Koupaliště
 2025-04-28,plastics,Koupaliště
 2025-05-07,bio,Koupaliště
-2025-05-12,paper,Koupaliště
+2025-05-13,paper,Koupaliště
 2025-05-21,bio,Koupaliště
 2025-05-26,plastics,Koupaliště
 2025-06-04,bio,Koupaliště
@@ -1874,7 +1874,7 @@
 2025-05-05,plastics,Králova
 2025-05-08,generic,Králova
 2025-05-08,bio,Králova
-2025-05-12,paper,Králova
+2025-05-13,paper,Králova
 2025-05-22,generic,Králova
 2025-05-22,bio,Králova
 2025-06-02,plastics,Králova
@@ -1948,7 +1948,7 @@
 2025-04-28,plastics,Kysucká
 2025-05-07,generic,Kysucká
 2025-05-07,bio,Kysucká
-2025-05-12,paper,Kysucká
+2025-05-13,paper,Kysucká
 2025-05-21,generic,Kysucká
 2025-05-21,bio,Kysucká
 2025-05-26,plastics,Kysucká
@@ -2012,7 +2012,7 @@
 2025-04-23,bio,Lesní zátiší
 2025-04-28,plastics,Lesní zátiší
 2025-05-07,bio,Lesní zátiší
-2025-05-12,paper,Lesní zátiší
+2025-05-13,paper,Lesní zátiší
 2025-05-21,bio,Lesní zátiší
 2025-05-26,plastics,Lesní zátiší
 2025-06-04,bio,Lesní zátiší
@@ -2070,7 +2070,7 @@
 2025-04-28,plastics,Lidická
 2025-05-07,generic,Lidická
 2025-05-07,bio,Lidická
-2025-05-12,paper,Lidická
+2025-05-13,paper,Lidická
 2025-05-21,generic,Lidická
 2025-05-21,bio,Lidická
 2025-05-26,plastics,Lidická
@@ -2144,7 +2144,7 @@
 2025-04-28,plastics,Loštická
 2025-05-08,generic,Loštická
 2025-05-08,bio,Loštická
-2025-05-12,paper,Loštická
+2025-05-13,paper,Loštická
 2025-05-22,generic,Loštická
 2025-05-22,bio,Loštická
 2025-05-26,plastics,Loštická
@@ -2218,7 +2218,7 @@
 2025-04-28,plastics,Lužní
 2025-05-07,bio,Lužní
 2025-05-12,generic,Lužní
-2025-05-12,paper,Lužní
+2025-05-13,paper,Lužní
 2025-05-21,bio,Lužní
 2025-05-26,generic,Lužní
 2025-05-26,plastics,Lužní
@@ -2291,7 +2291,7 @@
 2025-04-28,plastics,Masarykova
 2025-05-01,generic,Masarykova
 2025-05-07,bio,Masarykova
-2025-05-12,paper,Masarykova
+2025-05-13,paper,Masarykova
 2025-05-15,generic,Masarykova
 2025-05-21,bio,Masarykova
 2025-05-26,plastics,Masarykova
@@ -2366,7 +2366,7 @@
 2025-04-28,plastics,Mlýnská
 2025-05-07,bio,Mlýnská
 2025-05-08,generic,Mlýnská
-2025-05-12,paper,Mlýnská
+2025-05-13,paper,Mlýnská
 2025-05-21,bio,Mlýnská
 2025-05-22,generic,Mlýnská
 2025-05-26,plastics,Mlýnská
@@ -2439,7 +2439,7 @@
 2025-04-28,plastics,Nasobůrská
 2025-05-01,generic,Nasobůrská
 2025-05-07,bio,Nasobůrská
-2025-05-12,paper,Nasobůrská
+2025-05-13,paper,Nasobůrská
 2025-05-15,generic,Nasobůrská
 2025-05-21,bio,Nasobůrská
 2025-05-26,plastics,Nasobůrská
@@ -2523,7 +2523,7 @@
 2025-05-01,generic,Novosady - sídliště
 2025-05-07,bio,Novosady - sídliště
 2025-05-08,generic,Novosady - sídliště
-2025-05-12,paper,Novosady - sídliště
+2025-05-13,paper,Novosady - sídliště
 2025-05-15,generic,Novosady - sídliště
 2025-05-21,bio,Novosady - sídliště
 2025-05-22,generic,Novosady - sídliště
@@ -2614,7 +2614,7 @@
 2025-05-05,plastics,Nová
 2025-05-08,generic,Nová
 2025-05-08,bio,Nová
-2025-05-12,paper,Nová
+2025-05-13,paper,Nová
 2025-05-22,generic,Nová
 2025-05-22,bio,Nová
 2025-06-02,plastics,Nová
@@ -2687,7 +2687,7 @@
 2025-04-28,plastics,Nábřežní
 2025-05-01,generic,Nábřežní
 2025-05-07,bio,Nábřežní
-2025-05-12,paper,Nábřežní
+2025-05-13,paper,Nábřežní
 2025-05-15,generic,Nábřežní
 2025-05-21,bio,Nábřežní
 2025-05-26,plastics,Nábřežní
@@ -2761,7 +2761,7 @@
 2025-04-28,plastics,Nádražní
 2025-05-05,generic,Nádražní
 2025-05-07,bio,Nádražní
-2025-05-12,paper,Nádražní
+2025-05-13,paper,Nádražní
 2025-05-19,generic,Nádražní
 2025-05-21,bio,Nádražní
 2025-05-26,plastics,Nádražní
@@ -2835,7 +2835,7 @@
 2025-04-28,plastics,Nám. Př. Otakara
 2025-05-01,generic,Nám. Př. Otakara
 2025-05-07,bio,Nám. Př. Otakara
-2025-05-12,paper,Nám. Př. Otakara
+2025-05-13,paper,Nám. Př. Otakara
 2025-05-15,generic,Nám. Př. Otakara
 2025-05-21,bio,Nám. Př. Otakara
 2025-05-26,plastics,Nám. Př. Otakara
@@ -2909,7 +2909,7 @@
 2025-04-28,plastics,Olomoucká
 2025-05-05,generic,Olomoucká
 2025-05-07,bio,Olomoucká
-2025-05-12,paper,Olomoucká
+2025-05-13,paper,Olomoucká
 2025-05-19,generic,Olomoucká
 2025-05-21,bio,Olomoucká
 2025-05-26,plastics,Olomoucká
@@ -2984,7 +2984,7 @@
 2025-04-28,plastics,Opletalova
 2025-05-07,bio,Opletalova
 2025-05-12,generic,Opletalova
-2025-05-12,paper,Opletalova
+2025-05-13,paper,Opletalova
 2025-05-21,bio,Opletalova
 2025-05-26,generic,Opletalova
 2025-05-26,plastics,Opletalova
@@ -3057,7 +3057,7 @@
 2025-04-28,plastics,Palackého
 2025-05-01,generic,Palackého
 2025-05-07,bio,Palackého
-2025-05-12,paper,Palackého
+2025-05-13,paper,Palackého
 2025-05-15,generic,Palackého
 2025-05-21,bio,Palackého
 2025-05-26,plastics,Palackého
@@ -3132,7 +3132,7 @@
 2025-05-05,plastics,Pavlínka
 2025-05-08,generic,Pavlínka
 2025-05-08,bio,Pavlínka
-2025-05-12,paper,Pavlínka
+2025-05-13,paper,Pavlínka
 2025-05-22,generic,Pavlínka
 2025-05-22,bio,Pavlínka
 2025-06-02,plastics,Pavlínka
@@ -3205,7 +3205,7 @@
 2025-04-28,plastics,Poděbradova
 2025-05-01,generic,Poděbradova
 2025-05-07,bio,Poděbradova
-2025-05-12,paper,Poděbradova
+2025-05-13,paper,Poděbradova
 2025-05-15,generic,Poděbradova
 2025-05-21,bio,Poděbradova
 2025-05-26,plastics,Poděbradova
@@ -3279,7 +3279,7 @@
 2025-04-28,plastics,Polní
 2025-05-06,generic,Polní
 2025-05-07,bio,Polní
-2025-05-12,paper,Polní
+2025-05-13,paper,Polní
 2025-05-20,generic,Polní
 2025-05-21,bio,Polní
 2025-05-26,plastics,Polní
@@ -3354,7 +3354,7 @@
 2025-05-05,plastics,Pošmýlská
 2025-05-08,generic,Pošmýlská
 2025-05-08,bio,Pošmýlská
-2025-05-12,paper,Pošmýlská
+2025-05-13,paper,Pošmýlská
 2025-05-22,generic,Pošmýlská
 2025-05-22,bio,Pošmýlská
 2025-06-02,plastics,Pošmýlská
@@ -3427,7 +3427,7 @@
 2025-04-28,plastics,Příčná
 2025-05-01,generic,Příčná
 2025-05-07,bio,Příčná
-2025-05-12,paper,Příčná
+2025-05-13,paper,Příčná
 2025-05-15,generic,Příčná
 2025-05-21,bio,Příčná
 2025-05-26,plastics,Příčná
@@ -3502,7 +3502,7 @@
 2025-04-28,plastics,Revoluční
 2025-05-07,bio,Revoluční
 2025-05-08,generic,Revoluční
-2025-05-12,paper,Revoluční
+2025-05-13,paper,Revoluční
 2025-05-21,bio,Revoluční
 2025-05-22,generic,Revoluční
 2025-05-26,plastics,Revoluční
@@ -3576,7 +3576,7 @@
 2025-04-28,plastics,Revúcká
 2025-05-07,bio,Revúcká
 2025-05-12,generic,Revúcká
-2025-05-12,paper,Revúcká
+2025-05-13,paper,Revúcká
 2025-05-21,bio,Revúcká
 2025-05-26,generic,Revúcká
 2025-05-26,plastics,Revúcká
@@ -3649,7 +3649,7 @@
 2025-04-28,plastics,Rybníček
 2025-05-06,generic,Rybníček
 2025-05-07,bio,Rybníček
-2025-05-12,paper,Rybníček
+2025-05-13,paper,Rybníček
 2025-05-20,generic,Rybníček
 2025-05-21,bio,Rybníček
 2025-05-26,plastics,Rybníček
@@ -3724,7 +3724,7 @@
 2025-05-05,plastics,Sadová
 2025-05-08,generic,Sadová
 2025-05-08,bio,Sadová
-2025-05-12,paper,Sadová
+2025-05-13,paper,Sadová
 2025-05-22,generic,Sadová
 2025-05-22,bio,Sadová
 2025-06-02,plastics,Sadová
@@ -3807,7 +3807,7 @@
 2025-05-05,generic,Severní
 2025-05-07,bio,Severní
 2025-05-12,generic,Severní
-2025-05-12,paper,Severní
+2025-05-13,paper,Severní
 2025-05-19,generic,Severní
 2025-05-21,bio,Severní
 2025-05-26,generic,Severní
@@ -3897,7 +3897,7 @@
 2025-04-28,plastics,Smyčkova
 2025-05-01,generic,Smyčkova
 2025-05-07,bio,Smyčkova
-2025-05-12,paper,Smyčkova
+2025-05-13,paper,Smyčkova
 2025-05-15,generic,Smyčkova
 2025-05-21,bio,Smyčkova
 2025-05-26,plastics,Smyčkova
@@ -3972,7 +3972,7 @@
 2025-04-28,plastics,Sochova
 2025-05-07,bio,Sochova
 2025-05-12,generic,Sochova
-2025-05-12,paper,Sochova
+2025-05-13,paper,Sochova
 2025-05-21,bio,Sochova
 2025-05-26,generic,Sochova
 2025-05-26,plastics,Sochova
@@ -4036,7 +4036,7 @@
 2025-04-23,bio,Sovova
 2025-04-28,plastics,Sovova
 2025-05-07,bio,Sovova
-2025-05-12,paper,Sovova
+2025-05-13,paper,Sovova
 2025-05-21,bio,Sovova
 2025-05-26,plastics,Sovova
 2025-06-04,bio,Sovova
@@ -4094,7 +4094,7 @@
 2025-04-28,plastics,Staroměstské náměstí
 2025-05-07,bio,Staroměstské náměstí
 2025-05-08,generic,Staroměstské náměstí
-2025-05-12,paper,Staroměstské náměstí
+2025-05-13,paper,Staroměstské náměstí
 2025-05-21,bio,Staroměstské náměstí
 2025-05-22,generic,Staroměstské náměstí
 2025-05-26,plastics,Staroměstské náměstí
@@ -4168,7 +4168,7 @@
 2025-04-28,plastics,Studentů
 2025-05-07,bio,Studentů
 2025-05-12,generic,Studentů
-2025-05-12,paper,Studentů
+2025-05-13,paper,Studentů
 2025-05-21,bio,Studentů
 2025-05-26,generic,Studentů
 2025-05-26,plastics,Studentů
@@ -4241,7 +4241,7 @@
 2025-04-28,plastics,Sušilova
 2025-05-06,generic,Sušilova
 2025-05-07,bio,Sušilova
-2025-05-12,paper,Sušilova
+2025-05-13,paper,Sušilova
 2025-05-20,generic,Sušilova
 2025-05-21,bio,Sušilova
 2025-05-26,plastics,Sušilova
@@ -4315,7 +4315,7 @@
 2025-04-28,plastics,Svatoplukova
 2025-05-05,generic,Svatoplukova
 2025-05-07,bio,Svatoplukova
-2025-05-12,paper,Svatoplukova
+2025-05-13,paper,Svatoplukova
 2025-05-19,generic,Svatoplukova
 2025-05-21,bio,Svatoplukova
 2025-05-26,plastics,Svatoplukova
@@ -4380,7 +4380,7 @@
 2025-04-23,bio,Tichá
 2025-04-28,plastics,Tichá
 2025-05-07,bio,Tichá
-2025-05-12,paper,Tichá
+2025-05-13,paper,Tichá
 2025-05-21,bio,Tichá
 2025-05-26,plastics,Tichá
 2025-06-04,bio,Tichá
@@ -4437,7 +4437,7 @@
 2025-04-28,plastics,Třebízského
 2025-05-01,generic,Třebízského
 2025-05-07,bio,Třebízského
-2025-05-12,paper,Třebízského
+2025-05-13,paper,Třebízského
 2025-05-15,generic,Třebízského
 2025-05-21,bio,Třebízského
 2025-05-26,plastics,Třebízského
@@ -4502,7 +4502,7 @@
 2025-04-23,bio,Třídvorská
 2025-04-28,plastics,Třídvorská
 2025-05-07,bio,Třídvorská
-2025-05-12,paper,Třídvorská
+2025-05-13,paper,Třídvorská
 2025-05-21,bio,Třídvorská
 2025-05-26,plastics,Třídvorská
 2025-06-04,bio,Třídvorská
@@ -4560,7 +4560,7 @@
 2025-05-05,plastics,U Stadionu
 2025-05-08,generic,U Stadionu
 2025-05-08,bio,U Stadionu
-2025-05-12,paper,U Stadionu
+2025-05-13,paper,U Stadionu
 2025-05-22,generic,U Stadionu
 2025-05-22,bio,U Stadionu
 2025-06-02,plastics,U Stadionu
@@ -4633,7 +4633,7 @@
 2025-04-28,plastics,Uničovská
 2025-05-06,generic,Uničovská
 2025-05-08,bio,Uničovská
-2025-05-12,paper,Uničovská
+2025-05-13,paper,Uničovská
 2025-05-20,generic,Uničovská
 2025-05-22,bio,Uničovská
 2025-05-26,plastics,Uničovská
@@ -4717,7 +4717,7 @@
 2025-05-01,generic,Uničovská - sídliště
 2025-05-07,bio,Uničovská - sídliště
 2025-05-08,generic,Uničovská - sídliště
-2025-05-12,paper,Uničovská - sídliště
+2025-05-13,paper,Uničovská - sídliště
 2025-05-15,generic,Uničovská - sídliště
 2025-05-21,bio,Uničovská - sídliště
 2025-05-22,generic,Uničovská - sídliště
@@ -4807,7 +4807,7 @@
 2025-04-28,plastics,Vlašímova
 2025-05-01,generic,Vlašímova
 2025-05-07,bio,Vlašímova
-2025-05-12,paper,Vlašímova
+2025-05-13,paper,Vlašímova
 2025-05-15,generic,Vlašímova
 2025-05-21,bio,Vlašímova
 2025-05-26,plastics,Vlašímova
@@ -4881,7 +4881,7 @@
 2025-04-28,plastics,Vodní
 2025-05-01,generic,Vodní
 2025-05-07,bio,Vodní
-2025-05-12,paper,Vodní
+2025-05-13,paper,Vodní
 2025-05-15,generic,Vodní
 2025-05-21,bio,Vodní
 2025-05-26,plastics,Vodní
@@ -4956,7 +4956,7 @@
 2025-04-28,plastics,Vítězná
 2025-05-07,generic,Vítězná
 2025-05-07,bio,Vítězná
-2025-05-12,paper,Vítězná
+2025-05-13,paper,Vítězná
 2025-05-21,generic,Vítězná
 2025-05-21,bio,Vítězná
 2025-05-26,plastics,Vítězná
@@ -5030,7 +5030,7 @@
 2025-05-05,plastics,Wolkerova
 2025-05-08,generic,Wolkerova
 2025-05-08,bio,Wolkerova
-2025-05-12,paper,Wolkerova
+2025-05-13,paper,Wolkerova
 2025-05-22,generic,Wolkerova
 2025-05-22,bio,Wolkerova
 2025-06-02,plastics,Wolkerova
@@ -5104,7 +5104,7 @@
 2025-05-05,plastics,Zahradní
 2025-05-08,generic,Zahradní
 2025-05-08,bio,Zahradní
-2025-05-12,paper,Zahradní
+2025-05-13,paper,Zahradní
 2025-05-22,generic,Zahradní
 2025-05-22,bio,Zahradní
 2025-06-02,plastics,Zahradní
@@ -5178,7 +5178,7 @@
 2025-04-28,plastics,nám. Svobody
 2025-05-07,bio,nám. Svobody
 2025-05-08,generic,nám. Svobody
-2025-05-12,paper,nám. Svobody
+2025-05-13,paper,nám. Svobody
 2025-05-21,bio,nám. Svobody
 2025-05-22,generic,nám. Svobody
 2025-05-26,plastics,nám. Svobody
@@ -5252,7 +5252,7 @@
 2025-04-28,plastics,Vítězná
 2025-05-07,generic,Vítězná
 2025-05-07,bio,Vítězná
-2025-05-12,paper,Vítězná
+2025-05-13,paper,Vítězná
 2025-05-21,generic,Vítězná
 2025-05-21,bio,Vítězná
 2025-05-26,plastics,Vítězná
@@ -5335,7 +5335,7 @@
 2025-05-01,generic,Vítězná - sídliště
 2025-05-07,bio,Vítězná - sídliště
 2025-05-08,generic,Vítězná - sídliště
-2025-05-12,paper,Vítězná - sídliště
+2025-05-13,paper,Vítězná - sídliště
 2025-05-15,generic,Vítězná - sídliště
 2025-05-21,bio,Vítězná - sídliště
 2025-05-22,generic,Vítězná - sídliště
@@ -5425,7 +5425,7 @@
 2025-04-28,plastics,Červenská
 2025-05-06,generic,Červenská
 2025-05-07,bio,Červenská
-2025-05-12,paper,Červenská
+2025-05-13,paper,Červenská
 2025-05-20,generic,Červenská
 2025-05-21,bio,Červenská
 2025-05-26,plastics,Červenská
@@ -5500,7 +5500,7 @@
 2025-04-28,plastics,Čihadlo
 2025-05-07,bio,Čihadlo
 2025-05-12,generic,Čihadlo
-2025-05-12,paper,Čihadlo
+2025-05-13,paper,Čihadlo
 2025-05-21,bio,Čihadlo
 2025-05-26,generic,Čihadlo
 2025-05-26,plastics,Čihadlo
@@ -5574,7 +5574,7 @@
 2025-04-28,plastics,Čs. armády
 2025-05-07,bio,Čs. armády
 2025-05-12,generic,Čs. armády
-2025-05-12,paper,Čs. armády
+2025-05-13,paper,Čs. armády
 2025-05-21,bio,Čs. armády
 2025-05-26,generic,Čs. armády
 2025-05-26,plastics,Čs. armády
@@ -5647,7 +5647,7 @@
 2025-04-28,plastics,Šafaříkova
 2025-05-01,generic,Šafaříkova
 2025-05-07,bio,Šafaříkova
-2025-05-12,paper,Šafaříkova
+2025-05-13,paper,Šafaříkova
 2025-05-15,generic,Šafaříkova
 2025-05-21,bio,Šafaříkova
 2025-05-26,plastics,Šafaříkova
@@ -5722,7 +5722,7 @@
 2025-04-28,plastics,Šargounská
 2025-05-07,bio,Šargounská
 2025-05-12,generic,Šargounská
-2025-05-12,paper,Šargounská
+2025-05-13,paper,Šargounská
 2025-05-21,bio,Šargounská
 2025-05-26,generic,Šargounská
 2025-05-26,plastics,Šargounská
@@ -5796,7 +5796,7 @@
 2025-04-28,plastics,Šemberova
 2025-05-07,bio,Šemberova
 2025-05-12,generic,Šemberova
-2025-05-12,paper,Šemberova
+2025-05-13,paper,Šemberova
 2025-05-21,bio,Šemberova
 2025-05-26,generic,Šemberova
 2025-05-26,plastics,Šemberova
@@ -5860,7 +5860,7 @@
 2025-04-23,bio,Šerhovní
 2025-04-28,plastics,Šerhovní
 2025-05-07,bio,Šerhovní
-2025-05-12,paper,Šerhovní
+2025-05-13,paper,Šerhovní
 2025-05-21,bio,Šerhovní
 2025-05-26,plastics,Šerhovní
 2025-06-04,bio,Šerhovní
@@ -5918,7 +5918,7 @@
 2025-04-28,plastics,Šmakalova
 2025-05-07,bio,Šmakalova
 2025-05-12,generic,Šmakalova
-2025-05-12,paper,Šmakalova
+2025-05-13,paper,Šmakalova
 2025-05-21,bio,Šmakalova
 2025-05-26,generic,Šmakalova
 2025-05-26,plastics,Šmakalova
@@ -5991,7 +5991,7 @@
 2025-04-28,plastics,Štefánikova
 2025-05-05,generic,Štefánikova
 2025-05-07,bio,Štefánikova
-2025-05-12,paper,Štefánikova
+2025-05-13,paper,Štefánikova
 2025-05-19,generic,Štefánikova
 2025-05-21,bio,Štefánikova
 2025-05-26,plastics,Štefánikova
@@ -6066,7 +6066,7 @@
 2025-04-28,plastics,Švermova
 2025-05-07,bio,Švermova
 2025-05-12,generic,Švermova
-2025-05-12,paper,Švermova
+2025-05-13,paper,Švermova
 2025-05-21,bio,Švermova
 2025-05-26,generic,Švermova
 2025-05-26,plastics,Švermova
@@ -6139,7 +6139,7 @@
 2025-04-28,plastics,Švédská
 2025-05-01,generic,Švédská
 2025-05-07,bio,Švédská
-2025-05-12,paper,Švédská
+2025-05-13,paper,Švédská
 2025-05-15,generic,Švédská
 2025-05-21,bio,Švédská
 2025-05-26,plastics,Švédská
@@ -6213,7 +6213,7 @@
 2025-04-28,plastics,Žerotínova
 2025-05-06,generic,Žerotínova
 2025-05-07,bio,Žerotínova
-2025-05-12,paper,Žerotínova
+2025-05-13,paper,Žerotínova
 2025-05-20,generic,Žerotínova
 2025-05-21,bio,Žerotínova
 2025-05-26,plastics,Žerotínova
@@ -6287,7 +6287,7 @@
 2025-04-28,plastics,Novosady - rodinné domy
 2025-05-06,generic,Novosady - rodinné domy
 2025-05-07,bio,Novosady - rodinné domy
-2025-05-12,paper,Novosady - rodinné domy
+2025-05-13,paper,Novosady - rodinné domy
 2025-05-20,generic,Novosady - rodinné domy
 2025-05-21,bio,Novosady - rodinné domy
 2025-05-26,plastics,Novosady - rodinné domy
@@ -6361,7 +6361,7 @@
 2025-04-28,plastics,Severní - rodinné domy
 2025-05-06,generic,Severní - rodinné domy
 2025-05-07,bio,Severní - rodinné domy
-2025-05-12,paper,Severní - rodinné domy
+2025-05-13,paper,Severní - rodinné domy
 2025-05-20,generic,Severní - rodinné domy
 2025-05-21,bio,Severní - rodinné domy
 2025-05-26,plastics,Severní - rodinné domy
