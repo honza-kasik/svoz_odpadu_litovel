@@ -179,7 +179,7 @@
     </style>
 </head>
 <body>
-    <h1>Kalendář svozu odpadu v Litovli</h1>
+    <h1 id="mainHeader">Kalendář svozu odpadu v Litovli</h1>
     <div id="controls">
         <label for="monthSelect">Měsíc </label>
         <select id="monthSelect"></select>
@@ -209,16 +209,30 @@
         };
 
         let wasteSchedule = [];
+        let uniqueLocations = [];
         let filteredLocation = "";
         let selectedYear = new Date().getFullYear();
         let selectedMonth = new Date().getMonth();
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const isKioskMode = urlParams.get('kiosk'); //hide header?
+        const initialLocation = urlParams.get('location'); //pre-set location in URL
 
         fetch('waste_schedule.csv')
             .then(response => response.text())
             .then(csv => {
                 parseCSV(csv);
-                populateFilters();
-                renderMonthCalendar();
+                uniqueLocations = [...new Set(wasteSchedule.map(entry => entry.location).filter(loc => loc))];
+                updateDataForInitialLocation(initialLocation, uniqueLocations);
+                renderMonthCalendar(filteredLocation);
+                if (isKioskMode) {
+                    //don't display header if we're running in the kiosk mode
+                    ["mainHeader", "controls", "downloadLink"].forEach(id =>
+                        document.getElementById(id).style.display = "none"
+                    )
+                } else {
+                    populateFilters();
+                }
             });
 
         function parseCSV(csv) {
@@ -238,9 +252,6 @@
             const copyLink = document.getElementById('copyLink');
             const currentYear = new Date().getFullYear();
 
-            const urlParams = new URLSearchParams(window.location.search);
-            const initialLocation = urlParams.get('location'); //pre-set location in URL
-
             const months = ["Leden", "Únor", "Březen", "Duben", "Květen", "Červen", "Červenec", "Srpen", "Září", "Říjen", "Listopad", "Prosinec"];
             months.forEach((month, index) => {
                 const option = document.createElement('option');
@@ -257,8 +268,6 @@
                 if (i === selectedYear) option.selected = true;
                 yearSelect.appendChild(option);
             }
-
-            const uniqueLocations = [...new Set(wasteSchedule.map(entry => entry.location).filter(loc => loc))];
             
             function renderLocationOptions(query = "", forceDisplayNone = false) {
                 locationOptions.innerHTML = "";
@@ -270,8 +279,8 @@
                         filteredLocation = location;
                         locationSearch.value = location;
                         locationOptions.style.display = 'none';
-                        renderMonthCalendar();
-                        updateURL(location);
+                        renderMonthCalendar(filteredLocation);
+                        updateLocationUrlParam(location);
                         downloadLink.style.display = 'flex';
                         copyLink.setAttribute('data-url', `${window.location.origin}/calendars/${encodeURIComponent(location)}.ics`);
                     });
@@ -296,19 +305,19 @@
 
             monthSelect.addEventListener('change', (e) => {
                 selectedMonth = parseInt(e.target.value);
-                renderMonthCalendar();
+                renderMonthCalendar(filteredLocation);
             });
 
             yearSelect.addEventListener('change', (e) => {
                 selectedYear = parseInt(e.target.value);
-                renderMonthCalendar();
+                renderMonthCalendar(filteredLocation);
             });
 
 
             resetFilter.addEventListener('click', () => {
                 filteredLocation = "";
                 locationSearch.value = "";
-                updateURL("")
+                updateLocationUrlParam("")
                 renderMonthCalendar();
                 downloadLink.style.display = 'none';
             });
@@ -324,23 +333,12 @@
                 }
             );
 
-            //also check whether the location is recognized to prevent unexpected
-            if (initialLocation && uniqueLocations.includes(initialLocation)) {
-                filteredLocation = initialLocation;
-                locationSearch.value = initialLocation;
-                renderMonthCalendar();
-                updateURL(initialLocation);
-                copyLink.setAttribute('data-url', `${window.location.origin}/calendars/${encodeURIComponent(initialLocation)}.ics`);
-                downloadLink.style.display = 'flex';
-            } else if (initialLocation) {
-                updateURL(""); //invalid location, reset query parameter
-            }
-
             //on first render with initial location no options will be shown
             renderLocationOptions(query = "", forceDisplayNone = initialLocation);
         }
 
-        function renderMonthCalendar() {
+        //render month calendar for given location
+        function renderMonthCalendar(renderedLocation = "") {
             const calendarContainer = document.getElementById('calendarContainer');
             calendarContainer.innerHTML = '';
             const today = new Date();
@@ -373,7 +371,7 @@
                 // Group entries by type when filtering is NOT applied
                 const groupedEntries = {};
                 matchingEntries.forEach(entry => {
-                    if (!filteredLocation || entry.location === filteredLocation) {
+                    if (!renderedLocation || entry.location === renderedLocation) {
                         if (!groupedEntries[entry.type]) {
                             groupedEntries[entry.type] = new Set();
                         }
@@ -385,7 +383,7 @@
                 for (const [type, locations] of Object.entries(groupedEntries)) {
                     const collectionDiv = document.createElement('div');
                     collectionDiv.className = `collection ${type}`;
-                    const locationText = filteredLocation 
+                    const locationText = renderedLocation 
                         ? Array.from(locations).join(', ') // Show exact location if filtered
                         : `(${locations.size} lokací)`; // Summary when no filtering is applied
                     collectionDiv.textContent = `${WASTE_TYPES[type]} ${locationText}`;
@@ -406,8 +404,21 @@
             calendarContainer.appendChild(table);
         }
 
+        function updateDataForInitialLocation(initialLocation, uniqueLocations) {
+            //also check whether the location is recognized to prevent unexpected
+            if (initialLocation && uniqueLocations.includes(initialLocation)) {
+                filteredLocation = initialLocation;
+                locationSearch.value = initialLocation;
+                updateLocationUrlParam(initialLocation);
+                copyLink.setAttribute('data-url', `${window.location.origin}/calendars/${encodeURIComponent(initialLocation)}.ics`);
+                downloadLink.style.display = 'flex';
+            } else if (initialLocation) {
+                updateLocationUrlParam(""); //invalid location, reset query parameter
+            }
 
-        function updateURL(location) {
+        }
+
+        function updateLocationUrlParam(location) {
             const url = new URL(window.location);
             if (location) {
                 url.searchParams.set('location', location);
