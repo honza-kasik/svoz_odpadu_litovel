@@ -22,7 +22,8 @@ class LokaceSvozu:
 lokace_svozu_plast = [
     #POZOR! kazdy prvni lichy a sudy tyden v mesici, ne kazdy sudy a lichy tyden jak rika letak s odpady! Barevna kolecka v letaku jsou OK.
     LokaceSvozu(lambda date: date.isocalendar().week % 4 == 3 and date.weekday() == 0, litovel_lokace_plast_0),
-    LokaceSvozu(lambda date: date.isocalendar().week % 4 == 2 and date.weekday() == 0, litovel_lokace_plast_1),
+    LokaceSvozu(lambda date: date.isocalendar().week % 4 == 2 and date.weekday() == 0 and 
+                            date != datetime(2025,5,26) or date == datetime(2025,5,27), litovel_lokace_plast_1),
     #zacatek treti tyden v roce v pondeli, kazdy ctvrty tyden
     LokaceSvozu(lambda date: date.isocalendar().week % 4 == 3 and date.weekday() == 0, 'Březové'),
     LokaceSvozu(lambda date: date.isocalendar().week % 4 == 3 and date.weekday() == 0, 'Chořelice'),
