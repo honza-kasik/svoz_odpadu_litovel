@@ -44,6 +44,7 @@ Zdrojová data se nachází v link:resources/[resources/]. Jsou to letáčky dis
 * 2025-04-14 https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmeny-svozu-odpadu-behem-velikonoc.html, archiv https://archive.is/SpRQH
 * 2025-05-07 https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmeny-ve-svozu-odpadu-v-mesici-kvetnu.html, archiv https://archive.is/vrQhk
 * 2025-05-21 https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-ve-svozu-odpadu.html, archiv https://archive.is/PsJVG
+* 2025-07-04 https://www.litovel.eu/redakce/index.php?xuser=234858626223493812&lanG=cs&slozka=47816&xsekce=43561&clanek=374062, archiv https://archive.is/G2KGV a https://archive.is/O5jH7
 
 == Licence
 

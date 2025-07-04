@@ -27,12 +27,12 @@ lokace_svozu_plast = [
     #zacatek treti tyden v roce v pondeli, kazdy ctvrty tyden
     LokaceSvozu(lambda date: date.isocalendar().week % 4 == 3 and date.weekday() == 0, 'Březové'),
     LokaceSvozu(lambda date: date.isocalendar().week % 4 == 3 and date.weekday() == 0, 'Chořelice'),
-    #zacatek druhy tyden v roce v pondeli, kazdy ctvrty tyden
-    LokaceSvozu(lambda date: date.isocalendar().week % 4 == 2 and date.weekday() == 4, 'Myslechovice'),
     LokaceSvozu(lambda date: date.isocalendar().week % 4 == 3 and date.weekday() == 0, ['Nasobůrky', 'Víska']),
     LokaceSvozu(lambda date: date.isocalendar().week % 4 == 3 and date.weekday() == 0, 'Rozvadovice'),
-    LokaceSvozu(lambda date: date.isocalendar().week % 4 == 2 and date.weekday() == 4, ['Savín', 'Nová Ves', 'Chudobín']),
-    LokaceSvozu(lambda date: date.isocalendar().week % 4 == 2 and date.weekday() == 4, 'Tři Dvory'),
+    #zacatek druhy tyden v roce v pondeli, kazdy ctvrty tyden
+    LokaceSvozu(lambda date: (date.isocalendar().week % 4 == 2 and date.weekday() == 4 and date not in 
+                                [datetime(2025,7,25), datetime(2025,8,22), datetime(2025,9,19)]) or
+                              date in [datetime(2025,7,23), datetime(2025,8,20),datetime(2025,9,17)], ['Savín', 'Nová Ves', 'Chudobín', 'Tři Dvory', 'Myslechovice']),
     LokaceSvozu(lambda date: date.isocalendar().week % 4 == 3 and date.weekday() == 0, 'Unčovice')
 ]
 
@@ -44,13 +44,13 @@ lokace_svozu_papir = [
                             date != datetime(2025,4,21) or date == datetime(2025,4,24), 'Březové'),
     LokaceSvozu(lambda date: date.isocalendar().week % 4 == 1 and date.weekday() == 0 and 
                             date != datetime(2025,4,21) or date == datetime(2025,4,24), 'Chořelice'),
-    LokaceSvozu(lambda date: date.isocalendar().week % 4 == 0 and date.weekday() == 4, 'Myslechovice'),
     LokaceSvozu(lambda date: date.isocalendar().week % 4 == 1 and date.weekday() == 0 and 
                             date != datetime(2025,4,21) or date == datetime(2025,4,24), ['Nasobůrky', 'Víska']),
     LokaceSvozu(lambda date: date.isocalendar().week % 4 == 1 and date.weekday() == 0 and 
                             date != datetime(2025,4,21) or date == datetime(2025,4,24), 'Rozvadovice'),
-    LokaceSvozu(lambda date: date.isocalendar().week % 4 == 0 and date.weekday() == 4, ['Savín', 'Nová Ves', 'Chudobín']),
-    LokaceSvozu(lambda date: date.isocalendar().week % 4 == 0 and date.weekday() == 4, 'Tři Dvory'),
+    LokaceSvozu(lambda date: (date.isocalendar().week % 4 == 0 and date.weekday() == 4 and date not in 
+                                [datetime(2025,7,11), datetime(2025,8,8), datetime(2025,9,5)]) or
+                              date in [datetime(2025,7,9), datetime(2025,8,6),datetime(2025,9,3)], ['Savín', 'Nová Ves', 'Chudobín', 'Tři Dvory', 'Myslechovice']),
     LokaceSvozu(lambda date: date.isocalendar().week % 4 == 1 and date.weekday() == 0 and 
                             date != datetime(2025,4,21) or date == datetime(2025,4,24), 'Unčovice')
 ]
