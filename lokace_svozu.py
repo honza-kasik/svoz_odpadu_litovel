@@ -69,7 +69,8 @@ lokace_svozu_smes = [
     LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.weekday() == 0, 'Rozvadovice'),
     LokaceSvozu(lambda date: (date.isocalendar().week % 2 != 0 and date.weekday() == 2 and date != datetime(2025,1,1)) or date == datetime(2025,1,3), ['Savín', 'Nová Ves', 'Chudobín']),
     LokaceSvozu(lambda date: (date.isocalendar().week % 2 != 0 and date.weekday() == 2 and date != datetime(2025,1,1)) or date == datetime(2025,1,3), 'Tři Dvory'),
-    LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.weekday() == 1, 'Unčovice')
+    LokaceSvozu(lambda date: date.isocalendar().week % 2 != 0 and date.weekday() == 1, 'Unčovice'),
+    LokaceSvozu(lambda date: date == datetime(2025, 9, 11), 'Dukelská')
 ]
 
 lokace_svozu_bio = [
