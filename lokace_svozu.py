@@ -21,19 +21,20 @@ class LokaceSvozu:
 
 lokace_svozu_plast = [
     #POZOR! kazdy prvni lichy a sudy tyden v mesici, ne kazdy sudy a lichy tyden jak rika letak s odpady! Barevna kolecka v letaku jsou OK.
-    LokaceSvozu(lambda date: date.isocalendar().week % 4 == 3 and date.weekday() == 0, litovel_lokace_plast_0),
+    LokaceSvozu(lambda date: date.isocalendar().week % 4 == 3 and date.weekday() == 0, [location for location in litovel_lokace_plast_0 if location != 'Pavlínka']),
+    LokaceSvozu(lambda date: (date.isocalendar().week % 4 == 3 and date.weekday() == 0 and date not in
+                                [datetime(2025,11,17)] or
+                              date in [datetime(2025,11,18)]), 'Pavlínka'),
     LokaceSvozu(lambda date: date.isocalendar().week % 4 == 2 and date.weekday() == 0 and 
                             date != datetime(2025,5,26) or date == datetime(2025,5,27), litovel_lokace_plast_1),
     #zacatek treti tyden v roce v pondeli, kazdy ctvrty tyden
-    LokaceSvozu(lambda date: date.isocalendar().week % 4 == 3 and date.weekday() == 0, 'Březové'),
-    LokaceSvozu(lambda date: date.isocalendar().week % 4 == 3 and date.weekday() == 0, 'Chořelice'),
-    LokaceSvozu(lambda date: date.isocalendar().week % 4 == 3 and date.weekday() == 0, ['Nasobůrky', 'Víska']),
-    LokaceSvozu(lambda date: date.isocalendar().week % 4 == 3 and date.weekday() == 0, 'Rozvadovice'),
+    LokaceSvozu(lambda date: (date.isocalendar().week % 4 == 3 and date.weekday() == 0 and date not in
+                                [datetime(2025,11,17)] or 
+                              date in [datetime(2025,11,20)]), ['Březové', 'Chořelice', 'Nasobůrky', 'Víska', 'Rozvadovice', 'Unčovice']),
     #zacatek druhy tyden v roce v pondeli, kazdy ctvrty tyden
     LokaceSvozu(lambda date: (date.isocalendar().week % 4 == 2 and date.weekday() == 4 and date not in 
                                 [datetime(2025,7,25), datetime(2025,8,22), datetime(2025,9,19)]) or
                               date in [datetime(2025,7,23), datetime(2025,8,20),datetime(2025,9,17)], ['Savín', 'Nová Ves', 'Chudobín', 'Tři Dvory', 'Myslechovice']),
-    LokaceSvozu(lambda date: date.isocalendar().week % 4 == 3 and date.weekday() == 0, 'Unčovice')
 ]
 
 lokace_svozu_papir = [
