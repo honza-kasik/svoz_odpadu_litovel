@@ -43,35 +43,24 @@ class WasteCollectionCalendarGenerator:
             date_end (datetime): Nejzassi datum, ktere se pouzije pro predikat v lokaci svozu
         """
         cal = Calendar()
+
+
+        waste_types = [
+            ("Směsný odpad", self.lokace_svozu_smes),
+            ("Plast", self.lokace_svozu_plast),
+            ("Papír", self.lokace_svozu_papir),
+            ("Bioodpad", self.lokace_svozu_bio),
+        ]
+
         for date in date_range(date_start, date_end):
-            for lokace in self.lokace_svozu_smes:
-                if lokace.predicate(date) and street in lokace.locations:
-                    event = Event()
-                    event.add('summary', f'Směsný odpad svoz - {street}')
-                    event.add('dtstart', date.date())
-                    event.add('dtend', (date.date() + timedelta(days=1)))
-                    cal.add_component(event)
-            for lokace in self.lokace_svozu_plast:
-                if lokace.predicate(date) and street in lokace.locations:
-                    event = Event()
-                    event.add('summary', f'Plast svoz - {street}')
-                    event.add('dtstart', date.date())
-                    event.add('dtend', (date.date() + timedelta(days=1)))
-                    cal.add_component(event)
-            for lokace in self.lokace_svozu_papir:
-                if lokace.predicate(date) and street in lokace.locations:
-                    event = Event()
-                    event.add('summary', f'Papír svoz - {street}')
-                    event.add('dtstart', date.date())
-                    event.add('dtend', (date.date() + timedelta(days=1)))
-                    cal.add_component(event)
-            for lokace in self.lokace_svozu_bio:
-                if lokace.predicate(date) and street in lokace.locations:
-                    event = Event()
-                    event.add('summary', f'Bioodpad svoz - {street}')
-                    event.add('dtstart', date.date())
-                    event.add('dtend', (date.date() + timedelta(days=1)))
-                    cal.add_component(event)
+            for waste_name, locations in waste_types:
+                for lokace in locations:
+                    if lokace.is_collection_happening(date, street):
+                        event = Event()
+                        event.add("summary", f"{waste_name} svoz - {street}")
+                        event.add("dtstart", date.date())
+                        event.add("dtend", date.date() + timedelta(days=1))
+                        cal.add_component(event)
 
         with open(f"{directory}/{street}.ics", "wb") as f:
             f.write(cal.to_ical())
@@ -90,14 +79,14 @@ class WasteCollectionCalendarGenerator:
                 for date in date_range(date_start, date_end):
                     date_string = date.strftime("%Y-%m-%d")
                     for lokace in self.lokace_svozu_smes:
-                        if lokace.predicate(date) and street in lokace.locations:
+                        if lokace.is_collection_happening(date, street):
                             f.write(f'{date_string},generic,{street}\n')
                     for lokace in self.lokace_svozu_plast:
-                        if lokace.predicate(date) and street in lokace.locations:
+                        if lokace.is_collection_happening(date, street):
                             f.write(f'{date_string},plastics,{street}\n')
                     for lokace in self.lokace_svozu_papir:
-                        if lokace.predicate(date) and street in lokace.locations:
+                        if lokace.is_collection_happening(date, street):
                             f.write(f'{date_string},paper,{street}\n')
                     for lokace in self.lokace_svozu_bio:
-                        if lokace.predicate(date) and street in lokace.locations:
+                        if lokace.is_collection_happening(date, street):
                             f.write(f'{date_string},bio,{street}\n')

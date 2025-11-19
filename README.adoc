@@ -38,6 +38,12 @@ Zdrojová data se nachází v link:resources/[resources/]. Jsou to letáčky dis
 
 === Změny svozu
 
+Zatím žádné změny pro rok 2026. Bohužel ani v dostupnosti kalendářů.
+
+.Archiv 2025
+[%collapsible]
+====
+
 * 2024-12-18 https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu-v-dobe-vanocnich-svatku.html, archiv https://web.archive.org/web/20241218100710/https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu-v-dobe-vanocnich-svatku.html
 * 2024-12-30 https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-bioodpadu-v-mistnich-castech-z-30-12-na-2-1.html, archiv https://web.archive.org/web/20241230151257/https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-bioodpadu-v-mistnich-castech-z-30-12-na-2-1.html
 * 2024-12-31? Poznámka: Přidány i Unčovice po dotazu https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-bioodpadu-v-mistnich-castech-z-30-12-na-2-1.html, archiv https://web.archive.org/web/20241231075813/https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-bioodpadu-v-mistnich-castech-z-30-12-na-2-1.html
@@ -47,6 +53,8 @@ Zdrojová data se nachází v link:resources/[resources/]. Jsou to letáčky dis
 * 2025-07-04 https://www.litovel.eu/redakce/index.php?xuser=234858626223493812&lanG=cs&slozka=47816&xsekce=43561&clanek=374062, archiv https://archive.is/G2KGV a https://archive.is/O5jH7
 * 2025-09-09 https://www.facebook.com/litovel.eu/posts/pfbid02af6wuEMQTm3G4xLmkpFG5b8YnTEH2Pk4wSw3oPgbBkovEmRqTb76cfzaDCDs15pFl, archiv https://web.archive.org/web/20250909192642/https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Flitovel.eu%2Fposts%2Fpfbid02af6wuEMQTm3G4xLmkpFG5b8YnTEH2Pk4wSw3oPgbBkovEmRqTb76cfzaDCDs15pFl
 * 2025-11-13 https://www.facebook.com/litovel.eu/posts/pfbid02qBuwZJERREtkX7ZMeEmobrmRJLbSXmoqLWbAs7DSuNqN8Q72sDggJxGmGAr7iq46l, archiv https://web.archive.org/web/20251113031217/https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Flitovel.eu%2Fposts%2Fpfbid02qBuwZJERREtkX7ZMeEmobrmRJLbSXmoqLWbAs7DSuNqN8Q72sDggJxGmGAr7iq46l
+
+====
 
 == Licence
 

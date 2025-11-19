@@ -5,7 +5,7 @@ from lokace_svozu import *
 from streets import *
 
 date_start = datetime(2025, 1, 1)
-date_end = datetime(2025, 12, 31)
+date_end = datetime(2026, 12, 31)
 
 
 def main():
