@@ -9,8 +9,6 @@ async function generateWasteCalendarPDF(events, year, month = null, locationName
     pdf.addFont('Caladea-Regular-normal.ttf', 'Caladea-Regular', 'normal');
     pdf.setFont("Caladea-Regular")
 
-    const DAYNAMES = ["Po","Út","St","Čt","Pá","So","Ne"];
-
     // =====================================================================
     //                      MESICNI KALENDAR
     // =====================================================================
@@ -33,7 +31,7 @@ async function generateWasteCalendarPDF(events, year, month = null, locationName
 
         // záhlaví
         for (let i = 0; i < 7; i++) {
-            pdf.text(DAYNAMES[i], x + 3, y);
+            pdf.text(DAYS[i], x + 3, y);
             x += cellW;
         }
 
@@ -65,7 +63,7 @@ async function generateWasteCalendarPDF(events, year, month = null, locationName
                 pdf.setFontSize(11);
                 pdf.text(String(d), cellX + 2, cellY + 5);
 
-                // události z CSV
+                // svozy
                 pdf.setFontSize(9);
                 const evs = events.filter(ev => {
                     const dt = new Date(ev.date);
@@ -78,8 +76,6 @@ async function generateWasteCalendarPDF(events, year, month = null, locationName
 
                 let yy = cellY + 10;
                 evs.forEach(e => {
-                    //pdf.text(WASTE_TYPES[e.type], cellX + 2, yy);
-                    //yy += 4;
                     const padding = 1;
                     const rectY = yy - 4; // trochu nad textem
                     const rectH = 5; // výška pozadí
@@ -101,6 +97,8 @@ async function generateWasteCalendarPDF(events, year, month = null, locationName
             }
             row++;
         }
+
+        drawFooter(pdf);
     }
 
     // =====================================================================
@@ -180,7 +178,7 @@ async function generateWasteCalendarPDF(events, year, month = null, locationName
                         pdf.setFillColor(getBackgroundColorForType(type2));
                         pdf.rect(cellX, cellY + cellH/2, cellW, cellH/2, "F"); // dolní polovina
                     } else {
-                        //TODO 3 a více událostí
+                        //TODO 3 a více událostí - resit az nastane
                     }
 
                     pdf.rect(cellX, cellY, cellW, cellH);
@@ -191,13 +189,15 @@ async function generateWasteCalendarPDF(events, year, month = null, locationName
                 }
             }
         }
+
+        drawFooter(pdf);
     }
 
     function drawDateInYearCalendarCell(pdf, day, cellX, cellY, cellW, cellH) {
         const originalTextColor = pdf.getTextColor()
         const x = cellX + cellW/2;
         const y = cellY + cellH/2;
-        const radius = Math.min(cellW, cellH)/3.5; // malý kruh pod číslem
+        const radius = Math.min(cellW, cellH)/3.5;
 
         // bílý kruh pro kontrast
         pdf.setFillColor(255,255,255);
@@ -209,6 +209,19 @@ async function generateWasteCalendarPDF(events, year, month = null, locationName
         pdf.setTextColor(0,0,0);
         pdf.text(String(day), x, y, { align: "center", baseline: "middle" });
         pdf.setTextColor(originalTextColor);
+    }
+
+    function drawFooter(pdf) {
+        const date = new Date();
+        const formatted =
+            `Sestaveno z aktuálních dat ${date.toLocaleDateString()} v ${date.getHours()}:${String(date.getMinutes()).padStart(2,'0')}. Neobsahuje změny svozu po tomto datu.`;
+
+        const pageW = pdf.internal.pageSize.width;
+        const pageH = pdf.internal.pageSize.height;
+
+        pdf.setFontSize(8);
+        pdf.setTextColor('#747474');
+        pdf.text(formatted, pageW / 2, pageH - 10, { align: "center" });
     }
 
     // =====================================================================
