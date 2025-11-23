@@ -221,7 +221,7 @@ async function generateWasteCalendarPDF(events, year, month = null, locationName
 
         pdf.setFontSize(8);
         pdf.setTextColor('#747474');
-        pdf.text(formatted, pageW / 2, pageH - 10, { align: "center" });
+        pdf.text(formatted, pageW / 2, pageH - 8, { align: "center" });
     }
 
     // =====================================================================
