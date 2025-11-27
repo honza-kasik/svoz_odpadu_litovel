@@ -14,6 +14,12 @@ Pokud město změní harmonogram (svátky, výluky), kalednář je upraven.
 * *Jednoduchost bez zbytečností* +
 Nechceš přemýšlet, jestli je zrovna sudý nebo lichý týden.
 
+=== Kiokový mód
+
+Pro zobrazení kalendáře bez ovládacích prvků použijte `kiosk=true` parametr: https://svoz.litovle.cz/?kiosk=true
+
+Kalendář je pak použitelný v různých dashboardech.
+
 == Obsah repozitáře
 
 Velmi jednoduchý a naivní skript pro vygenerování `ics` souborů a `csv` souboru se svozy odpadů pro jednotlivé ulice i místní části.
