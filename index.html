@@ -207,7 +207,7 @@
         let uniqueLocations = [];
         let filteredLocation = "";
         let selectedYear = new Date().getFullYear();
-        let selectedMonth = new Date().getMonth();
+        let selectedMonth = new Date().getMonth(); //returns index - January is 0, December is 11
 
         const urlParams = new URLSearchParams(window.location.search);
         const isKioskMode = urlParams.get('kiosk'); //hide header and footer controls?
