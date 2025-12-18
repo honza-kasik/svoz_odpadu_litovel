@@ -229,7 +229,7 @@ async function generateWasteCalendarPDF(events, year, month = null, locationName
     // =====================================================================
 
     if (month !== null) {
-        drawMonthlyCalendar(month - 1, locationName);
+        drawMonthlyCalendar(month, locationName);
         pdf.save(`kalendar_svoz_${year}_${month}_${locationName}.pdf`);
     } else {
         drawYearCalendar(pdf, events, year, locationName);
