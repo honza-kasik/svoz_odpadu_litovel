@@ -45,6 +45,7 @@ Zdrojová data se nachází v link:resources/[resources/]. Jsou to letáčky dis
 === Změny svozu
 
 * 2025-12-17 https://www.facebook.com/litovel.eu/posts/pfbid02mx6FiHsbQETRC2V9vzuCBQMpQUDh84tfzyz7NspBdy3AL5pMdApFuzaqmGLwSfphl, https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmeny-svozu-odpadu-o-vanocnich-svatcich.html archiv https://web.archive.org/web/20251217074956/https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Flitovel.eu%2Fposts%2Fpfbid02mx6FiHsbQETRC2V9vzuCBQMpQUDh84tfzyz7NspBdy3AL5pMdApFuzaqmGLwSfphl a https://archive.is/Cuen5
+* 2026-02-12 https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu.html, archiv https://archive.is/BOR4n
 
 .Archiv 2025
 [%collapsible]
