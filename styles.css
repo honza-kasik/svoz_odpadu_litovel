@@ -8,6 +8,11 @@ h1 {
     margin-top: 20px;
     font-size: 1.8em;
 }
+.subtitle {
+    font-size: 0.85rem;
+    color: #777;
+    padding: 2px;
+}
 .month-header {
     margin-top: 10px;
     font-size: 1.3em;
@@ -380,4 +385,19 @@ h1 {
 
 #locationList a:hover {
     text-decoration: underline;
+}
+
+.related-streets {
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.related-streets a {
+  color: #777;
+  text-decoration: none;
+}
+
+.related-streets a:hover {
+  text-decoration: underline;
 }

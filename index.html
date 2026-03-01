@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Svoz odpadu Litovel – kalendář podle ulic</title>
-    <meta name="description" id="metaDescription" content="Termíny svozu odpadu v Litovli podle jednotlivých ulic.">
+    <meta name="description" id="metaDescription" content="Hledáte, kdy se v Litovel vyváží popelnice? Zadejte svou ulici a získejte aktuální harmonogram svozu plastu, papíru i komunálního odpadu.">
     <meta name="author" content="Honza Kašík">
     <meta name="robots" content="index, follow">
 
@@ -13,7 +13,7 @@
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <meta property="og:title" content="Svoz odpadu Litovel – kalendář podle ulic">
-    <meta property="og:description" content="Termíny svozu odpadu v Litovli podle jednotlivých ulic.">
+    <meta property="og:description" content="Hledáte, kdy se v Litovel vyváží popelnice? Zadejte svou ulici a získejte aktuální harmonogram svozu plastu, papíru i komunálního odpadu.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://svoz.litovle.cz/">
     <meta property="og:image" content="https://svoz.litovle.cz/resources/screenshot.png">
@@ -29,7 +29,7 @@
 <body>
 
     <h1 id="mainHeader">Kalendář svozu odpadu v Litovli</h1>
-
+    <p class="subtitle">Aktuální přehled svozových dnů pro Litovel. Harmonogram zahrnuje svoz komunálního odpadu, plastů, papíru a bioodpadu. Data jsou platná pro rok 2026.</p>
     <div id="controls">
         <div id="date-picker">
             <button type="button" id="prevMonth" aria-label="Předchozí měsíc">◀</button>
@@ -42,7 +42,7 @@
             <div id="locationDropdown" class="dropdown">
                 <input type="text"
                        id="locationSearch"
-                       placeholder="Vyhledat lokaci..."
+                       placeholder="Zadejte svou ulici v Litovli pro zobrazení kalendáře svozu odpadu"
                        autocomplete="off">
                 <div id="locationOptions" class="dropdown-options"></div>
             </div>
@@ -72,7 +72,7 @@
     <!-- Seznam lokací (jen pro homepage) -->
     
 <div id="locationList">
-    <h2>Lokace v Litovli</h2>
+    <h2>Lokace svozu odpadu v Litovli v roce 2026</h2>
     <p>
         Vyberte konkrétní ulici nebo místní část pro zobrazení termínů svozu.
     </p>
@@ -178,6 +178,8 @@
     </ul>
 </div>
 
+
+    {{RELATED_STREETS_HTML}}
 
     <p class="disclaimer">
         Kalendář je

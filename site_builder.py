@@ -1,11 +1,16 @@
 import os
 from datetime import datetime
+import hashlib
+import random
 
 from utils import slugify
+from streets import mistni_casti
+from meta_builder import MetaBuilder, config
 
 BASE_URL = "https://svoz.litovle.cz"
 TEMPLATE_PATH = "templates/layout.html"
 
+meta_builder = MetaBuilder(config)
 
 # -------------------------------------------------
 # TEMPLATE RENDER
@@ -35,10 +40,7 @@ def build_index(streets):
     location_list_html = build_location_list(streets)
 
     context = {
-        "TITLE": "Svoz odpadu Litovel – kalendář podle ulic",
-        "DESCRIPTION": "Termíny svozu odpadu v Litovli podle jednotlivých ulic.",
-        "CANONICAL": f"{BASE_URL}/",
-        "H1": "Kalendář svozu odpadu v Litovli",
+        **meta_builder.index(),
         "SEO_FALLBACK": "",
         "LOCATION_LIST": location_list_html,
         "STREET_NAME": "null"
@@ -57,15 +59,14 @@ def build_street_pages(generator, streets):
 
         slug = slugify(street)
         fallback = build_fallback_table(generator, street)
+        related_html = build_related_streets_html(street, streets)
 
         context = {
-            "TITLE": f"Svoz odpadu Litovel – {street}",
-            "DESCRIPTION": f"Termíny svozu odpadu pro ulici {street} v Litovli.",
-            "CANONICAL": f"{BASE_URL}/ulice/{slug}/",
-            "H1": f"Svoz odpadu Litovel – {street}",
+            **meta_builder.street(street, slug, street in mistni_casti),
             "SEO_FALLBACK": fallback,
             "LOCATION_LIST": "",
-            "STREET_NAME": f'"{street}"'
+            "STREET_NAME": f'"{street}"',
+            "RELATED_STREETS_HTML": related_html
         }
 
         render_template(
@@ -88,7 +89,7 @@ def build_location_list(streets):
 
     return f"""
 <div id="locationList">
-    <h2>Lokace v Litovli</h2>
+    <h2>Lokace svozu odpadu v {config.city_v} v roce {config.year}</h2>
     <p>
         Vyberte konkrétní ulici nebo místní část pro zobrazení termínů svozu.
     </p>
@@ -118,7 +119,7 @@ def build_fallback_table(generator, street):
         )
 
     return f"""
-<h2>Termíny svozu</h2>
+<h2>Termíny svozu odpadu</h2>
 <table>
 <tr><th>Datum</th><th>Typ odpadu</th></tr>
 {rows}
@@ -158,3 +159,37 @@ def generate_sitemap(streets):
 
     with open("sitemap.xml", "w", encoding="utf-8") as f:
         f.write(sitemap)
+
+
+def pick_related_streets(current_street, all_streets, count=5):
+    pool = [s for s in all_streets if s != current_street]
+
+    seed = int(hashlib.md5(current_street.encode()).hexdigest(), 16)
+    rng = random.Random(seed)
+
+    if len(pool) <= count:
+        return pool
+
+    return rng.sample(pool, count)
+
+
+def build_related_streets_html(current_street, all_streets):
+    related = pick_related_streets(current_street, all_streets, 4)
+
+    if not related:
+        return ""
+
+    links = []
+
+    for street in related:
+        slug = slugify(street)
+        links.append(
+            f'<a href="/ulice/{slug}/">{street}</a>'
+        )
+
+    return (
+        '<p class="related-streets">'
+        'Další ulice: '
+        + ' · '.join(links) +
+        '</p>'
+    )
