@@ -195,19 +195,15 @@ class WasteCollectionCalendarGenerator:
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Svoz odpadu Litovel – {street}</title>
-<meta name="description"
-content="Termíny svozu odpadu pro ulici {street} v Litovli.">
+<meta name="description" id="metaDescription" content="Termíny svozu odpadu pro ulici {street} v Litovli.">
 
-<link rel="canonical"
-href="https://svoz.litovle.cz/ulice/{slug}/">
+<link rel="canonical" id="canonicalLink" href="https://svoz.litovle.cz/ulice/{slug}/">
 
 <link rel="stylesheet" href="/styles.css">
 <link rel="icon" type="image/png" href="/favicon.png">
 
-<meta property="og:title"
-content="Svoz odpadu Litovel – {street}">
-<meta property="og:description"
-content="Termíny svozu odpadu pro ulici {street} v Litovli.">
+<meta property="og:title" content="Svoz odpadu Litovel – {street}">
+<meta property="og:description" content="Termíny svozu odpadu pro ulici {street} v Litovli.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://svoz.litovle.cz/ulice/{slug}/">
 <script>
@@ -217,7 +213,7 @@ document.documentElement.classList.add("js");
 
 <body>
 
-<h1>Svoz odpadu Litovel – {street}</h1>
+<h1 id="mainHeader">Svoz odpadu Litovel – {street}</h1>
 
 <div id="controls">
     <div id="date-picker">

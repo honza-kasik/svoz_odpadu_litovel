@@ -88,8 +88,17 @@ function populateFilters() {
             optionDiv.addEventListener('click', () => {
 
                 const slug = slugify(location);
-                window.location.href = `/ulice/${slug}/`;
 
+                history.pushState({}, "", `/ulice/${slug}/`);
+
+                filteredLocation = location;
+
+                updatePageHeading(location);
+                updateTitle(location);
+                updateMetaDescription(location);
+                updateCanonical(location);
+
+                renderMonthCalendar(filteredLocation);
             });
         locationOptions.appendChild(optionDiv);
         });
@@ -157,14 +166,19 @@ function populateFilters() {
             window.location.pathname.startsWith("/ulice/");
 
         if (isStreetPage) {
-            window.location.href = "/";
-            return;
+            history.pushState({}, "", "/");
         }
 
-        // homepage režim
         filteredLocation = "";
+
         locationSearch.value = "";
+
         updateLocationUrlParam("");
+        updatePageHeading("");
+        updateTitle("");
+        updateMetaDescription("");
+        updateCanonical("");
+
         renderMonthCalendar();
     });
 
@@ -300,6 +314,33 @@ function updateLocationUrlParam(location) {
     window.history.replaceState({}, '', url);
 }
 
+window.addEventListener("popstate", () => {
+
+    const slug = getLocationFromPath();
+
+    if (slug) {
+        const location = decodeSlugToLocation(slug);
+        filteredLocation = location;
+
+        updatePageHeading(location);
+        updateTitle(location);
+        updateMetaDescription(location);
+        updateCanonical(location);
+
+        renderMonthCalendar(location);
+
+    } else {
+        filteredLocation = "";
+
+        updatePageHeading("");
+        updateTitle("");
+        updateMetaDescription("");
+        updateCanonical("");
+
+        renderMonthCalendar();
+    }
+});
+
 function slugify(text) {
     return text
         .normalize("NFKD")
@@ -310,10 +351,62 @@ function slugify(text) {
         .replace(/[-\s]+/g, "-");
 }
 
+function decodeSlugToLocation(slug) {
+    return uniqueLocations.find(loc =>
+        slugify(loc) === slug
+    );
+}
+
 function getLocationFromPath() {
     const parts = window.location.pathname.split('/').filter(Boolean);
     if (parts[0] === "ulice" && parts[1]) {
         return decodeURIComponent(parts[1]);
     }
     return null;
+}
+
+function updatePageHeading(location) {
+    const header = document.getElementById("mainHeader");
+
+    if (!location) {
+        header.textContent = "Kalendář svozu odpadu v Litovli";
+    } else {
+        header.textContent = `Svoz odpadu Litovel – ${location}`;
+    }
+}
+
+function updateTitle(location) {
+    if (!location) {
+        document.title = "Svoz odpadu Litovel – kalendář podle ulic";
+    } else {
+        document.title = `Svoz odpadu Litovel – ${location}`;
+    }
+}
+
+function updateMetaDescription(location) {
+    const meta = document.getElementById("metaDescription");
+
+    if (!location) {
+        meta.setAttribute(
+            "content",
+            "Termíny svozu odpadu v Litovli podle jednotlivých ulic."
+        );
+    } else {
+        meta.setAttribute(
+            "content",
+            `Termíny svozu odpadu pro ulici ${location} v Litovli.`
+        );
+    }
+}
+
+function updateCanonical(location) {
+
+    const canonical = document.getElementById("canonicalLink");
+
+    if (!location) {
+        canonical.href = "https://svoz.litovle.cz/";
+    } else {
+        const slug = slugify(location);
+        canonical.href = `https://svoz.litovle.cz/ulice/${slug}/`;
+    }
 }
