@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{TITLE}}</title>
+    <meta name="description" id="metaDescription" content="{{DESCRIPTION}}">
+    <meta name="author" content="Honza Kašík">
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" id="canonicalLink" href="{{CANONICAL}}">
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <meta property="og:title" content="{{TITLE}}">
+    <meta property="og:description" content="{{DESCRIPTION}}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{CANONICAL}}">
+    <meta property="og:image" content="https://svoz.litovle.cz/resources/screenshot.png">
+
+    <link rel="stylesheet" href="/styles.css">
+
+    <!-- zabrání probliknutí SEO fallbacku -->
+    <script>
+        document.documentElement.classList.add("js");
+    </script>
+</head>
+
+<body>
+
+    <h1 id="mainHeader">{{H1}}</h1>
+
+    <div id="controls">
+        <div id="date-picker">
+            <button type="button" id="prevMonth" aria-label="Předchozí měsíc">◀</button>
+            <select id="monthSelect" aria-label="Měsíc"></select>
+            <select id="yearSelect" aria-label="Rok"></select>
+            <button type="button" id="nextMonth" aria-label="Další měsíc">▶</button>
+        </div>
+
+        <div id="location-picker">
+            <div id="locationDropdown" class="dropdown">
+                <input type="text"
+                       id="locationSearch"
+                       placeholder="Vyhledat lokaci..."
+                       autocomplete="off">
+                <div id="locationOptions" class="dropdown-options"></div>
+            </div>
+
+            <div id="resetFilter" class="button">
+                Všechny lokace
+            </div>
+        </div>
+    </div>
+
+    <div id="calendarContainer"></div>
+    <div id="info"></div>
+
+    <div id="footerControls">
+        <div id="pdfYear" class="button">PDF rok</div>
+        <div id="pdfMonth" class="button">PDF měsíc</div>
+        <div id="copyLink" class="button">
+            Zkopírovat URL ICS souboru do schránky
+        </div>
+    </div>
+
+    <!-- SEO fallback (jen pokud JS neběží) -->
+    <div id="seoFallback">
+        {{SEO_FALLBACK}}
+    </div>
+
+    <!-- Seznam lokací (jen pro homepage) -->
+    {{LOCATION_LIST}}
+
+    <p class="disclaimer">
+        Kalendář je
+        <a href="https://github.com/honza-kasik/svoz_odpadu_litovel"
+           target="_blank"
+           rel="noopener">
+           nezávislý projekt
+        </a>,
+        který vytvořil a spravuje
+        <a href="https://honzakasik.cz"
+           target="_blank"
+           rel="noopener">
+           Honza Kašík
+        </a>.
+        Zdrojová data poskytuje Město Litovel.
+        <a href="/docs/synchronizace-notifikace.html">
+            Návod na notifikace a synchronizaci.
+        </a>
+    </p>
+
+    <script>
+        window.STREET_NAME = {{STREET_NAME}};
+    </script>
+
+    <script src="/js/app.js" defer></script>
+    <script src="/js/pdf_generator.js" defer></script>
+
+    <!-- 100% privacy-first analytics -->
+    <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+
+</body>
+</html>

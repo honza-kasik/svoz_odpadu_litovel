@@ -75,7 +75,6 @@ all_streets = {
         'Wolkerova',
         'Zahradní',
         'nám. Svobody',
-        'Vítězná',
         'Vítězná - sídliště',
         'Červenská',
         'Čihadlo',
