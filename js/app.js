@@ -9,17 +9,17 @@ let wasteSchedule = [];
 let uniqueLocations = [];
 let filteredLocation = "";
 let selectedYear = new Date().getFullYear();
-let selectedMonth = new Date().getMonth(); //returns index - January is 0, December is 11
+let selectedMonth = new Date().getMonth();
 
 const urlParams = new URLSearchParams(window.location.search);
-const isKioskMode = urlParams.get('kiosk'); //hide header and footer controls?
+const isKioskMode = urlParams.get('kiosk');
 const isStreetPage =
     window.location.pathname.startsWith("/ulice/");
 
 const initialLocation =
     window.STREET_NAME ||
     (isStreetPage ? null : urlParams.get('location')) ||
-    getLocationFromPath(); //pre-set location in URL
+    getLocationFromPath();
 
 const MONTHS = ["Leden", "Únor", "Březen", "Duben", "Květen", "Červen", "Červenec", "Srpen", "Září", "Říjen", "Listopad", "Prosinec"];
 const DAYS = ['Po', 'Út', 'St', 'Čt', 'Pá', 'So', 'Ne'];
@@ -31,8 +31,8 @@ fetch('/waste_schedule.csv')
         uniqueLocations = [...new Set(wasteSchedule.map(entry => entry.location).filter(loc => loc))];
         updateDataForInitialLocation(initialLocation, uniqueLocations);
         renderMonthCalendar(filteredLocation);
+
         if (isKioskMode) {
-            //don't display header if we're running in the kiosk mode
             ["mainHeader", "controls", "footerControls", "locationList"].forEach(id =>
                 document.getElementById(id).style.display = "none"
             )
@@ -45,7 +45,7 @@ function parseCSV(csv) {
     const lines = csv.split('\n');
     wasteSchedule = lines.map(line => {
         const [date, type, location] = line.split(',');
-        if (!date || !type) return null; // Skip invalid lines
+        if (!date || !type) return null;
         return { date: date.trim(), type: type.trim().toLowerCase(), location: location ? location.trim() : '' };
     }).filter(entry => entry);
 }
@@ -82,38 +82,28 @@ function populateFilters() {
     function renderLocationOptions(query = "", forceDisplayNone = false) {
         locationOptions.innerHTML = "";
         const filtered = uniqueLocations.filter(loc => loc.toLowerCase().includes(query.toLowerCase()));
+
         filtered.forEach(location => {
             const optionDiv = document.createElement('div');
             optionDiv.textContent = location;
+
             optionDiv.addEventListener('click', () => {
                 const slug = slugify(location);
-
-                history.pushState({}, "", `/ulice/${slug}/`);
-
-                filteredLocation = location;
-                locationSearch.value = location;
-                locationOptions.style.display = 'none';
-
-                updatePageHeading(location);
-                updateTitle(location);
-                updateMetaDescription(location);
-                updateCanonical(location);
-
-                renderMonthCalendar(filteredLocation);
-                copyLink.setAttribute('data-url', `${window.location.origin}/calendars/${encodeURIComponent(location)}.ics`);
-                footerControls.style.display = 'flex';
+                window.location.href = `/ulice/${slug}/`;   // 🔥 místo pushState
             });
-        locationOptions.appendChild(optionDiv);
+
+            locationOptions.appendChild(optionDiv);
         });
+
         locationOptions.style.display = (filtered.length > 0 && !forceDisplayNone) ? "block" : "none";
     }
 
     locationSearch.addEventListener('input', (e) => {
-        renderLocationOptions(query = e.target.value, forceDisplayNone = false);
+        renderLocationOptions(e.target.value, false);
     });
 
-    locationSearch.addEventListener('click', (e) => {
-        renderLocationOptions(query = "", forceDisplayNone = false);
+    locationSearch.addEventListener('click', () => {
+        renderLocationOptions("", false);
     });
 
     document.addEventListener('click', (e) => {
@@ -128,8 +118,8 @@ function populateFilters() {
     });
 
     prevMonth.addEventListener('click', () => {
-        month = selectedMonth;
-        year = selectedYear;
+        let month = selectedMonth;
+        let year = selectedYear;
         month--;
         if (month < 0) {
             month = 11;
@@ -143,8 +133,8 @@ function populateFilters() {
     });
 
     nextMonth.addEventListener('click', () => {
-        month = selectedMonth;
-        year = selectedYear;
+        let month = selectedMonth;
+        let year = selectedYear;
         month++;
         if (month > 11) {
             month = 0;
@@ -162,59 +152,43 @@ function populateFilters() {
         renderMonthCalendar(filteredLocation);
     });
 
-
     resetFilter.addEventListener('click', () => {
-        const isStreetPage =
-            window.location.pathname.startsWith("/ulice/");
-
-        if (isStreetPage) {
-            history.pushState({}, "", "/");
-        }
-
-        filteredLocation = "";
-
-        locationSearch.value = "";
-
-        updateLocationUrlParam("");
-        updatePageHeading("");
-        updateTitle("");
-        updateMetaDescription("");
-        updateCanonical("");
-
-        renderMonthCalendar();
-        footerControls.style.display = 'none';
+        window.location.href = "/";   // 🔥 místo pushState + SEO manipulace
     });
 
     pdfYear.addEventListener("click", () => {
-        generateWasteCalendarPDF(wasteSchedule.filter(entry => entry.location === filteredLocation), selectedYear, null, filteredLocation);
+        generateWasteCalendarPDF(
+            wasteSchedule.filter(entry => entry.location === filteredLocation),
+            selectedYear,
+            null,
+            filteredLocation
+        );
     });
 
     pdfMonth.addEventListener("click", () => {
-        generateWasteCalendarPDF(wasteSchedule.filter(entry => entry.location === filteredLocation), selectedYear, selectedMonth, filteredLocation);
+        generateWasteCalendarPDF(
+            wasteSchedule.filter(entry => entry.location === filteredLocation),
+            selectedYear,
+            selectedMonth,
+            filteredLocation
+        );
     });
 
     copyLink.addEventListener('click', (e) => {
         e.preventDefault();
         const icsUrl = copyLink.getAttribute('data-url');
-        navigator.clipboard.writeText(icsUrl).then(() => {
-                console.log("URL " + icsUrl + " copied to clipboard.")
-            }).catch(err => {
-                console.error('Clipboard API failed:', err);
-            });
-        }
-    );
+        navigator.clipboard.writeText(icsUrl);
+    });
 
-    //on first render with initial location no options will be shown
-    renderLocationOptions(query = "", forceDisplayNone = initialLocation);
+    renderLocationOptions("", initialLocation);
 }
 
-//render month calendar for given location
 function renderMonthCalendar(renderedLocation = "") {
     const calendarContainer = document.getElementById('calendarContainer');
     calendarContainer.innerHTML = '';
     const today = new Date();
     const daysInMonth = new Date(selectedYear, selectedMonth + 1, 0).getDate();
-    const firstDay = (new Date(selectedYear, selectedMonth, 1).getDay() + 6) % 7; // Monday-start adjustment
+    const firstDay = (new Date(selectedYear, selectedMonth, 1).getDay() + 6) % 7;
 
     const fallback = document.getElementById("seoFallback");
     if (fallback) {
@@ -244,7 +218,6 @@ function renderMonthCalendar(renderedLocation = "") {
 
         const matchingEntries = wasteSchedule.filter(entry => entry.date === dateKey);
 
-        // Group entries by type when filtering is NOT applied
         const groupedEntries = {};
         matchingEntries.forEach(entry => {
             if (!renderedLocation || entry.location === renderedLocation) {
@@ -255,13 +228,12 @@ function renderMonthCalendar(renderedLocation = "") {
             }
         });
 
-        // Render grouped entries
         for (const [type, locations] of Object.entries(groupedEntries)) {
             const collectionDiv = document.createElement('div');
             collectionDiv.className = `collection ${type}`;
             const locationText = renderedLocation 
-                ? Array.from(locations).join(', ') // Show exact location if filtered
-                : `(${locations.size} lokací)`; // Summary when no filtering is applied
+                ? Array.from(locations).join(', ')
+                : `(${locations.size} lokací)`;
             collectionDiv.textContent = `${WASTE_TYPES[type]} ${locationText}`;
             cell.appendChild(collectionDiv);
         }
@@ -269,6 +241,7 @@ function renderMonthCalendar(renderedLocation = "") {
         if (day === today.getDate() && selectedYear === today.getFullYear() && selectedMonth === today.getMonth()) {
             cell.classList.add('today');
         }
+
         row.appendChild(cell);
 
         if ((firstDay + day) % 7 === 0) {
@@ -276,73 +249,27 @@ function renderMonthCalendar(renderedLocation = "") {
             row = document.createElement('tr');
         }
     }
+
     table.appendChild(row);
     calendarContainer.appendChild(table);
 }
 
 function updateDataForInitialLocation(initialLocation, uniqueLocations) {
-    //also check whether the location is recognized to prevent unexpected
     if (initialLocation && uniqueLocations.includes(initialLocation)) {
         filteredLocation = initialLocation;
-        locationSearch.value = initialLocation;
-        updateLocationUrlParam(initialLocation);
-        copyLink.setAttribute('data-url', `${window.location.origin}/calendars/${encodeURIComponent(initialLocation)}.ics`);
-        footerControls.style.display = 'flex';
-    } else if (initialLocation) {
-        updateLocationUrlParam(""); //invalid location, reset query parameter
-    }
+        const locationSearch = document.getElementById('locationSearch');
+        const copyLink = document.getElementById('copyLink');
+        const footerControls = document.getElementById('footerControls');
 
+        if (locationSearch) locationSearch.value = initialLocation;
+        if (copyLink) {
+            copyLink.setAttribute('data-url',
+                `${window.location.origin}/calendars/${encodeURIComponent(initialLocation)}.ics`
+            );
+        }
+        if (footerControls) footerControls.style.display = 'flex';
+    }
 }
-
-function updateLocationUrlParam(location) {
-    const isStreetPage =
-        window.location.pathname.startsWith("/ulice/");
-
-    // pokud jsme na /ulice/, nikdy nepoužívej query param
-    if (isStreetPage) return;
-
-    const url = new URL(window.location);
-
-    // zachovej param jen pokud už existoval
-    const originallyHadParam =
-        new URLSearchParams(window.location.search).has("location");
-
-    if (location && originallyHadParam) {
-        url.searchParams.set("location", location);
-    } else if (!originallyHadParam) {
-        // pokud parametr původně nebyl, nevytvářej ho
-        url.searchParams.delete("location");
-    }
-
-    window.history.replaceState({}, '', url);
-}
-
-window.addEventListener("popstate", () => {
-
-    const slug = getLocationFromPath();
-
-    if (slug) {
-        const location = decodeSlugToLocation(slug);
-        filteredLocation = location;
-
-        updatePageHeading(location);
-        updateTitle(location);
-        updateMetaDescription(location);
-        updateCanonical(location);
-
-        renderMonthCalendar(location);
-
-    } else {
-        filteredLocation = "";
-
-        updatePageHeading("");
-        updateTitle("");
-        updateMetaDescription("");
-        updateCanonical("");
-
-        renderMonthCalendar();
-    }
-});
 
 function slugify(text) {
     return text
@@ -366,50 +293,4 @@ function getLocationFromPath() {
         return decodeURIComponent(parts[1]);
     }
     return null;
-}
-
-function updatePageHeading(location) {
-    const header = document.getElementById("mainHeader");
-
-    if (!location) {
-        header.textContent = "Kalendář svozu odpadu v Litovli";
-    } else {
-        header.textContent = `Svoz odpadu Litovel – ${location}`;
-    }
-}
-
-function updateTitle(location) {
-    if (!location) {
-        document.title = "Svoz odpadu Litovel – kalendář podle ulic";
-    } else {
-        document.title = `Svoz odpadu Litovel – ${location}`;
-    }
-}
-
-function updateMetaDescription(location) {
-    const meta = document.getElementById("metaDescription");
-
-    if (!location) {
-        meta.setAttribute(
-            "content",
-            "Termíny svozu odpadu v Litovli podle jednotlivých ulic."
-        );
-    } else {
-        meta.setAttribute(
-            "content",
-            `Termíny svozu odpadu pro ulici ${location} v Litovli.`
-        );
-    }
-}
-
-function updateCanonical(location) {
-
-    const canonical = document.getElementById("canonicalLink");
-
-    if (!location) {
-        canonical.href = "https://svoz.litovle.cz/";
-    } else {
-        const slug = slugify(location);
-        canonical.href = `https://svoz.litovle.cz/ulice/${slug}/`;
-    }
 }
