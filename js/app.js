@@ -86,12 +86,13 @@ function populateFilters() {
             const optionDiv = document.createElement('div');
             optionDiv.textContent = location;
             optionDiv.addEventListener('click', () => {
-
                 const slug = slugify(location);
 
                 history.pushState({}, "", `/ulice/${slug}/`);
 
                 filteredLocation = location;
+                locationSearch.value = location;
+                locationOptions.style.display = 'none';
 
                 updatePageHeading(location);
                 updateTitle(location);
@@ -99,6 +100,8 @@ function populateFilters() {
                 updateCanonical(location);
 
                 renderMonthCalendar(filteredLocation);
+                copyLink.setAttribute('data-url', `${window.location.origin}/calendars/${encodeURIComponent(location)}.ics`);
+                footerControls.style.display = 'flex';
             });
         locationOptions.appendChild(optionDiv);
         });
@@ -161,7 +164,6 @@ function populateFilters() {
 
 
     resetFilter.addEventListener('click', () => {
-
         const isStreetPage =
             window.location.pathname.startsWith("/ulice/");
 
@@ -180,6 +182,7 @@ function populateFilters() {
         updateCanonical("");
 
         renderMonthCalendar();
+        footerControls.style.display = 'none';
     });
 
     pdfYear.addEventListener("click", () => {
