@@ -1,9 +1,26 @@
 from collections.abc import Callable
+from enum import Enum
+from dataclasses import dataclass
 from datetime import datetime
 
-from icalendar import Calendar, Event
-
 from streets import *
+from utils import date_range
+
+
+class WasteType(Enum):
+    SMES = ("Směsný odpad", "generic")
+    PLAST = ("Plast", "plastics")
+    PAPIR = ("Papír", "paper")
+    BIO = ("Bioodpad", "bio")
+
+    def __init__(self, label: str, key: str):
+        self.label = label
+        self.key = key
+
+@dataclass(frozen=True)
+class CollectionEvent:
+    date: datetime
+    waste_type: WasteType
 
 class LokaceSvozu:
     """
@@ -16,113 +33,152 @@ class LokaceSvozu:
         included_dates (list[datetime]): Seznam datumů ve kterých svoz probíhá i když je pro ně vyhodnocen predicate na false
     """
 
-    def __init__(self, predicate: Callable[[datetime], bool], locations: list[str], exluded_dates: list[datetime] = [], included_dates: list[datetime] = []):
+    def __init__(self, predicate: Callable[[datetime], bool], locations: list[str], waste_type: WasteType, excluded_dates: list[datetime] | None = None, included_dates: list[datetime] | None = None):
         self.predicate = predicate
         self.locations = locations
-        self.exluded_dates = exluded_dates
-        self.included_dates = included_dates
+        self.excluded_dates = set(excluded_dates or [])
+        self.included_dates = set(included_dates or [])
+        self.waste_type = waste_type
+        self._events_cache = {}
+
+    def _is_date_active(self, date: datetime) -> bool:
+        if date in self.included_dates:
+            return True
+
+        if date in self.excluded_dates:
+            return False
+
+        return self.predicate(date)
 
     def is_collection_happening(self, date: datetime, street: str) -> bool:
         """
         Probiha svoz na street v danem date?
         """
-        return street in self.locations and ((self.predicate(date) and date not in self.exluded_dates) or date in self.included_dates)
+        return street in self.locations and self._is_date_active(date)
+
+
+    def get_events(
+        self,
+        date_start: datetime,
+        date_end: datetime
+    ) -> dict[str, list[CollectionEvent]]:
+        """
+        Ziska vsechna data jako jednotlive udalosti pro dane datum
+        """
+
+        cache_key = (date_start, date_end)
+        if cache_key in self._events_cache:
+            return self._events_cache[cache_key]
+
+        events: dict[str, list[CollectionEvent]] = {}
+
+        for date in date_range(date_start, date_end):
+            if not self._is_date_active(date):
+                continue
+
+            for street in self.locations:
+                events.setdefault(street, []).append(
+                    CollectionEvent(date, self.waste_type)
+                )
+
+        self._events_cache[cache_key] = events
+        return events
 
 
 lokace_svozu_plast = [
     #POZOR! kazdy prvni lichy a sudy tyden v mesici, ne kazdy sudy a lichy tyden jak rika letak s odpady! Barevna kolecka v letaku jsou OK.
-    LokaceSvozu(lambda date: week(date) % 4 == 3 and date.weekday() == 0, [location for location in litovel_lokace_plast_0 if location != 'Pavlínka']),
-    LokaceSvozu(lambda date: week(date) % 4 == 3 and date.weekday() == 0, 'Pavlínka', 
+    LokaceSvozu(lambda date: week(date) % 4 == 3 and date.weekday() == 0, [location for location in litovel_lokace_plast_0 if location != 'Pavlínka'], WasteType.PLAST),
+    LokaceSvozu(lambda date: week(date) % 4 == 3 and date.weekday() == 0, ['Pavlínka'], WasteType.PLAST, 
                                 [datetime(2025,11,17)], 
                                 [datetime(2025,11,18)]),
-    LokaceSvozu(lambda date: week(date) % 4 == 2 and date.weekday() == 0, litovel_lokace_plast_1, 
+    LokaceSvozu(lambda date: week(date) % 4 == 2 and date.weekday() == 0, litovel_lokace_plast_1, WasteType.PLAST, 
                                 [datetime(2025,5,26)], 
                                 [datetime(2025,5,27)]),
     #zacatek treti tyden v roce v pondeli, kazdy ctvrty tyden
     LokaceSvozu(lambda date: week(date) % 4 == 3 and date.weekday() == 0, 
-                                ['Březové', 'Chořelice', 'Nasobůrky', 'Víska', 'Rozvadovice', 'Unčovice'], 
+                                ['Březové', 'Chořelice', 'Nasobůrky', 'Víska', 'Rozvadovice', 'Unčovice'], WasteType.PLAST, 
                                 [datetime(2025,11,17)],
                                 [datetime(2025,11,20)]),
     #zacatek druhy tyden v roce v pondeli, kazdy ctvrty tyden
     LokaceSvozu(lambda date: week(date) % 4 == 2 and date.weekday() == 4,
-                                ['Savín', 'Nová Ves', 'Chudobín', 'Tři Dvory', 'Myslechovice'],
+                                ['Savín', 'Nová Ves', 'Chudobín', 'Tři Dvory', 'Myslechovice'], WasteType.PLAST, 
                                 [datetime(2025,7,25), datetime(2025,8,22), datetime(2025,9,19)],
                                 [datetime(2025,7,23), datetime(2025,8,20), datetime(2025,9,17)]),
 ]
 
 lokace_svozu_papir = [
     #kazdy ctvrty tyden v cele Litovli
-    LokaceSvozu(lambda date: week(date) % 4 == 0 and date.weekday() == 0, all_streets['Litovel'], 
+    LokaceSvozu(lambda date: week(date) % 4 == 0 and date.weekday() == 0, all_streets['Litovel'], WasteType.PAPIR,
                                 [datetime(2025,5,12)], 
                                 [datetime(2025,5,13)]),
     #zacatek paty tyden v roce v pondeli, kazdy paty tyden
-    LokaceSvozu(lambda date: week(date) % 4 == 1 and date.weekday() == 0, 'Březové', 
+    LokaceSvozu(lambda date: week(date) % 4 == 1 and date.weekday() == 0, ['Březové'], WasteType.PAPIR,
                                 [datetime(2025,4,21)], 
                                 [datetime(2025,4,24)]),
-    LokaceSvozu(lambda date: week(date) % 4 == 1 and date.weekday() == 0, 'Chořelice', 
+    LokaceSvozu(lambda date: week(date) % 4 == 1 and date.weekday() == 0, ['Chořelice'], WasteType.PAPIR,
                                 [datetime(2025,4,21)], 
                                 [datetime(2025,4,24)]),
-    LokaceSvozu(lambda date: week(date) % 4 == 1 and date.weekday() == 0, ['Nasobůrky', 'Víska'], 
+    LokaceSvozu(lambda date: week(date) % 4 == 1 and date.weekday() == 0, ['Nasobůrky', 'Víska'], WasteType.PAPIR,
                                 [datetime(2025,4,21)], 
                                 [datetime(2025,4,24)]),
-    LokaceSvozu(lambda date: week(date) % 4 == 1 and date.weekday() == 0, 'Rozvadovice', 
+    LokaceSvozu(lambda date: week(date) % 4 == 1 and date.weekday() == 0, ['Rozvadovice'], WasteType.PAPIR,
                                 [datetime(2025,4,21)], 
                                 [datetime(2025,4,24)]),
-    LokaceSvozu(lambda date: week(date) % 4 == 0 and date.weekday() == 4, ['Savín', 'Nová Ves', 'Chudobín', 'Tři Dvory', 'Myslechovice'],
+    LokaceSvozu(lambda date: week(date) % 4 == 0 and date.weekday() == 4, ['Savín', 'Nová Ves', 'Chudobín', 'Tři Dvory', 'Myslechovice'], WasteType.PAPIR,
                                 [datetime(2025,7,11), datetime(2025,8,8), datetime(2025,9,5)],
                                 [datetime(2025,7,9), datetime(2025,8,6),datetime(2025,9,3)]),
-    LokaceSvozu(lambda date: week(date) % 4 == 1 and date.weekday() == 0, 'Unčovice', 
+    LokaceSvozu(lambda date: week(date) % 4 == 1 and date.weekday() == 0, ['Unčovice'], WasteType.PAPIR,
                                 [datetime(2025,4,21)], 
                                 [datetime(2025,4,24)])
 ]
 
 lokace_svozu_smes = [
-    LokaceSvozu(lambda date: week(date) % 2 == 0 and date.weekday() == 0, litovel_lokace_smes_1,
+    LokaceSvozu(lambda date: week(date) % 2 == 0 and date.weekday() == 0, litovel_lokace_smes_1, WasteType.SMES,
                                 [datetime(2026,2,16)],
                                 [datetime(2026,2,17)]),
-    LokaceSvozu(lambda date: week(date) % 2 == 0 and date.weekday() == 3, litovel_lokace_smes_5),
-    LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 0, litovel_lokace_smes_0),
-    LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 1, litovel_lokace_smes_2),
-    LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 2, litovel_lokace_smes_3, 
+    LokaceSvozu(lambda date: week(date) % 2 == 0 and date.weekday() == 3, litovel_lokace_smes_5, WasteType.SMES),
+    LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 0, litovel_lokace_smes_0, WasteType.SMES),
+    LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 1, litovel_lokace_smes_2, WasteType.SMES),
+    LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 2, litovel_lokace_smes_3, WasteType.SMES, 
                                 [datetime(2025,1,1)],
                                 [datetime(2025,1,3)]),
-    LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 3, litovel_lokace_smes_4,
+    LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 3, litovel_lokace_smes_4, WasteType.SMES,
                                 [datetime(2026,1,1)],
                                 [datetime(2026,1,2)]),
-    LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 1, 'Březové'),
-    LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 0, 'Chořelice'),
-    LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 4, 'Myslechovice'),
-    LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 4, ['Nasobůrky', 'Víska']),
-    LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 0, 'Rozvadovice'),
-    LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 2, ['Savín', 'Nová Ves', 'Chudobín'], 
+    LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 1, ['Březové'], WasteType.SMES),
+    LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 0, ['Chořelice'], WasteType.SMES),
+    LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 4, ['Myslechovice'], WasteType.SMES),
+    LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 4, ['Nasobůrky', 'Víska'], WasteType.SMES),
+    LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 0, ['Rozvadovice'], WasteType.SMES),
+    LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 2, ['Savín', 'Nová Ves', 'Chudobín'], WasteType.SMES,  
                                 [datetime(2025,1,1)],
                                 [datetime(2025,1,3)]),
-    LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 2, 'Tři Dvory', 
+    LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 2, ['Tři Dvory'], WasteType.SMES,
                                 [datetime(2025,1,1)],
                                 [datetime(2025,1,3)]),
-    LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 1, 'Unčovice'),
-    LokaceSvozu(lambda date: False, 'Dukelská', [], [datetime(2025, 9, 11)])
+    LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 1, ['Unčovice'], WasteType.SMES),
+    LokaceSvozu(lambda date: False, 'Dukelská', WasteType.SMES, [], [datetime(2025, 9, 11)])
 ]
 
 lokace_svozu_bio = [
-    LokaceSvozu(lambda date: is_bio_collection_week(date) and date.weekday() == 3, litovel_lokace_bio_0),
-    LokaceSvozu(lambda date: is_bio_collection_week(date) and date.weekday() == 2, litovel_lokace_bio_1),
-    LokaceSvozu(lambda date: is_bio_collection_week(date) and date.weekday() == 3, 'Březové'),
-    LokaceSvozu(lambda date: is_bio_collection_week(date) and date.weekday() == 3, 'Rozvadovice'),
-    LokaceSvozu(lambda date: is_bio_collection_week(date) and date.weekday() == 3, 'Tři Dvory'),
-    LokaceSvozu(lambda date: is_bio_collection_week(date) and date.weekday() == 0, ['Nasobůrky', 'Víska'], 
+    LokaceSvozu(lambda date: is_bio_collection_week(date) and date.weekday() == 3, litovel_lokace_bio_0, WasteType.BIO),
+    LokaceSvozu(lambda date: is_bio_collection_week(date) and date.weekday() == 2, litovel_lokace_bio_1, WasteType.BIO),
+    LokaceSvozu(lambda date: is_bio_collection_week(date) and date.weekday() == 3, ['Březové'], WasteType.BIO),
+    LokaceSvozu(lambda date: is_bio_collection_week(date) and date.weekday() == 3, ['Rozvadovice'], WasteType.BIO),
+    LokaceSvozu(lambda date: is_bio_collection_week(date) and date.weekday() == 3, ['Tři Dvory'], WasteType.BIO),
+    LokaceSvozu(lambda date: is_bio_collection_week(date) and date.weekday() == 0, ['Nasobůrky', 'Víska'], WasteType.BIO, 
                                 [datetime(2025,4,21)],
                                 [datetime(2025,1,2), datetime(2025,4,25)]),
-    LokaceSvozu(lambda date: is_bio_collection_week(date) and date.weekday() == 0, 'Chořelice', 
+    LokaceSvozu(lambda date: is_bio_collection_week(date) and date.weekday() == 0, ['Chořelice'], WasteType.BIO,
                                 [datetime(2025,4,21)],
                                 [datetime(2025,1,2), datetime(2025,4,25)]),
-    LokaceSvozu(lambda date: is_bio_collection_week(date) and date.weekday() == 0, 'Myslechovice', 
+    LokaceSvozu(lambda date: is_bio_collection_week(date) and date.weekday() == 0, ['Myslechovice'], WasteType.BIO,
                                 [datetime(2025,4,21)],
                                 [datetime(2025,1,2), datetime(2025,4,25)]),
-    LokaceSvozu(lambda date: is_bio_collection_week(date) and date.weekday() == 0, ['Savín', 'Nová Ves', 'Chudobín'], 
+    LokaceSvozu(lambda date: is_bio_collection_week(date) and date.weekday() == 0, ['Savín', 'Nová Ves', 'Chudobín'], WasteType.BIO, 
                                 [datetime(2025,4,21)],
                                 [datetime(2025,1,2), datetime(2025,4,25)]),
-    LokaceSvozu(lambda date: is_bio_collection_week(date) and date.weekday() == 0, 'Unčovice', 
+    LokaceSvozu(lambda date: is_bio_collection_week(date) and date.weekday() == 0, ['Unčovice'], WasteType.BIO,
                                 [datetime(2025,4,21)],
                                 [datetime(2025,1,2), datetime(2025,4,25)])
 ]

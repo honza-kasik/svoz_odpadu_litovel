@@ -112,8 +112,8 @@ def build_fallback_table(generator, street):
     for event in events:
         rows += (
             f"<tr>"
-            f"<td>{event['date'].strftime('%d.%m.%Y')}</td>"
-            f"<td>{event['type_name']}</td>"
+            f"<td>{event.date.strftime('%d.%m.%Y')}</td>"
+            f"<td>{event.waste_type.label}</td>"
             f"</tr>\n"
         )
 
