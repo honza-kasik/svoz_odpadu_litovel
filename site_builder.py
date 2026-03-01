@@ -188,7 +188,7 @@ def build_related_streets_html(current_street, all_streets):
         )
 
     return (
-        '<p class="related-streets">'
+        '<p id="relatedStreets" class="related-streets">'
         'Další ulice: '
         + ' · '.join(links) +
         '</p>'

@@ -33,7 +33,7 @@ fetch('/waste_schedule.csv')
         renderMonthCalendar(filteredLocation);
 
         if (isKioskMode) {
-            ["mainHeader", "controls", "footerControls", "locationList"].forEach(id =>
+            ["mainHeader", "controls", "footerControls", "locationList", "subtitle", "relatedStreets"].forEach(id =>
                 document.getElementById(id).style.display = "none"
             )
         } else {
