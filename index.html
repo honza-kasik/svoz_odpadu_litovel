@@ -4,189 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kalendář svozu odpadu v Litovli</title>
-    <meta name="description" content="Získejte přehled o termínech svozu odpadu v Litovli. Jednoduchý a přehledný kalendář svozu bioodpadu, papíru, plastů a komunálního odpadu.">
+    <meta name="description" content="Termíny svozu odpadu v Litovli podle jednotlivých ulic. Možnost stažení PDF kalendáře pro konkrétní ulici.">
     <meta name="keywords" content="svoz odpadu, kalendář odpadu, bioodpad, papír, plasty, komunální odpad, svozové termíny, odpadové hospodářství, Litovel">
     <meta name="author" content="Honza Kašík">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://svoz.litovle.cz/">   
     <link rel="icon" type="image/png" href="/favicon.png">
     <meta property="og:image" content="https://svoz.litovle.cz/resources/screenshot.png" />
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-        h1 {
-            margin-top: 20px;
-            font-size: 1.8em;
-        }
-        .month-header {
-            margin-top: 10px;
-            font-size: 1.3em;
-            font-weight: bold;
-        }
-        .calendar-month {
-            display: table;
-            margin: 10px auto;
-            border-collapse: collapse;
-            width: 100%;
-            table-layout: fixed; /* Ensures even spacing of columns */
-        }
-        .calendar-month th, .calendar-month td {
-            padding: 8px;
-            border: 1px solid #ccc;
-            width: 12%;
-            height: 60px;
-            text-align: center;
-            vertical-align: top;
-            box-sizing: border-box;
-        }
-        .calendar-month .today {
-            background-color: lightgreen;
-            font-weight: bold;
-        }
-        .calendar-month .collection {
-            font-size: 0.7em;
-            margin-top: 3px;
-            border-radius: 5px;
-            padding: 3px;
-            color: #333;
-        }
-        .collection.bio {
-            background-color: #683200;
-            color: #fff;
-        }
-        .collection.generic {
-            background-color: #000000;
-            color: #fff;
-        }
-        .collection.plastics {
-            background-color: #fbff00; 
-        }
-        .collection.paper {
-            background-color: #0044ff;
-            color: #fff;
-        }
-        #info, #controls {
-            margin-top: 15px;
-            font-size: 1em;
-        }
-        #controls {
-            display: grid;
-            gap: 0.6rem;
-            max-width: 1000px;
-            margin-inline: auto; /* vystředění na větším displeji */
-            padding: 0 5px;
-            grid-template-columns: auto 40%; /* vše na jednom řádku ve dvou sloupcích */
-        }
-        #locationSearch {
-            width: 200px;
-        }
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown input {
-            width: 100%;
-            padding: 5px;
-            font-size: 0.9em;
-            box-sizing: border-box;
-        }
-
-        .dropdown-options {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            max-height: 150px;
-            overflow-y: auto;
-            border: 1px solid #ccc;
-            background-color: #fff;
-            z-index: 10;
-            display: none;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        .dropdown-options div {
-            padding: 5px;
-            cursor: pointer;
-            font-size: 0.9em;
-        }
-
-        .dropdown-options div:hover {
-            background-color: #f1f1f1;
-        }
-        .disclaimer {
-            font-size: 70%;
-        }
-        @media (max-width: 800px) {
-            h1 {
-                font-size: 1.5em;
-            }
-            .calendar-month th, .calendar-month td {
-                padding: 5px;
-                height: 50px;
-                font-size: 0.8em;
-            }
-            .collection {
-                font-size: 0.6em;
-            }
-            #controls {
-                max-width: 700px;
-                grid-template-columns: auto; /* jeden sloupec */
-            }
-        }
-        #footerControls {
-            gap: 10px;
-            margin: 10px;
-            display: none;
-        }
-        .button {
-            padding: 6px 12px;
-            background-color: #007bff;
-            color: #ffffff;
-            cursor: pointer;
-            border-radius: 4px;
-            user-select: none;
-            text-align: center;
-        }
-        .button:hover {
-            background-color: #0056b3;
-        }
-        #date-picker {
-            display: grid;
-            grid-template-columns: 3em 50% auto 3em;
-            gap: 0.3rem;
-            align-items: center;
-        }
-        #monthSelect, #yearSelect {
-            height: 100%;
-            text-align: center;
-        }
-        #date-picker button {
-            padding: 0.4rem 0.6rem;
-            border: 1px solid #ccc;
-            background: #f5f5f5;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-        #date-picker button:active {
-            background: #e0e0e0;
-        }
-        #location-picker {
-            display: grid;
-            grid-template-columns: auto 40%;
-            gap: 0.3rem;
-            align-items: center;
-        }
-        #locationSearch {
-            width: 100%;
-        }
-
-    </style>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
     <h1 id="mainHeader">Kalendář svozu odpadu v Litovli</h1>
@@ -212,287 +37,124 @@
         <div id="pdfMonth" class="button">PDF měsíc</div>
         <div id="copyLink" class="button">Zkopírovat URL ICS souboru do schránky</div>
     </div>
+
+    <div id="locationList">
+        <h2>Lokace v Litovli</h2>
+        <p>
+            Vyberte konkrétní ulici nebo místní část pro zobrazení termínů svozu.
+        </p>
+        <ul>
+        <li><a href="/ulice/1-maje/">1. máje</a></li>
+        <li><a href="/ulice/b-nemcove/">B. Němcové</a></li>
+        <li><a href="/ulice/bezrucova/">Bezručova</a></li>
+        <li><a href="/ulice/boskovicova/">Boskovicova</a></li>
+        <li><a href="/ulice/brezove/">Březové</a></li>
+        <li><a href="/ulice/cholinska/">Cholinská</a></li>
+        <li><a href="/ulice/chorelice/">Chořelice</a></li>
+        <li><a href="/ulice/chudobin/">Chudobín</a></li>
+        <li><a href="/ulice/druzstevni/">Družstevní</a></li>
+        <li><a href="/ulice/dukelska/">Dukelská</a></li>
+        <li><a href="/ulice/g-fristenskeho/">G. Frištenského</a></li>
+        <li><a href="/ulice/gemerska-rodinne-domy/">Gemerská - rodinné domy</a></li>
+        <li><a href="/ulice/gemerska-sidliste/">Gemerská - sídliště</a></li>
+        <li><a href="/ulice/havlickova/">Havlíčkova</a></li>
+        <li><a href="/ulice/hrncirska/">Hrnčířská</a></li>
+        <li><a href="/ulice/husova/">Husova</a></li>
+        <li><a href="/ulice/javoricska/">Javoříčská</a></li>
+        <li><a href="/ulice/jiraskova/">Jiráskova</a></li>
+        <li><a href="/ulice/jungmannova/">Jungmannova</a></li>
+        <li><a href="/ulice/karla-sedlaka-sidliste/">Karla Sedláka - sídliště</a></li>
+        <li><a href="/ulice/karlov/">Karlov</a></li>
+        <li><a href="/ulice/karlovska/">Karlovská</a></li>
+        <li><a href="/ulice/kollarova/">Kollárova</a></li>
+        <li><a href="/ulice/komenskeho/">Komenského</a></li>
+        <li><a href="/ulice/komarov/">Komárov</a></li>
+        <li><a href="/ulice/kosmonautu/">Kosmonautů</a></li>
+        <li><a href="/ulice/kostelni/">Kostelní</a></li>
+        <li><a href="/ulice/koupaliste/">Koupaliště</a></li>
+        <li><a href="/ulice/kralova/">Králova</a></li>
+        <li><a href="/ulice/kysucka/">Kysucká</a></li>
+        <li><a href="/ulice/lesni-zatisi/">Lesní zátiší</a></li>
+        <li><a href="/ulice/lidicka/">Lidická</a></li>
+        <li><a href="/ulice/losticka/">Loštická</a></li>
+        <li><a href="/ulice/luzni/">Lužní</a></li>
+        <li><a href="/ulice/masarykova/">Masarykova</a></li>
+        <li><a href="/ulice/mlynska/">Mlýnská</a></li>
+        <li><a href="/ulice/myslechovice/">Myslechovice</a></li>
+        <li><a href="/ulice/nasoburky/">Nasobůrky</a></li>
+        <li><a href="/ulice/nasoburska/">Nasobůrská</a></li>
+        <li><a href="/ulice/novosady-rodinne-domy/">Novosady - rodinné domy</a></li>
+        <li><a href="/ulice/novosady-sidliste/">Novosady - sídliště</a></li>
+        <li><a href="/ulice/nova/">Nová</a></li>
+        <li><a href="/ulice/nova-ves/">Nová Ves</a></li>
+        <li><a href="/ulice/nabrezni/">Nábřežní</a></li>
+        <li><a href="/ulice/nadrazni/">Nádražní</a></li>
+        <li><a href="/ulice/nam-pr-otakara/">Nám. Př. Otakara</a></li>
+        <li><a href="/ulice/olomoucka/">Olomoucká</a></li>
+        <li><a href="/ulice/opletalova/">Opletalova</a></li>
+        <li><a href="/ulice/palackeho/">Palackého</a></li>
+        <li><a href="/ulice/pavlinka/">Pavlínka</a></li>
+        <li><a href="/ulice/podebradova/">Poděbradova</a></li>
+        <li><a href="/ulice/polni/">Polní</a></li>
+        <li><a href="/ulice/posmylska/">Pošmýlská</a></li>
+        <li><a href="/ulice/pricna/">Příčná</a></li>
+        <li><a href="/ulice/revolucni/">Revoluční</a></li>
+        <li><a href="/ulice/revucka/">Revúcká</a></li>
+        <li><a href="/ulice/rozvadovice/">Rozvadovice</a></li>
+        <li><a href="/ulice/rybnicek/">Rybníček</a></li>
+        <li><a href="/ulice/sadova/">Sadová</a></li>
+        <li><a href="/ulice/savin/">Savín</a></li>
+        <li><a href="/ulice/severni/">Severní</a></li>
+        <li><a href="/ulice/severni-rodinne-domy/">Severní - rodinné domy</a></li>
+        <li><a href="/ulice/smyckova/">Smyčkova</a></li>
+        <li><a href="/ulice/sochova/">Sochova</a></li>
+        <li><a href="/ulice/sovova/">Sovova</a></li>
+        <li><a href="/ulice/staromestske-namesti/">Staroměstské náměstí</a></li>
+        <li><a href="/ulice/studentu/">Studentů</a></li>
+        <li><a href="/ulice/susilova/">Sušilova</a></li>
+        <li><a href="/ulice/svatoplukova/">Svatoplukova</a></li>
+        <li><a href="/ulice/ticha/">Tichá</a></li>
+        <li><a href="/ulice/trebizskeho/">Třebízského</a></li>
+        <li><a href="/ulice/tri-dvory/">Tři Dvory</a></li>
+        <li><a href="/ulice/tridvorska/">Třídvorská</a></li>
+        <li><a href="/ulice/u-stadionu/">U Stadionu</a></li>
+        <li><a href="/ulice/unicovska/">Uničovská</a></li>
+        <li><a href="/ulice/unicovska-sidliste/">Uničovská - sídliště</a></li>
+        <li><a href="/ulice/uncovice/">Unčovice</a></li>
+        <li><a href="/ulice/vlasimova/">Vlašímova</a></li>
+        <li><a href="/ulice/vodni/">Vodní</a></li>
+        <li><a href="/ulice/viska/">Víska</a></li>
+        <li><a href="/ulice/vitezna/">Vítězná</a></li>
+        <li><a href="/ulice/vitezna/">Vítězná</a></li>
+        <li><a href="/ulice/vitezna-sidliste/">Vítězná - sídliště</a></li>
+        <li><a href="/ulice/wolkerova/">Wolkerova</a></li>
+        <li><a href="/ulice/zahradni/">Zahradní</a></li>
+        <li><a href="/ulice/nam-svobody/">nám. Svobody</a></li>
+        <li><a href="/ulice/cervenska/">Červenská</a></li>
+        <li><a href="/ulice/cihadlo/">Čihadlo</a></li>
+        <li><a href="/ulice/cs-armady/">Čs. armády</a></li>
+        <li><a href="/ulice/safarikova/">Šafaříkova</a></li>
+        <li><a href="/ulice/sargounska/">Šargounská</a></li>
+        <li><a href="/ulice/semberova/">Šemberova</a></li>
+        <li><a href="/ulice/serhovni/">Šerhovní</a></li>
+        <li><a href="/ulice/smakalova/">Šmakalova</a></li>
+        <li><a href="/ulice/stefanikova/">Štefánikova</a></li>
+        <li><a href="/ulice/svermova/">Švermova</a></li>
+        <li><a href="/ulice/svedska/">Švédská</a></li>
+        <li><a href="/ulice/zerotinova/">Žerotínova</a></li>
+
+        </ul>
+    </div>
+
     <p class="disclaimer">
         Kalendář je <a href="https://github.com/honza-kasik/svoz_odpadu_litovel" target="_blank" rel="noopener">nezávislý projekt</a>,
         který vytvořil a spravuje <a href="https://honzakasik.cz" target="_blank" rel="noopener">Honza Kašík</a>. Zdrojová data poskytuje Město Litovel.
         <a href="docs/synchronizace-notifikace.html">Návod na notifikace a synchronizaci.</a>
     </p>
 
-    <script>
-        const WASTE_TYPES = {
-            bio: 'Bio odpad',
-            generic: 'Směsný odpad',
-            plastics: 'Plasty',
-            paper: 'Papír'
-        };
 
-        let wasteSchedule = [];
-        let uniqueLocations = [];
-        let filteredLocation = "";
-        let selectedYear = new Date().getFullYear();
-        let selectedMonth = new Date().getMonth(); //returns index - January is 0, December is 11
-
-        const urlParams = new URLSearchParams(window.location.search);
-        const isKioskMode = urlParams.get('kiosk'); //hide header and footer controls?
-        const initialLocation = urlParams.get('location'); //pre-set location in URL
-
-        const MONTHS = ["Leden", "Únor", "Březen", "Duben", "Květen", "Červen", "Červenec", "Srpen", "Září", "Říjen", "Listopad", "Prosinec"];
-        const DAYS = ['Po', 'Út', 'St', 'Čt', 'Pá', 'So', 'Ne'];
-
-        fetch('waste_schedule.csv')
-            .then(response => response.text())
-            .then(csv => {
-                parseCSV(csv);
-                uniqueLocations = [...new Set(wasteSchedule.map(entry => entry.location).filter(loc => loc))];
-                updateDataForInitialLocation(initialLocation, uniqueLocations);
-                renderMonthCalendar(filteredLocation);
-                if (isKioskMode) {
-                    //don't display header if we're running in the kiosk mode
-                    ["mainHeader", "controls", "footerControls"].forEach(id =>
-                        document.getElementById(id).style.display = "none"
-                    )
-                } else {
-                    populateFilters();
-                }
-            });
-
-        function parseCSV(csv) {
-            const lines = csv.split('\n');
-            wasteSchedule = lines.map(line => {
-                const [date, type, location] = line.split(',');
-                if (!date || !type) return null; // Skip invalid lines
-                return { date: date.trim(), type: type.trim().toLowerCase(), location: location ? location.trim() : '' };
-            }).filter(entry => entry);
-        }
-
-        function populateFilters() {
-            const monthSelect = document.getElementById('monthSelect');
-            const prevMonth = document.getElementById('prevMonth');
-            const nextMonth = document.getElementById('nextMonth');
-            const yearSelect = document.getElementById('yearSelect');
-            const locationSearch = document.getElementById('locationSearch');
-            const locationOptions = document.getElementById('locationOptions');
-            const copyLink = document.getElementById('copyLink');
-            const footerControls = document.getElementById('footerControls');
-            const pdfYear = document.getElementById('pdfYear');
-            const pdfMonth = document.getElementById('pdfMonth');
-            const currentYear = new Date().getFullYear();
-
-            MONTHS.forEach((month, index) => {
-                const option = document.createElement('option');
-                option.value = index;
-                option.textContent = month;
-                if (index === selectedMonth) option.selected = true;
-                monthSelect.appendChild(option);
-            });
-
-            for (let i = currentYear; i <= currentYear + 1; i++) {
-                const option = document.createElement('option');
-                option.value = i;
-                option.textContent = i;
-                if (i === selectedYear) option.selected = true;
-                yearSelect.appendChild(option);
-            }
-            
-            function renderLocationOptions(query = "", forceDisplayNone = false) {
-                locationOptions.innerHTML = "";
-                const filtered = uniqueLocations.filter(loc => loc.toLowerCase().includes(query.toLowerCase()));
-                filtered.forEach(location => {
-                    const optionDiv = document.createElement('div');
-                    optionDiv.textContent = location;
-                    optionDiv.addEventListener('click', () => {
-                        filteredLocation = location;
-                        locationSearch.value = location;
-                        locationOptions.style.display = 'none';
-                        renderMonthCalendar(filteredLocation);
-                        updateLocationUrlParam(location);
-                        footerControls.style.display = 'flex';
-                        copyLink.setAttribute('data-url', `${window.location.origin}/calendars/${encodeURIComponent(location)}.ics`);
-                    });
-                    locationOptions.appendChild(optionDiv);
-                });
-                locationOptions.style.display = (filtered.length > 0 && !forceDisplayNone) ? "block" : "none";
-            }
-
-            locationSearch.addEventListener('input', (e) => {
-                renderLocationOptions(query = e.target.value, forceDisplayNone = false);
-            });
-
-            locationSearch.addEventListener('click', (e) => {
-                renderLocationOptions(query = "", forceDisplayNone = false);
-            });
-
-            document.addEventListener('click', (e) => {
-                if (!e.target.closest('#locationDropdown')) {
-                    locationOptions.style.display = 'none';
-                }
-            });
-
-            monthSelect.addEventListener('change', (e) => {
-                selectedMonth = parseInt(e.target.value);
-                renderMonthCalendar(filteredLocation);
-            });
-
-            prevMonth.addEventListener('click', () => {
-                month = selectedMonth;
-                year = selectedYear;
-                month--;
-                if (month < 0) {
-                    month = 11;
-                    year--;
-                }
-                selectedMonth = month;
-                monthSelect.value = selectedMonth;
-                selectedYear = year;
-                yearSelect.value = selectedYear;
-                renderMonthCalendar(filteredLocation)
-            });
-
-            nextMonth.addEventListener('click', () => {
-                month = selectedMonth;
-                year = selectedYear;
-                month++;
-                if (month > 11) {
-                    month = 0;
-                    year++;
-                }
-                selectedMonth = month;
-                monthSelect.value = selectedMonth;
-                selectedYear = year;
-                yearSelect.value = selectedYear;
-                renderMonthCalendar(filteredLocation)
-            });
-
-            yearSelect.addEventListener('change', (e) => {
-                selectedYear = parseInt(e.target.value);
-                renderMonthCalendar(filteredLocation);
-            });
-
-
-            resetFilter.addEventListener('click', () => {
-                filteredLocation = "";
-                locationSearch.value = "";
-                updateLocationUrlParam("")
-                renderMonthCalendar();
-                footerControls.style.display = 'none';
-            });
-
-            pdfYear.addEventListener("click", () => {
-                generateWasteCalendarPDF(wasteSchedule.filter(entry => entry.location === filteredLocation), selectedYear, null, filteredLocation);
-            });
-
-            pdfMonth.addEventListener("click", () => {
-                generateWasteCalendarPDF(wasteSchedule.filter(entry => entry.location === filteredLocation), selectedYear, selectedMonth, filteredLocation);
-            });
-
-            copyLink.addEventListener('click', (e) => {
-                e.preventDefault();
-                const icsUrl = copyLink.getAttribute('data-url');
-                navigator.clipboard.writeText(icsUrl).then(() => {
-                        console.log("URL " + icsUrl + " copied to clipboard.")
-                    }).catch(err => {
-                        console.error('Clipboard API failed:', err);
-                    });
-                }
-            );
-
-            //on first render with initial location no options will be shown
-            renderLocationOptions(query = "", forceDisplayNone = initialLocation);
-        }
-
-        //render month calendar for given location
-        function renderMonthCalendar(renderedLocation = "") {
-            const calendarContainer = document.getElementById('calendarContainer');
-            calendarContainer.innerHTML = '';
-            const today = new Date();
-            const daysInMonth = new Date(selectedYear, selectedMonth + 1, 0).getDate();
-            const firstDay = (new Date(selectedYear, selectedMonth, 1).getDay() + 6) % 7; // Monday-start adjustment
-
-            const table = document.createElement('table');
-            table.className = 'calendar-month';
-
-            const headerRow = document.createElement('tr');
-            DAYS.forEach(day => {
-                const th = document.createElement('th');
-                th.textContent = day;
-                headerRow.appendChild(th);
-            });
-            table.appendChild(headerRow);
-
-            let row = document.createElement('tr');
-            for (let i = 0; i < firstDay; i++) {
-                row.appendChild(document.createElement('td'));
-            }
-
-            for (let day = 1; day <= daysInMonth; day++) {
-                const cell = document.createElement('td');
-                const dateKey = `${selectedYear}-${(selectedMonth + 1).toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
-                cell.textContent = day;
-
-                const matchingEntries = wasteSchedule.filter(entry => entry.date === dateKey);
-
-                // Group entries by type when filtering is NOT applied
-                const groupedEntries = {};
-                matchingEntries.forEach(entry => {
-                    if (!renderedLocation || entry.location === renderedLocation) {
-                        if (!groupedEntries[entry.type]) {
-                            groupedEntries[entry.type] = new Set();
-                        }
-                        groupedEntries[entry.type].add(entry.location);
-                    }
-                });
-
-                // Render grouped entries
-                for (const [type, locations] of Object.entries(groupedEntries)) {
-                    const collectionDiv = document.createElement('div');
-                    collectionDiv.className = `collection ${type}`;
-                    const locationText = renderedLocation 
-                        ? Array.from(locations).join(', ') // Show exact location if filtered
-                        : `(${locations.size} lokací)`; // Summary when no filtering is applied
-                    collectionDiv.textContent = `${WASTE_TYPES[type]} ${locationText}`;
-                    cell.appendChild(collectionDiv);
-                }
-
-                if (day === today.getDate() && selectedYear === today.getFullYear() && selectedMonth === today.getMonth()) {
-                    cell.classList.add('today');
-                }
-                row.appendChild(cell);
-
-                if ((firstDay + day) % 7 === 0) {
-                    table.appendChild(row);
-                    row = document.createElement('tr');
-                }
-            }
-            table.appendChild(row);
-            calendarContainer.appendChild(table);
-        }
-
-        function updateDataForInitialLocation(initialLocation, uniqueLocations) {
-            //also check whether the location is recognized to prevent unexpected
-            if (initialLocation && uniqueLocations.includes(initialLocation)) {
-                filteredLocation = initialLocation;
-                locationSearch.value = initialLocation;
-                updateLocationUrlParam(initialLocation);
-                copyLink.setAttribute('data-url', `${window.location.origin}/calendars/${encodeURIComponent(initialLocation)}.ics`);
-                footerControls.style.display = 'flex';
-            } else if (initialLocation) {
-                updateLocationUrlParam(""); //invalid location, reset query parameter
-            }
-
-        }
-
-        function updateLocationUrlParam(location) {
-            const url = new URL(window.location);
-            if (location) {
-                url.searchParams.set('location', location);
-            } else {
-                url.searchParams.delete('location');
-            }
-            window.history.replaceState({}, '', url);
-        }
-        
-    </script>
-    <script async src="pdf_generator.js"></script>
+    <script async src="/js/app.js"></script>
+    <script async src="/js/pdf_generator.js"></script>
     <!-- 100% privacy-first analytics -->
     <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
 </body>

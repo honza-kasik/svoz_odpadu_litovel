@@ -1,0 +1,383 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+h1 {
+    margin-top: 20px;
+    font-size: 1.8em;
+}
+.month-header {
+    margin-top: 10px;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+.calendar-month {
+    display: table;
+    margin: 10px auto;
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed; /* Ensures even spacing of columns */
+}
+.calendar-month th, .calendar-month td {
+    padding: 8px;
+    border: 1px solid #ccc;body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+h1 {
+    margin-top: 20px;
+    font-size: 1.8em;
+}
+.month-header {
+    margin-top: 10px;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+.calendar-month {
+    display: table;
+    margin: 10px auto;
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed; /* Ensures even spacing of columns */
+}
+.calendar-month th, .calendar-month td {
+    padding: 8px;
+    border: 1px solid #ccc;
+    width: 12%;
+    height: 60px;
+    text-align: center;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+.calendar-month .today {
+    background-color: lightgreen;
+    font-weight: bold;
+}
+.calendar-month .collection {
+    font-size: 0.7em;
+    margin-top: 3px;
+    border-radius: 5px;
+    padding: 3px;
+    color: #333;
+}
+.collection.bio {
+    background-color: #683200;
+    color: #fff;
+}
+.collection.generic {
+    background-color: #000000;
+    color: #fff;
+}
+.collection.plastics {
+    background-color: #fbff00; 
+}
+.collection.paper {
+    background-color: #0044ff;
+    color: #fff;
+}
+#info, #controls {
+    margin-top: 15px;
+    font-size: 1em;
+}
+#controls {
+    display: grid;
+    gap: 0.6rem;
+    max-width: 1000px;
+    margin-inline: auto; /* vystředění na větším displeji */
+    padding: 0 5px;
+    grid-template-columns: auto 40%; /* vše na jednom řádku ve dvou sloupcích */
+}
+#locationSearch {
+    width: 200px;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown input {
+    width: 100%;
+    padding: 5px;
+    font-size: 0.9em;
+    box-sizing: border-box;
+}
+
+.dropdown-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: 150px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    z-index: 10;
+    display: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-options div {
+    padding: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.dropdown-options div:hover {
+    background-color: #f1f1f1;
+}
+.disclaimer {
+    font-size: 70%;
+}
+@media (max-width: 800px) {
+    h1 {
+        font-size: 1.5em;
+    }
+    .calendar-month th, .calendar-month td {
+        padding: 5px;
+        height: 50px;
+        font-size: 0.8em;
+    }
+    .collection {
+        font-size: 0.6em;
+    }
+    #controls {
+        max-width: 700px;
+        grid-template-columns: auto; /* jeden sloupec */
+    }
+}
+#footerControls {
+    gap: 10px;
+    margin: 10px;
+    display: none;
+}
+.button {
+    padding: 6px 12px;
+    background-color: #007bff;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 4px;
+    user-select: none;
+    text-align: center;
+}
+.button:hover {
+    background-color: #0056b3;
+}
+#date-picker {
+    display: grid;
+    grid-template-columns: 3em 50% auto 3em;
+    gap: 0.3rem;
+    align-items: center;
+}
+#monthSelect, #yearSelect {
+    height: 100%;
+    text-align: center;
+}
+#date-picker button {
+    padding: 0.4rem 0.6rem;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    border-radius: 6px;
+    cursor: pointer;
+}
+#date-picker button:active {
+    background: #e0e0e0;
+}
+#location-picker {
+    display: grid;
+    grid-template-columns: auto 40%;
+    gap: 0.3rem;
+    align-items: center;
+}
+#locationSearch {
+    width: 100%;
+}
+
+
+    width: 12%;
+    height: 60px;
+    text-align: center;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+.calendar-month .today {
+    background-color: lightgreen;
+    font-weight: bold;
+}
+.calendar-month .collection {
+    font-size: 0.7em;
+    margin-top: 3px;
+    border-radius: 5px;
+    padding: 3px;
+    color: #333;
+}
+.collection.bio {
+    background-color: #683200;
+    color: #fff;
+}
+.collection.generic {
+    background-color: #000000;
+    color: #fff;
+}
+.collection.plastics {
+    background-color: #fbff00; 
+}
+.collection.paper {
+    background-color: #0044ff;
+    color: #fff;
+}
+#info, #controls {
+    margin-top: 15px;
+    font-size: 1em;
+}
+#controls {
+    display: grid;
+    gap: 0.6rem;
+    max-width: 1000px;
+    margin-inline: auto; /* vystředění na větším displeji */
+    padding: 0 5px;
+    grid-template-columns: auto 40%; /* vše na jednom řádku ve dvou sloupcích */
+}
+#locationSearch {
+    width: 200px;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown input {
+    width: 100%;
+    padding: 5px;
+    font-size: 0.9em;
+    box-sizing: border-box;
+}
+
+.dropdown-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: 150px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    z-index: 10;
+    display: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-options div {
+    padding: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.dropdown-options div:hover {
+    background-color: #f1f1f1;
+}
+.disclaimer {
+    font-size: 70%;
+}
+@media (max-width: 800px) {
+    h1 {
+        font-size: 1.5em;
+    }
+    .calendar-month th, .calendar-month td {
+        padding: 5px;
+        height: 50px;
+        font-size: 0.8em;
+    }
+    .collection {
+        font-size: 0.6em;
+    }
+    #controls {
+        max-width: 700px;
+        grid-template-columns: auto; /* jeden sloupec */
+    }
+}
+#footerControls {
+    gap: 10px;
+    margin: 10px;
+    display: none;
+}
+.button {
+    padding: 6px 12px;
+    background-color: #007bff;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 4px;
+    user-select: none;
+    text-align: center;
+}
+.button:hover {
+    background-color: #0056b3;
+}
+#date-picker {
+    display: grid;
+    grid-template-columns: 3em 50% auto 3em;
+    gap: 0.3rem;
+    align-items: center;
+}
+#monthSelect, #yearSelect {
+    height: 100%;
+    text-align: center;
+}
+#date-picker button {
+    padding: 0.4rem 0.6rem;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    border-radius: 6px;
+    cursor: pointer;
+}
+#date-picker button:active {
+    background: #e0e0e0;
+}
+#location-picker {
+    display: grid;
+    grid-template-columns: auto 40%;
+    gap: 0.3rem;
+    align-items: center;
+}
+#locationSearch {
+    width: 100%;
+}
+#seoFallback {
+    display: block;
+}
+
+.js #seoFallback {
+    display: none;
+}
+
+
+#locationList {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 10px;
+    font-size: 0.9em;
+}
+
+#locationList ul {
+    column-width: 160px;   /* automatické sloupce */
+    column-gap: 30px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#locationList li {
+    margin-bottom: 6px;
+}
+
+#locationList a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#locationList a:hover {
+    text-decoration: underline;
+}

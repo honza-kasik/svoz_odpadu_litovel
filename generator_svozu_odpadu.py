@@ -15,12 +15,19 @@ def main():
                                                                     lokace_svozu_bio)
     # csv soubor
     generator.generate_csv_file(
-        all_streets['Litovel'] + mistni_casti, date_start, date_end)
-    # ics soubory
-    for location in all_streets['Litovel'] + mistni_casti:
-        generator.generate_ical_file(
-            location, "calendars", date_start, date_end)
+        all_streets['Litovel'] + mistni_casti, date_start, date_end)        
+    
+    for street in all_streets['Litovel'] + mistni_casti:
+        generator.generate_ical_file(street, "calendars", date_start, date_end)
+        generator.generate_html_file(street, "ulice", date_start, date_end)
 
+
+    generator.generate_location_list_html(
+        all_streets['Litovel'] + mistni_casti,
+        "location_list.html"
+    )
+
+    generator.generate_sitemap(all_streets['Litovel'] + mistni_casti, "sitemap.xml")
 
 if __name__ == "__main__":
     main()
