@@ -3,14 +3,6 @@ from datetime import datetime, timedelta
 from icalendar import Calendar, Event
 
 from lokace_svozu import LokaceSvozu, CollectionEvent
-from streets import all_streets
-
-
-def date_range(start_date: datetime, end_date: datetime):
-    days = int((end_date - start_date).days)
-    for n in range(days):
-        yield start_date + timedelta(n)
-
 
 class WasteCollectionCalendarGenerator:
     """
@@ -56,23 +48,18 @@ class WasteCollectionCalendarGenerator:
         }
 
         for lokace in all_lokace:
-
             lokace_events = lokace.get_events(date_start, date_end)
-
             for street, events in lokace_events.items():
-
                 if street not in event_cache:
                     continue  # safety
-
                 event_cache[street].extend(events)
 
         # deterministic ordering (important for static output)
         for street in event_cache:
-            event_cache[street].sort(
-                key=lambda e: (e.date, e.waste_type.name)
-            )
+            event_cache[street].sort(key=lambda e: (e.date, e.waste_type.name))
 
         return event_cache
+
 
     def get_events_for_street(self, street):
         return self._event_cache[street]
