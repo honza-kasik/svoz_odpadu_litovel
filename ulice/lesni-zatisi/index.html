@@ -1,182 +1,207 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Svoz odpadu Litovel – Lesní zátiší</title>
-<meta name="description" id="metaDescription" content="Termíny svozu odpadu pro ulici Lesní zátiší v Litovli.">
+    <title>Svoz odpadu Litovel – Lesní zátiší</title>
+    <meta name="description" id="metaDescription" content="Termíny svozu odpadu pro ulici Lesní zátiší v Litovli.">
+    <meta name="author" content="Honza Kašík">
+    <meta name="robots" content="index, follow">
 
-<link rel="canonical" id="canonicalLink" href="https://svoz.litovle.cz/ulice/lesni-zatisi/">
+    <link rel="canonical" id="canonicalLink" href="https://svoz.litovle.cz/ulice/lesni-zatisi/">
+    <link rel="icon" type="image/png" href="/favicon.png">
 
-<link rel="stylesheet" href="/styles.css">
-<link rel="icon" type="image/png" href="/favicon.png">
+    <meta property="og:title" content="Svoz odpadu Litovel – Lesní zátiší">
+    <meta property="og:description" content="Termíny svozu odpadu pro ulici Lesní zátiší v Litovli.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://svoz.litovle.cz/ulice/lesni-zatisi/">
+    <meta property="og:image" content="https://svoz.litovle.cz/resources/screenshot.png">
 
-<meta property="og:title" content="Svoz odpadu Litovel – Lesní zátiší">
-<meta property="og:description" content="Termíny svozu odpadu pro ulici Lesní zátiší v Litovli.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://svoz.litovle.cz/ulice/lesni-zatisi/">
-<script>
-document.documentElement.classList.add("js");
-</script>
+    <link rel="stylesheet" href="/styles.css">
+
+    <!-- zabrání probliknutí SEO fallbacku -->
+    <script>
+        document.documentElement.classList.add("js");
+    </script>
 </head>
 
 <body>
 
-<h1 id="mainHeader">Svoz odpadu Litovel – Lesní zátiší</h1>
+    <h1 id="mainHeader">Svoz odpadu Litovel – Lesní zátiší</h1>
 
-<div id="controls">
-    <div id="date-picker">
-        <button type="button" id="prevMonth" aria-label="Předchozí měsíc">◀</button>
-        <select id="monthSelect" aria-label="Měsíc"></select>
-        <select id="yearSelect" aria-label="Rok"></select>
-        <button type="button" id="nextMonth" aria-label="Další měsíc">▶</button>
-    </div>
-    <div id="location-picker">
-        <div id="locationDropdown" class="dropdown">
-            <input type="text" id="locationSearch" placeholder="Vyhledat lokaci..." autocomplete="off">
-            <div id="locationOptions" class="dropdown-options"></div>
+    <div id="controls">
+        <div id="date-picker">
+            <button type="button" id="prevMonth" aria-label="Předchozí měsíc">◀</button>
+            <select id="monthSelect" aria-label="Měsíc"></select>
+            <select id="yearSelect" aria-label="Rok"></select>
+            <button type="button" id="nextMonth" aria-label="Další měsíc">▶</button>
         </div>
-        <div id="resetFilter" class="button">Všechny lokace</div>
+
+        <div id="location-picker">
+            <div id="locationDropdown" class="dropdown">
+                <input type="text"
+                       id="locationSearch"
+                       placeholder="Vyhledat lokaci..."
+                       autocomplete="off">
+                <div id="locationOptions" class="dropdown-options"></div>
+            </div>
+
+            <div id="resetFilter" class="button">
+                Všechny lokace
+            </div>
+        </div>
     </div>
-</div>
-<div id="calendarContainer"></div>
-<div id="info"></div>
-<div id="footerControls">
-    <div id="pdfYear" class="button">PDF rok</div>
-    <div id="pdfMonth" class="button">PDF měsíc</div>
-    <div id="copyLink" class="button">Zkopírovat URL ICS souboru do schránky</div>
-</div>
 
-<!-- SEO fallback (pro roboty bez JS) -->
-<div id="seoFallback">
-    <h2>Termíny svozu pro ulici Lesní zátiší v roce 2025–2026</h2>
-    <table>
-        <tr>
-            <th>Datum</th>
-            <th>Typ odpadu</th>
-        </tr>
-        <tr><td>2025-01-06 00:00:00</td><td>Plast</td></tr>
-<tr><td>2025-01-20 00:00:00</td><td>Papír</td></tr>
-<tr><td>2025-01-29 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-02-03 00:00:00</td><td>Plast</td></tr>
-<tr><td>2025-02-17 00:00:00</td><td>Papír</td></tr>
-<tr><td>2025-02-26 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-03-03 00:00:00</td><td>Plast</td></tr>
-<tr><td>2025-03-12 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-03-17 00:00:00</td><td>Papír</td></tr>
-<tr><td>2025-03-26 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-03-31 00:00:00</td><td>Plast</td></tr>
-<tr><td>2025-04-09 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-04-14 00:00:00</td><td>Papír</td></tr>
-<tr><td>2025-04-23 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-04-28 00:00:00</td><td>Plast</td></tr>
-<tr><td>2025-05-07 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-05-13 00:00:00</td><td>Papír</td></tr>
-<tr><td>2025-05-21 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-05-27 00:00:00</td><td>Plast</td></tr>
-<tr><td>2025-06-04 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-06-09 00:00:00</td><td>Papír</td></tr>
-<tr><td>2025-06-18 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-06-23 00:00:00</td><td>Plast</td></tr>
-<tr><td>2025-07-02 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-07-07 00:00:00</td><td>Papír</td></tr>
-<tr><td>2025-07-16 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-07-21 00:00:00</td><td>Plast</td></tr>
-<tr><td>2025-07-30 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-08-04 00:00:00</td><td>Papír</td></tr>
-<tr><td>2025-08-13 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-08-18 00:00:00</td><td>Plast</td></tr>
-<tr><td>2025-08-27 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-09-01 00:00:00</td><td>Papír</td></tr>
-<tr><td>2025-09-10 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-09-15 00:00:00</td><td>Plast</td></tr>
-<tr><td>2025-09-24 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-09-29 00:00:00</td><td>Papír</td></tr>
-<tr><td>2025-10-08 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-10-13 00:00:00</td><td>Plast</td></tr>
-<tr><td>2025-10-22 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-10-27 00:00:00</td><td>Papír</td></tr>
-<tr><td>2025-11-05 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-11-10 00:00:00</td><td>Plast</td></tr>
-<tr><td>2025-11-19 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-11-24 00:00:00</td><td>Papír</td></tr>
-<tr><td>2025-12-03 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-12-08 00:00:00</td><td>Plast</td></tr>
-<tr><td>2025-12-22 00:00:00</td><td>Papír</td></tr>
-<tr><td>2026-01-05 00:00:00</td><td>Plast</td></tr>
-<tr><td>2026-01-19 00:00:00</td><td>Papír</td></tr>
-<tr><td>2026-01-21 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-02-02 00:00:00</td><td>Plast</td></tr>
-<tr><td>2026-02-16 00:00:00</td><td>Papír</td></tr>
-<tr><td>2026-02-18 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-03-02 00:00:00</td><td>Plast</td></tr>
-<tr><td>2026-03-04 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-03-16 00:00:00</td><td>Papír</td></tr>
-<tr><td>2026-03-18 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-03-30 00:00:00</td><td>Plast</td></tr>
-<tr><td>2026-04-01 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-04-13 00:00:00</td><td>Papír</td></tr>
-<tr><td>2026-04-15 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-04-27 00:00:00</td><td>Plast</td></tr>
-<tr><td>2026-04-29 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-05-11 00:00:00</td><td>Papír</td></tr>
-<tr><td>2026-05-13 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-05-25 00:00:00</td><td>Plast</td></tr>
-<tr><td>2026-05-27 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-06-08 00:00:00</td><td>Papír</td></tr>
-<tr><td>2026-06-10 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-06-22 00:00:00</td><td>Plast</td></tr>
-<tr><td>2026-06-24 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-07-06 00:00:00</td><td>Papír</td></tr>
-<tr><td>2026-07-08 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-07-20 00:00:00</td><td>Plast</td></tr>
-<tr><td>2026-07-22 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-08-03 00:00:00</td><td>Papír</td></tr>
-<tr><td>2026-08-05 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-08-17 00:00:00</td><td>Plast</td></tr>
-<tr><td>2026-08-19 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-08-31 00:00:00</td><td>Papír</td></tr>
-<tr><td>2026-09-02 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-09-14 00:00:00</td><td>Plast</td></tr>
-<tr><td>2026-09-16 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-09-28 00:00:00</td><td>Papír</td></tr>
-<tr><td>2026-09-30 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-10-12 00:00:00</td><td>Plast</td></tr>
-<tr><td>2026-10-14 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-10-26 00:00:00</td><td>Papír</td></tr>
-<tr><td>2026-10-28 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-11-09 00:00:00</td><td>Plast</td></tr>
-<tr><td>2026-11-11 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-11-23 00:00:00</td><td>Papír</td></tr>
-<tr><td>2026-11-25 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-12-07 00:00:00</td><td>Plast</td></tr>
-<tr><td>2026-12-21 00:00:00</td><td>Papír</td></tr>
+    <div id="calendarContainer"></div>
+    <div id="info"></div>
 
-    </table>
-</div>
+    <div id="footerControls">
+        <div id="pdfYear" class="button">PDF rok</div>
+        <div id="pdfMonth" class="button">PDF měsíc</div>
+        <div id="copyLink" class="button">
+            Zkopírovat URL ICS souboru do schránky
+        </div>
+    </div>
 
-<p class="disclaimer">
-    Kalendář je
-    <a href="https://github.com/honza-kasik/svoz_odpadu_litovel"
-       target="_blank" rel="noopener">
-       nezávislý projekt
-    </a>,
-    který vytvořil a spravuje
-    <a href="https://honzakasik.cz"
-       target="_blank" rel="noopener">
-       Honza Kašík
-    </a>.
-    Zdrojová data poskytuje Město Litovel.
-</p>
+    <!-- SEO fallback (jen pokud JS neběží) -->
+    <div id="seoFallback">
+        
+<h2>Termíny svozu</h2>
+<table>
+<tr><th>Datum</th><th>Typ odpadu</th></tr>
+<tr><td>06.01.2025</td><td>Plast</td></tr>
+<tr><td>20.01.2025</td><td>Papír</td></tr>
+<tr><td>29.01.2025</td><td>Bioodpad</td></tr>
+<tr><td>03.02.2025</td><td>Plast</td></tr>
+<tr><td>17.02.2025</td><td>Papír</td></tr>
+<tr><td>26.02.2025</td><td>Bioodpad</td></tr>
+<tr><td>03.03.2025</td><td>Plast</td></tr>
+<tr><td>12.03.2025</td><td>Bioodpad</td></tr>
+<tr><td>17.03.2025</td><td>Papír</td></tr>
+<tr><td>26.03.2025</td><td>Bioodpad</td></tr>
+<tr><td>31.03.2025</td><td>Plast</td></tr>
+<tr><td>09.04.2025</td><td>Bioodpad</td></tr>
+<tr><td>14.04.2025</td><td>Papír</td></tr>
+<tr><td>23.04.2025</td><td>Bioodpad</td></tr>
+<tr><td>28.04.2025</td><td>Plast</td></tr>
+<tr><td>07.05.2025</td><td>Bioodpad</td></tr>
+<tr><td>13.05.2025</td><td>Papír</td></tr>
+<tr><td>21.05.2025</td><td>Bioodpad</td></tr>
+<tr><td>27.05.2025</td><td>Plast</td></tr>
+<tr><td>04.06.2025</td><td>Bioodpad</td></tr>
+<tr><td>09.06.2025</td><td>Papír</td></tr>
+<tr><td>18.06.2025</td><td>Bioodpad</td></tr>
+<tr><td>23.06.2025</td><td>Plast</td></tr>
+<tr><td>02.07.2025</td><td>Bioodpad</td></tr>
+<tr><td>07.07.2025</td><td>Papír</td></tr>
+<tr><td>16.07.2025</td><td>Bioodpad</td></tr>
+<tr><td>21.07.2025</td><td>Plast</td></tr>
+<tr><td>30.07.2025</td><td>Bioodpad</td></tr>
+<tr><td>04.08.2025</td><td>Papír</td></tr>
+<tr><td>13.08.2025</td><td>Bioodpad</td></tr>
+<tr><td>18.08.2025</td><td>Plast</td></tr>
+<tr><td>27.08.2025</td><td>Bioodpad</td></tr>
+<tr><td>01.09.2025</td><td>Papír</td></tr>
+<tr><td>10.09.2025</td><td>Bioodpad</td></tr>
+<tr><td>15.09.2025</td><td>Plast</td></tr>
+<tr><td>24.09.2025</td><td>Bioodpad</td></tr>
+<tr><td>29.09.2025</td><td>Papír</td></tr>
+<tr><td>08.10.2025</td><td>Bioodpad</td></tr>
+<tr><td>13.10.2025</td><td>Plast</td></tr>
+<tr><td>22.10.2025</td><td>Bioodpad</td></tr>
+<tr><td>27.10.2025</td><td>Papír</td></tr>
+<tr><td>05.11.2025</td><td>Bioodpad</td></tr>
+<tr><td>10.11.2025</td><td>Plast</td></tr>
+<tr><td>19.11.2025</td><td>Bioodpad</td></tr>
+<tr><td>24.11.2025</td><td>Papír</td></tr>
+<tr><td>03.12.2025</td><td>Bioodpad</td></tr>
+<tr><td>08.12.2025</td><td>Plast</td></tr>
+<tr><td>22.12.2025</td><td>Papír</td></tr>
+<tr><td>05.01.2026</td><td>Plast</td></tr>
+<tr><td>19.01.2026</td><td>Papír</td></tr>
+<tr><td>21.01.2026</td><td>Bioodpad</td></tr>
+<tr><td>02.02.2026</td><td>Plast</td></tr>
+<tr><td>16.02.2026</td><td>Papír</td></tr>
+<tr><td>18.02.2026</td><td>Bioodpad</td></tr>
+<tr><td>02.03.2026</td><td>Plast</td></tr>
+<tr><td>04.03.2026</td><td>Bioodpad</td></tr>
+<tr><td>16.03.2026</td><td>Papír</td></tr>
+<tr><td>18.03.2026</td><td>Bioodpad</td></tr>
+<tr><td>30.03.2026</td><td>Plast</td></tr>
+<tr><td>01.04.2026</td><td>Bioodpad</td></tr>
+<tr><td>13.04.2026</td><td>Papír</td></tr>
+<tr><td>15.04.2026</td><td>Bioodpad</td></tr>
+<tr><td>27.04.2026</td><td>Plast</td></tr>
+<tr><td>29.04.2026</td><td>Bioodpad</td></tr>
+<tr><td>11.05.2026</td><td>Papír</td></tr>
+<tr><td>13.05.2026</td><td>Bioodpad</td></tr>
+<tr><td>25.05.2026</td><td>Plast</td></tr>
+<tr><td>27.05.2026</td><td>Bioodpad</td></tr>
+<tr><td>08.06.2026</td><td>Papír</td></tr>
+<tr><td>10.06.2026</td><td>Bioodpad</td></tr>
+<tr><td>22.06.2026</td><td>Plast</td></tr>
+<tr><td>24.06.2026</td><td>Bioodpad</td></tr>
+<tr><td>06.07.2026</td><td>Papír</td></tr>
+<tr><td>08.07.2026</td><td>Bioodpad</td></tr>
+<tr><td>20.07.2026</td><td>Plast</td></tr>
+<tr><td>22.07.2026</td><td>Bioodpad</td></tr>
+<tr><td>03.08.2026</td><td>Papír</td></tr>
+<tr><td>05.08.2026</td><td>Bioodpad</td></tr>
+<tr><td>17.08.2026</td><td>Plast</td></tr>
+<tr><td>19.08.2026</td><td>Bioodpad</td></tr>
+<tr><td>31.08.2026</td><td>Papír</td></tr>
+<tr><td>02.09.2026</td><td>Bioodpad</td></tr>
+<tr><td>14.09.2026</td><td>Plast</td></tr>
+<tr><td>16.09.2026</td><td>Bioodpad</td></tr>
+<tr><td>28.09.2026</td><td>Papír</td></tr>
+<tr><td>30.09.2026</td><td>Bioodpad</td></tr>
+<tr><td>12.10.2026</td><td>Plast</td></tr>
+<tr><td>14.10.2026</td><td>Bioodpad</td></tr>
+<tr><td>26.10.2026</td><td>Papír</td></tr>
+<tr><td>28.10.2026</td><td>Bioodpad</td></tr>
+<tr><td>09.11.2026</td><td>Plast</td></tr>
+<tr><td>11.11.2026</td><td>Bioodpad</td></tr>
+<tr><td>23.11.2026</td><td>Papír</td></tr>
+<tr><td>25.11.2026</td><td>Bioodpad</td></tr>
+<tr><td>07.12.2026</td><td>Plast</td></tr>
+<tr><td>21.12.2026</td><td>Papír</td></tr>
 
-<script>
-    window.STREET_NAME = "Lesní zátiší";
-</script>
+</table>
 
-<script src="/js/app.js"></script>
-<script async src="/js/pdf_generator.js"></script>
-<script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+    </div>
+
+    <!-- Seznam lokací (jen pro homepage) -->
+    
+
+    <p class="disclaimer">
+        Kalendář je
+        <a href="https://github.com/honza-kasik/svoz_odpadu_litovel"
+           target="_blank"
+           rel="noopener">
+           nezávislý projekt
+        </a>,
+        který vytvořil a spravuje
+        <a href="https://honzakasik.cz"
+           target="_blank"
+           rel="noopener">
+           Honza Kašík
+        </a>.
+        Zdrojová data poskytuje Město Litovel.
+        <a href="/docs/synchronizace-notifikace.html">
+            Návod na notifikace a synchronizaci.
+        </a>
+    </p>
+
+    <script>
+        window.STREET_NAME = "Lesní zátiší";
+    </script>
+
+    <script src="/js/app.js" defer></script>
+    <script src="/js/pdf_generator.js" defer></script>
+
+    <!-- 100% privacy-first analytics -->
+    <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
 
 </body>
 </html>

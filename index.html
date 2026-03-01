@@ -3,18 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalendář svozu odpadu v Litovli</title>
-    <meta name="description" id="metaDescription" content="Termíny svozu odpadu v Litovli podle jednotlivých ulic. Možnost stažení PDF kalendáře pro konkrétní ulici.">
-    <meta name="keywords" content="svoz odpadu, kalendář odpadu, bioodpad, papír, plasty, komunální odpad, svozové termíny, odpadové hospodářství, Litovel">
+
+    <title>Svoz odpadu Litovel – kalendář podle ulic</title>
+    <meta name="description" id="metaDescription" content="Termíny svozu odpadu v Litovli podle jednotlivých ulic.">
     <meta name="author" content="Honza Kašík">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" id="canonicalLink" href="https://svoz.litovle.cz/">   
+
+    <link rel="canonical" id="canonicalLink" href="https://svoz.litovle.cz/">
     <link rel="icon" type="image/png" href="/favicon.png">
-    <meta property="og:image" content="https://svoz.litovle.cz/resources/screenshot.png" />
+
+    <meta property="og:title" content="Svoz odpadu Litovel – kalendář podle ulic">
+    <meta property="og:description" content="Termíny svozu odpadu v Litovli podle jednotlivých ulic.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://svoz.litovle.cz/">
+    <meta property="og:image" content="https://svoz.litovle.cz/resources/screenshot.png">
+
     <link rel="stylesheet" href="/styles.css">
+
+    <!-- zabrání probliknutí SEO fallbacku -->
+    <script>
+        document.documentElement.classList.add("js");
+    </script>
 </head>
+
 <body>
+
     <h1 id="mainHeader">Kalendář svozu odpadu v Litovli</h1>
+
     <div id="controls">
         <div id="date-picker">
             <button type="button" id="prevMonth" aria-label="Předchozí měsíc">◀</button>
@@ -22,140 +37,176 @@
             <select id="yearSelect" aria-label="Rok"></select>
             <button type="button" id="nextMonth" aria-label="Další měsíc">▶</button>
         </div>
+
         <div id="location-picker">
             <div id="locationDropdown" class="dropdown">
-                <input type="text" id="locationSearch" placeholder="Vyhledat lokaci..." autocomplete="off">
+                <input type="text"
+                       id="locationSearch"
+                       placeholder="Vyhledat lokaci..."
+                       autocomplete="off">
                 <div id="locationOptions" class="dropdown-options"></div>
             </div>
-            <div id="resetFilter" class="button">Všechny lokace</div>
+
+            <div id="resetFilter" class="button">
+                Všechny lokace
+            </div>
         </div>
     </div>
+
     <div id="calendarContainer"></div>
     <div id="info"></div>
+
     <div id="footerControls">
         <div id="pdfYear" class="button">PDF rok</div>
         <div id="pdfMonth" class="button">PDF měsíc</div>
-        <div id="copyLink" class="button">Zkopírovat URL ICS souboru do schránky</div>
+        <div id="copyLink" class="button">
+            Zkopírovat URL ICS souboru do schránky
+        </div>
     </div>
 
-    <div id="locationList">
-        <h2>Lokace v Litovli</h2>
-        <p>
-            Vyberte konkrétní ulici nebo místní část pro zobrazení termínů svozu.
-        </p>
-        <ul>
+    <!-- SEO fallback (jen pokud JS neběží) -->
+    <div id="seoFallback">
+        
+    </div>
+
+    <!-- Seznam lokací (jen pro homepage) -->
+    
+<div id="locationList">
+    <h2>Lokace v Litovli</h2>
+    <p>
+        Vyberte konkrétní ulici nebo místní část pro zobrazení termínů svozu.
+    </p>
+    <ul>
         <li><a href="/ulice/1-maje/">1. máje</a></li>
-        <li><a href="/ulice/b-nemcove/">B. Němcové</a></li>
-        <li><a href="/ulice/bezrucova/">Bezručova</a></li>
-        <li><a href="/ulice/boskovicova/">Boskovicova</a></li>
-        <li><a href="/ulice/brezove/">Březové</a></li>
-        <li><a href="/ulice/cholinska/">Cholinská</a></li>
-        <li><a href="/ulice/chorelice/">Chořelice</a></li>
-        <li><a href="/ulice/chudobin/">Chudobín</a></li>
-        <li><a href="/ulice/druzstevni/">Družstevní</a></li>
-        <li><a href="/ulice/dukelska/">Dukelská</a></li>
-        <li><a href="/ulice/g-fristenskeho/">G. Frištenského</a></li>
-        <li><a href="/ulice/gemerska-rodinne-domy/">Gemerská - rodinné domy</a></li>
-        <li><a href="/ulice/gemerska-sidliste/">Gemerská - sídliště</a></li>
-        <li><a href="/ulice/havlickova/">Havlíčkova</a></li>
-        <li><a href="/ulice/hrncirska/">Hrnčířská</a></li>
-        <li><a href="/ulice/husova/">Husova</a></li>
-        <li><a href="/ulice/javoricska/">Javoříčská</a></li>
-        <li><a href="/ulice/jiraskova/">Jiráskova</a></li>
-        <li><a href="/ulice/jungmannova/">Jungmannova</a></li>
-        <li><a href="/ulice/karla-sedlaka-sidliste/">Karla Sedláka - sídliště</a></li>
-        <li><a href="/ulice/karlov/">Karlov</a></li>
-        <li><a href="/ulice/karlovska/">Karlovská</a></li>
-        <li><a href="/ulice/kollarova/">Kollárova</a></li>
-        <li><a href="/ulice/komenskeho/">Komenského</a></li>
-        <li><a href="/ulice/komarov/">Komárov</a></li>
-        <li><a href="/ulice/kosmonautu/">Kosmonautů</a></li>
-        <li><a href="/ulice/kostelni/">Kostelní</a></li>
-        <li><a href="/ulice/koupaliste/">Koupaliště</a></li>
-        <li><a href="/ulice/kralova/">Králova</a></li>
-        <li><a href="/ulice/kysucka/">Kysucká</a></li>
-        <li><a href="/ulice/lesni-zatisi/">Lesní zátiší</a></li>
-        <li><a href="/ulice/lidicka/">Lidická</a></li>
-        <li><a href="/ulice/losticka/">Loštická</a></li>
-        <li><a href="/ulice/luzni/">Lužní</a></li>
-        <li><a href="/ulice/masarykova/">Masarykova</a></li>
-        <li><a href="/ulice/mlynska/">Mlýnská</a></li>
-        <li><a href="/ulice/myslechovice/">Myslechovice</a></li>
-        <li><a href="/ulice/nasoburky/">Nasobůrky</a></li>
-        <li><a href="/ulice/nasoburska/">Nasobůrská</a></li>
-        <li><a href="/ulice/novosady-rodinne-domy/">Novosady - rodinné domy</a></li>
-        <li><a href="/ulice/novosady-sidliste/">Novosady - sídliště</a></li>
-        <li><a href="/ulice/nova/">Nová</a></li>
-        <li><a href="/ulice/nova-ves/">Nová Ves</a></li>
-        <li><a href="/ulice/nabrezni/">Nábřežní</a></li>
-        <li><a href="/ulice/nadrazni/">Nádražní</a></li>
-        <li><a href="/ulice/nam-pr-otakara/">Nám. Př. Otakara</a></li>
-        <li><a href="/ulice/olomoucka/">Olomoucká</a></li>
-        <li><a href="/ulice/opletalova/">Opletalova</a></li>
-        <li><a href="/ulice/palackeho/">Palackého</a></li>
-        <li><a href="/ulice/pavlinka/">Pavlínka</a></li>
-        <li><a href="/ulice/podebradova/">Poděbradova</a></li>
-        <li><a href="/ulice/polni/">Polní</a></li>
-        <li><a href="/ulice/posmylska/">Pošmýlská</a></li>
-        <li><a href="/ulice/pricna/">Příčná</a></li>
-        <li><a href="/ulice/revolucni/">Revoluční</a></li>
-        <li><a href="/ulice/revucka/">Revúcká</a></li>
-        <li><a href="/ulice/rozvadovice/">Rozvadovice</a></li>
-        <li><a href="/ulice/rybnicek/">Rybníček</a></li>
-        <li><a href="/ulice/sadova/">Sadová</a></li>
-        <li><a href="/ulice/savin/">Savín</a></li>
-        <li><a href="/ulice/severni/">Severní</a></li>
-        <li><a href="/ulice/severni-rodinne-domy/">Severní - rodinné domy</a></li>
-        <li><a href="/ulice/smyckova/">Smyčkova</a></li>
-        <li><a href="/ulice/sochova/">Sochova</a></li>
-        <li><a href="/ulice/sovova/">Sovova</a></li>
-        <li><a href="/ulice/staromestske-namesti/">Staroměstské náměstí</a></li>
-        <li><a href="/ulice/studentu/">Studentů</a></li>
-        <li><a href="/ulice/susilova/">Sušilova</a></li>
-        <li><a href="/ulice/svatoplukova/">Svatoplukova</a></li>
-        <li><a href="/ulice/ticha/">Tichá</a></li>
-        <li><a href="/ulice/trebizskeho/">Třebízského</a></li>
-        <li><a href="/ulice/tri-dvory/">Tři Dvory</a></li>
-        <li><a href="/ulice/tridvorska/">Třídvorská</a></li>
-        <li><a href="/ulice/u-stadionu/">U Stadionu</a></li>
-        <li><a href="/ulice/unicovska/">Uničovská</a></li>
-        <li><a href="/ulice/unicovska-sidliste/">Uničovská - sídliště</a></li>
-        <li><a href="/ulice/uncovice/">Unčovice</a></li>
-        <li><a href="/ulice/vlasimova/">Vlašímova</a></li>
-        <li><a href="/ulice/vodni/">Vodní</a></li>
-        <li><a href="/ulice/viska/">Víska</a></li>
-        <li><a href="/ulice/vitezna/">Vítězná</a></li>
-        <li><a href="/ulice/vitezna/">Vítězná</a></li>
-        <li><a href="/ulice/vitezna-sidliste/">Vítězná - sídliště</a></li>
-        <li><a href="/ulice/wolkerova/">Wolkerova</a></li>
-        <li><a href="/ulice/zahradni/">Zahradní</a></li>
-        <li><a href="/ulice/nam-svobody/">nám. Svobody</a></li>
-        <li><a href="/ulice/cervenska/">Červenská</a></li>
-        <li><a href="/ulice/cihadlo/">Čihadlo</a></li>
-        <li><a href="/ulice/cs-armady/">Čs. armády</a></li>
-        <li><a href="/ulice/safarikova/">Šafaříkova</a></li>
-        <li><a href="/ulice/sargounska/">Šargounská</a></li>
-        <li><a href="/ulice/semberova/">Šemberova</a></li>
-        <li><a href="/ulice/serhovni/">Šerhovní</a></li>
-        <li><a href="/ulice/smakalova/">Šmakalova</a></li>
-        <li><a href="/ulice/stefanikova/">Štefánikova</a></li>
-        <li><a href="/ulice/svermova/">Švermova</a></li>
-        <li><a href="/ulice/svedska/">Švédská</a></li>
-        <li><a href="/ulice/zerotinova/">Žerotínova</a></li>
+<li><a href="/ulice/b-nemcove/">B. Němcové</a></li>
+<li><a href="/ulice/bezrucova/">Bezručova</a></li>
+<li><a href="/ulice/boskovicova/">Boskovicova</a></li>
+<li><a href="/ulice/brezove/">Březové</a></li>
+<li><a href="/ulice/cholinska/">Cholinská</a></li>
+<li><a href="/ulice/chorelice/">Chořelice</a></li>
+<li><a href="/ulice/chudobin/">Chudobín</a></li>
+<li><a href="/ulice/druzstevni/">Družstevní</a></li>
+<li><a href="/ulice/dukelska/">Dukelská</a></li>
+<li><a href="/ulice/g-fristenskeho/">G. Frištenského</a></li>
+<li><a href="/ulice/gemerska-rodinne-domy/">Gemerská - rodinné domy</a></li>
+<li><a href="/ulice/gemerska-sidliste/">Gemerská - sídliště</a></li>
+<li><a href="/ulice/havlickova/">Havlíčkova</a></li>
+<li><a href="/ulice/hrncirska/">Hrnčířská</a></li>
+<li><a href="/ulice/husova/">Husova</a></li>
+<li><a href="/ulice/javoricska/">Javoříčská</a></li>
+<li><a href="/ulice/jiraskova/">Jiráskova</a></li>
+<li><a href="/ulice/jungmannova/">Jungmannova</a></li>
+<li><a href="/ulice/karla-sedlaka-sidliste/">Karla Sedláka - sídliště</a></li>
+<li><a href="/ulice/karlov/">Karlov</a></li>
+<li><a href="/ulice/karlovska/">Karlovská</a></li>
+<li><a href="/ulice/kollarova/">Kollárova</a></li>
+<li><a href="/ulice/komenskeho/">Komenského</a></li>
+<li><a href="/ulice/komarov/">Komárov</a></li>
+<li><a href="/ulice/kosmonautu/">Kosmonautů</a></li>
+<li><a href="/ulice/kostelni/">Kostelní</a></li>
+<li><a href="/ulice/koupaliste/">Koupaliště</a></li>
+<li><a href="/ulice/kralova/">Králova</a></li>
+<li><a href="/ulice/kysucka/">Kysucká</a></li>
+<li><a href="/ulice/lesni-zatisi/">Lesní zátiší</a></li>
+<li><a href="/ulice/lidicka/">Lidická</a></li>
+<li><a href="/ulice/losticka/">Loštická</a></li>
+<li><a href="/ulice/luzni/">Lužní</a></li>
+<li><a href="/ulice/masarykova/">Masarykova</a></li>
+<li><a href="/ulice/mlynska/">Mlýnská</a></li>
+<li><a href="/ulice/myslechovice/">Myslechovice</a></li>
+<li><a href="/ulice/nasoburky/">Nasobůrky</a></li>
+<li><a href="/ulice/nasoburska/">Nasobůrská</a></li>
+<li><a href="/ulice/novosady-rodinne-domy/">Novosady - rodinné domy</a></li>
+<li><a href="/ulice/novosady-sidliste/">Novosady - sídliště</a></li>
+<li><a href="/ulice/nova/">Nová</a></li>
+<li><a href="/ulice/nova-ves/">Nová Ves</a></li>
+<li><a href="/ulice/nabrezni/">Nábřežní</a></li>
+<li><a href="/ulice/nadrazni/">Nádražní</a></li>
+<li><a href="/ulice/nam-pr-otakara/">Nám. Př. Otakara</a></li>
+<li><a href="/ulice/olomoucka/">Olomoucká</a></li>
+<li><a href="/ulice/opletalova/">Opletalova</a></li>
+<li><a href="/ulice/palackeho/">Palackého</a></li>
+<li><a href="/ulice/pavlinka/">Pavlínka</a></li>
+<li><a href="/ulice/podebradova/">Poděbradova</a></li>
+<li><a href="/ulice/polni/">Polní</a></li>
+<li><a href="/ulice/posmylska/">Pošmýlská</a></li>
+<li><a href="/ulice/pricna/">Příčná</a></li>
+<li><a href="/ulice/revolucni/">Revoluční</a></li>
+<li><a href="/ulice/revucka/">Revúcká</a></li>
+<li><a href="/ulice/rozvadovice/">Rozvadovice</a></li>
+<li><a href="/ulice/rybnicek/">Rybníček</a></li>
+<li><a href="/ulice/sadova/">Sadová</a></li>
+<li><a href="/ulice/savin/">Savín</a></li>
+<li><a href="/ulice/severni/">Severní</a></li>
+<li><a href="/ulice/severni-rodinne-domy/">Severní - rodinné domy</a></li>
+<li><a href="/ulice/smyckova/">Smyčkova</a></li>
+<li><a href="/ulice/sochova/">Sochova</a></li>
+<li><a href="/ulice/sovova/">Sovova</a></li>
+<li><a href="/ulice/staromestske-namesti/">Staroměstské náměstí</a></li>
+<li><a href="/ulice/studentu/">Studentů</a></li>
+<li><a href="/ulice/susilova/">Sušilova</a></li>
+<li><a href="/ulice/svatoplukova/">Svatoplukova</a></li>
+<li><a href="/ulice/ticha/">Tichá</a></li>
+<li><a href="/ulice/trebizskeho/">Třebízského</a></li>
+<li><a href="/ulice/tri-dvory/">Tři Dvory</a></li>
+<li><a href="/ulice/tridvorska/">Třídvorská</a></li>
+<li><a href="/ulice/u-stadionu/">U Stadionu</a></li>
+<li><a href="/ulice/unicovska/">Uničovská</a></li>
+<li><a href="/ulice/unicovska-sidliste/">Uničovská - sídliště</a></li>
+<li><a href="/ulice/uncovice/">Unčovice</a></li>
+<li><a href="/ulice/vlasimova/">Vlašímova</a></li>
+<li><a href="/ulice/vodni/">Vodní</a></li>
+<li><a href="/ulice/viska/">Víska</a></li>
+<li><a href="/ulice/vitezna/">Vítězná</a></li>
+<li><a href="/ulice/vitezna-sidliste/">Vítězná - sídliště</a></li>
+<li><a href="/ulice/wolkerova/">Wolkerova</a></li>
+<li><a href="/ulice/zahradni/">Zahradní</a></li>
+<li><a href="/ulice/nam-svobody/">nám. Svobody</a></li>
+<li><a href="/ulice/cervenska/">Červenská</a></li>
+<li><a href="/ulice/cihadlo/">Čihadlo</a></li>
+<li><a href="/ulice/cs-armady/">Čs. armády</a></li>
+<li><a href="/ulice/safarikova/">Šafaříkova</a></li>
+<li><a href="/ulice/sargounska/">Šargounská</a></li>
+<li><a href="/ulice/semberova/">Šemberova</a></li>
+<li><a href="/ulice/serhovni/">Šerhovní</a></li>
+<li><a href="/ulice/smakalova/">Šmakalova</a></li>
+<li><a href="/ulice/stefanikova/">Štefánikova</a></li>
+<li><a href="/ulice/svermova/">Švermova</a></li>
+<li><a href="/ulice/svedska/">Švédská</a></li>
+<li><a href="/ulice/zerotinova/">Žerotínova</a></li>
 
-        </ul>
-    </div>
+    </ul>
+</div>
+
 
     <p class="disclaimer">
-        Kalendář je <a href="https://github.com/honza-kasik/svoz_odpadu_litovel" target="_blank" rel="noopener">nezávislý projekt</a>,
-        který vytvořil a spravuje <a href="https://honzakasik.cz" target="_blank" rel="noopener">Honza Kašík</a>. Zdrojová data poskytuje Město Litovel.
-        <a href="docs/synchronizace-notifikace.html">Návod na notifikace a synchronizaci.</a>
+        Kalendář je
+        <a href="https://github.com/honza-kasik/svoz_odpadu_litovel"
+           target="_blank"
+           rel="noopener">
+           nezávislý projekt
+        </a>,
+        který vytvořil a spravuje
+        <a href="https://honzakasik.cz"
+           target="_blank"
+           rel="noopener">
+           Honza Kašík
+        </a>.
+        Zdrojová data poskytuje Město Litovel.
+        <a href="/docs/synchronizace-notifikace.html">
+            Návod na notifikace a synchronizaci.
+        </a>
     </p>
 
+    <script>
+        window.STREET_NAME = null;
+    </script>
 
-    <script async src="/js/app.js"></script>
-    <script async src="/js/pdf_generator.js"></script>
+    <script src="/js/app.js" defer></script>
+    <script src="/js/pdf_generator.js" defer></script>
+
     <!-- 100% privacy-first analytics -->
     <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+
 </body>
 </html>

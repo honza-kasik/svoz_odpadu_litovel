@@ -1,234 +1,259 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Svoz odpadu Litovel – Pošmýlská</title>
-<meta name="description" id="metaDescription" content="Termíny svozu odpadu pro ulici Pošmýlská v Litovli.">
+    <title>Svoz odpadu Litovel – Pošmýlská</title>
+    <meta name="description" id="metaDescription" content="Termíny svozu odpadu pro ulici Pošmýlská v Litovli.">
+    <meta name="author" content="Honza Kašík">
+    <meta name="robots" content="index, follow">
 
-<link rel="canonical" id="canonicalLink" href="https://svoz.litovle.cz/ulice/posmylska/">
+    <link rel="canonical" id="canonicalLink" href="https://svoz.litovle.cz/ulice/posmylska/">
+    <link rel="icon" type="image/png" href="/favicon.png">
 
-<link rel="stylesheet" href="/styles.css">
-<link rel="icon" type="image/png" href="/favicon.png">
+    <meta property="og:title" content="Svoz odpadu Litovel – Pošmýlská">
+    <meta property="og:description" content="Termíny svozu odpadu pro ulici Pošmýlská v Litovli.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://svoz.litovle.cz/ulice/posmylska/">
+    <meta property="og:image" content="https://svoz.litovle.cz/resources/screenshot.png">
 
-<meta property="og:title" content="Svoz odpadu Litovel – Pošmýlská">
-<meta property="og:description" content="Termíny svozu odpadu pro ulici Pošmýlská v Litovli.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://svoz.litovle.cz/ulice/posmylska/">
-<script>
-document.documentElement.classList.add("js");
-</script>
+    <link rel="stylesheet" href="/styles.css">
+
+    <!-- zabrání probliknutí SEO fallbacku -->
+    <script>
+        document.documentElement.classList.add("js");
+    </script>
 </head>
 
 <body>
 
-<h1 id="mainHeader">Svoz odpadu Litovel – Pošmýlská</h1>
+    <h1 id="mainHeader">Svoz odpadu Litovel – Pošmýlská</h1>
 
-<div id="controls">
-    <div id="date-picker">
-        <button type="button" id="prevMonth" aria-label="Předchozí měsíc">◀</button>
-        <select id="monthSelect" aria-label="Měsíc"></select>
-        <select id="yearSelect" aria-label="Rok"></select>
-        <button type="button" id="nextMonth" aria-label="Další měsíc">▶</button>
-    </div>
-    <div id="location-picker">
-        <div id="locationDropdown" class="dropdown">
-            <input type="text" id="locationSearch" placeholder="Vyhledat lokaci..." autocomplete="off">
-            <div id="locationOptions" class="dropdown-options"></div>
+    <div id="controls">
+        <div id="date-picker">
+            <button type="button" id="prevMonth" aria-label="Předchozí měsíc">◀</button>
+            <select id="monthSelect" aria-label="Měsíc"></select>
+            <select id="yearSelect" aria-label="Rok"></select>
+            <button type="button" id="nextMonth" aria-label="Další měsíc">▶</button>
         </div>
-        <div id="resetFilter" class="button">Všechny lokace</div>
+
+        <div id="location-picker">
+            <div id="locationDropdown" class="dropdown">
+                <input type="text"
+                       id="locationSearch"
+                       placeholder="Vyhledat lokaci..."
+                       autocomplete="off">
+                <div id="locationOptions" class="dropdown-options"></div>
+            </div>
+
+            <div id="resetFilter" class="button">
+                Všechny lokace
+            </div>
+        </div>
     </div>
-</div>
-<div id="calendarContainer"></div>
-<div id="info"></div>
-<div id="footerControls">
-    <div id="pdfYear" class="button">PDF rok</div>
-    <div id="pdfMonth" class="button">PDF měsíc</div>
-    <div id="copyLink" class="button">Zkopírovat URL ICS souboru do schránky</div>
-</div>
 
-<!-- SEO fallback (pro roboty bez JS) -->
-<div id="seoFallback">
-    <h2>Termíny svozu pro ulici Pošmýlská v roce 2025–2026</h2>
-    <table>
-        <tr>
-            <th>Datum</th>
-            <th>Typ odpadu</th>
-        </tr>
-        <tr><td>2025-01-02 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2025-01-13 00:00:00</td><td>Plast</td></tr>
-<tr><td>2025-01-16 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2025-01-20 00:00:00</td><td>Papír</td></tr>
-<tr><td>2025-01-30 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2025-01-30 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-02-10 00:00:00</td><td>Plast</td></tr>
-<tr><td>2025-02-13 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2025-02-17 00:00:00</td><td>Papír</td></tr>
-<tr><td>2025-02-27 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2025-02-27 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-03-10 00:00:00</td><td>Plast</td></tr>
-<tr><td>2025-03-13 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2025-03-13 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-03-17 00:00:00</td><td>Papír</td></tr>
-<tr><td>2025-03-27 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2025-03-27 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-04-07 00:00:00</td><td>Plast</td></tr>
-<tr><td>2025-04-10 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2025-04-10 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-04-14 00:00:00</td><td>Papír</td></tr>
-<tr><td>2025-04-24 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2025-04-24 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-05-05 00:00:00</td><td>Plast</td></tr>
-<tr><td>2025-05-08 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2025-05-08 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-05-13 00:00:00</td><td>Papír</td></tr>
-<tr><td>2025-05-22 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2025-05-22 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-06-02 00:00:00</td><td>Plast</td></tr>
-<tr><td>2025-06-05 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2025-06-05 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-06-09 00:00:00</td><td>Papír</td></tr>
-<tr><td>2025-06-19 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2025-06-19 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-06-30 00:00:00</td><td>Plast</td></tr>
-<tr><td>2025-07-03 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2025-07-03 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-07-07 00:00:00</td><td>Papír</td></tr>
-<tr><td>2025-07-17 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2025-07-17 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-07-28 00:00:00</td><td>Plast</td></tr>
-<tr><td>2025-07-31 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2025-07-31 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-08-04 00:00:00</td><td>Papír</td></tr>
-<tr><td>2025-08-14 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2025-08-14 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-08-25 00:00:00</td><td>Plast</td></tr>
-<tr><td>2025-08-28 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2025-08-28 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-09-01 00:00:00</td><td>Papír</td></tr>
-<tr><td>2025-09-11 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2025-09-11 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-09-22 00:00:00</td><td>Plast</td></tr>
-<tr><td>2025-09-25 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2025-09-25 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-09-29 00:00:00</td><td>Papír</td></tr>
-<tr><td>2025-10-09 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2025-10-09 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-10-20 00:00:00</td><td>Plast</td></tr>
-<tr><td>2025-10-23 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2025-10-23 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-10-27 00:00:00</td><td>Papír</td></tr>
-<tr><td>2025-11-06 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2025-11-06 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-11-17 00:00:00</td><td>Plast</td></tr>
-<tr><td>2025-11-20 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2025-11-20 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-11-24 00:00:00</td><td>Papír</td></tr>
-<tr><td>2025-12-04 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2025-12-04 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2025-12-15 00:00:00</td><td>Plast</td></tr>
-<tr><td>2025-12-18 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2025-12-22 00:00:00</td><td>Papír</td></tr>
-<tr><td>2026-01-02 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2026-01-12 00:00:00</td><td>Plast</td></tr>
-<tr><td>2026-01-15 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2026-01-19 00:00:00</td><td>Papír</td></tr>
-<tr><td>2026-01-22 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-01-29 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2026-02-09 00:00:00</td><td>Plast</td></tr>
-<tr><td>2026-02-12 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2026-02-16 00:00:00</td><td>Papír</td></tr>
-<tr><td>2026-02-19 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-02-26 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2026-03-05 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-03-09 00:00:00</td><td>Plast</td></tr>
-<tr><td>2026-03-12 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2026-03-16 00:00:00</td><td>Papír</td></tr>
-<tr><td>2026-03-19 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-03-26 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2026-04-02 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-04-06 00:00:00</td><td>Plast</td></tr>
-<tr><td>2026-04-09 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2026-04-13 00:00:00</td><td>Papír</td></tr>
-<tr><td>2026-04-16 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-04-23 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2026-04-30 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-05-04 00:00:00</td><td>Plast</td></tr>
-<tr><td>2026-05-07 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2026-05-11 00:00:00</td><td>Papír</td></tr>
-<tr><td>2026-05-14 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-05-21 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2026-05-28 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-06-01 00:00:00</td><td>Plast</td></tr>
-<tr><td>2026-06-04 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2026-06-08 00:00:00</td><td>Papír</td></tr>
-<tr><td>2026-06-11 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-06-18 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2026-06-25 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-06-29 00:00:00</td><td>Plast</td></tr>
-<tr><td>2026-07-02 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2026-07-06 00:00:00</td><td>Papír</td></tr>
-<tr><td>2026-07-09 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-07-16 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2026-07-23 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-07-27 00:00:00</td><td>Plast</td></tr>
-<tr><td>2026-07-30 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2026-08-03 00:00:00</td><td>Papír</td></tr>
-<tr><td>2026-08-06 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-08-13 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2026-08-20 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-08-24 00:00:00</td><td>Plast</td></tr>
-<tr><td>2026-08-27 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2026-08-31 00:00:00</td><td>Papír</td></tr>
-<tr><td>2026-09-03 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-09-10 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2026-09-17 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-09-21 00:00:00</td><td>Plast</td></tr>
-<tr><td>2026-09-24 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2026-09-28 00:00:00</td><td>Papír</td></tr>
-<tr><td>2026-10-01 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-10-08 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2026-10-15 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-10-19 00:00:00</td><td>Plast</td></tr>
-<tr><td>2026-10-22 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2026-10-26 00:00:00</td><td>Papír</td></tr>
-<tr><td>2026-10-29 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-11-05 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2026-11-12 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-11-16 00:00:00</td><td>Plast</td></tr>
-<tr><td>2026-11-19 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2026-11-23 00:00:00</td><td>Papír</td></tr>
-<tr><td>2026-11-26 00:00:00</td><td>Bioodpad</td></tr>
-<tr><td>2026-12-03 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2026-12-14 00:00:00</td><td>Plast</td></tr>
-<tr><td>2026-12-17 00:00:00</td><td>Směsný odpad</td></tr>
-<tr><td>2026-12-21 00:00:00</td><td>Papír</td></tr>
+    <div id="calendarContainer"></div>
+    <div id="info"></div>
 
-    </table>
-</div>
+    <div id="footerControls">
+        <div id="pdfYear" class="button">PDF rok</div>
+        <div id="pdfMonth" class="button">PDF měsíc</div>
+        <div id="copyLink" class="button">
+            Zkopírovat URL ICS souboru do schránky
+        </div>
+    </div>
 
-<p class="disclaimer">
-    Kalendář je
-    <a href="https://github.com/honza-kasik/svoz_odpadu_litovel"
-       target="_blank" rel="noopener">
-       nezávislý projekt
-    </a>,
-    který vytvořil a spravuje
-    <a href="https://honzakasik.cz"
-       target="_blank" rel="noopener">
-       Honza Kašík
-    </a>.
-    Zdrojová data poskytuje Město Litovel.
-</p>
+    <!-- SEO fallback (jen pokud JS neběží) -->
+    <div id="seoFallback">
+        
+<h2>Termíny svozu</h2>
+<table>
+<tr><th>Datum</th><th>Typ odpadu</th></tr>
+<tr><td>02.01.2025</td><td>Směsný odpad</td></tr>
+<tr><td>13.01.2025</td><td>Plast</td></tr>
+<tr><td>16.01.2025</td><td>Směsný odpad</td></tr>
+<tr><td>20.01.2025</td><td>Papír</td></tr>
+<tr><td>30.01.2025</td><td>Směsný odpad</td></tr>
+<tr><td>30.01.2025</td><td>Bioodpad</td></tr>
+<tr><td>10.02.2025</td><td>Plast</td></tr>
+<tr><td>13.02.2025</td><td>Směsný odpad</td></tr>
+<tr><td>17.02.2025</td><td>Papír</td></tr>
+<tr><td>27.02.2025</td><td>Směsný odpad</td></tr>
+<tr><td>27.02.2025</td><td>Bioodpad</td></tr>
+<tr><td>10.03.2025</td><td>Plast</td></tr>
+<tr><td>13.03.2025</td><td>Směsný odpad</td></tr>
+<tr><td>13.03.2025</td><td>Bioodpad</td></tr>
+<tr><td>17.03.2025</td><td>Papír</td></tr>
+<tr><td>27.03.2025</td><td>Směsný odpad</td></tr>
+<tr><td>27.03.2025</td><td>Bioodpad</td></tr>
+<tr><td>07.04.2025</td><td>Plast</td></tr>
+<tr><td>10.04.2025</td><td>Směsný odpad</td></tr>
+<tr><td>10.04.2025</td><td>Bioodpad</td></tr>
+<tr><td>14.04.2025</td><td>Papír</td></tr>
+<tr><td>24.04.2025</td><td>Směsný odpad</td></tr>
+<tr><td>24.04.2025</td><td>Bioodpad</td></tr>
+<tr><td>05.05.2025</td><td>Plast</td></tr>
+<tr><td>08.05.2025</td><td>Směsný odpad</td></tr>
+<tr><td>08.05.2025</td><td>Bioodpad</td></tr>
+<tr><td>13.05.2025</td><td>Papír</td></tr>
+<tr><td>22.05.2025</td><td>Směsný odpad</td></tr>
+<tr><td>22.05.2025</td><td>Bioodpad</td></tr>
+<tr><td>02.06.2025</td><td>Plast</td></tr>
+<tr><td>05.06.2025</td><td>Směsný odpad</td></tr>
+<tr><td>05.06.2025</td><td>Bioodpad</td></tr>
+<tr><td>09.06.2025</td><td>Papír</td></tr>
+<tr><td>19.06.2025</td><td>Směsný odpad</td></tr>
+<tr><td>19.06.2025</td><td>Bioodpad</td></tr>
+<tr><td>30.06.2025</td><td>Plast</td></tr>
+<tr><td>03.07.2025</td><td>Směsný odpad</td></tr>
+<tr><td>03.07.2025</td><td>Bioodpad</td></tr>
+<tr><td>07.07.2025</td><td>Papír</td></tr>
+<tr><td>17.07.2025</td><td>Směsný odpad</td></tr>
+<tr><td>17.07.2025</td><td>Bioodpad</td></tr>
+<tr><td>28.07.2025</td><td>Plast</td></tr>
+<tr><td>31.07.2025</td><td>Směsný odpad</td></tr>
+<tr><td>31.07.2025</td><td>Bioodpad</td></tr>
+<tr><td>04.08.2025</td><td>Papír</td></tr>
+<tr><td>14.08.2025</td><td>Směsný odpad</td></tr>
+<tr><td>14.08.2025</td><td>Bioodpad</td></tr>
+<tr><td>25.08.2025</td><td>Plast</td></tr>
+<tr><td>28.08.2025</td><td>Směsný odpad</td></tr>
+<tr><td>28.08.2025</td><td>Bioodpad</td></tr>
+<tr><td>01.09.2025</td><td>Papír</td></tr>
+<tr><td>11.09.2025</td><td>Směsný odpad</td></tr>
+<tr><td>11.09.2025</td><td>Bioodpad</td></tr>
+<tr><td>22.09.2025</td><td>Plast</td></tr>
+<tr><td>25.09.2025</td><td>Směsný odpad</td></tr>
+<tr><td>25.09.2025</td><td>Bioodpad</td></tr>
+<tr><td>29.09.2025</td><td>Papír</td></tr>
+<tr><td>09.10.2025</td><td>Směsný odpad</td></tr>
+<tr><td>09.10.2025</td><td>Bioodpad</td></tr>
+<tr><td>20.10.2025</td><td>Plast</td></tr>
+<tr><td>23.10.2025</td><td>Směsný odpad</td></tr>
+<tr><td>23.10.2025</td><td>Bioodpad</td></tr>
+<tr><td>27.10.2025</td><td>Papír</td></tr>
+<tr><td>06.11.2025</td><td>Směsný odpad</td></tr>
+<tr><td>06.11.2025</td><td>Bioodpad</td></tr>
+<tr><td>17.11.2025</td><td>Plast</td></tr>
+<tr><td>20.11.2025</td><td>Směsný odpad</td></tr>
+<tr><td>20.11.2025</td><td>Bioodpad</td></tr>
+<tr><td>24.11.2025</td><td>Papír</td></tr>
+<tr><td>04.12.2025</td><td>Směsný odpad</td></tr>
+<tr><td>04.12.2025</td><td>Bioodpad</td></tr>
+<tr><td>15.12.2025</td><td>Plast</td></tr>
+<tr><td>18.12.2025</td><td>Směsný odpad</td></tr>
+<tr><td>22.12.2025</td><td>Papír</td></tr>
+<tr><td>02.01.2026</td><td>Směsný odpad</td></tr>
+<tr><td>12.01.2026</td><td>Plast</td></tr>
+<tr><td>15.01.2026</td><td>Směsný odpad</td></tr>
+<tr><td>19.01.2026</td><td>Papír</td></tr>
+<tr><td>22.01.2026</td><td>Bioodpad</td></tr>
+<tr><td>29.01.2026</td><td>Směsný odpad</td></tr>
+<tr><td>09.02.2026</td><td>Plast</td></tr>
+<tr><td>12.02.2026</td><td>Směsný odpad</td></tr>
+<tr><td>16.02.2026</td><td>Papír</td></tr>
+<tr><td>19.02.2026</td><td>Bioodpad</td></tr>
+<tr><td>26.02.2026</td><td>Směsný odpad</td></tr>
+<tr><td>05.03.2026</td><td>Bioodpad</td></tr>
+<tr><td>09.03.2026</td><td>Plast</td></tr>
+<tr><td>12.03.2026</td><td>Směsný odpad</td></tr>
+<tr><td>16.03.2026</td><td>Papír</td></tr>
+<tr><td>19.03.2026</td><td>Bioodpad</td></tr>
+<tr><td>26.03.2026</td><td>Směsný odpad</td></tr>
+<tr><td>02.04.2026</td><td>Bioodpad</td></tr>
+<tr><td>06.04.2026</td><td>Plast</td></tr>
+<tr><td>09.04.2026</td><td>Směsný odpad</td></tr>
+<tr><td>13.04.2026</td><td>Papír</td></tr>
+<tr><td>16.04.2026</td><td>Bioodpad</td></tr>
+<tr><td>23.04.2026</td><td>Směsný odpad</td></tr>
+<tr><td>30.04.2026</td><td>Bioodpad</td></tr>
+<tr><td>04.05.2026</td><td>Plast</td></tr>
+<tr><td>07.05.2026</td><td>Směsný odpad</td></tr>
+<tr><td>11.05.2026</td><td>Papír</td></tr>
+<tr><td>14.05.2026</td><td>Bioodpad</td></tr>
+<tr><td>21.05.2026</td><td>Směsný odpad</td></tr>
+<tr><td>28.05.2026</td><td>Bioodpad</td></tr>
+<tr><td>01.06.2026</td><td>Plast</td></tr>
+<tr><td>04.06.2026</td><td>Směsný odpad</td></tr>
+<tr><td>08.06.2026</td><td>Papír</td></tr>
+<tr><td>11.06.2026</td><td>Bioodpad</td></tr>
+<tr><td>18.06.2026</td><td>Směsný odpad</td></tr>
+<tr><td>25.06.2026</td><td>Bioodpad</td></tr>
+<tr><td>29.06.2026</td><td>Plast</td></tr>
+<tr><td>02.07.2026</td><td>Směsný odpad</td></tr>
+<tr><td>06.07.2026</td><td>Papír</td></tr>
+<tr><td>09.07.2026</td><td>Bioodpad</td></tr>
+<tr><td>16.07.2026</td><td>Směsný odpad</td></tr>
+<tr><td>23.07.2026</td><td>Bioodpad</td></tr>
+<tr><td>27.07.2026</td><td>Plast</td></tr>
+<tr><td>30.07.2026</td><td>Směsný odpad</td></tr>
+<tr><td>03.08.2026</td><td>Papír</td></tr>
+<tr><td>06.08.2026</td><td>Bioodpad</td></tr>
+<tr><td>13.08.2026</td><td>Směsný odpad</td></tr>
+<tr><td>20.08.2026</td><td>Bioodpad</td></tr>
+<tr><td>24.08.2026</td><td>Plast</td></tr>
+<tr><td>27.08.2026</td><td>Směsný odpad</td></tr>
+<tr><td>31.08.2026</td><td>Papír</td></tr>
+<tr><td>03.09.2026</td><td>Bioodpad</td></tr>
+<tr><td>10.09.2026</td><td>Směsný odpad</td></tr>
+<tr><td>17.09.2026</td><td>Bioodpad</td></tr>
+<tr><td>21.09.2026</td><td>Plast</td></tr>
+<tr><td>24.09.2026</td><td>Směsný odpad</td></tr>
+<tr><td>28.09.2026</td><td>Papír</td></tr>
+<tr><td>01.10.2026</td><td>Bioodpad</td></tr>
+<tr><td>08.10.2026</td><td>Směsný odpad</td></tr>
+<tr><td>15.10.2026</td><td>Bioodpad</td></tr>
+<tr><td>19.10.2026</td><td>Plast</td></tr>
+<tr><td>22.10.2026</td><td>Směsný odpad</td></tr>
+<tr><td>26.10.2026</td><td>Papír</td></tr>
+<tr><td>29.10.2026</td><td>Bioodpad</td></tr>
+<tr><td>05.11.2026</td><td>Směsný odpad</td></tr>
+<tr><td>12.11.2026</td><td>Bioodpad</td></tr>
+<tr><td>16.11.2026</td><td>Plast</td></tr>
+<tr><td>19.11.2026</td><td>Směsný odpad</td></tr>
+<tr><td>23.11.2026</td><td>Papír</td></tr>
+<tr><td>26.11.2026</td><td>Bioodpad</td></tr>
+<tr><td>03.12.2026</td><td>Směsný odpad</td></tr>
+<tr><td>14.12.2026</td><td>Plast</td></tr>
+<tr><td>17.12.2026</td><td>Směsný odpad</td></tr>
+<tr><td>21.12.2026</td><td>Papír</td></tr>
 
-<script>
-    window.STREET_NAME = "Pošmýlská";
-</script>
+</table>
 
-<script src="/js/app.js"></script>
-<script async src="/js/pdf_generator.js"></script>
-<script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+    </div>
+
+    <!-- Seznam lokací (jen pro homepage) -->
+    
+
+    <p class="disclaimer">
+        Kalendář je
+        <a href="https://github.com/honza-kasik/svoz_odpadu_litovel"
+           target="_blank"
+           rel="noopener">
+           nezávislý projekt
+        </a>,
+        který vytvořil a spravuje
+        <a href="https://honzakasik.cz"
+           target="_blank"
+           rel="noopener">
+           Honza Kašík
+        </a>.
+        Zdrojová data poskytuje Město Litovel.
+        <a href="/docs/synchronizace-notifikace.html">
+            Návod na notifikace a synchronizaci.
+        </a>
+    </p>
+
+    <script>
+        window.STREET_NAME = "Pošmýlská";
+    </script>
+
+    <script src="/js/app.js" defer></script>
+    <script src="/js/pdf_generator.js" defer></script>
+
+    <!-- 100% privacy-first analytics -->
+    <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
 
 </body>
 </html>
