@@ -43,7 +43,8 @@ def build_index(streets):
         **meta_builder.index(),
         "SEO_FALLBACK": "",
         "LOCATION_LIST": location_list_html,
-        "STREET_NAME": "null"
+        "STREET_NAME": "null",
+        "RELATED_STREETS_HTML": ""
     }
 
     render_template("index.html", context)

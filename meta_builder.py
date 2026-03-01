@@ -51,15 +51,14 @@ class MetaBuilder:
 
         if is_mistni_cast:
             description = (
-                f"Termíny svozu odpadu pro místní část {street_name}, "
-                f"{city} v roce {year}."
+                f"Kdy se v místní části {street_name} v {self.config.city_v} vyváží plast, papír nebo bioodpad? Podívejte se na aktuální harmonogram svozu pro rok {self.config.year} a stáhněte si kalendář do mobilu."
             )
             h1 = f"Svoz odpadu {city}, místní část {street_name}"
             subtitle =  f"Aktuální přehled svozových dnů pro obec {street_name} (místní část {config.city_koho}). Harmonogram zahrnuje svoz komunálního odpadu, plastů, papíru a bioodpadu. Data jsou platná pro rok {year}."
         else:
             description = (
-                f"Termíny svozu odpadu pro ulici {street_name} "
-                f"v {city} v roce {year}."
+                f"Kdy se v ulici {street_name} v {self.config.city_v} vyváží plast, papír nebo bioodpad? Podívejte se na aktuální harmonogram svozu pro rok {self.config.year} a stáhněte si kalendář do mobilu."
+
             )
             h1 = f"Svoz odpadu {city}, {street_name}"
             subtitle =  f"Aktuální přehled svozových dnů pro ulici {street_name} v {config.city_v}. Harmonogram zahrnuje svoz komunálního odpadu, plastů, papíru a bioodpadu. Data jsou platná pro rok {year}."
