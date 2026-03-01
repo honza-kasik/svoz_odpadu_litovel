@@ -218,11 +218,18 @@ input {
 /* ===== TLAČÍTKA ===== */
 
 .button {
-  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 14px;
+  min-height: 38px;
+
   background: #2563eb;
   color: white;
   border-radius: 8px;
   font-size: 0.9rem;
+
   cursor: pointer;
   user-select: none;
   text-align: center;
@@ -323,9 +330,9 @@ input {
   }
 
   .collection {
-    font-size: 0.6rem;
+    border-radius: 6px;
     padding: 2px 6px;
-    border-radius: 999px;
+    font-size: 0.65rem;
   }
 
   #controls {
