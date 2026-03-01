@@ -67,6 +67,10 @@ h2 {
   min-height: 95px;
 }
 
+.calendar-month .today {
+  background: #8bcc81;
+}
+
 /* číslo dne */
 .calendar-month td {
   font-weight: 500;
