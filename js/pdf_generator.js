@@ -1,6 +1,6 @@
 async function generateWasteCalendarPDF(events, year, month = null, locationName = null) {
     await loadScriptOnce("https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"); 
-    await loadScriptOnce("resources/Caladea-Regular-normal.js")
+    await loadScriptOnce("/resources/Caladea-Regular-normal.js")
 
     const { jsPDF } = window.jspdf;
     const pdf = new jsPDF({ unit: "mm", format: "a4" });
