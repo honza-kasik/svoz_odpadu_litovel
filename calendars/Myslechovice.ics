@@ -11,7 +11,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250102
 DTEND;VALUE=DATE:20250103
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2025-01-02@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -21,7 +21,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250103
 DTEND;VALUE=DATE:20250104
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2025-01-03@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -31,7 +31,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Myslechovice
 DTSTART;VALUE=DATE:20250110
 DTEND;VALUE=DATE:20250111
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-plastics-2025-01-10@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -41,7 +41,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250117
 DTEND;VALUE=DATE:20250118
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2025-01-17@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -51,7 +51,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Myslechovice
 DTSTART;VALUE=DATE:20250124
 DTEND;VALUE=DATE:20250125
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-paper-2025-01-24@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -61,7 +61,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250127
 DTEND;VALUE=DATE:20250128
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2025-01-27@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -71,7 +71,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250131
 DTEND;VALUE=DATE:20250201
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2025-01-31@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -81,7 +81,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Myslechovice
 DTSTART;VALUE=DATE:20250207
 DTEND;VALUE=DATE:20250208
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-plastics-2025-02-07@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -91,7 +91,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250214
 DTEND;VALUE=DATE:20250215
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2025-02-14@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -101,7 +101,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Myslechovice
 DTSTART;VALUE=DATE:20250221
 DTEND;VALUE=DATE:20250222
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-paper-2025-02-21@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -111,7 +111,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250224
 DTEND;VALUE=DATE:20250225
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2025-02-24@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -121,7 +121,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250228
 DTEND;VALUE=DATE:20250301
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2025-02-28@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -131,7 +131,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Myslechovice
 DTSTART;VALUE=DATE:20250307
 DTEND;VALUE=DATE:20250308
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-plastics-2025-03-07@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -141,7 +141,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250310
 DTEND;VALUE=DATE:20250311
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2025-03-10@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -151,7 +151,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250314
 DTEND;VALUE=DATE:20250315
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2025-03-14@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -161,7 +161,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Myslechovice
 DTSTART;VALUE=DATE:20250321
 DTEND;VALUE=DATE:20250322
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-paper-2025-03-21@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -171,7 +171,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250324
 DTEND;VALUE=DATE:20250325
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2025-03-24@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -181,7 +181,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250328
 DTEND;VALUE=DATE:20250329
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2025-03-28@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -191,7 +191,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Myslechovice
 DTSTART;VALUE=DATE:20250404
 DTEND;VALUE=DATE:20250405
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-plastics-2025-04-04@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -201,7 +201,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250407
 DTEND;VALUE=DATE:20250408
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2025-04-07@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -211,7 +211,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250411
 DTEND;VALUE=DATE:20250412
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2025-04-11@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -221,7 +221,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Myslechovice
 DTSTART;VALUE=DATE:20250418
 DTEND;VALUE=DATE:20250419
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-paper-2025-04-18@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -231,7 +231,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250425
 DTEND;VALUE=DATE:20250426
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2025-04-25@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -241,7 +241,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250425
 DTEND;VALUE=DATE:20250426
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2025-04-25@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -251,7 +251,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Myslechovice
 DTSTART;VALUE=DATE:20250502
 DTEND;VALUE=DATE:20250503
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-plastics-2025-05-02@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -261,7 +261,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250505
 DTEND;VALUE=DATE:20250506
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2025-05-05@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -271,7 +271,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250509
 DTEND;VALUE=DATE:20250510
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2025-05-09@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -281,7 +281,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Myslechovice
 DTSTART;VALUE=DATE:20250516
 DTEND;VALUE=DATE:20250517
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-paper-2025-05-16@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -291,7 +291,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250519
 DTEND;VALUE=DATE:20250520
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2025-05-19@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -301,7 +301,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250523
 DTEND;VALUE=DATE:20250524
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2025-05-23@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -311,7 +311,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Myslechovice
 DTSTART;VALUE=DATE:20250530
 DTEND;VALUE=DATE:20250531
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-plastics-2025-05-30@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -321,7 +321,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250602
 DTEND;VALUE=DATE:20250603
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2025-06-02@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -331,7 +331,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250606
 DTEND;VALUE=DATE:20250607
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2025-06-06@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -341,7 +341,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Myslechovice
 DTSTART;VALUE=DATE:20250613
 DTEND;VALUE=DATE:20250614
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-paper-2025-06-13@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -351,7 +351,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250616
 DTEND;VALUE=DATE:20250617
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2025-06-16@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -361,7 +361,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250620
 DTEND;VALUE=DATE:20250621
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2025-06-20@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -371,7 +371,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Myslechovice
 DTSTART;VALUE=DATE:20250627
 DTEND;VALUE=DATE:20250628
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-plastics-2025-06-27@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -381,7 +381,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250630
 DTEND;VALUE=DATE:20250701
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2025-06-30@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -391,7 +391,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250704
 DTEND;VALUE=DATE:20250705
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2025-07-04@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -401,7 +401,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Myslechovice
 DTSTART;VALUE=DATE:20250709
 DTEND;VALUE=DATE:20250710
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-paper-2025-07-09@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -411,7 +411,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250714
 DTEND;VALUE=DATE:20250715
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2025-07-14@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -421,7 +421,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250718
 DTEND;VALUE=DATE:20250719
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2025-07-18@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -431,7 +431,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Myslechovice
 DTSTART;VALUE=DATE:20250723
 DTEND;VALUE=DATE:20250724
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-plastics-2025-07-23@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -441,7 +441,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250728
 DTEND;VALUE=DATE:20250729
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2025-07-28@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -451,7 +451,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250801
 DTEND;VALUE=DATE:20250802
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2025-08-01@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -461,7 +461,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Myslechovice
 DTSTART;VALUE=DATE:20250806
 DTEND;VALUE=DATE:20250807
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-paper-2025-08-06@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -471,7 +471,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250811
 DTEND;VALUE=DATE:20250812
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2025-08-11@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -481,7 +481,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250815
 DTEND;VALUE=DATE:20250816
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2025-08-15@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -491,7 +491,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Myslechovice
 DTSTART;VALUE=DATE:20250820
 DTEND;VALUE=DATE:20250821
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-plastics-2025-08-20@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -501,7 +501,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250825
 DTEND;VALUE=DATE:20250826
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2025-08-25@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -511,7 +511,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250829
 DTEND;VALUE=DATE:20250830
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2025-08-29@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -521,7 +521,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Myslechovice
 DTSTART;VALUE=DATE:20250903
 DTEND;VALUE=DATE:20250904
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-paper-2025-09-03@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -531,7 +531,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250908
 DTEND;VALUE=DATE:20250909
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2025-09-08@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -541,7 +541,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250912
 DTEND;VALUE=DATE:20250913
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2025-09-12@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -551,7 +551,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Myslechovice
 DTSTART;VALUE=DATE:20250917
 DTEND;VALUE=DATE:20250918
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-plastics-2025-09-17@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -561,7 +561,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250922
 DTEND;VALUE=DATE:20250923
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2025-09-22@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -571,7 +571,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20250926
 DTEND;VALUE=DATE:20250927
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2025-09-26@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -581,7 +581,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Myslechovice
 DTSTART;VALUE=DATE:20251003
 DTEND;VALUE=DATE:20251004
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-paper-2025-10-03@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -591,7 +591,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20251006
 DTEND;VALUE=DATE:20251007
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2025-10-06@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -601,7 +601,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20251010
 DTEND;VALUE=DATE:20251011
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2025-10-10@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -611,7 +611,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Myslechovice
 DTSTART;VALUE=DATE:20251017
 DTEND;VALUE=DATE:20251018
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-plastics-2025-10-17@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -621,7 +621,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20251020
 DTEND;VALUE=DATE:20251021
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2025-10-20@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -631,7 +631,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20251024
 DTEND;VALUE=DATE:20251025
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2025-10-24@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -641,7 +641,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Myslechovice
 DTSTART;VALUE=DATE:20251031
 DTEND;VALUE=DATE:20251101
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-paper-2025-10-31@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -651,7 +651,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20251103
 DTEND;VALUE=DATE:20251104
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2025-11-03@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -661,7 +661,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20251107
 DTEND;VALUE=DATE:20251108
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2025-11-07@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -671,7 +671,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Myslechovice
 DTSTART;VALUE=DATE:20251114
 DTEND;VALUE=DATE:20251115
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-plastics-2025-11-14@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -681,7 +681,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20251117
 DTEND;VALUE=DATE:20251118
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2025-11-17@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -691,7 +691,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20251121
 DTEND;VALUE=DATE:20251122
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2025-11-21@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -701,7 +701,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Myslechovice
 DTSTART;VALUE=DATE:20251128
 DTEND;VALUE=DATE:20251129
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-paper-2025-11-28@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -711,7 +711,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20251201
 DTEND;VALUE=DATE:20251202
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2025-12-01@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -721,7 +721,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20251205
 DTEND;VALUE=DATE:20251206
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2025-12-05@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -731,7 +731,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Myslechovice
 DTSTART;VALUE=DATE:20251212
 DTEND;VALUE=DATE:20251213
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-plastics-2025-12-12@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -741,7 +741,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20251219
 DTEND;VALUE=DATE:20251220
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2025-12-19@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -751,7 +751,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Myslechovice
 DTSTART;VALUE=DATE:20251226
 DTEND;VALUE=DATE:20251227
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-paper-2025-12-26@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -761,7 +761,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260102
 DTEND;VALUE=DATE:20260103
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2026-01-02@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -771,7 +771,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Myslechovice
 DTSTART;VALUE=DATE:20260109
 DTEND;VALUE=DATE:20260110
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-plastics-2026-01-09@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -781,7 +781,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260116
 DTEND;VALUE=DATE:20260117
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2026-01-16@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -791,7 +791,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260119
 DTEND;VALUE=DATE:20260120
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2026-01-19@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -801,7 +801,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Myslechovice
 DTSTART;VALUE=DATE:20260123
 DTEND;VALUE=DATE:20260124
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-paper-2026-01-23@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -811,7 +811,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260130
 DTEND;VALUE=DATE:20260131
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2026-01-30@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -821,7 +821,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Myslechovice
 DTSTART;VALUE=DATE:20260206
 DTEND;VALUE=DATE:20260207
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-plastics-2026-02-06@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -831,7 +831,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260213
 DTEND;VALUE=DATE:20260214
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2026-02-13@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -841,7 +841,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260216
 DTEND;VALUE=DATE:20260217
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2026-02-16@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -851,7 +851,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Myslechovice
 DTSTART;VALUE=DATE:20260220
 DTEND;VALUE=DATE:20260221
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-paper-2026-02-20@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -861,7 +861,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260227
 DTEND;VALUE=DATE:20260228
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2026-02-27@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -871,7 +871,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260302
 DTEND;VALUE=DATE:20260303
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2026-03-02@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -881,7 +881,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Myslechovice
 DTSTART;VALUE=DATE:20260306
 DTEND;VALUE=DATE:20260307
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-plastics-2026-03-06@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -891,7 +891,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260313
 DTEND;VALUE=DATE:20260314
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2026-03-13@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -901,7 +901,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260316
 DTEND;VALUE=DATE:20260317
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2026-03-16@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -911,7 +911,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Myslechovice
 DTSTART;VALUE=DATE:20260320
 DTEND;VALUE=DATE:20260321
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-paper-2026-03-20@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -921,7 +921,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260327
 DTEND;VALUE=DATE:20260328
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2026-03-27@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -931,7 +931,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260330
 DTEND;VALUE=DATE:20260331
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2026-03-30@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -941,7 +941,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Myslechovice
 DTSTART;VALUE=DATE:20260403
 DTEND;VALUE=DATE:20260404
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-plastics-2026-04-03@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -951,7 +951,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260410
 DTEND;VALUE=DATE:20260411
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2026-04-10@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -961,7 +961,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260413
 DTEND;VALUE=DATE:20260414
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2026-04-13@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -971,7 +971,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Myslechovice
 DTSTART;VALUE=DATE:20260417
 DTEND;VALUE=DATE:20260418
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-paper-2026-04-17@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -981,7 +981,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260424
 DTEND;VALUE=DATE:20260425
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2026-04-24@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -991,7 +991,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260427
 DTEND;VALUE=DATE:20260428
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2026-04-27@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1001,7 +1001,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Myslechovice
 DTSTART;VALUE=DATE:20260501
 DTEND;VALUE=DATE:20260502
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-plastics-2026-05-01@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1011,7 +1011,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260508
 DTEND;VALUE=DATE:20260509
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2026-05-08@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1021,7 +1021,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260511
 DTEND;VALUE=DATE:20260512
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2026-05-11@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1031,7 +1031,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Myslechovice
 DTSTART;VALUE=DATE:20260515
 DTEND;VALUE=DATE:20260516
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-paper-2026-05-15@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1041,7 +1041,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260522
 DTEND;VALUE=DATE:20260523
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2026-05-22@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1051,7 +1051,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260525
 DTEND;VALUE=DATE:20260526
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2026-05-25@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1061,7 +1061,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Myslechovice
 DTSTART;VALUE=DATE:20260529
 DTEND;VALUE=DATE:20260530
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-plastics-2026-05-29@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1071,7 +1071,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260605
 DTEND;VALUE=DATE:20260606
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2026-06-05@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1081,7 +1081,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260608
 DTEND;VALUE=DATE:20260609
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2026-06-08@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1091,7 +1091,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Myslechovice
 DTSTART;VALUE=DATE:20260612
 DTEND;VALUE=DATE:20260613
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-paper-2026-06-12@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1101,7 +1101,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260619
 DTEND;VALUE=DATE:20260620
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2026-06-19@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1111,7 +1111,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260622
 DTEND;VALUE=DATE:20260623
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2026-06-22@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1121,7 +1121,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Myslechovice
 DTSTART;VALUE=DATE:20260626
 DTEND;VALUE=DATE:20260627
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-plastics-2026-06-26@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1131,7 +1131,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260703
 DTEND;VALUE=DATE:20260704
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2026-07-03@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1141,7 +1141,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260706
 DTEND;VALUE=DATE:20260707
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2026-07-06@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1151,7 +1151,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Myslechovice
 DTSTART;VALUE=DATE:20260710
 DTEND;VALUE=DATE:20260711
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-paper-2026-07-10@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1161,7 +1161,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260717
 DTEND;VALUE=DATE:20260718
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2026-07-17@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1171,7 +1171,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260720
 DTEND;VALUE=DATE:20260721
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2026-07-20@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1181,7 +1181,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Myslechovice
 DTSTART;VALUE=DATE:20260724
 DTEND;VALUE=DATE:20260725
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-plastics-2026-07-24@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1191,7 +1191,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260731
 DTEND;VALUE=DATE:20260801
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2026-07-31@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1201,7 +1201,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260803
 DTEND;VALUE=DATE:20260804
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2026-08-03@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1211,7 +1211,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Myslechovice
 DTSTART;VALUE=DATE:20260807
 DTEND;VALUE=DATE:20260808
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-paper-2026-08-07@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1221,7 +1221,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260814
 DTEND;VALUE=DATE:20260815
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2026-08-14@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1231,7 +1231,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260817
 DTEND;VALUE=DATE:20260818
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2026-08-17@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1241,7 +1241,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Myslechovice
 DTSTART;VALUE=DATE:20260821
 DTEND;VALUE=DATE:20260822
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-plastics-2026-08-21@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1251,7 +1251,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260828
 DTEND;VALUE=DATE:20260829
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2026-08-28@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1261,7 +1261,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260831
 DTEND;VALUE=DATE:20260901
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2026-08-31@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1271,7 +1271,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Myslechovice
 DTSTART;VALUE=DATE:20260904
 DTEND;VALUE=DATE:20260905
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-paper-2026-09-04@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1281,7 +1281,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260911
 DTEND;VALUE=DATE:20260912
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2026-09-11@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1291,7 +1291,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260914
 DTEND;VALUE=DATE:20260915
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2026-09-14@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1301,7 +1301,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Myslechovice
 DTSTART;VALUE=DATE:20260918
 DTEND;VALUE=DATE:20260919
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-plastics-2026-09-18@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1311,7 +1311,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260925
 DTEND;VALUE=DATE:20260926
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2026-09-25@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1321,7 +1321,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20260928
 DTEND;VALUE=DATE:20260929
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2026-09-28@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1331,7 +1331,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Myslechovice
 DTSTART;VALUE=DATE:20261002
 DTEND;VALUE=DATE:20261003
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-paper-2026-10-02@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1341,7 +1341,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20261009
 DTEND;VALUE=DATE:20261010
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2026-10-09@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1351,7 +1351,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20261012
 DTEND;VALUE=DATE:20261013
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2026-10-12@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1361,7 +1361,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Myslechovice
 DTSTART;VALUE=DATE:20261016
 DTEND;VALUE=DATE:20261017
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-plastics-2026-10-16@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1371,7 +1371,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20261023
 DTEND;VALUE=DATE:20261024
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2026-10-23@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1381,7 +1381,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20261026
 DTEND;VALUE=DATE:20261027
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2026-10-26@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1391,7 +1391,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Myslechovice
 DTSTART;VALUE=DATE:20261030
 DTEND;VALUE=DATE:20261031
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-paper-2026-10-30@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1401,7 +1401,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20261106
 DTEND;VALUE=DATE:20261107
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2026-11-06@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1411,7 +1411,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20261109
 DTEND;VALUE=DATE:20261110
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2026-11-09@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1421,7 +1421,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Myslechovice
 DTSTART;VALUE=DATE:20261113
 DTEND;VALUE=DATE:20261114
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-plastics-2026-11-13@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1431,7 +1431,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20261120
 DTEND;VALUE=DATE:20261121
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2026-11-20@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1441,7 +1441,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20261123
 DTEND;VALUE=DATE:20261124
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-bio-2026-11-23@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1451,7 +1451,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Myslechovice
 DTSTART;VALUE=DATE:20261127
 DTEND;VALUE=DATE:20261128
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-paper-2026-11-27@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1461,7 +1461,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20261204
 DTEND;VALUE=DATE:20261205
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2026-12-04@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1471,7 +1471,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Myslechovice
 DTSTART;VALUE=DATE:20261211
 DTEND;VALUE=DATE:20261212
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-plastics-2026-12-11@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1481,7 +1481,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Myslechovice
 DTSTART;VALUE=DATE:20261218
 DTEND;VALUE=DATE:20261219
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-generic-2026-12-18@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
@@ -1491,7 +1491,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Myslechovice
 DTSTART;VALUE=DATE:20261225
 DTEND;VALUE=DATE:20261226
-DTSTAMP:20260303T181242Z
+DTSTAMP:20260303T182038Z
 UID:myslechovice-paper-2026-12-25@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Myslechovice\, Litovel
 LOCATION:Myslechovice\, Litovel
