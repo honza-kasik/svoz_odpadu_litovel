@@ -1,8 +1,8 @@
-from datetime import datetime, timedelta
-
 from icalendar import Calendar, Event
+from datetime import datetime, timedelta, timezone
 
 from lokace_svozu import LokaceSvozu, CollectionEvent
+from utils import slugify
 
 class WasteCollectionCalendarGenerator:
     """
@@ -75,19 +75,41 @@ class WasteCollectionCalendarGenerator:
             date_start (datetime): Datum od ktereho se zacnou porovnavat predikaty v lokacich svozu
             date_end (datetime): Nejzassi datum, ktere se pouzije pro predikat v lokaci svozu
         """
-
         cal = Calendar()
+        cal.add("prodid", "-//svoz.litovle.cz//Kalendář svozu odpadu//CS")
+        cal.add("version", "2.0")
+        cal.add("calscale", "GREGORIAN")
+        cal.add("method", "PUBLISH")
+        cal.add("X-WR-CALNAME", f"Svoz odpadu – {street} (Litovel)")
+        cal.add("X-WR-TIMEZONE", "Europe/Prague")
+        cal.add("X-WR-CALDESC", "Aktuální harmonogram svozu odpadu. Aktualizováno dle oficiálních podkladů města.")
+
+        now_utc = datetime.now(timezone.utc)
 
         for event in self._event_cache[street]:
+
             e = Event()
-            e.add("summary", f"{event.waste_type.label} svoz - {street}")
+
+            uid = f"{slugify(street)}-{event.waste_type.key}-{event.date.date()}@svoz.litovle.cz"
+
+            e.add("uid", uid)
+            e.add("dtstamp", now_utc)
+
+            # --- All-day event ---
             e.add("dtstart", event.date.date())
             e.add("dtend", event.date.date() + timedelta(days=1))
+
+            e.add("summary", f"{event.waste_type.label} svoz – {street}")
+
+            # volitelné, ale dobré:
+            e.add("description", f"Svoz odpadu ({event.waste_type.label}) – {street}, Litovel")
+            e.add("location", f"{street}, Litovel")
+            e.add("transp", "TRANSPARENT")
+
             cal.add_component(e)
 
         with open(f"{directory}/{street}.ics", "wb") as f:
             f.write(cal.to_ical())
-
 
     def generate_csv_file(self, streets: list, date_start: datetime, date_end: datetime):
         """

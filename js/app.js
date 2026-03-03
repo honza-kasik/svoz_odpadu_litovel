@@ -57,7 +57,6 @@ function populateFilters() {
     const yearSelect = document.getElementById('yearSelect');
     const locationSearch = document.getElementById('locationSearch');
     const locationOptions = document.getElementById('locationOptions');
-    const copyLink = document.getElementById('copyLink');
     const footerControls = document.getElementById('footerControls');
     const pdfYear = document.getElementById('pdfYear');
     const pdfMonth = document.getElementById('pdfMonth');
@@ -174,12 +173,6 @@ function populateFilters() {
         );
     });
 
-    copyLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        const icsUrl = copyLink.getAttribute('data-url');
-        navigator.clipboard.writeText(icsUrl);
-    });
-
     renderLocationOptions("", initialLocation);
 }
 
@@ -258,15 +251,9 @@ function updateDataForInitialLocation(initialLocation, uniqueLocations) {
     if (initialLocation && uniqueLocations.includes(initialLocation)) {
         filteredLocation = initialLocation;
         const locationSearch = document.getElementById('locationSearch');
-        const copyLink = document.getElementById('copyLink');
         const footerControls = document.getElementById('footerControls');
 
         if (locationSearch) locationSearch.value = initialLocation;
-        if (copyLink) {
-            copyLink.setAttribute('data-url',
-                `${window.location.origin}/calendars/${encodeURIComponent(initialLocation)}.ics`
-            );
-        }
         if (footerControls) footerControls.style.display = 'flex';
     }
 }

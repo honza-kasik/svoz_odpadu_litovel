@@ -157,7 +157,7 @@ lokace_svozu_smes = [
                                 [datetime(2025,1,1)],
                                 [datetime(2025,1,3)]),
     LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 1, ['Unčovice'], WasteType.SMES),
-    LokaceSvozu(lambda date: False, 'Dukelská', WasteType.SMES, [], [datetime(2025, 9, 11)])
+    LokaceSvozu(lambda date: False, ['Dukelská'], WasteType.SMES, [], [datetime(2025, 9, 11)])
 ]
 
 lokace_svozu_bio = [
