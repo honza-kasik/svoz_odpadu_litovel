@@ -43,41 +43,39 @@ h2 {
 
 /* ===== KALENDÁŘ ===== */
 
-.calendar-month {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 4px;
-  table-layout: fixed;
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  padding: 2px;
+  border-radius: 12px;
 }
 
-.calendar-month th {
-  background: transparent;
-  font-weight: 600;
+.day-header {
   font-size: 0.85rem;
-  color: #64748b;
-  padding: 8px 0;
-}
-
-.calendar-month td {
-  background: white;
-  border: none;
-  padding: 12px;
-  vertical-align: top;
-  border-radius: 10px;
-
-  min-height: 95px;
-  font-weight: 500;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-.calendar-month .today {
-  background: #8bcc81;
-}
-
-.calendar-month td > span,
-.calendar-month td > .day-number,
-.calendar-month td::first-line {
   font-weight: 600;
+  text-align: center;
+  color: #64748b;
+  padding: 6px 0;
+}
+
+.day-cell {
+  background: white;
+  border-radius: 10px;
+  min-height: 95px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.day-number {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.day-cell.today {
+  background: #8bcc81;
 }
 
 /* ===== ŠTÍTKY ODPADU ===== */
@@ -326,14 +324,9 @@ input {
     font-size: 1.5rem;
   }
 
-  .calendar-month td {
-    font-size: 0.8rem;
-    min-height: 60px;
+  .day-cell {
+    min-height: 70px;
     padding: 6px;
-  }
-
-  .calendar-month {
-    border-spacing: 2px;
   }
 
   .collection {

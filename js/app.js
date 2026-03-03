@@ -179,39 +179,43 @@ function populateFilters() {
 function renderMonthCalendar(renderedLocation = "") {
     const calendarContainer = document.getElementById('calendarContainer');
     calendarContainer.innerHTML = '';
+
     const today = new Date();
     const daysInMonth = new Date(selectedYear, selectedMonth + 1, 0).getDate();
     const firstDay = (new Date(selectedYear, selectedMonth, 1).getDay() + 6) % 7;
 
-    const fallback = document.getElementById("seoFallback");
-    if (fallback) {
-        fallback.style.display = "none";
-    }
+    const grid = document.createElement('div');
+    grid.className = 'calendar-grid';
 
-    const table = document.createElement('table');
-    table.className = 'calendar-month';
-
-    const headerRow = document.createElement('tr');
+    // Hlavičky dnů
     DAYS.forEach(day => {
-        const th = document.createElement('th');
-        th.textContent = day;
-        headerRow.appendChild(th);
+        const header = document.createElement('div');
+        header.className = 'day-header';
+        header.textContent = day;
+        grid.appendChild(header);
     });
-    table.appendChild(headerRow);
 
-    let row = document.createElement('tr');
+    // Prázdné buňky před začátkem měsíce
     for (let i = 0; i < firstDay; i++) {
-        row.appendChild(document.createElement('td'));
+        const empty = document.createElement('div');
+        grid.appendChild(empty);
     }
 
     for (let day = 1; day <= daysInMonth; day++) {
-        const cell = document.createElement('td');
-        const dateKey = `${selectedYear}-${(selectedMonth + 1).toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
-        cell.textContent = day;
 
+        const cell = document.createElement('div');
+        cell.className = 'day-cell';
+
+        const number = document.createElement('div');
+        number.className = 'day-number';
+        number.textContent = day;
+        cell.appendChild(number);
+
+        const dateKey = `${selectedYear}-${(selectedMonth + 1).toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
         const matchingEntries = wasteSchedule.filter(entry => entry.date === dateKey);
 
         const groupedEntries = {};
+
         matchingEntries.forEach(entry => {
             if (!renderedLocation || entry.location === renderedLocation) {
                 if (!groupedEntries[entry.type]) {
@@ -225,26 +229,24 @@ function renderMonthCalendar(renderedLocation = "") {
             const collectionDiv = document.createElement('div');
             collectionDiv.className = `collection ${type}`;
             const locationText = renderedLocation 
-                ? Array.from(locations).join(', ')
+                ? ''
                 : `(${locations.size} lokací)`;
-            collectionDiv.textContent = `${WASTE_TYPES[type]}`;
+            collectionDiv.textContent = `${WASTE_TYPES[type]} ${locationText}`;
             cell.appendChild(collectionDiv);
         }
 
-        if (day === today.getDate() && selectedYear === today.getFullYear() && selectedMonth === today.getMonth()) {
+        if (
+            day === today.getDate() &&
+            selectedYear === today.getFullYear() &&
+            selectedMonth === today.getMonth()
+        ) {
             cell.classList.add('today');
         }
 
-        row.appendChild(cell);
-
-        if ((firstDay + day) % 7 === 0) {
-            table.appendChild(row);
-            row = document.createElement('tr');
-        }
+        grid.appendChild(cell);
     }
 
-    table.appendChild(row);
-    calendarContainer.appendChild(table);
+    calendarContainer.appendChild(grid);
 }
 
 function updateDataForInitialLocation(initialLocation, uniqueLocations) {
