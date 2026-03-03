@@ -7,6 +7,7 @@ class MetaConfig:
     city_koho: str
     year: int
     base_url: str
+    base_domain: str
 
 
 config = MetaConfig(
@@ -14,7 +15,8 @@ config = MetaConfig(
     city_v = "Litovli",
     city_koho = "Litovle",
     year = 2026,
-    base_url = "https://svoz.litovle.cz"
+    base_url = "https://svoz.litovle.cz",
+    base_domain = "svoz.litovle.cz"
 )
 
 
@@ -37,7 +39,8 @@ class MetaBuilder:
             ),
             "CANONICAL": f"{self.config.base_url}/",
             "H1": f"Kalendář svozu odpadu v {self.config.city_v}",
-            "SUBTITLE": f"Aktuální přehled svozových dnů pro {config.city}. Harmonogram zahrnuje svoz komunálního odpadu, plastů, papíru a bioodpadu. Data jsou platná pro rok {config.year}."
+            "SUBTITLE": f"Aktuální přehled svozových dnů pro {config.city}. Harmonogram zahrnuje svoz komunálního odpadu, plastů, papíru a bioodpadu. Data jsou platná pro rok {config.year}.",
+            "ICS_SUBSCRIPTION": "",
         }
 
     # -------------------------------------------------
@@ -71,5 +74,6 @@ class MetaBuilder:
             "DESCRIPTION": description,
             "CANONICAL": f"{self.config.base_url}/ulice/{slug}/",
             "H1": h1,
-            "SUBTITLE": subtitle
+            "SUBTITLE": subtitle,
+            "ICS_SUBSCRIPTION": f"webcal://{self.config.base_domain}/calendars/{street_name}.ics",
         }
