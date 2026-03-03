@@ -64,6 +64,7 @@ h2 {
   padding: 12px;
   vertical-align: top;
   border-radius: 10px;
+
   min-height: 95px;
   font-weight: 500;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -83,12 +84,16 @@ h2 {
 
 .collection {
   display: block;
+  max-width: 100%;
+  padding: 4px 8px;
+  border-radius: 8px;
+  white-space: normal;
   margin-top: 6px;
   border-radius: 4px;
   padding: 4px 10px;
+
   font-size: 0.75rem;
   font-weight: 500;
-  width: fit-content;
 }
 
 .collection.bio {
@@ -350,18 +355,20 @@ input {
     gap: 8px;
   }
 
+
   #location-picker {
     display: flex;
-    gap: 10px;
+    width: 100%;
+    gap: 8px;
   }
 
   #locationSearch {
-    flex: 1;
-    height: 38px;
+    flex: 1;          /* zabere všechen volný prostor */
+    min-width: 0;     /* KRITICKÉ pro správné zmenšování */
+    width: auto;      /* zruší pevnou šířku 220px */
   }
 
   #resetFilter {
-    height: 38px;
-    padding: 0 14px;
+    flex-shrink: 0;   /* tlačítko se nebude mačkat */
   }
 }

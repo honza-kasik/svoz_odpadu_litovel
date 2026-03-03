@@ -227,7 +227,7 @@ function renderMonthCalendar(renderedLocation = "") {
             const locationText = renderedLocation 
                 ? Array.from(locations).join(', ')
                 : `(${locations.size} lokací)`;
-            collectionDiv.textContent = `${WASTE_TYPES[type]} ${locationText}`;
+            collectionDiv.textContent = `${WASTE_TYPES[type]}`;
             cell.appendChild(collectionDiv);
         }
 
