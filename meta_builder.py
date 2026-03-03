@@ -75,5 +75,5 @@ class MetaBuilder:
             "CANONICAL": f"{self.config.base_url}/ulice/{slug}/",
             "H1": h1,
             "SUBTITLE": subtitle,
-            "ICS_SUBSCRIPTION": f"webcal://{self.config.base_domain}/calendars/{street_name}.ics",
+            "ICS_SUBSCRIPTION": f"{self.config.base_url}/calendars/{street_name}.ics",
         }
