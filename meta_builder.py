@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from urllib.parse import quote
 
 @dataclass(frozen=True)
 class MetaConfig:
@@ -40,7 +41,10 @@ class MetaBuilder:
             "CANONICAL": f"{self.config.base_url}/",
             "H1": f"Kalendář svozu odpadu v {self.config.city_v}",
             "SUBTITLE": f"Aktuální přehled svozových dnů pro {config.city}. Harmonogram zahrnuje svoz komunálního odpadu, plastů, papíru a bioodpadu. Data jsou platná pro rok {config.year}.",
-            "ICS_SUBSCRIPTION": "",
+            "ICS_DOWNLOAD": "",
+            "ICS_SUBSCRIPTION_WEBCAL": "",
+            "ICS_SUBSCRIPTION_GOOGLE": ""
+
         }
 
     # -------------------------------------------------
@@ -66,6 +70,17 @@ class MetaBuilder:
             h1 = f"Svoz odpadu {city}, {street_name}"
             subtitle =  f"Aktuální přehled svozových dnů pro ulici {street_name} v {config.city_v}. Harmonogram zahrnuje svoz komunálního odpadu, plastů, papíru a bioodpadu. Data jsou platná pro rok {year}."
 
+
+        ics_path = f"{self.config.base_domain}/calendars/{slug}.ics"
+
+        # 1. Pro Apple, Outlook a mobilní Android (systémový kalendář)
+        ics_download_https = f"https://{ics_path}"
+        ics_subsciption_webcal = f"webcal://{ics_path}"
+
+        # 2. Specificky pro Google Kalendář (webové rozhraní / odběr)
+        encoded_webcal = quote(ics_subsciption_webcal, safe='')
+        ics_subsciption_google = f"https://www.google.com/calendar/render?cid={encoded_webcal}"
+
         return {
             "TITLE": (
                 f"Svoz odpadu {street_name} ({city}) – "
@@ -75,5 +90,7 @@ class MetaBuilder:
             "CANONICAL": f"{self.config.base_url}/ulice/{slug}/",
             "H1": h1,
             "SUBTITLE": subtitle,
-            "ICS_SUBSCRIPTION": f"{self.config.base_url}/calendars/{street_name}.ics",
+            "ICS_DOWNLOAD": ics_download_https,
+            "ICS_SUBSCRIPTION_WEBCAL": ics_subsciption_webcal,
+            "ICS_SUBSCRIPTION_GOOGLE": ics_subsciption_google
         }

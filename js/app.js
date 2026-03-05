@@ -39,6 +39,7 @@ fetch('/waste_schedule.csv')
         } else {
             populateFilters();
         }
+
     });
 
 function parseCSV(csv) {
@@ -88,7 +89,7 @@ function populateFilters() {
 
             optionDiv.addEventListener('click', () => {
                 const slug = slugify(location);
-                window.location.href = `/ulice/${slug}/`;   // 🔥 místo pushState
+                window.location.href = `/ulice/${slug}/`;
             });
 
             locationOptions.appendChild(optionDiv);
@@ -256,7 +257,9 @@ function updateDataForInitialLocation(initialLocation, uniqueLocations) {
         const footerControls = document.getElementById('footerControls');
 
         if (locationSearch) locationSearch.value = initialLocation;
-        if (footerControls) footerControls.style.display = 'flex';
+ 
+    } else {
+        footerControls.style.display = 'none';
     }
 }
 

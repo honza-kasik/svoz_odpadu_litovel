@@ -57,12 +57,21 @@
     <div id="info"></div>
 
     <div id="footerControls">
-        <div id="pdfYear" class="button">Vytisknout rok (PDF)</div>
-        <div id="pdfMonth" class="button">Vytisknout měsíc (PDF)</div>
-        <a class="button"
-            href="https://svoz.litovle.cz/calendars/Javoříčská.ics">
-            📅 Přidat do mobilu
-        </a>
+        <div id="calendarPrint">
+            <div id="pdfYear" class="button">Vytisknout rok (PDF)</div>
+            <div id="pdfMonth" class="button">Vytisknout měsíc (PDF)</div>
+        </div>
+        <div id="calendarDownloads">
+            <a class="button" href="webcal://svoz.litovle.cz/calendars/javoricska.ics">
+                📅 Přidat do Apple / Outlook kalendáře
+            </a>
+            <a class="button google-button" href="https://www.google.com/calendar/render?cid=webcal%3A%2F%2Fsvoz.litovle.cz%2Fcalendars%2Fjavoricska.ics" target="_blank">
+                📅 Přidat do Google Kalendáře
+            </a>
+            <a class="button" href="https://svoz.litovle.cz/calendars/javoricska.ics" target="_blank">
+                📥 Stáhnout kalendář (ICS)
+            </a>
+        </div>
     </div>
 
     <!-- SEO fallback (jen pokud JS neběží) -->

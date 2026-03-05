@@ -242,11 +242,18 @@ input {
 }
 
 #footerControls {
-  display: none;
-  gap: 10px;
-  margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
 }
 
+#calendarPrint,
+#calendarDownloads {
+    display: flex;
+    gap: 10px;
+}
 /* ===== SEO FALLBACK ===== */
 
 #seoFallback {
@@ -364,4 +371,27 @@ input {
   #resetFilter {
     flex-shrink: 0;   /* tlačítko se nebude mačkat */
   }
+
+  #footerControls {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  #calendarPrint {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  #calendarDownloads {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #calendarDownloads .button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
 }
