@@ -86,11 +86,13 @@ class WasteCollectionCalendarGenerator:
 
         now_utc = datetime.now(timezone.utc)
 
+        slugified_street = slugify(street)
+
         for event in self._event_cache[street]:
 
             e = Event()
 
-            uid = f"{slugify(street)}-{event.waste_type.key}-{event.date.date()}@svoz.litovle.cz"
+            uid = f"{slugified_street}-{event.waste_type.key}-{event.date.date()}@svoz.litovle.cz"
 
             e.add("uid", uid)
             e.add("dtstamp", now_utc)
@@ -108,7 +110,11 @@ class WasteCollectionCalendarGenerator:
 
             cal.add_component(e)
 
+        #TODO deprecated, to be removed
         with open(f"{directory}/{street}.ics", "wb") as f:
+            f.write(cal.to_ical())
+
+        with open(f"{directory}/{slugified_street}.ics", "wb") as f:
             f.write(cal.to_ical())
 
     def generate_csv_file(self, streets: list, date_start: datetime, date_end: datetime):
