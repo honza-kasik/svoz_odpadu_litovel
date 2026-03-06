@@ -89,6 +89,23 @@ def build_location_list(streets):
         items += f'<li><a href="/ulice/{slug}/">{street}</a></li>\n'
 
     return f"""
+<div id="introText">
+    <h2>Co nabízíme?</h2>
+    <p>
+    Jednoduchý přehled termínů odvozu popelnic v Litovli podle jednotlivých ulic.
+    Data vycházejí z veřejných podkladů města a jsou přehledně uspořádána
+    do kalendáře pro konkrétní ulici, nebo místní část. Kalendář vždy zobrazí 
+    konkrétní měsíc se svozem směsného odpadu, plastů, papíru i bioodpadu.
+    </p>
+
+    <ul>
+    <li>kalendář svozu odpadu pro konkrétní ulici</li>
+    <li>PDF kalendář na měsíc nebo celý rok pro konkrétní ulici a místní část</li>
+    <li>jedním tlačítkem přidání do Apple, Google nebo Outlook kalendáře</li>
+    <li>přehledné zobrazení i na mobilu</li>
+    <li>okamžitá aktualizace při změně termínu svozu</li>
+    </ul>
+</div>
 <div id="locationList">
     <h2>Lokace svozu odpadu v {config.city_v} v roce {config.year}</h2>
     <p>

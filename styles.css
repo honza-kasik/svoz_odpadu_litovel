@@ -291,7 +291,7 @@ input {
 
 /* ===== HOMEPAGE LIST ===== */
 
-#locationList {
+#locationList, #introText {
   max-width: 1000px;
   margin: 30px auto;
   padding: 0 10px;
