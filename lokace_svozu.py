@@ -97,8 +97,8 @@ lokace_svozu_plast = [
     #zacatek treti tyden v roce v pondeli, kazdy ctvrty tyden
     LokaceSvozu(lambda date: week(date) % 4 == 3 and date.weekday() == 0, 
                                 ['Březové', 'Chořelice', 'Nasobůrky', 'Víska', 'Rozvadovice', 'Unčovice'], WasteType.PLAST, 
-                                [datetime(2025,11,17)],
-                                [datetime(2025,11,20)]),
+                                [datetime(2025,11,17), datetime(2026,4,6)],
+                                [datetime(2025,11,20), datetime(2026,4,9)]),
     #zacatek druhy tyden v roce v pondeli, kazdy ctvrty tyden
     LokaceSvozu(lambda date: week(date) % 4 == 2 and date.weekday() == 4,
                                 ['Savín', 'Nová Ves', 'Chudobín', 'Tři Dvory', 'Myslechovice'], WasteType.PLAST, 
