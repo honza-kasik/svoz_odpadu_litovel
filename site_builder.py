@@ -44,7 +44,8 @@ def build_index(streets):
         "SEO_FALLBACK": "",
         "LOCATION_LIST": location_list_html,
         "STREET_NAME": "null",
-        "RELATED_STREETS_HTML": ""
+        "RELATED_STREETS_HTML": "",
+        "BREADCRUMBS_JSONLD": build_index_jsonld() + build_index_itemlist_jsonld(streets)
     }
 
     render_template("index.html", context)
@@ -67,7 +68,8 @@ def build_street_pages(generator, streets):
             "SEO_FALLBACK": fallback,
             "LOCATION_LIST": "",
             "STREET_NAME": f'"{street}"',
-            "RELATED_STREETS_HTML": related_html
+            "RELATED_STREETS_HTML": related_html,
+            "BREADCRUMBS_JSONLD": build_breadcrumbs_jsonld(street, slug)
         }
 
         render_template(
@@ -104,6 +106,7 @@ def build_location_list(streets):
     <li>jedním tlačítkem přidání do Apple, Google nebo Outlook kalendáře</li>
     <li>přehledné zobrazení i na mobilu</li>
     <li>okamžitá aktualizace při změně termínu svozu</li>
+    <li>označené změněné termíny svozu v kalendáři</li>
     </ul>
     <h2>Změny svozu v roce {config.year}</h2>
     <p>Seznam změn svozu odpadu v Litovli a místních částech v roce {config.year} seřazené dle data oznámení:</p>
@@ -226,3 +229,72 @@ def build_related_streets_html(current_street, all_streets):
         + ' · '.join(links) +
         '</p>'
     )
+
+
+def build_breadcrumbs_jsonld(street: str, slug: str) -> str:
+    return f"""
+<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Svoz odpadu Litovel",
+      "item": "{BASE_URL}/"
+    }},
+    {{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Ulice",
+      "item": "{BASE_URL}/ulice/"
+    }},
+    {{
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{street}",
+      "item": "{BASE_URL}/ulice/{slug}/"
+    }}
+  ]
+}}
+</script>
+"""
+
+
+def build_index_jsonld():
+    return f"""
+<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Svoz odpadu Litovel",
+  "url": "{BASE_URL}/"
+}}
+</script>
+"""
+
+
+def build_index_itemlist_jsonld(streets):
+    items = []
+
+    for i, street in enumerate(sorted(streets), start=1):
+        slug = slugify(street)
+        items.append(f"""
+        {{
+          "@type": "ListItem",
+          "position": {i},
+          "name": "{street}",
+          "url": "{BASE_URL}/ulice/{slug}/"
+        }}""")
+
+    return f"""
+<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Ulice svozu odpadu Litovel",
+  "itemListElement": [{','.join(items)}]
+}}
+</script>
+"""
