@@ -11,7 +11,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250106
 DTEND;VALUE=DATE:20250107
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-plastics-2025-01-06@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -21,7 +21,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250114
 DTEND;VALUE=DATE:20250115
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2025-01-14@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -32,7 +32,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250120
 DTEND;VALUE=DATE:20250121
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-paper-2025-01-20@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -42,7 +42,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250128
 DTEND;VALUE=DATE:20250129
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2025-01-28@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -53,7 +53,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250129
 DTEND;VALUE=DATE:20250130
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2025-01-29@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -63,7 +63,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250203
 DTEND;VALUE=DATE:20250204
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-plastics-2025-02-03@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -73,7 +73,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250211
 DTEND;VALUE=DATE:20250212
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2025-02-11@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -84,7 +84,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250217
 DTEND;VALUE=DATE:20250218
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-paper-2025-02-17@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -94,7 +94,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250225
 DTEND;VALUE=DATE:20250226
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2025-02-25@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -105,7 +105,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250226
 DTEND;VALUE=DATE:20250227
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2025-02-26@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -115,7 +115,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250303
 DTEND;VALUE=DATE:20250304
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-plastics-2025-03-03@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -125,7 +125,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250311
 DTEND;VALUE=DATE:20250312
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2025-03-11@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -136,7 +136,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250312
 DTEND;VALUE=DATE:20250313
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2025-03-12@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -146,7 +146,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250317
 DTEND;VALUE=DATE:20250318
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-paper-2025-03-17@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -156,7 +156,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250325
 DTEND;VALUE=DATE:20250326
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2025-03-25@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -167,7 +167,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250326
 DTEND;VALUE=DATE:20250327
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2025-03-26@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -177,7 +177,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250331
 DTEND;VALUE=DATE:20250401
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-plastics-2025-03-31@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -187,7 +187,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250408
 DTEND;VALUE=DATE:20250409
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2025-04-08@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -198,7 +198,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250409
 DTEND;VALUE=DATE:20250410
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2025-04-09@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -208,7 +208,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250414
 DTEND;VALUE=DATE:20250415
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-paper-2025-04-14@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -218,7 +218,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250422
 DTEND;VALUE=DATE:20250423
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2025-04-22@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -229,7 +229,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250423
 DTEND;VALUE=DATE:20250424
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2025-04-23@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -239,7 +239,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250428
 DTEND;VALUE=DATE:20250429
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-plastics-2025-04-28@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -249,7 +249,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250506
 DTEND;VALUE=DATE:20250507
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2025-05-06@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -260,19 +260,20 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250507
 DTEND;VALUE=DATE:20250508
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2025-05-07@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Papír svoz – Gemerská - rodinné domy
+SUMMARY:Změna: Papír svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250513
 DTEND;VALUE=DATE:20250514
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-paper-2025-05-13@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – Gemerská - rodinné domy\, Litovel
+DESCRIPTION:Svoz odpadu (Papír) – Gemerská - rodinné domy\, Litovel\n
+ Termín upraven oproti pravidelnému harmonogramu.
 LOCATION:Gemerská - rodinné domy\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
@@ -280,7 +281,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250520
 DTEND;VALUE=DATE:20250521
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2025-05-20@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -291,19 +292,20 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250521
 DTEND;VALUE=DATE:20250522
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2025-05-21@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Plast svoz – Gemerská - rodinné domy
+SUMMARY:Změna: Plast svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250527
 DTEND;VALUE=DATE:20250528
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-plastics-2025-05-27@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Plast) – Gemerská - rodinné domy\, Litovel
+DESCRIPTION:Svoz odpadu (Plast) – Gemerská - rodinné domy\, Litovel\nT
+ ermín upraven oproti pravidelnému harmonogramu.
 LOCATION:Gemerská - rodinné domy\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
@@ -311,7 +313,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250603
 DTEND;VALUE=DATE:20250604
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2025-06-03@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -322,7 +324,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250604
 DTEND;VALUE=DATE:20250605
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2025-06-04@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -332,7 +334,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250609
 DTEND;VALUE=DATE:20250610
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-paper-2025-06-09@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -342,7 +344,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250617
 DTEND;VALUE=DATE:20250618
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2025-06-17@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -353,7 +355,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250618
 DTEND;VALUE=DATE:20250619
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2025-06-18@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -363,7 +365,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250623
 DTEND;VALUE=DATE:20250624
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-plastics-2025-06-23@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -373,7 +375,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250701
 DTEND;VALUE=DATE:20250702
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2025-07-01@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -384,7 +386,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250702
 DTEND;VALUE=DATE:20250703
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2025-07-02@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -394,7 +396,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250707
 DTEND;VALUE=DATE:20250708
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-paper-2025-07-07@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -404,7 +406,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250715
 DTEND;VALUE=DATE:20250716
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2025-07-15@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -415,7 +417,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250716
 DTEND;VALUE=DATE:20250717
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2025-07-16@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -425,7 +427,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250721
 DTEND;VALUE=DATE:20250722
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-plastics-2025-07-21@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -435,7 +437,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250729
 DTEND;VALUE=DATE:20250730
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2025-07-29@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -446,7 +448,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250730
 DTEND;VALUE=DATE:20250731
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2025-07-30@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -456,7 +458,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250804
 DTEND;VALUE=DATE:20250805
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-paper-2025-08-04@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -466,7 +468,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250812
 DTEND;VALUE=DATE:20250813
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2025-08-12@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -477,7 +479,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250813
 DTEND;VALUE=DATE:20250814
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2025-08-13@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -487,7 +489,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250818
 DTEND;VALUE=DATE:20250819
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-plastics-2025-08-18@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -497,7 +499,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250826
 DTEND;VALUE=DATE:20250827
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2025-08-26@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -508,7 +510,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250827
 DTEND;VALUE=DATE:20250828
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2025-08-27@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -518,7 +520,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250901
 DTEND;VALUE=DATE:20250902
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-paper-2025-09-01@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -528,7 +530,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250909
 DTEND;VALUE=DATE:20250910
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2025-09-09@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -539,7 +541,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250910
 DTEND;VALUE=DATE:20250911
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2025-09-10@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -549,7 +551,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250915
 DTEND;VALUE=DATE:20250916
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-plastics-2025-09-15@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -559,7 +561,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250923
 DTEND;VALUE=DATE:20250924
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2025-09-23@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -570,7 +572,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250924
 DTEND;VALUE=DATE:20250925
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2025-09-24@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -580,7 +582,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20250929
 DTEND;VALUE=DATE:20250930
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-paper-2025-09-29@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -590,7 +592,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20251007
 DTEND;VALUE=DATE:20251008
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2025-10-07@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -601,7 +603,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20251008
 DTEND;VALUE=DATE:20251009
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2025-10-08@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -611,7 +613,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20251013
 DTEND;VALUE=DATE:20251014
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-plastics-2025-10-13@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -621,7 +623,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20251021
 DTEND;VALUE=DATE:20251022
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2025-10-21@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -632,7 +634,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20251022
 DTEND;VALUE=DATE:20251023
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2025-10-22@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -642,7 +644,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20251027
 DTEND;VALUE=DATE:20251028
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-paper-2025-10-27@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -652,7 +654,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20251104
 DTEND;VALUE=DATE:20251105
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2025-11-04@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -663,7 +665,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20251105
 DTEND;VALUE=DATE:20251106
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2025-11-05@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -673,7 +675,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20251110
 DTEND;VALUE=DATE:20251111
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-plastics-2025-11-10@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -683,7 +685,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20251118
 DTEND;VALUE=DATE:20251119
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2025-11-18@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -694,7 +696,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20251119
 DTEND;VALUE=DATE:20251120
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2025-11-19@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -704,7 +706,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20251124
 DTEND;VALUE=DATE:20251125
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-paper-2025-11-24@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -714,7 +716,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20251202
 DTEND;VALUE=DATE:20251203
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2025-12-02@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -725,7 +727,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20251203
 DTEND;VALUE=DATE:20251204
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2025-12-03@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -735,7 +737,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20251208
 DTEND;VALUE=DATE:20251209
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-plastics-2025-12-08@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -745,7 +747,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20251216
 DTEND;VALUE=DATE:20251217
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2025-12-16@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -756,7 +758,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20251222
 DTEND;VALUE=DATE:20251223
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-paper-2025-12-22@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -766,7 +768,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20251230
 DTEND;VALUE=DATE:20251231
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2025-12-30@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -777,7 +779,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260105
 DTEND;VALUE=DATE:20260106
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-plastics-2026-01-05@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -787,7 +789,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260113
 DTEND;VALUE=DATE:20260114
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2026-01-13@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -798,7 +800,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260119
 DTEND;VALUE=DATE:20260120
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-paper-2026-01-19@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -808,7 +810,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260121
 DTEND;VALUE=DATE:20260122
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2026-01-21@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -818,7 +820,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260127
 DTEND;VALUE=DATE:20260128
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2026-01-27@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -829,7 +831,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260202
 DTEND;VALUE=DATE:20260203
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-plastics-2026-02-02@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -839,7 +841,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260210
 DTEND;VALUE=DATE:20260211
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2026-02-10@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -850,7 +852,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260216
 DTEND;VALUE=DATE:20260217
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-paper-2026-02-16@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -860,7 +862,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260218
 DTEND;VALUE=DATE:20260219
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2026-02-18@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -870,7 +872,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260224
 DTEND;VALUE=DATE:20260225
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2026-02-24@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -881,7 +883,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260302
 DTEND;VALUE=DATE:20260303
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-plastics-2026-03-02@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -891,7 +893,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260304
 DTEND;VALUE=DATE:20260305
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2026-03-04@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -901,7 +903,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260310
 DTEND;VALUE=DATE:20260311
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2026-03-10@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -912,7 +914,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260316
 DTEND;VALUE=DATE:20260317
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-paper-2026-03-16@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -922,7 +924,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260318
 DTEND;VALUE=DATE:20260319
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2026-03-18@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -932,7 +934,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260324
 DTEND;VALUE=DATE:20260325
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2026-03-24@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -943,7 +945,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260330
 DTEND;VALUE=DATE:20260331
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-plastics-2026-03-30@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -953,7 +955,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260401
 DTEND;VALUE=DATE:20260402
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2026-04-01@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -963,7 +965,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260407
 DTEND;VALUE=DATE:20260408
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2026-04-07@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -974,7 +976,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260413
 DTEND;VALUE=DATE:20260414
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-paper-2026-04-13@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -984,7 +986,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260415
 DTEND;VALUE=DATE:20260416
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2026-04-15@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -994,7 +996,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260421
 DTEND;VALUE=DATE:20260422
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2026-04-21@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -1005,7 +1007,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260427
 DTEND;VALUE=DATE:20260428
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-plastics-2026-04-27@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -1015,7 +1017,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260429
 DTEND;VALUE=DATE:20260430
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2026-04-29@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -1025,7 +1027,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260505
 DTEND;VALUE=DATE:20260506
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2026-05-05@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -1036,7 +1038,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260511
 DTEND;VALUE=DATE:20260512
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-paper-2026-05-11@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -1046,7 +1048,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260513
 DTEND;VALUE=DATE:20260514
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2026-05-13@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -1056,7 +1058,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260519
 DTEND;VALUE=DATE:20260520
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2026-05-19@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -1067,7 +1069,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260525
 DTEND;VALUE=DATE:20260526
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-plastics-2026-05-25@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -1077,7 +1079,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260527
 DTEND;VALUE=DATE:20260528
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2026-05-27@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -1087,7 +1089,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260602
 DTEND;VALUE=DATE:20260603
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2026-06-02@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -1098,7 +1100,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260608
 DTEND;VALUE=DATE:20260609
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-paper-2026-06-08@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -1108,7 +1110,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260610
 DTEND;VALUE=DATE:20260611
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2026-06-10@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -1118,7 +1120,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260616
 DTEND;VALUE=DATE:20260617
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2026-06-16@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -1129,7 +1131,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260622
 DTEND;VALUE=DATE:20260623
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-plastics-2026-06-22@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -1139,7 +1141,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260624
 DTEND;VALUE=DATE:20260625
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2026-06-24@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -1149,7 +1151,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260630
 DTEND;VALUE=DATE:20260701
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2026-06-30@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -1160,7 +1162,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260706
 DTEND;VALUE=DATE:20260707
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-paper-2026-07-06@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -1170,7 +1172,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260708
 DTEND;VALUE=DATE:20260709
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2026-07-08@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -1180,7 +1182,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260714
 DTEND;VALUE=DATE:20260715
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2026-07-14@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -1191,7 +1193,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260720
 DTEND;VALUE=DATE:20260721
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-plastics-2026-07-20@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -1201,7 +1203,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260722
 DTEND;VALUE=DATE:20260723
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2026-07-22@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -1211,7 +1213,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260728
 DTEND;VALUE=DATE:20260729
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2026-07-28@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -1222,7 +1224,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260803
 DTEND;VALUE=DATE:20260804
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-paper-2026-08-03@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -1232,7 +1234,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260805
 DTEND;VALUE=DATE:20260806
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2026-08-05@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -1242,7 +1244,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260811
 DTEND;VALUE=DATE:20260812
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2026-08-11@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -1253,7 +1255,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260817
 DTEND;VALUE=DATE:20260818
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-plastics-2026-08-17@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -1263,7 +1265,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260819
 DTEND;VALUE=DATE:20260820
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2026-08-19@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -1273,7 +1275,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260825
 DTEND;VALUE=DATE:20260826
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2026-08-25@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -1284,7 +1286,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260831
 DTEND;VALUE=DATE:20260901
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-paper-2026-08-31@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -1294,7 +1296,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260902
 DTEND;VALUE=DATE:20260903
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2026-09-02@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -1304,7 +1306,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260908
 DTEND;VALUE=DATE:20260909
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2026-09-08@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -1315,7 +1317,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260914
 DTEND;VALUE=DATE:20260915
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-plastics-2026-09-14@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -1325,7 +1327,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260916
 DTEND;VALUE=DATE:20260917
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2026-09-16@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -1335,7 +1337,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260922
 DTEND;VALUE=DATE:20260923
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2026-09-22@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -1346,7 +1348,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260928
 DTEND;VALUE=DATE:20260929
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-paper-2026-09-28@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -1356,7 +1358,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20260930
 DTEND;VALUE=DATE:20261001
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2026-09-30@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -1366,7 +1368,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20261006
 DTEND;VALUE=DATE:20261007
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2026-10-06@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -1377,7 +1379,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20261012
 DTEND;VALUE=DATE:20261013
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-plastics-2026-10-12@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -1387,7 +1389,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20261014
 DTEND;VALUE=DATE:20261015
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2026-10-14@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -1397,7 +1399,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20261020
 DTEND;VALUE=DATE:20261021
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2026-10-20@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -1408,7 +1410,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20261026
 DTEND;VALUE=DATE:20261027
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-paper-2026-10-26@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -1418,7 +1420,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20261028
 DTEND;VALUE=DATE:20261029
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2026-10-28@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -1428,7 +1430,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20261103
 DTEND;VALUE=DATE:20261104
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2026-11-03@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -1439,7 +1441,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20261109
 DTEND;VALUE=DATE:20261110
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-plastics-2026-11-09@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -1449,7 +1451,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2026-11-11@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -1459,7 +1461,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20261117
 DTEND;VALUE=DATE:20261118
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2026-11-17@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -1470,7 +1472,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20261123
 DTEND;VALUE=DATE:20261124
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-paper-2026-11-23@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -1480,7 +1482,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20261125
 DTEND;VALUE=DATE:20261126
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-bio-2026-11-25@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -1490,7 +1492,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20261201
 DTEND;VALUE=DATE:20261202
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2026-12-01@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -1501,7 +1503,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20261207
 DTEND;VALUE=DATE:20261208
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-plastics-2026-12-07@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -1511,7 +1513,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20261215
 DTEND;VALUE=DATE:20261216
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2026-12-15@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel
@@ -1522,7 +1524,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20261221
 DTEND;VALUE=DATE:20261222
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-paper-2026-12-21@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Gemerská - rodinné domy\, Litovel
 LOCATION:Gemerská - rodinné domy\, Litovel
@@ -1532,7 +1534,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Gemerská - rodinné domy
 DTSTART;VALUE=DATE:20261229
 DTEND;VALUE=DATE:20261230
-DTSTAMP:20260330T132142Z
+DTSTAMP:20250101T000000Z
 UID:gemerska-rodinne-domy-generic-2026-12-29@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Gemerská - rodinné domy\, L
  itovel

@@ -45,12 +45,16 @@ fetch('/waste_schedule.csv')
 function parseCSV(csv) {
     const lines = csv.split('\n');
     wasteSchedule = lines.map(line => {
-        const [date, type, location] = line.split(',');
+        const [date, type, location, isOverride] = line.split(',');
         if (!date || !type) return null;
-        return { date: date.trim(), type: type.trim().toLowerCase(), location: location ? location.trim() : '' };
+        return {
+            date: date.trim(),
+            type: type.trim().toLowerCase(),
+            location: location ? location.trim() : '',
+            isOverride: isOverride === '1'
+        };
     }).filter(entry => entry);
 }
-
 function populateFilters() {
     const monthSelect = document.getElementById('monthSelect');
     const prevMonth = document.getElementById('prevMonth');
@@ -220,19 +224,41 @@ function renderMonthCalendar(renderedLocation = "") {
         matchingEntries.forEach(entry => {
             if (!renderedLocation || entry.location === renderedLocation) {
                 if (!groupedEntries[entry.type]) {
-                    groupedEntries[entry.type] = new Set();
+                    groupedEntries[entry.type] = {
+                        locations: new Set(),
+                        isOverride: false
+                    };
                 }
-                groupedEntries[entry.type].add(entry.location);
+
+                groupedEntries[entry.type].locations.add(entry.location);
+
+                // pokud je alespon jeden override → cely typ je override
+                if (entry.isOverride) {
+                    groupedEntries[entry.type].isOverride = true;
+                }            
             }
         });
 
-        for (const [type, locations] of Object.entries(groupedEntries)) {
+        for (const [type, data] of Object.entries(groupedEntries)) {
             const collectionDiv = document.createElement('div');
             collectionDiv.className = `collection ${type}`;
+
+            if (data.isOverride) {
+                collectionDiv.classList.add('override');
+            }
+
             const locationText = renderedLocation 
                 ? ''
-                : `(${locations.size} lokací)`;
-            collectionDiv.textContent = `${WASTE_TYPES[type]} ${locationText}`;
+                : `(${data.locations.size} lokací)`;
+
+            let text = `${WASTE_TYPES[type]} ${locationText}`;
+
+            if (data.isOverride) {
+                text = `Změna: ${text}`;
+            }
+
+            collectionDiv.textContent = text;
+
             cell.appendChild(collectionDiv);
         }
 

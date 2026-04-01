@@ -114,6 +114,11 @@ h2 {
   color: white;
 }
 
+.collection.override {
+  opacity: 0.8;
+  border-left: 3px solid rgba(0,0,0,0.4);
+}
+
 /* ===== OVLÁDÁNÍ ===== */
 
 #controls {

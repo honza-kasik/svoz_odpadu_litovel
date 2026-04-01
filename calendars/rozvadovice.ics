@@ -11,7 +11,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250113
 DTEND;VALUE=DATE:20250114
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-plastics-2025-01-13@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -21,7 +21,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250113
 DTEND;VALUE=DATE:20250114
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2025-01-13@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -31,7 +31,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250127
 DTEND;VALUE=DATE:20250128
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-paper-2025-01-27@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -41,7 +41,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250127
 DTEND;VALUE=DATE:20250128
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2025-01-27@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -51,7 +51,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250130
 DTEND;VALUE=DATE:20250131
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2025-01-30@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -61,7 +61,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250210
 DTEND;VALUE=DATE:20250211
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-plastics-2025-02-10@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -71,7 +71,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250210
 DTEND;VALUE=DATE:20250211
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2025-02-10@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -81,7 +81,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250224
 DTEND;VALUE=DATE:20250225
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-paper-2025-02-24@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -91,7 +91,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250224
 DTEND;VALUE=DATE:20250225
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2025-02-24@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -101,7 +101,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250227
 DTEND;VALUE=DATE:20250228
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2025-02-27@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -111,7 +111,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250310
 DTEND;VALUE=DATE:20250311
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-plastics-2025-03-10@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -121,7 +121,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250310
 DTEND;VALUE=DATE:20250311
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2025-03-10@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -131,7 +131,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250313
 DTEND;VALUE=DATE:20250314
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2025-03-13@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -141,7 +141,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250324
 DTEND;VALUE=DATE:20250325
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-paper-2025-03-24@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -151,7 +151,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250324
 DTEND;VALUE=DATE:20250325
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2025-03-24@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -161,7 +161,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250327
 DTEND;VALUE=DATE:20250328
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2025-03-27@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -171,7 +171,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250407
 DTEND;VALUE=DATE:20250408
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-plastics-2025-04-07@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -181,7 +181,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250407
 DTEND;VALUE=DATE:20250408
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2025-04-07@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -191,7 +191,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250410
 DTEND;VALUE=DATE:20250411
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2025-04-10@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -201,7 +201,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250421
 DTEND;VALUE=DATE:20250422
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2025-04-21@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -211,19 +211,20 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250424
 DTEND;VALUE=DATE:20250425
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2025-04-24@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Papír svoz – Rozvadovice
+SUMMARY:Změna: Papír svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250424
 DTEND;VALUE=DATE:20250425
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-paper-2025-04-24@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – Rozvadovice\, Litovel
+DESCRIPTION:Svoz odpadu (Papír) – Rozvadovice\, Litovel\nTermín uprave
+ n oproti pravidelnému harmonogramu.
 LOCATION:Rozvadovice\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
@@ -231,7 +232,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250505
 DTEND;VALUE=DATE:20250506
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-plastics-2025-05-05@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -241,7 +242,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250505
 DTEND;VALUE=DATE:20250506
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2025-05-05@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -251,7 +252,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250508
 DTEND;VALUE=DATE:20250509
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2025-05-08@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -261,7 +262,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250519
 DTEND;VALUE=DATE:20250520
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-paper-2025-05-19@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -271,7 +272,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250519
 DTEND;VALUE=DATE:20250520
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2025-05-19@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -281,7 +282,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250522
 DTEND;VALUE=DATE:20250523
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2025-05-22@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -291,7 +292,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250602
 DTEND;VALUE=DATE:20250603
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-plastics-2025-06-02@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -301,7 +302,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250602
 DTEND;VALUE=DATE:20250603
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2025-06-02@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -311,7 +312,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250605
 DTEND;VALUE=DATE:20250606
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2025-06-05@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -321,7 +322,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250616
 DTEND;VALUE=DATE:20250617
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-paper-2025-06-16@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -331,7 +332,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250616
 DTEND;VALUE=DATE:20250617
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2025-06-16@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -341,7 +342,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250619
 DTEND;VALUE=DATE:20250620
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2025-06-19@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -351,7 +352,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250630
 DTEND;VALUE=DATE:20250701
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-plastics-2025-06-30@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -361,7 +362,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250630
 DTEND;VALUE=DATE:20250701
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2025-06-30@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -371,7 +372,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250703
 DTEND;VALUE=DATE:20250704
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2025-07-03@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -381,7 +382,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250714
 DTEND;VALUE=DATE:20250715
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-paper-2025-07-14@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -391,7 +392,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250714
 DTEND;VALUE=DATE:20250715
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2025-07-14@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -401,7 +402,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250717
 DTEND;VALUE=DATE:20250718
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2025-07-17@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -411,7 +412,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250728
 DTEND;VALUE=DATE:20250729
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-plastics-2025-07-28@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -421,7 +422,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250728
 DTEND;VALUE=DATE:20250729
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2025-07-28@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -431,7 +432,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250731
 DTEND;VALUE=DATE:20250801
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2025-07-31@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -441,7 +442,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250811
 DTEND;VALUE=DATE:20250812
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-paper-2025-08-11@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -451,7 +452,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250811
 DTEND;VALUE=DATE:20250812
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2025-08-11@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -461,7 +462,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250814
 DTEND;VALUE=DATE:20250815
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2025-08-14@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -471,7 +472,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250825
 DTEND;VALUE=DATE:20250826
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-plastics-2025-08-25@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -481,7 +482,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250825
 DTEND;VALUE=DATE:20250826
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2025-08-25@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -491,7 +492,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250828
 DTEND;VALUE=DATE:20250829
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2025-08-28@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -501,7 +502,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250908
 DTEND;VALUE=DATE:20250909
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-paper-2025-09-08@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -511,7 +512,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250908
 DTEND;VALUE=DATE:20250909
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2025-09-08@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -521,7 +522,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250911
 DTEND;VALUE=DATE:20250912
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2025-09-11@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -531,7 +532,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250922
 DTEND;VALUE=DATE:20250923
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-plastics-2025-09-22@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -541,7 +542,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250922
 DTEND;VALUE=DATE:20250923
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2025-09-22@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -551,7 +552,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20250925
 DTEND;VALUE=DATE:20250926
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2025-09-25@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -561,7 +562,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Rozvadovice
 DTSTART;VALUE=DATE:20251006
 DTEND;VALUE=DATE:20251007
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-paper-2025-10-06@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -571,7 +572,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20251006
 DTEND;VALUE=DATE:20251007
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2025-10-06@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -581,7 +582,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20251009
 DTEND;VALUE=DATE:20251010
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2025-10-09@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -591,7 +592,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Rozvadovice
 DTSTART;VALUE=DATE:20251020
 DTEND;VALUE=DATE:20251021
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-plastics-2025-10-20@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -601,7 +602,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20251020
 DTEND;VALUE=DATE:20251021
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2025-10-20@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -611,7 +612,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20251023
 DTEND;VALUE=DATE:20251024
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2025-10-23@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -621,7 +622,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Rozvadovice
 DTSTART;VALUE=DATE:20251103
 DTEND;VALUE=DATE:20251104
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-paper-2025-11-03@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -631,7 +632,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20251103
 DTEND;VALUE=DATE:20251104
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2025-11-03@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -641,7 +642,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20251106
 DTEND;VALUE=DATE:20251107
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2025-11-06@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -651,7 +652,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20251117
 DTEND;VALUE=DATE:20251118
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2025-11-17@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -661,19 +662,20 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20251120
 DTEND;VALUE=DATE:20251121
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2025-11-20@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Plast svoz – Rozvadovice
+SUMMARY:Změna: Plast svoz – Rozvadovice
 DTSTART;VALUE=DATE:20251120
 DTEND;VALUE=DATE:20251121
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-plastics-2025-11-20@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Plast) – Rozvadovice\, Litovel
+DESCRIPTION:Svoz odpadu (Plast) – Rozvadovice\, Litovel\nTermín upraven
+  oproti pravidelnému harmonogramu.
 LOCATION:Rozvadovice\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
@@ -681,7 +683,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Rozvadovice
 DTSTART;VALUE=DATE:20251201
 DTEND;VALUE=DATE:20251202
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-paper-2025-12-01@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -691,7 +693,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20251201
 DTEND;VALUE=DATE:20251202
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2025-12-01@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -701,7 +703,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20251204
 DTEND;VALUE=DATE:20251205
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2025-12-04@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -711,7 +713,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Rozvadovice
 DTSTART;VALUE=DATE:20251215
 DTEND;VALUE=DATE:20251216
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-plastics-2025-12-15@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -721,7 +723,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20251215
 DTEND;VALUE=DATE:20251216
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2025-12-15@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -731,7 +733,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Rozvadovice
 DTSTART;VALUE=DATE:20251229
 DTEND;VALUE=DATE:20251230
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-paper-2025-12-29@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -741,7 +743,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20251229
 DTEND;VALUE=DATE:20251230
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2025-12-29@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -751,7 +753,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260112
 DTEND;VALUE=DATE:20260113
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-plastics-2026-01-12@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -761,7 +763,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260112
 DTEND;VALUE=DATE:20260113
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2026-01-12@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -771,7 +773,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260122
 DTEND;VALUE=DATE:20260123
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2026-01-22@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -781,7 +783,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260126
 DTEND;VALUE=DATE:20260127
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-paper-2026-01-26@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -791,7 +793,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260126
 DTEND;VALUE=DATE:20260127
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2026-01-26@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -801,7 +803,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260209
 DTEND;VALUE=DATE:20260210
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-plastics-2026-02-09@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -811,7 +813,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260209
 DTEND;VALUE=DATE:20260210
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2026-02-09@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -821,7 +823,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260219
 DTEND;VALUE=DATE:20260220
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2026-02-19@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -831,7 +833,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260223
 DTEND;VALUE=DATE:20260224
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-paper-2026-02-23@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -841,7 +843,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260223
 DTEND;VALUE=DATE:20260224
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2026-02-23@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -851,7 +853,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260305
 DTEND;VALUE=DATE:20260306
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2026-03-05@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -861,7 +863,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260309
 DTEND;VALUE=DATE:20260310
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-plastics-2026-03-09@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -871,7 +873,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260309
 DTEND;VALUE=DATE:20260310
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2026-03-09@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -881,7 +883,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260319
 DTEND;VALUE=DATE:20260320
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2026-03-19@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -891,7 +893,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260323
 DTEND;VALUE=DATE:20260324
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-paper-2026-03-23@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -901,7 +903,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260323
 DTEND;VALUE=DATE:20260324
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2026-03-23@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -911,7 +913,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260402
 DTEND;VALUE=DATE:20260403
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2026-04-02@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -921,19 +923,20 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260406
 DTEND;VALUE=DATE:20260407
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2026-04-06@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Plast svoz – Rozvadovice
+SUMMARY:Změna: Plast svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260409
 DTEND;VALUE=DATE:20260410
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-plastics-2026-04-09@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Plast) – Rozvadovice\, Litovel
+DESCRIPTION:Svoz odpadu (Plast) – Rozvadovice\, Litovel\nTermín upraven
+  oproti pravidelnému harmonogramu.
 LOCATION:Rozvadovice\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
@@ -941,7 +944,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260416
 DTEND;VALUE=DATE:20260417
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2026-04-16@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -951,7 +954,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260420
 DTEND;VALUE=DATE:20260421
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-paper-2026-04-20@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -961,7 +964,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260420
 DTEND;VALUE=DATE:20260421
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2026-04-20@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -971,7 +974,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260430
 DTEND;VALUE=DATE:20260501
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2026-04-30@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -981,7 +984,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260504
 DTEND;VALUE=DATE:20260505
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-plastics-2026-05-04@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -991,7 +994,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260504
 DTEND;VALUE=DATE:20260505
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2026-05-04@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1001,7 +1004,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260514
 DTEND;VALUE=DATE:20260515
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2026-05-14@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1011,7 +1014,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260518
 DTEND;VALUE=DATE:20260519
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-paper-2026-05-18@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1021,7 +1024,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260518
 DTEND;VALUE=DATE:20260519
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2026-05-18@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1031,7 +1034,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260528
 DTEND;VALUE=DATE:20260529
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2026-05-28@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1041,7 +1044,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260601
 DTEND;VALUE=DATE:20260602
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-plastics-2026-06-01@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1051,7 +1054,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260601
 DTEND;VALUE=DATE:20260602
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2026-06-01@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1061,7 +1064,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260611
 DTEND;VALUE=DATE:20260612
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2026-06-11@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1071,7 +1074,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260615
 DTEND;VALUE=DATE:20260616
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-paper-2026-06-15@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1081,7 +1084,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260615
 DTEND;VALUE=DATE:20260616
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2026-06-15@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1091,7 +1094,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260625
 DTEND;VALUE=DATE:20260626
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2026-06-25@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1101,7 +1104,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260629
 DTEND;VALUE=DATE:20260630
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-plastics-2026-06-29@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1111,7 +1114,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260629
 DTEND;VALUE=DATE:20260630
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2026-06-29@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1121,7 +1124,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260709
 DTEND;VALUE=DATE:20260710
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2026-07-09@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1131,7 +1134,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260713
 DTEND;VALUE=DATE:20260714
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-paper-2026-07-13@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1141,7 +1144,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260713
 DTEND;VALUE=DATE:20260714
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2026-07-13@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1151,7 +1154,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260723
 DTEND;VALUE=DATE:20260724
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2026-07-23@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1161,7 +1164,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260727
 DTEND;VALUE=DATE:20260728
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-plastics-2026-07-27@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1171,7 +1174,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260727
 DTEND;VALUE=DATE:20260728
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2026-07-27@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1181,7 +1184,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260806
 DTEND;VALUE=DATE:20260807
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2026-08-06@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1191,7 +1194,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260810
 DTEND;VALUE=DATE:20260811
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-paper-2026-08-10@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1201,7 +1204,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260810
 DTEND;VALUE=DATE:20260811
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2026-08-10@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1211,7 +1214,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260820
 DTEND;VALUE=DATE:20260821
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2026-08-20@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1221,7 +1224,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260824
 DTEND;VALUE=DATE:20260825
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-plastics-2026-08-24@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1231,7 +1234,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260824
 DTEND;VALUE=DATE:20260825
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2026-08-24@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1241,7 +1244,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260903
 DTEND;VALUE=DATE:20260904
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2026-09-03@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1251,7 +1254,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260907
 DTEND;VALUE=DATE:20260908
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-paper-2026-09-07@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1261,7 +1264,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260907
 DTEND;VALUE=DATE:20260908
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2026-09-07@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1271,7 +1274,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260917
 DTEND;VALUE=DATE:20260918
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2026-09-17@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1281,7 +1284,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260921
 DTEND;VALUE=DATE:20260922
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-plastics-2026-09-21@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1291,7 +1294,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20260921
 DTEND;VALUE=DATE:20260922
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2026-09-21@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1301,7 +1304,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20261001
 DTEND;VALUE=DATE:20261002
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2026-10-01@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1311,7 +1314,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Rozvadovice
 DTSTART;VALUE=DATE:20261005
 DTEND;VALUE=DATE:20261006
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-paper-2026-10-05@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1321,7 +1324,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20261005
 DTEND;VALUE=DATE:20261006
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2026-10-05@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1331,7 +1334,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20261015
 DTEND;VALUE=DATE:20261016
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2026-10-15@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1341,7 +1344,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Rozvadovice
 DTSTART;VALUE=DATE:20261019
 DTEND;VALUE=DATE:20261020
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-plastics-2026-10-19@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1351,7 +1354,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20261019
 DTEND;VALUE=DATE:20261020
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2026-10-19@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1361,7 +1364,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20261029
 DTEND;VALUE=DATE:20261030
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2026-10-29@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1371,7 +1374,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Rozvadovice
 DTSTART;VALUE=DATE:20261102
 DTEND;VALUE=DATE:20261103
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-paper-2026-11-02@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1381,7 +1384,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20261102
 DTEND;VALUE=DATE:20261103
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2026-11-02@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1391,7 +1394,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20261112
 DTEND;VALUE=DATE:20261113
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2026-11-12@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1401,7 +1404,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Rozvadovice
 DTSTART;VALUE=DATE:20261116
 DTEND;VALUE=DATE:20261117
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-plastics-2026-11-16@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1411,7 +1414,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20261116
 DTEND;VALUE=DATE:20261117
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2026-11-16@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1421,7 +1424,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20261126
 DTEND;VALUE=DATE:20261127
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-bio-2026-11-26@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1431,7 +1434,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Rozvadovice
 DTSTART;VALUE=DATE:20261130
 DTEND;VALUE=DATE:20261201
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-paper-2026-11-30@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1441,7 +1444,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20261130
 DTEND;VALUE=DATE:20261201
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2026-11-30@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1451,7 +1454,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Rozvadovice
 DTSTART;VALUE=DATE:20261214
 DTEND;VALUE=DATE:20261215
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-plastics-2026-12-14@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1461,7 +1464,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20261214
 DTEND;VALUE=DATE:20261215
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2026-12-14@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1471,7 +1474,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Rozvadovice
 DTSTART;VALUE=DATE:20261228
 DTEND;VALUE=DATE:20261229
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-paper-2026-12-28@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
@@ -1481,7 +1484,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Rozvadovice
 DTSTART;VALUE=DATE:20261228
 DTEND;VALUE=DATE:20261229
-DTSTAMP:20260330T132146Z
+DTSTAMP:20250101T000000Z
 UID:rozvadovice-generic-2026-12-28@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Rozvadovice\, Litovel
 LOCATION:Rozvadovice\, Litovel
