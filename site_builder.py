@@ -104,6 +104,7 @@ def build_location_list(streets):
     <li>jedním tlačítkem přidání do Apple, Google nebo Outlook kalendáře</li>
     <li>přehledné zobrazení i na mobilu</li>
     <li>okamžitá aktualizace při změně termínu svozu</li>
+    <li>označené změněné termíny svozu v kalendáři</li>
     </ul>
     <h2>Změny svozu v roce {config.year}</h2>
     <p>Seznam změn svozu odpadu v Litovli a místních částech v roce {config.year} seřazené dle data oznámení:</p>
