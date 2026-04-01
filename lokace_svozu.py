@@ -21,6 +21,7 @@ class WasteType(Enum):
 class CollectionEvent:
     date: datetime
     waste_type: WasteType
+    is_override: bool = False
 
 class LokaceSvozu:
     """
@@ -73,12 +74,16 @@ class LokaceSvozu:
         events: dict[str, list[CollectionEvent]] = {}
 
         for date in date_range(date_start, date_end):
-            if not self._is_date_active(date):
+            is_date_active = self._is_date_active(date)
+
+            if not is_date_active:
                 continue
 
+            predicate = self.predicate(date)
             for street in self.locations:
+                is_override = is_date_active != predicate
                 events.setdefault(street, []).append(
-                    CollectionEvent(date, self.waste_type)
+                    CollectionEvent(date, self.waste_type, is_override)
                 )
 
         self._events_cache[cache_key] = events

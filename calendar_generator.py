@@ -84,9 +84,9 @@ class WasteCollectionCalendarGenerator:
         cal.add("X-WR-TIMEZONE", "Europe/Prague")
         cal.add("X-WR-CALDESC", "Aktuální harmonogram svozu odpadu. Aktualizováno dle oficiálních podkladů města.")
 
-        now_utc = datetime.now(timezone.utc)
-
         slugified_street = slugify(street)
+
+        STATIC_DTSTAMP = datetime(2025, 1, 1, tzinfo=timezone.utc)
 
         for event in self._event_cache[street]:
 
@@ -95,16 +95,24 @@ class WasteCollectionCalendarGenerator:
             uid = f"{slugified_street}-{event.waste_type.key}-{event.date.date()}@svoz.litovle.cz"
 
             e.add("uid", uid)
-            e.add("dtstamp", now_utc)
+            # no need to have change in all generated calendars with each change, let's use static stamp
+            e.add("dtstamp", STATIC_DTSTAMP)
 
             # --- All-day event ---
             e.add("dtstart", event.date.date())
             e.add("dtend", event.date.date() + timedelta(days=1))
 
-            e.add("summary", f"{event.waste_type.label} svoz – {street}")
+            summary = f"{event.waste_type.label} svoz – {street}"
+            if event.is_override:
+                summary = f"Změna: {summary}"
 
-            # volitelné, ale dobré:
-            e.add("description", f"Svoz odpadu ({event.waste_type.label}) – {street}, Litovel")
+            e.add("summary", summary)
+
+            description = f"Svoz odpadu ({event.waste_type.label}) – {street}, Litovel"
+            if event.is_override:
+                description += "\nTermín upraven oproti pravidelnému harmonogramu."
+
+            e.add("description", description)
             e.add("location", f"{street}, Litovel")
             e.add("transp", "TRANSPARENT")
 
@@ -130,4 +138,4 @@ class WasteCollectionCalendarGenerator:
             for street in streets:
                 for event in self._event_cache[street]:
                     date_string = event.date.strftime("%Y-%m-%d")
-                    f.write(f'{date_string},{event.waste_type.key},{street}\n')
+                    f.write(f'{date_string},{event.waste_type.key},{street},{int(event.is_override)}\n')

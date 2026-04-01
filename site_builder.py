@@ -130,23 +130,31 @@ def build_location_list(streets):
 # -------------------------------------------------
 
 def build_fallback_table(generator, street):
-
     events = generator.get_events_for_street(street)
 
     rows = ""
 
     for event in events:
+        date_str = event.date.strftime('%d.%m.%Y')
+        waste_label = event.waste_type.label
+        note = "Změna termínu" if event.is_override else ""
+
         rows += (
             f"<tr>"
-            f"<td>{event.date.strftime('%d.%m.%Y')}</td>"
-            f"<td>{event.waste_type.label}</td>"
+            f"<td>{date_str}</td>"
+            f"<td>{waste_label}</td>"
+            f"<td>{note}</td>"
             f"</tr>\n"
         )
 
     return f"""
-<h2>Termíny svozu odpadu</h2>
+<h2>Termíny svozu odpadu – {street}</h2>
 <table>
-<tr><th>Datum</th><th>Typ odpadu</th></tr>
+<tr>
+    <th>Datum</th>
+    <th>Typ odpadu</th>
+    <th>Poznámka</th>
+</tr>
 {rows}
 </table>
 """

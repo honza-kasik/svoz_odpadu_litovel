@@ -11,7 +11,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250102
 DTEND;VALUE=DATE:20250103
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-01-02@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -22,7 +22,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250106
 DTEND;VALUE=DATE:20250107
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-plastics-2025-01-06@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -32,7 +32,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250109
 DTEND;VALUE=DATE:20250110
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-01-09@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -43,7 +43,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250116
 DTEND;VALUE=DATE:20250117
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-01-16@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -54,7 +54,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250120
 DTEND;VALUE=DATE:20250121
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-paper-2025-01-20@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -64,7 +64,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250123
 DTEND;VALUE=DATE:20250124
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-01-23@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -75,7 +75,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250129
 DTEND;VALUE=DATE:20250130
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2025-01-29@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -85,7 +85,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250130
 DTEND;VALUE=DATE:20250131
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-01-30@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -96,7 +96,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250203
 DTEND;VALUE=DATE:20250204
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-plastics-2025-02-03@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -106,7 +106,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250206
 DTEND;VALUE=DATE:20250207
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-02-06@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -117,7 +117,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250213
 DTEND;VALUE=DATE:20250214
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-02-13@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -128,7 +128,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250217
 DTEND;VALUE=DATE:20250218
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-paper-2025-02-17@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -138,7 +138,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250220
 DTEND;VALUE=DATE:20250221
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-02-20@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -149,7 +149,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250226
 DTEND;VALUE=DATE:20250227
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2025-02-26@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -159,7 +159,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250227
 DTEND;VALUE=DATE:20250228
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-02-27@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -170,7 +170,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250303
 DTEND;VALUE=DATE:20250304
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-plastics-2025-03-03@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -180,7 +180,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250306
 DTEND;VALUE=DATE:20250307
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-03-06@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -191,7 +191,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250312
 DTEND;VALUE=DATE:20250313
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2025-03-12@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -201,7 +201,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250313
 DTEND;VALUE=DATE:20250314
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-03-13@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -212,7 +212,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250317
 DTEND;VALUE=DATE:20250318
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-paper-2025-03-17@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -222,7 +222,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250320
 DTEND;VALUE=DATE:20250321
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-03-20@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -233,7 +233,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250326
 DTEND;VALUE=DATE:20250327
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2025-03-26@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -243,7 +243,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250327
 DTEND;VALUE=DATE:20250328
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-03-27@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -254,7 +254,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250331
 DTEND;VALUE=DATE:20250401
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-plastics-2025-03-31@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -264,7 +264,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250403
 DTEND;VALUE=DATE:20250404
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-04-03@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -275,7 +275,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250409
 DTEND;VALUE=DATE:20250410
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2025-04-09@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -285,7 +285,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250410
 DTEND;VALUE=DATE:20250411
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-04-10@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -296,7 +296,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250414
 DTEND;VALUE=DATE:20250415
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-paper-2025-04-14@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -306,7 +306,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250417
 DTEND;VALUE=DATE:20250418
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-04-17@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -317,7 +317,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250423
 DTEND;VALUE=DATE:20250424
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2025-04-23@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -327,7 +327,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250424
 DTEND;VALUE=DATE:20250425
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-04-24@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -338,7 +338,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250428
 DTEND;VALUE=DATE:20250429
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-plastics-2025-04-28@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -348,7 +348,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250501
 DTEND;VALUE=DATE:20250502
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-05-01@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -359,7 +359,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250507
 DTEND;VALUE=DATE:20250508
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2025-05-07@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -369,7 +369,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250508
 DTEND;VALUE=DATE:20250509
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-05-08@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -377,12 +377,13 @@ LOCATION:Uničovská - sídliště\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Papír svoz – Uničovská - sídliště
+SUMMARY:Změna: Papír svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250513
 DTEND;VALUE=DATE:20250514
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-paper-2025-05-13@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – Uničovská - sídliště\, Litovel
+DESCRIPTION:Svoz odpadu (Papír) – Uničovská - sídliště\, Litovel\n
+ Termín upraven oproti pravidelnému harmonogramu.
 LOCATION:Uničovská - sídliště\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
@@ -390,7 +391,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250515
 DTEND;VALUE=DATE:20250516
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-05-15@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -401,7 +402,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250521
 DTEND;VALUE=DATE:20250522
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2025-05-21@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -411,7 +412,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250522
 DTEND;VALUE=DATE:20250523
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-05-22@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -419,12 +420,13 @@ LOCATION:Uničovská - sídliště\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Plast svoz – Uničovská - sídliště
+SUMMARY:Změna: Plast svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250527
 DTEND;VALUE=DATE:20250528
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-plastics-2025-05-27@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Plast) – Uničovská - sídliště\, Litovel
+DESCRIPTION:Svoz odpadu (Plast) – Uničovská - sídliště\, Litovel\nT
+ ermín upraven oproti pravidelnému harmonogramu.
 LOCATION:Uničovská - sídliště\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
@@ -432,7 +434,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250529
 DTEND;VALUE=DATE:20250530
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-05-29@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -443,7 +445,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250604
 DTEND;VALUE=DATE:20250605
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2025-06-04@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -453,7 +455,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250605
 DTEND;VALUE=DATE:20250606
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-06-05@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -464,7 +466,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250609
 DTEND;VALUE=DATE:20250610
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-paper-2025-06-09@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -474,7 +476,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250612
 DTEND;VALUE=DATE:20250613
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-06-12@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -485,7 +487,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250618
 DTEND;VALUE=DATE:20250619
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2025-06-18@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -495,7 +497,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250619
 DTEND;VALUE=DATE:20250620
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-06-19@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -506,7 +508,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250623
 DTEND;VALUE=DATE:20250624
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-plastics-2025-06-23@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -516,7 +518,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250626
 DTEND;VALUE=DATE:20250627
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-06-26@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -527,7 +529,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250702
 DTEND;VALUE=DATE:20250703
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2025-07-02@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -537,7 +539,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250703
 DTEND;VALUE=DATE:20250704
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-07-03@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -548,7 +550,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250707
 DTEND;VALUE=DATE:20250708
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-paper-2025-07-07@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -558,7 +560,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250710
 DTEND;VALUE=DATE:20250711
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-07-10@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -569,7 +571,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250716
 DTEND;VALUE=DATE:20250717
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2025-07-16@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -579,7 +581,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250717
 DTEND;VALUE=DATE:20250718
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-07-17@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -590,7 +592,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250721
 DTEND;VALUE=DATE:20250722
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-plastics-2025-07-21@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -600,7 +602,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250724
 DTEND;VALUE=DATE:20250725
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-07-24@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -611,7 +613,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250730
 DTEND;VALUE=DATE:20250731
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2025-07-30@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -621,7 +623,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250731
 DTEND;VALUE=DATE:20250801
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-07-31@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -632,7 +634,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250804
 DTEND;VALUE=DATE:20250805
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-paper-2025-08-04@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -642,7 +644,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250807
 DTEND;VALUE=DATE:20250808
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-08-07@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -653,7 +655,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250813
 DTEND;VALUE=DATE:20250814
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2025-08-13@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -663,7 +665,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250814
 DTEND;VALUE=DATE:20250815
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-08-14@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -674,7 +676,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250818
 DTEND;VALUE=DATE:20250819
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-plastics-2025-08-18@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -684,7 +686,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250821
 DTEND;VALUE=DATE:20250822
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-08-21@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -695,7 +697,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250827
 DTEND;VALUE=DATE:20250828
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2025-08-27@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -705,7 +707,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250828
 DTEND;VALUE=DATE:20250829
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-08-28@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -716,7 +718,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250901
 DTEND;VALUE=DATE:20250902
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-paper-2025-09-01@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -726,7 +728,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250904
 DTEND;VALUE=DATE:20250905
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-09-04@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -737,7 +739,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250910
 DTEND;VALUE=DATE:20250911
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2025-09-10@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -747,7 +749,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250911
 DTEND;VALUE=DATE:20250912
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-09-11@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -758,7 +760,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250915
 DTEND;VALUE=DATE:20250916
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-plastics-2025-09-15@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -768,7 +770,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250918
 DTEND;VALUE=DATE:20250919
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-09-18@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -779,7 +781,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250924
 DTEND;VALUE=DATE:20250925
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2025-09-24@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -789,7 +791,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250925
 DTEND;VALUE=DATE:20250926
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-09-25@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -800,7 +802,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20250929
 DTEND;VALUE=DATE:20250930
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-paper-2025-09-29@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -810,7 +812,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20251002
 DTEND;VALUE=DATE:20251003
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-10-02@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -821,7 +823,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20251008
 DTEND;VALUE=DATE:20251009
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2025-10-08@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -831,7 +833,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20251009
 DTEND;VALUE=DATE:20251010
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-10-09@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -842,7 +844,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20251013
 DTEND;VALUE=DATE:20251014
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-plastics-2025-10-13@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -852,7 +854,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20251016
 DTEND;VALUE=DATE:20251017
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-10-16@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -863,7 +865,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20251022
 DTEND;VALUE=DATE:20251023
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2025-10-22@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -873,7 +875,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20251023
 DTEND;VALUE=DATE:20251024
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-10-23@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -884,7 +886,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20251027
 DTEND;VALUE=DATE:20251028
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-paper-2025-10-27@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -894,7 +896,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20251030
 DTEND;VALUE=DATE:20251031
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-10-30@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -905,7 +907,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20251105
 DTEND;VALUE=DATE:20251106
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2025-11-05@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -915,7 +917,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20251106
 DTEND;VALUE=DATE:20251107
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-11-06@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -926,7 +928,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20251110
 DTEND;VALUE=DATE:20251111
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-plastics-2025-11-10@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -936,7 +938,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20251113
 DTEND;VALUE=DATE:20251114
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-11-13@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -947,7 +949,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20251119
 DTEND;VALUE=DATE:20251120
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2025-11-19@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -957,7 +959,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20251120
 DTEND;VALUE=DATE:20251121
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-11-20@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -968,7 +970,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20251124
 DTEND;VALUE=DATE:20251125
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-paper-2025-11-24@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -978,7 +980,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20251127
 DTEND;VALUE=DATE:20251128
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-11-27@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -989,7 +991,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20251203
 DTEND;VALUE=DATE:20251204
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2025-12-03@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -999,7 +1001,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20251204
 DTEND;VALUE=DATE:20251205
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-12-04@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1010,7 +1012,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20251208
 DTEND;VALUE=DATE:20251209
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-plastics-2025-12-08@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1020,7 +1022,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20251211
 DTEND;VALUE=DATE:20251212
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-12-11@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1031,7 +1033,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20251218
 DTEND;VALUE=DATE:20251219
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-12-18@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1042,7 +1044,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20251222
 DTEND;VALUE=DATE:20251223
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-paper-2025-12-22@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1052,7 +1054,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20251225
 DTEND;VALUE=DATE:20251226
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2025-12-25@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1060,13 +1062,13 @@ LOCATION:Uničovská - sídliště\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Směsný odpad svoz – Uničovská - sídliště
+SUMMARY:Změna: Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260102
 DTEND;VALUE=DATE:20260103
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-01-02@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
- itovel
+ itovel\nTermín upraven oproti pravidelnému harmonogramu.
 LOCATION:Uničovská - sídliště\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
@@ -1074,7 +1076,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260105
 DTEND;VALUE=DATE:20260106
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-plastics-2026-01-05@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1084,7 +1086,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260108
 DTEND;VALUE=DATE:20260109
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-01-08@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1095,7 +1097,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260115
 DTEND;VALUE=DATE:20260116
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-01-15@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1106,7 +1108,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260119
 DTEND;VALUE=DATE:20260120
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-paper-2026-01-19@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1116,7 +1118,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260121
 DTEND;VALUE=DATE:20260122
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2026-01-21@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1126,7 +1128,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260122
 DTEND;VALUE=DATE:20260123
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-01-22@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1137,7 +1139,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260129
 DTEND;VALUE=DATE:20260130
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-01-29@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1148,7 +1150,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260202
 DTEND;VALUE=DATE:20260203
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-plastics-2026-02-02@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1158,7 +1160,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260205
 DTEND;VALUE=DATE:20260206
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-02-05@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1169,7 +1171,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260212
 DTEND;VALUE=DATE:20260213
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-02-12@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1180,7 +1182,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260216
 DTEND;VALUE=DATE:20260217
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-paper-2026-02-16@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1190,7 +1192,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260218
 DTEND;VALUE=DATE:20260219
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2026-02-18@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1200,7 +1202,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260219
 DTEND;VALUE=DATE:20260220
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-02-19@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1211,7 +1213,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260226
 DTEND;VALUE=DATE:20260227
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-02-26@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1222,7 +1224,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260302
 DTEND;VALUE=DATE:20260303
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-plastics-2026-03-02@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1232,7 +1234,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260304
 DTEND;VALUE=DATE:20260305
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2026-03-04@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1242,7 +1244,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260305
 DTEND;VALUE=DATE:20260306
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-03-05@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1253,7 +1255,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260312
 DTEND;VALUE=DATE:20260313
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-03-12@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1264,7 +1266,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260316
 DTEND;VALUE=DATE:20260317
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-paper-2026-03-16@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1274,7 +1276,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260318
 DTEND;VALUE=DATE:20260319
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2026-03-18@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1284,7 +1286,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260319
 DTEND;VALUE=DATE:20260320
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-03-19@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1295,7 +1297,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260326
 DTEND;VALUE=DATE:20260327
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-03-26@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1306,7 +1308,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260330
 DTEND;VALUE=DATE:20260331
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-plastics-2026-03-30@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1316,7 +1318,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260401
 DTEND;VALUE=DATE:20260402
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2026-04-01@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1326,7 +1328,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260402
 DTEND;VALUE=DATE:20260403
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-04-02@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1337,7 +1339,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260409
 DTEND;VALUE=DATE:20260410
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-04-09@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1348,7 +1350,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260413
 DTEND;VALUE=DATE:20260414
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-paper-2026-04-13@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1358,7 +1360,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260415
 DTEND;VALUE=DATE:20260416
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2026-04-15@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1368,7 +1370,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260416
 DTEND;VALUE=DATE:20260417
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-04-16@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1379,7 +1381,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260423
 DTEND;VALUE=DATE:20260424
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-04-23@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1390,7 +1392,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260427
 DTEND;VALUE=DATE:20260428
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-plastics-2026-04-27@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1400,7 +1402,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260429
 DTEND;VALUE=DATE:20260430
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2026-04-29@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1410,7 +1412,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260430
 DTEND;VALUE=DATE:20260501
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-04-30@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1421,7 +1423,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260507
 DTEND;VALUE=DATE:20260508
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-05-07@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1432,7 +1434,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260511
 DTEND;VALUE=DATE:20260512
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-paper-2026-05-11@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1442,7 +1444,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260513
 DTEND;VALUE=DATE:20260514
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2026-05-13@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1452,7 +1454,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260514
 DTEND;VALUE=DATE:20260515
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-05-14@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1463,7 +1465,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260521
 DTEND;VALUE=DATE:20260522
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-05-21@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1474,7 +1476,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260525
 DTEND;VALUE=DATE:20260526
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-plastics-2026-05-25@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1484,7 +1486,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260527
 DTEND;VALUE=DATE:20260528
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2026-05-27@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1494,7 +1496,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260528
 DTEND;VALUE=DATE:20260529
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-05-28@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1505,7 +1507,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260604
 DTEND;VALUE=DATE:20260605
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-06-04@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1516,7 +1518,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260608
 DTEND;VALUE=DATE:20260609
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-paper-2026-06-08@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1526,7 +1528,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260610
 DTEND;VALUE=DATE:20260611
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2026-06-10@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1536,7 +1538,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260611
 DTEND;VALUE=DATE:20260612
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-06-11@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1547,7 +1549,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260618
 DTEND;VALUE=DATE:20260619
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-06-18@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1558,7 +1560,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260622
 DTEND;VALUE=DATE:20260623
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-plastics-2026-06-22@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1568,7 +1570,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260624
 DTEND;VALUE=DATE:20260625
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2026-06-24@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1578,7 +1580,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260625
 DTEND;VALUE=DATE:20260626
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-06-25@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1589,7 +1591,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260702
 DTEND;VALUE=DATE:20260703
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-07-02@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1600,7 +1602,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260706
 DTEND;VALUE=DATE:20260707
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-paper-2026-07-06@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1610,7 +1612,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260708
 DTEND;VALUE=DATE:20260709
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2026-07-08@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1620,7 +1622,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260709
 DTEND;VALUE=DATE:20260710
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-07-09@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1631,7 +1633,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260716
 DTEND;VALUE=DATE:20260717
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-07-16@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1642,7 +1644,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260720
 DTEND;VALUE=DATE:20260721
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-plastics-2026-07-20@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1652,7 +1654,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260722
 DTEND;VALUE=DATE:20260723
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2026-07-22@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1662,7 +1664,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260723
 DTEND;VALUE=DATE:20260724
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-07-23@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1673,7 +1675,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260730
 DTEND;VALUE=DATE:20260731
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-07-30@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1684,7 +1686,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260803
 DTEND;VALUE=DATE:20260804
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-paper-2026-08-03@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1694,7 +1696,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260805
 DTEND;VALUE=DATE:20260806
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2026-08-05@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1704,7 +1706,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260806
 DTEND;VALUE=DATE:20260807
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-08-06@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1715,7 +1717,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260813
 DTEND;VALUE=DATE:20260814
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-08-13@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1726,7 +1728,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260817
 DTEND;VALUE=DATE:20260818
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-plastics-2026-08-17@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1736,7 +1738,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260819
 DTEND;VALUE=DATE:20260820
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2026-08-19@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1746,7 +1748,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260820
 DTEND;VALUE=DATE:20260821
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-08-20@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1757,7 +1759,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260827
 DTEND;VALUE=DATE:20260828
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-08-27@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1768,7 +1770,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260831
 DTEND;VALUE=DATE:20260901
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-paper-2026-08-31@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1778,7 +1780,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260902
 DTEND;VALUE=DATE:20260903
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2026-09-02@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1788,7 +1790,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260903
 DTEND;VALUE=DATE:20260904
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-09-03@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1799,7 +1801,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260910
 DTEND;VALUE=DATE:20260911
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-09-10@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1810,7 +1812,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260914
 DTEND;VALUE=DATE:20260915
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-plastics-2026-09-14@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1820,7 +1822,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260916
 DTEND;VALUE=DATE:20260917
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2026-09-16@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1830,7 +1832,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260917
 DTEND;VALUE=DATE:20260918
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-09-17@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1841,7 +1843,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260924
 DTEND;VALUE=DATE:20260925
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-09-24@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1852,7 +1854,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260928
 DTEND;VALUE=DATE:20260929
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-paper-2026-09-28@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1862,7 +1864,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260930
 DTEND;VALUE=DATE:20261001
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2026-09-30@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1872,7 +1874,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20261001
 DTEND;VALUE=DATE:20261002
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-10-01@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1883,7 +1885,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20261008
 DTEND;VALUE=DATE:20261009
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-10-08@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1894,7 +1896,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20261012
 DTEND;VALUE=DATE:20261013
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-plastics-2026-10-12@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1904,7 +1906,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20261014
 DTEND;VALUE=DATE:20261015
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2026-10-14@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1914,7 +1916,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20261015
 DTEND;VALUE=DATE:20261016
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-10-15@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1925,7 +1927,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20261022
 DTEND;VALUE=DATE:20261023
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-10-22@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1936,7 +1938,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20261026
 DTEND;VALUE=DATE:20261027
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-paper-2026-10-26@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1946,7 +1948,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20261028
 DTEND;VALUE=DATE:20261029
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2026-10-28@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1956,7 +1958,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20261029
 DTEND;VALUE=DATE:20261030
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-10-29@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1967,7 +1969,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20261105
 DTEND;VALUE=DATE:20261106
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-11-05@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -1978,7 +1980,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20261109
 DTEND;VALUE=DATE:20261110
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-plastics-2026-11-09@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1988,7 +1990,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2026-11-11@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -1998,7 +2000,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20261112
 DTEND;VALUE=DATE:20261113
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-11-12@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -2009,7 +2011,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20261119
 DTEND;VALUE=DATE:20261120
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-11-19@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -2020,7 +2022,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20261123
 DTEND;VALUE=DATE:20261124
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-paper-2026-11-23@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -2030,7 +2032,7 @@ BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20261125
 DTEND;VALUE=DATE:20261126
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2026-11-25@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -2040,7 +2042,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20261126
 DTEND;VALUE=DATE:20261127
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-11-26@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -2051,7 +2053,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20261203
 DTEND;VALUE=DATE:20261204
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-12-03@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -2062,7 +2064,7 @@ BEGIN:VEVENT
 SUMMARY:Plast svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20261207
 DTEND;VALUE=DATE:20261208
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-plastics-2026-12-07@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -2072,7 +2074,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20261210
 DTEND;VALUE=DATE:20261211
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-12-10@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -2083,7 +2085,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20261217
 DTEND;VALUE=DATE:20261218
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-12-17@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
@@ -2094,7 +2096,7 @@ BEGIN:VEVENT
 SUMMARY:Papír svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20261221
 DTEND;VALUE=DATE:20261222
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-paper-2026-12-21@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Uničovská - sídliště\, Litovel
 LOCATION:Uničovská - sídliště\, Litovel
@@ -2104,7 +2106,7 @@ BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20261224
 DTEND;VALUE=DATE:20261225
-DTSTAMP:20260330T132144Z
+DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-12-24@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
  itovel
