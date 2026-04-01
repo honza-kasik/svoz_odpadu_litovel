@@ -32,9 +32,9 @@ class MetaBuilder:
 
     def index(self):
         return {
-            "TITLE": f"Svoz odpadu {self.config.city} – kalendář podle ulic",
+            "TITLE": f"Svoz odpadu {self.config.city} {self.config.year} – kalendář podle ulic",
             "DESCRIPTION": (
-                f"Hledáte, kdy se v {self.config.city} vyváží popelnice? "
+                f"Hledáte, kdy se v {self.config.city_v} v roce {self.config.year} vyváží popelnice? "
                 "Zadejte svou ulici a získejte aktuální harmonogram "
                 "svozu plastu, papíru i komunálního odpadu."
             ),
