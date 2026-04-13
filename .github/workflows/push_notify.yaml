@@ -15,11 +15,7 @@ jobs:
     steps:
       - name: Auth
         id: auth
-<<<<<<< HEAD
-        uses: google-github-actions/auth@v2
-=======
         uses: google-github-actions/auth@v3
->>>>>>> 6f2fb51 (Added notification on push to calendar ICS files)
         with:
           credentials_json: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
 
@@ -38,8 +34,4 @@ jobs:
                   "type": "refresh"
                 }
               }
-<<<<<<< HEAD
             }'
-=======
-            }'
->>>>>>> 6f2fb51 (Added notification on push to calendar ICS files)
