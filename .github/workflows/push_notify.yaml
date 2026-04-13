@@ -1,0 +1,37 @@
+name: Notify app on change
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'calendars/*.ics'
+  workflow_dispatch:
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Auth
+        id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
+
+      - name: Send push
+        run: |
+          ACCESS_TOKEN=$(gcloud auth print-access-token)
+
+          curl -X POST \
+            https://fcm.googleapis.com/v1/projects/svoz-litovel/messages:send \
+            -H "Authorization: Bearer $ACCESS_TOKEN" \
+            -H "Content-Type: application/json; UTF-8" \
+            -d '{
+              "message": {
+                "topic": "litovel",
+                "data": {
+                  "type": "refresh"
+                }
+              }
+            }'
