@@ -1,0 +1,255 @@
+[
+  {
+    "id": "2025-01-01-smes-lokalni-casti-posun-2025-01-03",
+    "action": "reschedule",
+    "waste_type": "SMES",
+    "affected_location_group": "smes_streda_mistni_casti",
+    "original_date": "2025-01-01",
+    "new_date": "2025-01-03",
+    "source": {
+      "url": "https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu-v-dobe-vanocnich-svatku.html",
+      "title": "Změna svozu odpadu v době vánočních svátků"
+    },
+    "note": "Migrated from lokace_svozu.py",
+    "affected_locations_snapshot": ["Savín", "Nová Ves", "Chudobín", "Tři Dvory"]
+  },
+  {
+    "id": "2025-01-01-smes-litovel-streda-posun-2025-01-03",
+    "action": "reschedule",
+    "waste_type": "SMES",
+    "affected_location_group": "litovel_lokace_smes_3",
+    "original_date": "2025-01-01",
+    "new_date": "2025-01-03",
+    "source": {
+      "url": "https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu-v-dobe-vanocnich-svatku.html",
+      "title": "Změna svozu odpadu v době vánočních svátků"
+    },
+    "note": "Migrated from lokace_svozu.py",
+    "affected_locations_snapshot": ["Vítězná", "Lidická", "Kysucká"]
+  },
+  {
+    "id": "2024-12-30-bio-mistni-casti-posun-2025-01-02",
+    "action": "reschedule",
+    "waste_type": "BIO",
+    "affected_location_group": "bio_pondeli_mistni_casti",
+    "original_date": "2024-12-30",
+    "new_date": "2025-01-02",
+    "source": {
+      "url": "https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-bioodpadu-v-mistnich-castech-z-30-12-na-2-1.html",
+      "title": "Změna svozu bioodpadu v místních částech z 30. 12. na 2. 1."
+    },
+    "note": "Migrated from lokace_svozu.py",
+    "affected_locations_snapshot": ["Nasobůrky", "Víska", "Chořelice", "Myslechovice", "Savín", "Nová Ves", "Chudobín", "Unčovice"]
+  },
+  {
+    "id": "2025-04-21-papir-mistni-casti-posun-2025-04-24",
+    "action": "reschedule",
+    "waste_type": "PAPIR",
+    "affected_location_group": "papir_pondeli_mistni_casti",
+    "original_date": "2025-04-21",
+    "new_date": "2025-04-24",
+    "source": {
+      "url": "https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmeny-svozu-odpadu-behem-velikonoc.html",
+      "title": "Změny svozu odpadu během Velikonoc"
+    },
+    "note": "Migrated from lokace_svozu.py",
+    "affected_locations_snapshot": ["Březové", "Chořelice", "Nasobůrky", "Víska", "Rozvadovice", "Unčovice"]
+  },
+  {
+    "id": "2025-04-21-bio-mistni-casti-posun-2025-04-25",
+    "action": "reschedule",
+    "waste_type": "BIO",
+    "affected_location_group": "bio_pondeli_mistni_casti",
+    "original_date": "2025-04-21",
+    "new_date": "2025-04-25",
+    "source": {
+      "url": "https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmeny-svozu-odpadu-behem-velikonoc.html",
+      "title": "Změny svozu odpadu během Velikonoc"
+    },
+    "note": "Migrated from lokace_svozu.py",
+    "affected_locations_snapshot": ["Nasobůrky", "Víska", "Chořelice", "Myslechovice", "Savín", "Nová Ves", "Chudobín", "Unčovice"]
+  },
+  {
+    "id": "2025-05-12-papir-litovel-posun-2025-05-13",
+    "action": "reschedule",
+    "waste_type": "PAPIR",
+    "affected_location_group": "all_streets_litovel",
+    "original_date": "2025-05-12",
+    "new_date": "2025-05-13",
+    "source": {
+      "url": "https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmeny-ve-svozu-odpadu-v-mesici-kvetnu.html",
+      "title": "Změny ve svozu odpadu v měsíci květnu"
+    },
+    "note": "Migrated from lokace_svozu.py"
+  },
+  {
+    "id": "2025-05-26-plast-litovel-skupina-1-posun-2025-05-27",
+    "action": "reschedule",
+    "waste_type": "PLAST",
+    "affected_location_group": "litovel_lokace_plast_1",
+    "original_date": "2025-05-26",
+    "new_date": "2025-05-27",
+    "source": {
+      "url": "https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-ve-svozu-odpadu.html",
+      "title": "Změna ve svozu odpadu"
+    },
+    "note": "Migrated from lokace_svozu.py"
+  },
+  {
+    "id": "2025-07-11-papir-savin-skupina-posun-2025-07-09",
+    "action": "reschedule",
+    "waste_type": "PAPIR",
+    "affected_locations": ["Savín", "Nová Ves", "Chudobín", "Tři Dvory", "Myslechovice"],
+    "original_date": "2025-07-11",
+    "new_date": "2025-07-09",
+    "source": {
+      "url": "https://www.litovel.eu/redakce/index.php?xuser=234858626223493812&lanG=cs&slozka=47816&xsekce=43561&clanek=374062",
+      "title": null
+    },
+    "note": "Migrated from lokace_svozu.py"
+  },
+  {
+    "id": "2025-07-25-plast-savin-skupina-posun-2025-07-23",
+    "action": "reschedule",
+    "waste_type": "PLAST",
+    "affected_locations": ["Savín", "Nová Ves", "Chudobín", "Tři Dvory", "Myslechovice"],
+    "original_date": "2025-07-25",
+    "new_date": "2025-07-23",
+    "source": {
+      "url": "https://www.litovel.eu/redakce/index.php?xuser=234858626223493812&lanG=cs&slozka=47816&xsekce=43561&clanek=374062",
+      "title": null
+    },
+    "note": "Migrated from lokace_svozu.py"
+  },
+  {
+    "id": "2025-08-08-papir-savin-skupina-posun-2025-08-06",
+    "action": "reschedule",
+    "waste_type": "PAPIR",
+    "affected_locations": ["Savín", "Nová Ves", "Chudobín", "Tři Dvory", "Myslechovice"],
+    "original_date": "2025-08-08",
+    "new_date": "2025-08-06",
+    "source": {
+      "url": "https://www.litovel.eu/redakce/index.php?xuser=234858626223493812&lanG=cs&slozka=47816&xsekce=43561&clanek=374062",
+      "title": null
+    },
+    "note": "Migrated from lokace_svozu.py"
+  },
+  {
+    "id": "2025-08-22-plast-savin-skupina-posun-2025-08-20",
+    "action": "reschedule",
+    "waste_type": "PLAST",
+    "affected_locations": ["Savín", "Nová Ves", "Chudobín", "Tři Dvory", "Myslechovice"],
+    "original_date": "2025-08-22",
+    "new_date": "2025-08-20",
+    "source": {
+      "url": "https://www.litovel.eu/redakce/index.php?xuser=234858626223493812&lanG=cs&slozka=47816&xsekce=43561&clanek=374062",
+      "title": null
+    },
+    "note": "Migrated from lokace_svozu.py"
+  },
+  {
+    "id": "2025-09-05-papir-savin-skupina-posun-2025-09-03",
+    "action": "reschedule",
+    "waste_type": "PAPIR",
+    "affected_locations": ["Savín", "Nová Ves", "Chudobín", "Tři Dvory", "Myslechovice"],
+    "original_date": "2025-09-05",
+    "new_date": "2025-09-03",
+    "source": {
+      "url": "https://www.litovel.eu/redakce/index.php?xuser=234858626223493812&lanG=cs&slozka=47816&xsekce=43561&clanek=374062",
+      "title": null
+    },
+    "note": "Migrated from lokace_svozu.py"
+  },
+  {
+    "id": "2025-09-11-smes-dukelska-mimoradny-svoz",
+    "action": "include",
+    "waste_type": "SMES",
+    "affected_locations": ["Dukelská"],
+    "date": "2025-09-11",
+    "source": {
+      "url": "https://www.facebook.com/litovel.eu/posts/pfbid02af6wuEMQTm3G4xLmkpFG5b8YnTEH2Pk4wSw3oPgbBkovEmRqTb76cfzaDCDs15pFl",
+      "title": null
+    },
+    "note": "Migrated from lokace_svozu.py"
+  },
+  {
+    "id": "2025-09-19-plast-savin-skupina-posun-2025-09-17",
+    "action": "reschedule",
+    "waste_type": "PLAST",
+    "affected_locations": ["Savín", "Nová Ves", "Chudobín", "Tři Dvory", "Myslechovice"],
+    "original_date": "2025-09-19",
+    "new_date": "2025-09-17",
+    "source": {
+      "url": "https://www.litovel.eu/redakce/index.php?xuser=234858626223493812&lanG=cs&slozka=47816&xsekce=43561&clanek=374062",
+      "title": null
+    },
+    "note": "Migrated from lokace_svozu.py"
+  },
+  {
+    "id": "2025-11-17-plast-pavlinka-posun-2025-11-18",
+    "action": "reschedule",
+    "waste_type": "PLAST",
+    "affected_locations": ["Pavlínka"],
+    "original_date": "2025-11-17",
+    "new_date": "2025-11-18",
+    "source": {
+      "url": "https://www.facebook.com/litovel.eu/posts/pfbid02qBuwZJERREtkX7ZMeEmobrmRJLbSXmoqLWbAs7DSuNqN8Q72sDggJxGmGAr7iq46l",
+      "title": null
+    },
+    "note": "Migrated from lokace_svozu.py"
+  },
+  {
+    "id": "2025-11-17-plast-mistni-casti-posun-2025-11-20",
+    "action": "reschedule",
+    "waste_type": "PLAST",
+    "affected_location_group": "plast_pondeli_mistni_casti",
+    "original_date": "2025-11-17",
+    "new_date": "2025-11-20",
+    "source": {
+      "url": "https://www.facebook.com/litovel.eu/posts/pfbid02qBuwZJERREtkX7ZMeEmobrmRJLbSXmoqLWbAs7DSuNqN8Q72sDggJxGmGAr7iq46l",
+      "title": null
+    },
+    "note": "Migrated from lokace_svozu.py",
+    "affected_locations_snapshot": ["Březové", "Chořelice", "Nasobůrky", "Víska", "Rozvadovice", "Unčovice"]
+  },
+  {
+    "id": "2026-01-01-smes-litovel-ctvrtek-posun-2026-01-02",
+    "action": "reschedule",
+    "waste_type": "SMES",
+    "affected_location_group": "litovel_lokace_smes_4",
+    "original_date": "2026-01-01",
+    "new_date": "2026-01-02",
+    "source": {
+      "url": "https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmeny-svozu-odpadu-o-vanocnich-svatcich.html",
+      "title": "Změny svozu odpadu o vánočních svátcích"
+    },
+    "note": "Migrated from lokace_svozu.py"
+  },
+  {
+    "id": "2026-02-16-smes-litovel-pondeli-posun-2026-02-17",
+    "action": "reschedule",
+    "waste_type": "SMES",
+    "affected_location_group": "litovel_lokace_smes_1",
+    "original_date": "2026-02-16",
+    "new_date": "2026-02-17",
+    "source": {
+      "url": "https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu.html",
+      "title": "Změna svozu odpadu"
+    },
+    "note": "Migrated from lokace_svozu.py"
+  },
+  {
+    "id": "2026-04-06-plast-mistni-casti-posun-2026-04-09",
+    "action": "reschedule",
+    "waste_type": "PLAST",
+    "affected_location_group": "plast_pondeli_mistni_casti",
+    "original_date": "2026-04-06",
+    "new_date": "2026-04-09",
+    "source": {
+      "url": null,
+      "title": null
+    },
+    "note": "Migrated from lokace_svozu.py",
+    "affected_locations_snapshot": ["Březové", "Chořelice", "Nasobůrky", "Víska", "Rozvadovice", "Unčovice"]
+  }
+]

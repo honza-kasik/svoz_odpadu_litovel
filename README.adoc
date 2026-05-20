@@ -42,6 +42,14 @@ https://support.google.com/calendar/answer/37118?hl=cs&co=GENIE.Platform%3DDeskt
 
 Zdrojová data se nachází v link:resources/[resources/]. Jsou to letáčky distribuované městem v PDF podobě. Součástí repozitáře jsou proto, aby byly dohledatelné případné změny.
 
+=== Model svozu
+
+Pravidelný harmonogram svozu zůstává v Pythonu v souboru link:lokace_svozu.py[`lokace_svozu.py`].
+
+Jednorázové změny svozu jsou v link:data/svoz_exceptions.json[`data/svoz_exceptions.json`]. Každá změna má stabilní `id`, typ odpadu, dotčené lokace nebo skupinu lokací, akci a datum změny. Pokud se používá `affected_location_group`, seznam míst může být přiložen jen jako `affected_locations_snapshot`; samostatné `affected_locations` je autoritativní pouze bez skupiny. Objekt `source` musí obsahovat klíče `url` a `title`; krátký doklad z oznámení lze uložit do `source.evidence`.
+
+Budoucí automatizace má upravovat pouze datový soubor s jednorázovými změnami, ne Python logiku pravidelného harmonogramu.
+
 === Změny svozu
 
 * 2025-12-17 https://www.facebook.com/litovel.eu/posts/pfbid02mx6FiHsbQETRC2V9vzuCBQMpQUDh84tfzyz7NspBdy3AL5pMdApFuzaqmGLwSfphl, https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmeny-svozu-odpadu-o-vanocnich-svatcich.html archiv https://web.archive.org/web/20251217074956/https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Flitovel.eu%2Fposts%2Fpfbid02mx6FiHsbQETRC2V9vzuCBQMpQUDh84tfzyz7NspBdy3AL5pMdApFuzaqmGLwSfphl a https://archive.is/Cuen5
