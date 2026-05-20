@@ -15,22 +15,34 @@ from urllib.request import Request, urlopen
 
 DEFAULT_URLS = (
     "https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/",
-    "https://www.litovel.eu/cs/aktuality/",
 )
 USER_AGENT = "svoz-odpadu-litovel-monitor/1.0 (+https://svoz.litovle.cz)"
 
 WASTE_PATTERNS = (
     ("svoz", re.compile(r"\bsvoz\w*", re.IGNORECASE)),
     ("odpad", re.compile(r"\bodpad\w*", re.IGNORECASE)),
-    ("popelnice", re.compile(r"\bpopelnic\w*", re.IGNORECASE)),
+    ("odpadu", re.compile(r"\bodpadu\b", re.IGNORECASE)),
     ("bioodpad", re.compile(r"\bbioodpad\w*", re.IGNORECASE)),
+    ("bioodpadu", re.compile(r"\bbioodpadu\b", re.IGNORECASE)),
+    ("kontejner", re.compile(r"\bkontejner\w*", re.IGNORECASE)),
+    ("nadoba", re.compile(r"\bn[aá]dob\w*", re.IGNORECASE)),
+    ("nadoby", re.compile(r"\bn[aá]doby\b", re.IGNORECASE)),
+    ("popelnice", re.compile(r"\bpopelnic\w*", re.IGNORECASE)),
     ("plast", re.compile(r"\bplast\w*", re.IGNORECASE)),
     ("papir", re.compile(r"\bpap[ií]r\w*", re.IGNORECASE)),
+    ("fcc", re.compile(r"\bfcc\b", re.IGNORECASE)),
 )
 CHANGE_PATTERNS = (
     ("zmena", re.compile(r"\bzm[eě]n\w*", re.IGNORECASE)),
+    ("zmeny", re.compile(r"\bzm[eě]ny\b", re.IGNORECASE)),
     ("presun", re.compile(r"\bp[řr]esouv\w*|\bp[řr]esun\w*", re.IGNORECASE)),
+    ("presouva", re.compile(r"\bp[řr]esouv[aá]\b", re.IGNORECASE)),
+    ("presunut", re.compile(r"\bp[řr]esunut\w*", re.IGNORECASE)),
+    ("nahradni", re.compile(r"\bn[aá]hradn[ií]\w*", re.IGNORECASE)),
+    ("mimoradny", re.compile(r"\bmimo[řr][aá]dn\w*", re.IGNORECASE)),
+    ("zruseni", re.compile(r"\bzru[šs]en[ií]\b", re.IGNORECASE)),
     ("svatek", re.compile(r"\bsv[aá]t\w*", re.IGNORECASE)),
+    ("svatky", re.compile(r"\bsv[aá]tky\b", re.IGNORECASE)),
     ("termin", re.compile(r"\bterm[ií]n\w*", re.IGNORECASE)),
     ("vanocni", re.compile(r"\bv[aá]no[cč]\w*", re.IGNORECASE)),
     ("velikonoce", re.compile(r"\bvelikonoc\w*", re.IGNORECASE)),
@@ -50,11 +62,14 @@ class ParsedArticle:
 
 
 @dataclass(frozen=True)
-class CandidateArticle:
+class MatchedArticle:
     title: str
     url: str
     publication_date: str | None
-    reasons: tuple[str, ...]
+    topic_reasons: tuple[str, ...]
+    change_reasons: tuple[str, ...]
+    decision: str
+    ignored_reason: str | None = None
 
 
 class LitovelArticleParser(HTMLParser):
@@ -131,24 +146,42 @@ def extract_articles(html: str, base_url: str) -> list[ParsedArticle]:
     return _deduplicate_articles(parser.links)
 
 
-def find_candidate_articles(articles: Iterable[ParsedArticle]) -> list[CandidateArticle]:
-    candidates = []
+def find_matched_articles(articles: Iterable[ParsedArticle]) -> list[MatchedArticle]:
+    matches = []
     for article in articles:
-        reasons = _match_reasons(
+        topic_reasons, change_reasons = _match_reasons(
             article.title,
             article.url,
             article.context if article.context_is_local else "",
         )
-        if reasons:
-            candidates.append(
-                CandidateArticle(
-                    title=article.title,
-                    url=article.url,
-                    publication_date=_extract_publication_date(article.context),
-                    reasons=tuple(reasons),
-                )
+        if not topic_reasons:
+            continue
+
+        decision = "candidate" if change_reasons else "ignored"
+        ignored_reason = None
+        if decision == "ignored":
+            ignored_reason = "waste-related article but no change-related term"
+
+        matches.append(
+            MatchedArticle(
+                title=article.title,
+                url=article.url,
+                publication_date=_extract_publication_date(article.context),
+                topic_reasons=tuple(topic_reasons),
+                change_reasons=tuple(change_reasons),
+                decision=decision,
+                ignored_reason=ignored_reason,
             )
-    return candidates
+        )
+    return matches
+
+
+def find_candidate_articles(articles: Iterable[ParsedArticle]) -> list[MatchedArticle]:
+    return [
+        article
+        for article in find_matched_articles(articles)
+        if article.decision == "candidate"
+    ]
 
 
 def fetch_url(url: str, timeout: int) -> str:
@@ -164,7 +197,7 @@ def run(urls: Iterable[str], timeout: int, dry_run: bool) -> int:
     print("This script does not modify files, commit, push, create issues, or create PRs.")
     print()
 
-    all_candidates: list[CandidateArticle] = []
+    all_matches: list[MatchedArticle] = []
     for url in urls:
         print(f"Fetching: {url}")
         try:
@@ -174,44 +207,53 @@ def run(urls: Iterable[str], timeout: int, dry_run: bool) -> int:
             continue
 
         articles = extract_articles(html, url)
-        candidates = find_candidate_articles(articles)
-        all_candidates.extend(candidates)
+        matches = find_matched_articles(articles)
+        topic_matches = [match for match in matches if match.topic_reasons]
+        change_candidates = [
+            match for match in matches if match.decision == "candidate"
+        ]
+        all_matches.extend(matches)
         print(f"  links scanned: {len(articles)}")
-        print(f"  candidates: {len(candidates)}")
+        print(f"  topic matches: {len(topic_matches)}")
+        print(f"  change candidates: {len(change_candidates)}")
 
     print()
-    print_candidate_summary(_deduplicate_candidates(all_candidates))
+    print_match_summary(_deduplicate_matches(all_matches))
     return 0
 
 
-def print_candidate_summary(candidates: list[CandidateArticle]) -> None:
+def print_match_summary(matches: list[MatchedArticle]) -> None:
+    candidates = [match for match in matches if match.decision == "candidate"]
+    ignored = [match for match in matches if match.decision == "ignored"]
+    print(f"Topic matches found: {len(matches)}")
     print(f"Candidate articles found: {len(candidates)}")
-    if not candidates:
-        return
 
     for index, candidate in enumerate(candidates, start=1):
         print(f"{index}. {candidate.title}")
         print(f"   URL: {candidate.url}")
         print(f"   Date: {candidate.publication_date or 'unknown'}")
-        print(f"   Reason: {', '.join(candidate.reasons)}")
+        print(f"   Topic reasons: {', '.join(candidate.topic_reasons)}")
+        print(f"   Change reasons: {', '.join(candidate.change_reasons)}")
+
+    if ignored:
+        print()
+        print(f"Ignored topic matches: {len(ignored)}")
+    for index, ignored_match in enumerate(ignored, start=1):
+        print(f"{index}. {ignored_match.title}")
+        print(f"   URL: {ignored_match.url}")
+        print(f"   Date: {ignored_match.publication_date or 'unknown'}")
+        print(f"   Topic reasons: {', '.join(ignored_match.topic_reasons)}")
+        print(f"   Ignored: {ignored_match.ignored_reason}")
 
 
-def _match_reasons(title: str, url: str, context: str) -> list[str]:
-    title_url = f"{title} {url}"
-    full_text = f"{title_url} {context}"
+def _match_reasons(title: str, url: str, context: str) -> tuple[list[str], list[str]]:
+    full_text = f"{title} {url} {context}"
     waste_matches = [name for name, pattern in WASTE_PATTERNS if pattern.search(full_text)]
     change_matches = [name for name, pattern in CHANGE_PATTERNS if pattern.search(full_text)]
-    if not waste_matches or not change_matches:
-        return []
-
-    title_waste_matches = [name for name, pattern in WASTE_PATTERNS if pattern.search(title_url)]
-    title_change_matches = [name for name, pattern in CHANGE_PATTERNS if pattern.search(title_url)]
-    if not title_waste_matches and not title_change_matches:
-        return []
-
-    return [f"waste:{name}" for name in waste_matches] + [
-        f"change:{name}" for name in change_matches
-    ]
+    return (
+        [f"topic:{name}" for name in waste_matches],
+        [f"change:{name}" for name in change_matches],
+    )
 
 
 def _extract_publication_date(text: str) -> str | None:
@@ -233,16 +275,14 @@ def _deduplicate_articles(articles: Iterable[ParsedArticle]) -> list[ParsedArtic
     return deduplicated
 
 
-def _deduplicate_candidates(
-    candidates: Iterable[CandidateArticle],
-) -> list[CandidateArticle]:
+def _deduplicate_matches(matches: Iterable[MatchedArticle]) -> list[MatchedArticle]:
     seen = set()
     deduplicated = []
-    for candidate in candidates:
-        if candidate.url in seen:
+    for match in matches:
+        if match.url in seen:
             continue
-        seen.add(candidate.url)
-        deduplicated.append(candidate)
+        seen.add(match.url)
+        deduplicated.append(match)
     return deduplicated
 
 

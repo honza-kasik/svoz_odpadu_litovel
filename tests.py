@@ -15,7 +15,12 @@ from lokace_svozu import (
 )
 from streets import all_streets, mistni_casti
 from svoz_exceptions import load_svoz_exceptions
-from scripts.watch_litovel_eu import extract_articles, find_candidate_articles
+from scripts.watch_litovel_eu import (
+    DEFAULT_URLS,
+    extract_articles,
+    find_candidate_articles,
+    find_matched_articles,
+)
 
 
 class SvozExceptionsTest(unittest.TestCase):
@@ -279,8 +284,9 @@ class LitovelWatcherTest(unittest.TestCase):
             candidates[0].url,
         )
         self.assertEqual("12. 2.", candidates[0].publication_date)
-        self.assertIn("waste:svoz", candidates[0].reasons)
-        self.assertIn("change:zmena", candidates[0].reasons)
+        self.assertEqual("candidate", candidates[0].decision)
+        self.assertIn("topic:svoz", candidates[0].topic_reasons)
+        self.assertIn("change:zmena", candidates[0].change_reasons)
 
     def test_uses_local_context_for_unstructured_article_text(self):
         html = """
@@ -302,15 +308,57 @@ class LitovelWatcherTest(unittest.TestCase):
 
         self.assertEqual(1, len(candidates))
         self.assertEqual("20. 5.", candidates[0].publication_date)
-        self.assertIn("waste:svoz", candidates[0].reasons)
-        self.assertIn("change:termin", candidates[0].reasons)
+        self.assertEqual("candidate", candidates[0].decision)
+        self.assertIn("topic:svoz", candidates[0].topic_reasons)
+        self.assertIn("change:termin", candidates[0].change_reasons)
 
-    def test_ignores_waste_articles_without_change_signal(self):
+    def test_reports_waste_article_without_change_as_ignored_topic_match(self):
         html = """
         <html>
           <body>
-            <a href="/cs/odpady.html">Sběrný dvůr a třídění odpadu</a>
-            <a href="/cs/aktuality/svatky.html">Program vánočních svátků</a>
+            <article>
+              <a href="/cs/odpady.html">Sběrný dvůr a třídění odpadu</a>
+            </article>
+          </body>
+        </html>
+        """
+
+        articles = extract_articles(html, "https://www.litovel.eu/")
+        matches = find_matched_articles(articles)
+
+        self.assertEqual(1, len(matches))
+        self.assertEqual("ignored", matches[0].decision)
+        self.assertEqual(
+            "waste-related article but no change-related term",
+            matches[0].ignored_reason,
+        )
+        self.assertIn("topic:odpad", matches[0].topic_reasons)
+        self.assertEqual((), matches[0].change_reasons)
+
+    def test_ignores_change_article_without_waste_signal(self):
+        html = """
+        <html>
+          <body>
+            <article>
+              <a href="/cs/aktuality/svatky.html">Změna programu vánočních svátků</a>
+            </article>
+          </body>
+        </html>
+        """
+
+        articles = extract_articles(html, "https://www.litovel.eu/")
+        matches = find_matched_articles(articles)
+
+        self.assertEqual([], matches)
+
+    def test_duplicate_links_are_deduplicated(self):
+        html = """
+        <html>
+          <body>
+            <article>
+              <a href="/cs/zmena-svozu-odpadu.html">Změna svozu odpadu</a>
+              <a href="/cs/zmena-svozu-odpadu.html">Změna svozu odpadu</a>
+            </article>
           </body>
         </html>
         """
@@ -318,7 +366,14 @@ class LitovelWatcherTest(unittest.TestCase):
         articles = extract_articles(html, "https://www.litovel.eu/")
         candidates = find_candidate_articles(articles)
 
-        self.assertEqual([], candidates)
+        self.assertEqual(1, len(articles))
+        self.assertEqual(1, len(candidates))
+
+    def test_default_urls_scan_only_official_information_page(self):
+        self.assertEqual(
+            ("https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/",),
+            DEFAULT_URLS,
+        )
 
 
 if __name__ == "__main__":
