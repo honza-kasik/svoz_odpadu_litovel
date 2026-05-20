@@ -3,6 +3,7 @@ from enum import Enum
 from dataclasses import dataclass
 from datetime import datetime
 
+from svoz_exceptions import load_svoz_exceptions
 from streets import *
 from utils import date_range
 
@@ -90,79 +91,117 @@ class LokaceSvozu:
         return events
 
 
+SVOZ_EXCEPTIONS = load_svoz_exceptions(allowed_waste_types={waste_type.name for waste_type in WasteType})
+
+
+def exception_dates(
+    waste_type: WasteType,
+    locations: list[str],
+    affected_location_group: str | None = None
+) -> tuple[list[datetime], list[datetime]]:
+    """Vrátí data výjimek pro konkrétní definici svozu.
+
+    Překládá datové výjimky na původní dvojici ``excluded_dates`` a
+    ``included_dates``, kterou používá ``LokaceSvozu``. ``affected_location_group``
+    je interní spojovací klíč pro případy, kdy jedno oznámení města dopadá na
+    více samostatných definic svozu v Pythonu.
+    """
+
+    excluded_dates = []
+    included_dates = []
+    location_set = set(locations)
+
+    for exception in SVOZ_EXCEPTIONS:
+        if exception.waste_type != waste_type.name:
+            continue
+
+        if affected_location_group is not None:
+            if exception.affected_location_group != affected_location_group:
+                continue
+            if exception.affected_locations and not location_set.issubset(set(exception.affected_locations)):
+                raise ValueError(
+                    f"{exception.id}: affected_locations do not include schedule locations"
+                )
+        elif set(exception.affected_locations) != location_set:
+            continue
+
+        if exception.action == "reschedule":
+            if exception.original_date is None or exception.new_date is None:
+                raise ValueError(f"{exception.id}: reschedule exception requires dates")
+            excluded_dates.append(datetime.combine(exception.original_date, datetime.min.time()))
+            included_dates.append(datetime.combine(exception.new_date, datetime.min.time()))
+        elif exception.action == "include":
+            if exception.date is None:
+                raise ValueError(f"{exception.id}: include exception requires date")
+            included_dates.append(datetime.combine(exception.date, datetime.min.time()))
+        elif exception.action == "cancel":
+            if exception.date is None:
+                raise ValueError(f"{exception.id}: cancel exception requires date")
+            excluded_dates.append(datetime.combine(exception.date, datetime.min.time()))
+        else:
+            raise ValueError(f"{exception.id}: unsupported action {exception.action!r}")
+
+    return excluded_dates, included_dates
+
+
 lokace_svozu_plast = [
     #POZOR! kazdy prvni lichy a sudy tyden v mesici, ne kazdy sudy a lichy tyden jak rika letak s odpady! Barevna kolecka v letaku jsou OK.
     LokaceSvozu(lambda date: week(date) % 4 == 3 and date.weekday() == 0, [location for location in litovel_lokace_plast_0 if location != 'Pavlínka'], WasteType.PLAST),
-    LokaceSvozu(lambda date: week(date) % 4 == 3 and date.weekday() == 0, ['Pavlínka'], WasteType.PLAST, 
-                                [datetime(2025,11,17)], 
-                                [datetime(2025,11,18)]),
-    LokaceSvozu(lambda date: week(date) % 4 == 2 and date.weekday() == 0, litovel_lokace_plast_1, WasteType.PLAST, 
-                                [datetime(2025,5,26)], 
-                                [datetime(2025,5,27)]),
+    LokaceSvozu(lambda date: week(date) % 4 == 3 and date.weekday() == 0, ['Pavlínka'], WasteType.PLAST,
+                                *exception_dates(WasteType.PLAST, ['Pavlínka'])),
+    LokaceSvozu(lambda date: week(date) % 4 == 2 and date.weekday() == 0, litovel_lokace_plast_1, WasteType.PLAST,
+                                *exception_dates(WasteType.PLAST, litovel_lokace_plast_1, "litovel_lokace_plast_1")),
     #zacatek treti tyden v roce v pondeli, kazdy ctvrty tyden
     LokaceSvozu(lambda date: week(date) % 4 == 3 and date.weekday() == 0, 
-                                ['Březové', 'Chořelice', 'Nasobůrky', 'Víska', 'Rozvadovice', 'Unčovice'], WasteType.PLAST, 
-                                [datetime(2025,11,17), datetime(2026,4,6)],
-                                [datetime(2025,11,20), datetime(2026,4,9)]),
+                                ['Březové', 'Chořelice', 'Nasobůrky', 'Víska', 'Rozvadovice', 'Unčovice'], WasteType.PLAST,
+                                *exception_dates(WasteType.PLAST, ['Březové', 'Chořelice', 'Nasobůrky', 'Víska', 'Rozvadovice', 'Unčovice'], "plast_pondeli_mistni_casti")),
     #zacatek druhy tyden v roce v pondeli, kazdy ctvrty tyden
     LokaceSvozu(lambda date: week(date) % 4 == 2 and date.weekday() == 4,
-                                ['Savín', 'Nová Ves', 'Chudobín', 'Tři Dvory', 'Myslechovice'], WasteType.PLAST, 
-                                [datetime(2025,7,25), datetime(2025,8,22), datetime(2025,9,19)],
-                                [datetime(2025,7,23), datetime(2025,8,20), datetime(2025,9,17)]),
+                                ['Savín', 'Nová Ves', 'Chudobín', 'Tři Dvory', 'Myslechovice'], WasteType.PLAST,
+                                *exception_dates(WasteType.PLAST, ['Savín', 'Nová Ves', 'Chudobín', 'Tři Dvory', 'Myslechovice'])),
 ]
 
 lokace_svozu_papir = [
     #kazdy ctvrty tyden v cele Litovli
     LokaceSvozu(lambda date: week(date) % 4 == 0 and date.weekday() == 0, all_streets['Litovel'], WasteType.PAPIR,
-                                [datetime(2025,5,12)], 
-                                [datetime(2025,5,13)]),
+                                *exception_dates(WasteType.PAPIR, all_streets['Litovel'], "all_streets_litovel")),
     #zacatek paty tyden v roce v pondeli, kazdy paty tyden
     LokaceSvozu(lambda date: week(date) % 4 == 1 and date.weekday() == 0, ['Březové'], WasteType.PAPIR,
-                                [datetime(2025,4,21)], 
-                                [datetime(2025,4,24)]),
+                                *exception_dates(WasteType.PAPIR, ['Březové'], "papir_pondeli_mistni_casti")),
     LokaceSvozu(lambda date: week(date) % 4 == 1 and date.weekday() == 0, ['Chořelice'], WasteType.PAPIR,
-                                [datetime(2025,4,21)], 
-                                [datetime(2025,4,24)]),
+                                *exception_dates(WasteType.PAPIR, ['Chořelice'], "papir_pondeli_mistni_casti")),
     LokaceSvozu(lambda date: week(date) % 4 == 1 and date.weekday() == 0, ['Nasobůrky', 'Víska'], WasteType.PAPIR,
-                                [datetime(2025,4,21)], 
-                                [datetime(2025,4,24)]),
+                                *exception_dates(WasteType.PAPIR, ['Nasobůrky', 'Víska'], "papir_pondeli_mistni_casti")),
     LokaceSvozu(lambda date: week(date) % 4 == 1 and date.weekday() == 0, ['Rozvadovice'], WasteType.PAPIR,
-                                [datetime(2025,4,21)], 
-                                [datetime(2025,4,24)]),
+                                *exception_dates(WasteType.PAPIR, ['Rozvadovice'], "papir_pondeli_mistni_casti")),
     LokaceSvozu(lambda date: week(date) % 4 == 0 and date.weekday() == 4, ['Savín', 'Nová Ves', 'Chudobín', 'Tři Dvory', 'Myslechovice'], WasteType.PAPIR,
-                                [datetime(2025,7,11), datetime(2025,8,8), datetime(2025,9,5)],
-                                [datetime(2025,7,9), datetime(2025,8,6),datetime(2025,9,3)]),
+                                *exception_dates(WasteType.PAPIR, ['Savín', 'Nová Ves', 'Chudobín', 'Tři Dvory', 'Myslechovice'])),
     LokaceSvozu(lambda date: week(date) % 4 == 1 and date.weekday() == 0, ['Unčovice'], WasteType.PAPIR,
-                                [datetime(2025,4,21)], 
-                                [datetime(2025,4,24)])
+                                *exception_dates(WasteType.PAPIR, ['Unčovice'], "papir_pondeli_mistni_casti"))
 ]
 
 lokace_svozu_smes = [
     LokaceSvozu(lambda date: week(date) % 2 == 0 and date.weekday() == 0, litovel_lokace_smes_1, WasteType.SMES,
-                                [datetime(2026,2,16)],
-                                [datetime(2026,2,17)]),
+                                *exception_dates(WasteType.SMES, litovel_lokace_smes_1, "litovel_lokace_smes_1")),
     LokaceSvozu(lambda date: week(date) % 2 == 0 and date.weekday() == 3, litovel_lokace_smes_5, WasteType.SMES),
     LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 0, litovel_lokace_smes_0, WasteType.SMES),
     LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 1, litovel_lokace_smes_2, WasteType.SMES),
-    LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 2, litovel_lokace_smes_3, WasteType.SMES, 
-                                [datetime(2025,1,1)],
-                                [datetime(2025,1,3)]),
+    LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 2, litovel_lokace_smes_3, WasteType.SMES,
+                                *exception_dates(WasteType.SMES, litovel_lokace_smes_3, "litovel_lokace_smes_3")),
     LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 3, litovel_lokace_smes_4, WasteType.SMES,
-                                [datetime(2026,1,1)],
-                                [datetime(2026,1,2)]),
+                                *exception_dates(WasteType.SMES, litovel_lokace_smes_4, "litovel_lokace_smes_4")),
     LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 1, ['Březové'], WasteType.SMES),
     LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 0, ['Chořelice'], WasteType.SMES),
     LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 4, ['Myslechovice'], WasteType.SMES),
     LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 4, ['Nasobůrky', 'Víska'], WasteType.SMES),
     LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 0, ['Rozvadovice'], WasteType.SMES),
-    LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 2, ['Savín', 'Nová Ves', 'Chudobín'], WasteType.SMES,  
-                                [datetime(2025,1,1)],
-                                [datetime(2025,1,3)]),
+    LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 2, ['Savín', 'Nová Ves', 'Chudobín'], WasteType.SMES,
+                                *exception_dates(WasteType.SMES, ['Savín', 'Nová Ves', 'Chudobín'], "smes_streda_mistni_casti")),
     LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 2, ['Tři Dvory'], WasteType.SMES,
-                                [datetime(2025,1,1)],
-                                [datetime(2025,1,3)]),
+                                *exception_dates(WasteType.SMES, ['Tři Dvory'], "smes_streda_mistni_casti")),
     LokaceSvozu(lambda date: week(date) % 2 != 0 and date.weekday() == 1, ['Unčovice'], WasteType.SMES),
-    LokaceSvozu(lambda date: False, ['Dukelská'], WasteType.SMES, [], [datetime(2025, 9, 11)])
+    LokaceSvozu(lambda date: False, ['Dukelská'], WasteType.SMES,
+                                *exception_dates(WasteType.SMES, ['Dukelská']))
 ]
 
 lokace_svozu_bio = [
@@ -171,21 +210,16 @@ lokace_svozu_bio = [
     LokaceSvozu(lambda date: is_bio_collection_week(date) and date.weekday() == 3, ['Březové'], WasteType.BIO),
     LokaceSvozu(lambda date: is_bio_collection_week(date) and date.weekday() == 3, ['Rozvadovice'], WasteType.BIO),
     LokaceSvozu(lambda date: is_bio_collection_week(date) and date.weekday() == 3, ['Tři Dvory'], WasteType.BIO),
-    LokaceSvozu(lambda date: is_bio_collection_week(date) and date.weekday() == 0, ['Nasobůrky', 'Víska'], WasteType.BIO, 
-                                [datetime(2025,4,21)],
-                                [datetime(2025,1,2), datetime(2025,4,25)]),
+    LokaceSvozu(lambda date: is_bio_collection_week(date) and date.weekday() == 0, ['Nasobůrky', 'Víska'], WasteType.BIO,
+                                *exception_dates(WasteType.BIO, ['Nasobůrky', 'Víska'], "bio_pondeli_mistni_casti")),
     LokaceSvozu(lambda date: is_bio_collection_week(date) and date.weekday() == 0, ['Chořelice'], WasteType.BIO,
-                                [datetime(2025,4,21)],
-                                [datetime(2025,1,2), datetime(2025,4,25)]),
+                                *exception_dates(WasteType.BIO, ['Chořelice'], "bio_pondeli_mistni_casti")),
     LokaceSvozu(lambda date: is_bio_collection_week(date) and date.weekday() == 0, ['Myslechovice'], WasteType.BIO,
-                                [datetime(2025,4,21)],
-                                [datetime(2025,1,2), datetime(2025,4,25)]),
+                                *exception_dates(WasteType.BIO, ['Myslechovice'], "bio_pondeli_mistni_casti")),
     LokaceSvozu(lambda date: is_bio_collection_week(date) and date.weekday() == 0, ['Savín', 'Nová Ves', 'Chudobín'], WasteType.BIO, 
-                                [datetime(2025,4,21)],
-                                [datetime(2025,1,2), datetime(2025,4,25)]),
+                                *exception_dates(WasteType.BIO, ['Savín', 'Nová Ves', 'Chudobín'], "bio_pondeli_mistni_casti")),
     LokaceSvozu(lambda date: is_bio_collection_week(date) and date.weekday() == 0, ['Unčovice'], WasteType.BIO,
-                                [datetime(2025,4,21)],
-                                [datetime(2025,1,2), datetime(2025,4,25)])
+                                *exception_dates(WasteType.BIO, ['Unčovice'], "bio_pondeli_mistni_casti"))
 ]
 
 
