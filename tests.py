@@ -15,6 +15,7 @@ from lokace_svozu import (
 )
 from streets import all_streets, mistni_casti
 from svoz_exceptions import load_svoz_exceptions
+from scripts.watch_litovel_eu import extract_articles, find_candidate_articles
 
 
 class SvozExceptionsTest(unittest.TestCase):
@@ -247,6 +248,77 @@ class SvozExceptionsTest(unittest.TestCase):
         expected_lines = Path("waste_schedule.csv").read_text(encoding="utf-8").splitlines()
 
         self.assertEqual(expected_lines, actual_lines)
+
+
+class LitovelWatcherTest(unittest.TestCase):
+    def test_extracts_and_filters_candidate_articles(self):
+        html = """
+        <html>
+          <body>
+            <article>
+              <span>12. 2.</span>
+              <a href="/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu.html">
+                Změna svozu odpadu
+              </a>
+            </article>
+            <article>
+              <time datetime="2026-02-13">13. 2. 2026</time>
+              <a href="/cs/kultura/koncert.html">Koncert v Litovli</a>
+            </article>
+          </body>
+        </html>
+        """
+
+        articles = extract_articles(html, "https://www.litovel.eu/cs/")
+        candidates = find_candidate_articles(articles)
+
+        self.assertEqual(1, len(candidates))
+        self.assertEqual("Změna svozu odpadu", candidates[0].title)
+        self.assertEqual(
+            "https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu.html",
+            candidates[0].url,
+        )
+        self.assertEqual("12. 2.", candidates[0].publication_date)
+        self.assertIn("waste:svoz", candidates[0].reasons)
+        self.assertIn("change:zmena", candidates[0].reasons)
+
+    def test_uses_local_context_for_unstructured_article_text(self):
+        html = """
+        <html>
+          <body>
+            <div>
+              <span>20. 5.</span>
+              <p>Svoz odpadu v Litovli bude kvůli svátku přesunut.</p>
+              <a href="/cs/urad/uredni-deska/aktualni-informace/detail.html">
+                Změna termínu
+              </a>
+            </div>
+          </body>
+        </html>
+        """
+
+        articles = extract_articles(html, "https://www.litovel.eu/")
+        candidates = find_candidate_articles(articles)
+
+        self.assertEqual(1, len(candidates))
+        self.assertEqual("20. 5.", candidates[0].publication_date)
+        self.assertIn("waste:svoz", candidates[0].reasons)
+        self.assertIn("change:termin", candidates[0].reasons)
+
+    def test_ignores_waste_articles_without_change_signal(self):
+        html = """
+        <html>
+          <body>
+            <a href="/cs/odpady.html">Sběrný dvůr a třídění odpadu</a>
+            <a href="/cs/aktuality/svatky.html">Program vánočních svátků</a>
+          </body>
+        </html>
+        """
+
+        articles = extract_articles(html, "https://www.litovel.eu/")
+        candidates = find_candidate_articles(articles)
+
+        self.assertEqual([], candidates)
 
 
 if __name__ == "__main__":
