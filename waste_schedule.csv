@@ -109,8 +109,8 @@
 2026-06-22,plastics,1. máje,0
 2026-06-24,bio,1. máje,0
 2026-06-25,generic,1. máje,0
-2026-07-06,paper,1. máje,0
 2026-07-08,bio,1. máje,0
+2026-07-09,paper,1. máje,1
 2026-07-09,generic,1. máje,0
 2026-07-20,plastics,1. máje,0
 2026-07-22,bio,1. máje,0
@@ -258,8 +258,8 @@
 2026-06-22,plastics,B. Němcové,0
 2026-06-24,bio,B. Němcové,0
 2026-07-02,generic,B. Němcové,0
-2026-07-06,paper,B. Němcové,0
 2026-07-08,bio,B. Němcové,0
+2026-07-09,paper,B. Němcové,1
 2026-07-16,generic,B. Němcové,0
 2026-07-20,plastics,B. Němcové,0
 2026-07-22,bio,B. Němcové,0
@@ -405,9 +405,9 @@
 2026-06-22,plastics,Bezručova,0
 2026-06-22,generic,Bezručova,0
 2026-06-24,bio,Bezručova,0
-2026-07-06,paper,Bezručova,0
 2026-07-06,generic,Bezručova,0
 2026-07-08,bio,Bezručova,0
+2026-07-09,paper,Bezručova,1
 2026-07-20,plastics,Bezručova,0
 2026-07-20,generic,Bezručova,0
 2026-07-22,bio,Bezručova,0
@@ -553,8 +553,8 @@
 2026-06-22,plastics,Boskovicova,0
 2026-06-24,bio,Boskovicova,0
 2026-06-25,generic,Boskovicova,0
-2026-07-06,paper,Boskovicova,0
 2026-07-08,bio,Boskovicova,0
+2026-07-09,paper,Boskovicova,1
 2026-07-09,generic,Boskovicova,0
 2026-07-20,plastics,Boskovicova,0
 2026-07-22,bio,Boskovicova,0
@@ -701,8 +701,8 @@
 2026-06-22,plastics,Cholinská,0
 2026-06-24,bio,Cholinská,0
 2026-06-29,generic,Cholinská,0
-2026-07-06,paper,Cholinská,0
 2026-07-08,bio,Cholinská,0
+2026-07-09,paper,Cholinská,1
 2026-07-13,generic,Cholinská,0
 2026-07-20,plastics,Cholinská,0
 2026-07-22,bio,Cholinská,0
@@ -849,9 +849,9 @@
 2026-06-22,plastics,Družstevní,0
 2026-06-22,generic,Družstevní,0
 2026-06-24,bio,Družstevní,0
-2026-07-06,paper,Družstevní,0
 2026-07-06,generic,Družstevní,0
 2026-07-08,bio,Družstevní,0
+2026-07-09,paper,Družstevní,1
 2026-07-20,plastics,Družstevní,0
 2026-07-20,generic,Družstevní,0
 2026-07-22,bio,Družstevní,0
@@ -998,8 +998,8 @@
 2026-06-22,plastics,Dukelská,0
 2026-06-24,bio,Dukelská,0
 2026-06-29,generic,Dukelská,0
-2026-07-06,paper,Dukelská,0
 2026-07-08,bio,Dukelská,0
+2026-07-09,paper,Dukelská,1
 2026-07-13,generic,Dukelská,0
 2026-07-20,plastics,Dukelská,0
 2026-07-22,bio,Dukelská,0
@@ -1146,8 +1146,8 @@
 2026-06-22,plastics,G. Frištenského,0
 2026-06-24,bio,G. Frištenského,0
 2026-06-25,generic,G. Frištenského,0
-2026-07-06,paper,G. Frištenského,0
 2026-07-08,bio,G. Frištenského,0
+2026-07-09,paper,G. Frištenského,1
 2026-07-09,generic,G. Frištenského,0
 2026-07-20,plastics,G. Frištenského,0
 2026-07-22,bio,G. Frištenského,0
@@ -1294,8 +1294,8 @@
 2026-06-22,plastics,Gemerská - rodinné domy,0
 2026-06-24,bio,Gemerská - rodinné domy,0
 2026-06-30,generic,Gemerská - rodinné domy,0
-2026-07-06,paper,Gemerská - rodinné domy,0
 2026-07-08,bio,Gemerská - rodinné domy,0
+2026-07-09,paper,Gemerská - rodinné domy,1
 2026-07-14,generic,Gemerská - rodinné domy,0
 2026-07-20,plastics,Gemerská - rodinné domy,0
 2026-07-22,bio,Gemerská - rodinné domy,0
@@ -1482,8 +1482,8 @@
 2026-06-24,bio,Gemerská - sídliště,0
 2026-06-25,generic,Gemerská - sídliště,0
 2026-07-02,generic,Gemerská - sídliště,0
-2026-07-06,paper,Gemerská - sídliště,0
 2026-07-08,bio,Gemerská - sídliště,0
+2026-07-09,paper,Gemerská - sídliště,1
 2026-07-09,generic,Gemerská - sídliště,0
 2026-07-16,generic,Gemerská - sídliště,0
 2026-07-20,plastics,Gemerská - sídliště,0
@@ -1642,8 +1642,8 @@
 2026-06-22,plastics,Havlíčkova,0
 2026-06-24,bio,Havlíčkova,0
 2026-06-25,generic,Havlíčkova,0
-2026-07-06,paper,Havlíčkova,0
 2026-07-08,bio,Havlíčkova,0
+2026-07-09,paper,Havlíčkova,1
 2026-07-09,generic,Havlíčkova,0
 2026-07-20,plastics,Havlíčkova,0
 2026-07-22,bio,Havlíčkova,0
@@ -1790,8 +1790,8 @@
 2026-06-22,plastics,Hrnčířská,0
 2026-06-24,bio,Hrnčířská,0
 2026-06-30,generic,Hrnčířská,0
-2026-07-06,paper,Hrnčířská,0
 2026-07-08,bio,Hrnčířská,0
+2026-07-09,paper,Hrnčířská,1
 2026-07-14,generic,Hrnčířská,0
 2026-07-20,plastics,Hrnčířská,0
 2026-07-22,bio,Hrnčířská,0
@@ -1938,9 +1938,9 @@
 2026-06-22,plastics,Husova,0
 2026-06-22,generic,Husova,0
 2026-06-24,bio,Husova,0
-2026-07-06,paper,Husova,0
 2026-07-06,generic,Husova,0
 2026-07-08,bio,Husova,0
+2026-07-09,paper,Husova,1
 2026-07-20,plastics,Husova,0
 2026-07-20,generic,Husova,0
 2026-07-22,bio,Husova,0
@@ -2086,8 +2086,8 @@
 2026-06-22,plastics,Javoříčská,0
 2026-06-24,bio,Javoříčská,0
 2026-06-29,generic,Javoříčská,0
-2026-07-06,paper,Javoříčská,0
 2026-07-08,bio,Javoříčská,0
+2026-07-09,paper,Javoříčská,1
 2026-07-13,generic,Javoříčská,0
 2026-07-20,plastics,Javoříčská,0
 2026-07-22,bio,Javoříčská,0
@@ -2234,9 +2234,9 @@
 2026-06-22,plastics,Jiráskova,0
 2026-06-22,generic,Jiráskova,0
 2026-06-24,bio,Jiráskova,0
-2026-07-06,paper,Jiráskova,0
 2026-07-06,generic,Jiráskova,0
 2026-07-08,bio,Jiráskova,0
+2026-07-09,paper,Jiráskova,1
 2026-07-20,plastics,Jiráskova,0
 2026-07-20,generic,Jiráskova,0
 2026-07-22,bio,Jiráskova,0
@@ -2382,8 +2382,8 @@
 2026-06-22,plastics,Jungmannova,0
 2026-06-24,bio,Jungmannova,0
 2026-06-25,generic,Jungmannova,0
-2026-07-06,paper,Jungmannova,0
 2026-07-08,bio,Jungmannova,0
+2026-07-09,paper,Jungmannova,1
 2026-07-09,generic,Jungmannova,0
 2026-07-20,plastics,Jungmannova,0
 2026-07-22,bio,Jungmannova,0
@@ -2570,8 +2570,8 @@
 2026-06-24,bio,Karla Sedláka - sídliště,0
 2026-06-25,generic,Karla Sedláka - sídliště,0
 2026-07-02,generic,Karla Sedláka - sídliště,0
-2026-07-06,paper,Karla Sedláka - sídliště,0
 2026-07-08,bio,Karla Sedláka - sídliště,0
+2026-07-09,paper,Karla Sedláka - sídliště,1
 2026-07-09,generic,Karla Sedláka - sídliště,0
 2026-07-16,generic,Karla Sedláka - sídliště,0
 2026-07-20,plastics,Karla Sedláka - sídliště,0
@@ -2691,8 +2691,8 @@
 2026-06-10,bio,Karlov,0
 2026-06-22,plastics,Karlov,0
 2026-06-24,bio,Karlov,0
-2026-07-06,paper,Karlov,0
 2026-07-08,bio,Karlov,0
+2026-07-09,paper,Karlov,1
 2026-07-20,plastics,Karlov,0
 2026-07-22,bio,Karlov,0
 2026-08-03,paper,Karlov,0
@@ -2826,9 +2826,9 @@
 2026-06-22,plastics,Karlovská,0
 2026-06-22,generic,Karlovská,0
 2026-06-24,bio,Karlovská,0
-2026-07-06,paper,Karlovská,0
 2026-07-06,generic,Karlovská,0
 2026-07-08,bio,Karlovská,0
+2026-07-09,paper,Karlovská,1
 2026-07-20,plastics,Karlovská,0
 2026-07-20,generic,Karlovská,0
 2026-07-22,bio,Karlovská,0
@@ -2975,8 +2975,8 @@
 2026-06-22,plastics,Kollárova,0
 2026-06-24,bio,Kollárova,0
 2026-07-02,generic,Kollárova,0
-2026-07-06,paper,Kollárova,0
 2026-07-08,bio,Kollárova,0
+2026-07-09,paper,Kollárova,1
 2026-07-16,generic,Kollárova,0
 2026-07-20,plastics,Kollárova,0
 2026-07-22,bio,Kollárova,0
@@ -3123,8 +3123,8 @@
 2026-06-22,plastics,Komenského,0
 2026-06-24,bio,Komenského,0
 2026-07-02,generic,Komenského,0
-2026-07-06,paper,Komenského,0
 2026-07-08,bio,Komenského,0
+2026-07-09,paper,Komenského,1
 2026-07-16,generic,Komenského,0
 2026-07-20,plastics,Komenského,0
 2026-07-22,bio,Komenského,0
@@ -3270,8 +3270,8 @@
 2026-06-22,plastics,Komárov,0
 2026-06-24,bio,Komárov,0
 2026-06-29,generic,Komárov,0
-2026-07-06,paper,Komárov,0
 2026-07-08,bio,Komárov,0
+2026-07-09,paper,Komárov,1
 2026-07-13,generic,Komárov,0
 2026-07-20,plastics,Komárov,0
 2026-07-22,bio,Komárov,0
@@ -3419,8 +3419,8 @@
 2026-06-25,bio,Kosmonautů,0
 2026-06-29,plastics,Kosmonautů,0
 2026-07-02,generic,Kosmonautů,0
-2026-07-06,paper,Kosmonautů,0
 2026-07-09,bio,Kosmonautů,0
+2026-07-09,paper,Kosmonautů,1
 2026-07-16,generic,Kosmonautů,0
 2026-07-23,bio,Kosmonautů,0
 2026-07-27,plastics,Kosmonautů,0
@@ -3566,8 +3566,8 @@
 2026-06-22,plastics,Kostelní,0
 2026-06-24,bio,Kostelní,0
 2026-06-25,generic,Kostelní,0
-2026-07-06,paper,Kostelní,0
 2026-07-08,bio,Kostelní,0
+2026-07-09,paper,Kostelní,1
 2026-07-09,generic,Kostelní,0
 2026-07-20,plastics,Kostelní,0
 2026-07-22,bio,Kostelní,0
@@ -3675,8 +3675,8 @@
 2026-06-10,bio,Koupaliště,0
 2026-06-22,plastics,Koupaliště,0
 2026-06-24,bio,Koupaliště,0
-2026-07-06,paper,Koupaliště,0
 2026-07-08,bio,Koupaliště,0
+2026-07-09,paper,Koupaliště,1
 2026-07-20,plastics,Koupaliště,0
 2026-07-22,bio,Koupaliště,0
 2026-08-03,paper,Koupaliště,0
@@ -3811,8 +3811,8 @@
 2026-06-25,bio,Králova,0
 2026-06-29,plastics,Králova,0
 2026-07-02,generic,Králova,0
-2026-07-06,paper,Králova,0
 2026-07-09,bio,Králova,0
+2026-07-09,paper,Králova,1
 2026-07-16,generic,Králova,0
 2026-07-23,bio,Králova,0
 2026-07-27,plastics,Králova,0
@@ -3959,8 +3959,8 @@
 2026-06-22,plastics,Kysucká,0
 2026-06-24,bio,Kysucká,0
 2026-07-01,generic,Kysucká,0
-2026-07-06,paper,Kysucká,0
 2026-07-08,bio,Kysucká,0
+2026-07-09,paper,Kysucká,1
 2026-07-15,generic,Kysucká,0
 2026-07-20,plastics,Kysucká,0
 2026-07-22,bio,Kysucká,0
@@ -4068,8 +4068,8 @@
 2026-06-10,bio,Lesní zátiší,0
 2026-06-22,plastics,Lesní zátiší,0
 2026-06-24,bio,Lesní zátiší,0
-2026-07-06,paper,Lesní zátiší,0
 2026-07-08,bio,Lesní zátiší,0
+2026-07-09,paper,Lesní zátiší,1
 2026-07-20,plastics,Lesní zátiší,0
 2026-07-22,bio,Lesní zátiší,0
 2026-08-03,paper,Lesní zátiší,0
@@ -4204,8 +4204,8 @@
 2026-06-22,plastics,Lidická,0
 2026-06-24,bio,Lidická,0
 2026-07-01,generic,Lidická,0
-2026-07-06,paper,Lidická,0
 2026-07-08,bio,Lidická,0
+2026-07-09,paper,Lidická,1
 2026-07-15,generic,Lidická,0
 2026-07-20,plastics,Lidická,0
 2026-07-22,bio,Lidická,0
@@ -4353,8 +4353,8 @@
 2026-06-22,plastics,Loštická,0
 2026-06-25,bio,Loštická,0
 2026-07-02,generic,Loštická,0
-2026-07-06,paper,Loštická,0
 2026-07-09,bio,Loštická,0
+2026-07-09,paper,Loštická,1
 2026-07-16,generic,Loštická,0
 2026-07-20,plastics,Loštická,0
 2026-07-23,bio,Loštická,0
@@ -4500,9 +4500,9 @@
 2026-06-22,plastics,Lužní,0
 2026-06-22,generic,Lužní,0
 2026-06-24,bio,Lužní,0
-2026-07-06,paper,Lužní,0
 2026-07-06,generic,Lužní,0
 2026-07-08,bio,Lužní,0
+2026-07-09,paper,Lužní,1
 2026-07-20,plastics,Lužní,0
 2026-07-20,generic,Lužní,0
 2026-07-22,bio,Lužní,0
@@ -4648,8 +4648,8 @@
 2026-06-22,plastics,Masarykova,0
 2026-06-24,bio,Masarykova,0
 2026-06-25,generic,Masarykova,0
-2026-07-06,paper,Masarykova,0
 2026-07-08,bio,Masarykova,0
+2026-07-09,paper,Masarykova,1
 2026-07-09,generic,Masarykova,0
 2026-07-20,plastics,Masarykova,0
 2026-07-22,bio,Masarykova,0
@@ -4797,8 +4797,8 @@
 2026-06-22,plastics,Mlýnská,0
 2026-06-24,bio,Mlýnská,0
 2026-07-02,generic,Mlýnská,0
-2026-07-06,paper,Mlýnská,0
 2026-07-08,bio,Mlýnská,0
+2026-07-09,paper,Mlýnská,1
 2026-07-16,generic,Mlýnská,0
 2026-07-20,plastics,Mlýnská,0
 2026-07-22,bio,Mlýnská,0
@@ -4944,8 +4944,8 @@
 2026-06-22,plastics,Nasobůrská,0
 2026-06-24,bio,Nasobůrská,0
 2026-06-25,generic,Nasobůrská,0
-2026-07-06,paper,Nasobůrská,0
 2026-07-08,bio,Nasobůrská,0
+2026-07-09,paper,Nasobůrská,1
 2026-07-09,generic,Nasobůrská,0
 2026-07-20,plastics,Nasobůrská,0
 2026-07-22,bio,Nasobůrská,0
@@ -5132,8 +5132,8 @@
 2026-06-24,bio,Novosady - sídliště,0
 2026-06-25,generic,Novosady - sídliště,0
 2026-07-02,generic,Novosady - sídliště,0
-2026-07-06,paper,Novosady - sídliště,0
 2026-07-08,bio,Novosady - sídliště,0
+2026-07-09,paper,Novosady - sídliště,1
 2026-07-09,generic,Novosady - sídliště,0
 2026-07-16,generic,Novosady - sídliště,0
 2026-07-20,plastics,Novosady - sídliště,0
@@ -5293,8 +5293,8 @@
 2026-06-25,bio,Nová,0
 2026-06-29,plastics,Nová,0
 2026-07-02,generic,Nová,0
-2026-07-06,paper,Nová,0
 2026-07-09,bio,Nová,0
+2026-07-09,paper,Nová,1
 2026-07-16,generic,Nová,0
 2026-07-23,bio,Nová,0
 2026-07-27,plastics,Nová,0
@@ -5440,8 +5440,8 @@
 2026-06-22,plastics,Nábřežní,0
 2026-06-24,bio,Nábřežní,0
 2026-06-25,generic,Nábřežní,0
-2026-07-06,paper,Nábřežní,0
 2026-07-08,bio,Nábřežní,0
+2026-07-09,paper,Nábřežní,1
 2026-07-09,generic,Nábřežní,0
 2026-07-20,plastics,Nábřežní,0
 2026-07-22,bio,Nábřežní,0
@@ -5588,8 +5588,8 @@
 2026-06-22,plastics,Nádražní,0
 2026-06-24,bio,Nádražní,0
 2026-06-29,generic,Nádražní,0
-2026-07-06,paper,Nádražní,0
 2026-07-08,bio,Nádražní,0
+2026-07-09,paper,Nádražní,1
 2026-07-13,generic,Nádražní,0
 2026-07-20,plastics,Nádražní,0
 2026-07-22,bio,Nádražní,0
@@ -5736,8 +5736,8 @@
 2026-06-22,plastics,Nám. Př. Otakara,0
 2026-06-24,bio,Nám. Př. Otakara,0
 2026-06-25,generic,Nám. Př. Otakara,0
-2026-07-06,paper,Nám. Př. Otakara,0
 2026-07-08,bio,Nám. Př. Otakara,0
+2026-07-09,paper,Nám. Př. Otakara,1
 2026-07-09,generic,Nám. Př. Otakara,0
 2026-07-20,plastics,Nám. Př. Otakara,0
 2026-07-22,bio,Nám. Př. Otakara,0
@@ -5884,8 +5884,8 @@
 2026-06-22,plastics,Olomoucká,0
 2026-06-24,bio,Olomoucká,0
 2026-06-29,generic,Olomoucká,0
-2026-07-06,paper,Olomoucká,0
 2026-07-08,bio,Olomoucká,0
+2026-07-09,paper,Olomoucká,1
 2026-07-13,generic,Olomoucká,0
 2026-07-20,plastics,Olomoucká,0
 2026-07-22,bio,Olomoucká,0
@@ -6032,9 +6032,9 @@
 2026-06-22,plastics,Opletalova,0
 2026-06-22,generic,Opletalova,0
 2026-06-24,bio,Opletalova,0
-2026-07-06,paper,Opletalova,0
 2026-07-06,generic,Opletalova,0
 2026-07-08,bio,Opletalova,0
+2026-07-09,paper,Opletalova,1
 2026-07-20,plastics,Opletalova,0
 2026-07-20,generic,Opletalova,0
 2026-07-22,bio,Opletalova,0
@@ -6180,8 +6180,8 @@
 2026-06-22,plastics,Palackého,0
 2026-06-24,bio,Palackého,0
 2026-06-25,generic,Palackého,0
-2026-07-06,paper,Palackého,0
 2026-07-08,bio,Palackého,0
+2026-07-09,paper,Palackého,1
 2026-07-09,generic,Palackého,0
 2026-07-20,plastics,Palackého,0
 2026-07-22,bio,Palackého,0
@@ -6329,8 +6329,8 @@
 2026-06-25,bio,Pavlínka,0
 2026-06-29,plastics,Pavlínka,0
 2026-07-02,generic,Pavlínka,0
-2026-07-06,paper,Pavlínka,0
 2026-07-09,bio,Pavlínka,0
+2026-07-09,paper,Pavlínka,1
 2026-07-16,generic,Pavlínka,0
 2026-07-23,bio,Pavlínka,0
 2026-07-27,plastics,Pavlínka,0
@@ -6476,8 +6476,8 @@
 2026-06-22,plastics,Poděbradova,0
 2026-06-24,bio,Poděbradova,0
 2026-06-25,generic,Poděbradova,0
-2026-07-06,paper,Poděbradova,0
 2026-07-08,bio,Poděbradova,0
+2026-07-09,paper,Poděbradova,1
 2026-07-09,generic,Poděbradova,0
 2026-07-20,plastics,Poděbradova,0
 2026-07-22,bio,Poděbradova,0
@@ -6624,8 +6624,8 @@
 2026-06-22,plastics,Polní,0
 2026-06-24,bio,Polní,0
 2026-06-30,generic,Polní,0
-2026-07-06,paper,Polní,0
 2026-07-08,bio,Polní,0
+2026-07-09,paper,Polní,1
 2026-07-14,generic,Polní,0
 2026-07-20,plastics,Polní,0
 2026-07-22,bio,Polní,0
@@ -6773,8 +6773,8 @@
 2026-06-25,bio,Pošmýlská,0
 2026-06-29,plastics,Pošmýlská,0
 2026-07-02,generic,Pošmýlská,0
-2026-07-06,paper,Pošmýlská,0
 2026-07-09,bio,Pošmýlská,0
+2026-07-09,paper,Pošmýlská,1
 2026-07-16,generic,Pošmýlská,0
 2026-07-23,bio,Pošmýlská,0
 2026-07-27,plastics,Pošmýlská,0
@@ -6920,8 +6920,8 @@
 2026-06-22,plastics,Příčná,0
 2026-06-24,bio,Příčná,0
 2026-06-25,generic,Příčná,0
-2026-07-06,paper,Příčná,0
 2026-07-08,bio,Příčná,0
+2026-07-09,paper,Příčná,1
 2026-07-09,generic,Příčná,0
 2026-07-20,plastics,Příčná,0
 2026-07-22,bio,Příčná,0
@@ -7069,8 +7069,8 @@
 2026-06-22,plastics,Revoluční,0
 2026-06-24,bio,Revoluční,0
 2026-07-02,generic,Revoluční,0
-2026-07-06,paper,Revoluční,0
 2026-07-08,bio,Revoluční,0
+2026-07-09,paper,Revoluční,1
 2026-07-16,generic,Revoluční,0
 2026-07-20,plastics,Revoluční,0
 2026-07-22,bio,Revoluční,0
@@ -7216,9 +7216,9 @@
 2026-06-22,plastics,Revúcká,0
 2026-06-22,generic,Revúcká,0
 2026-06-24,bio,Revúcká,0
-2026-07-06,paper,Revúcká,0
 2026-07-06,generic,Revúcká,0
 2026-07-08,bio,Revúcká,0
+2026-07-09,paper,Revúcká,1
 2026-07-20,plastics,Revúcká,0
 2026-07-20,generic,Revúcká,0
 2026-07-22,bio,Revúcká,0
@@ -7364,8 +7364,8 @@
 2026-06-22,plastics,Rybníček,0
 2026-06-24,bio,Rybníček,0
 2026-06-30,generic,Rybníček,0
-2026-07-06,paper,Rybníček,0
 2026-07-08,bio,Rybníček,0
+2026-07-09,paper,Rybníček,1
 2026-07-14,generic,Rybníček,0
 2026-07-20,plastics,Rybníček,0
 2026-07-22,bio,Rybníček,0
@@ -7513,8 +7513,8 @@
 2026-06-25,bio,Sadová,0
 2026-06-29,plastics,Sadová,0
 2026-07-02,generic,Sadová,0
-2026-07-06,paper,Sadová,0
 2026-07-09,bio,Sadová,0
+2026-07-09,paper,Sadová,1
 2026-07-16,generic,Sadová,0
 2026-07-23,bio,Sadová,0
 2026-07-27,plastics,Sadová,0
@@ -7699,9 +7699,9 @@
 2026-06-22,generic,Severní,0
 2026-06-24,bio,Severní,0
 2026-06-29,generic,Severní,0
-2026-07-06,paper,Severní,0
 2026-07-06,generic,Severní,0
 2026-07-08,bio,Severní,0
+2026-07-09,paper,Severní,1
 2026-07-13,generic,Severní,0
 2026-07-20,plastics,Severní,0
 2026-07-20,generic,Severní,0
@@ -7860,8 +7860,8 @@
 2026-06-22,plastics,Smyčkova,0
 2026-06-24,bio,Smyčkova,0
 2026-06-25,generic,Smyčkova,0
-2026-07-06,paper,Smyčkova,0
 2026-07-08,bio,Smyčkova,0
+2026-07-09,paper,Smyčkova,1
 2026-07-09,generic,Smyčkova,0
 2026-07-20,plastics,Smyčkova,0
 2026-07-22,bio,Smyčkova,0
@@ -8008,9 +8008,9 @@
 2026-06-22,plastics,Sochova,0
 2026-06-22,generic,Sochova,0
 2026-06-24,bio,Sochova,0
-2026-07-06,paper,Sochova,0
 2026-07-06,generic,Sochova,0
 2026-07-08,bio,Sochova,0
+2026-07-09,paper,Sochova,1
 2026-07-20,plastics,Sochova,0
 2026-07-20,generic,Sochova,0
 2026-07-22,bio,Sochova,0
@@ -8117,8 +8117,8 @@
 2026-06-10,bio,Sovova,0
 2026-06-22,plastics,Sovova,0
 2026-06-24,bio,Sovova,0
-2026-07-06,paper,Sovova,0
 2026-07-08,bio,Sovova,0
+2026-07-09,paper,Sovova,1
 2026-07-20,plastics,Sovova,0
 2026-07-22,bio,Sovova,0
 2026-08-03,paper,Sovova,0
@@ -8253,8 +8253,8 @@
 2026-06-22,plastics,Staroměstské náměstí,0
 2026-06-24,bio,Staroměstské náměstí,0
 2026-07-02,generic,Staroměstské náměstí,0
-2026-07-06,paper,Staroměstské náměstí,0
 2026-07-08,bio,Staroměstské náměstí,0
+2026-07-09,paper,Staroměstské náměstí,1
 2026-07-16,generic,Staroměstské náměstí,0
 2026-07-20,plastics,Staroměstské náměstí,0
 2026-07-22,bio,Staroměstské náměstí,0
@@ -8400,9 +8400,9 @@
 2026-06-22,plastics,Studentů,0
 2026-06-22,generic,Studentů,0
 2026-06-24,bio,Studentů,0
-2026-07-06,paper,Studentů,0
 2026-07-06,generic,Studentů,0
 2026-07-08,bio,Studentů,0
+2026-07-09,paper,Studentů,1
 2026-07-20,plastics,Studentů,0
 2026-07-20,generic,Studentů,0
 2026-07-22,bio,Studentů,0
@@ -8548,8 +8548,8 @@
 2026-06-22,plastics,Sušilova,0
 2026-06-24,bio,Sušilova,0
 2026-06-30,generic,Sušilova,0
-2026-07-06,paper,Sušilova,0
 2026-07-08,bio,Sušilova,0
+2026-07-09,paper,Sušilova,1
 2026-07-14,generic,Sušilova,0
 2026-07-20,plastics,Sušilova,0
 2026-07-22,bio,Sušilova,0
@@ -8696,8 +8696,8 @@
 2026-06-22,plastics,Svatoplukova,0
 2026-06-24,bio,Svatoplukova,0
 2026-06-29,generic,Svatoplukova,0
-2026-07-06,paper,Svatoplukova,0
 2026-07-08,bio,Svatoplukova,0
+2026-07-09,paper,Svatoplukova,1
 2026-07-13,generic,Svatoplukova,0
 2026-07-20,plastics,Svatoplukova,0
 2026-07-22,bio,Svatoplukova,0
@@ -8805,8 +8805,8 @@
 2026-06-10,bio,Tichá,0
 2026-06-22,plastics,Tichá,0
 2026-06-24,bio,Tichá,0
-2026-07-06,paper,Tichá,0
 2026-07-08,bio,Tichá,0
+2026-07-09,paper,Tichá,1
 2026-07-20,plastics,Tichá,0
 2026-07-22,bio,Tichá,0
 2026-08-03,paper,Tichá,0
@@ -8940,8 +8940,8 @@
 2026-06-22,plastics,Třebízského,0
 2026-06-24,bio,Třebízského,0
 2026-06-25,generic,Třebízského,0
-2026-07-06,paper,Třebízského,0
 2026-07-08,bio,Třebízského,0
+2026-07-09,paper,Třebízského,1
 2026-07-09,generic,Třebízského,0
 2026-07-20,plastics,Třebízského,0
 2026-07-22,bio,Třebízského,0
@@ -9049,8 +9049,8 @@
 2026-06-10,bio,Třídvorská,0
 2026-06-22,plastics,Třídvorská,0
 2026-06-24,bio,Třídvorská,0
-2026-07-06,paper,Třídvorská,0
 2026-07-08,bio,Třídvorská,0
+2026-07-09,paper,Třídvorská,1
 2026-07-20,plastics,Třídvorská,0
 2026-07-22,bio,Třídvorská,0
 2026-08-03,paper,Třídvorská,0
@@ -9185,8 +9185,8 @@
 2026-06-25,bio,U Stadionu,0
 2026-06-29,plastics,U Stadionu,0
 2026-07-02,generic,U Stadionu,0
-2026-07-06,paper,U Stadionu,0
 2026-07-09,bio,U Stadionu,0
+2026-07-09,paper,U Stadionu,1
 2026-07-16,generic,U Stadionu,0
 2026-07-23,bio,U Stadionu,0
 2026-07-27,plastics,U Stadionu,0
@@ -9332,8 +9332,8 @@
 2026-06-22,plastics,Uničovská,0
 2026-06-25,bio,Uničovská,0
 2026-06-30,generic,Uničovská,0
-2026-07-06,paper,Uničovská,0
 2026-07-09,bio,Uničovská,0
+2026-07-09,paper,Uničovská,1
 2026-07-14,generic,Uničovská,0
 2026-07-20,plastics,Uničovská,0
 2026-07-23,bio,Uničovská,0
@@ -9520,8 +9520,8 @@
 2026-06-24,bio,Uničovská - sídliště,0
 2026-06-25,generic,Uničovská - sídliště,0
 2026-07-02,generic,Uničovská - sídliště,0
-2026-07-06,paper,Uničovská - sídliště,0
 2026-07-08,bio,Uničovská - sídliště,0
+2026-07-09,paper,Uničovská - sídliště,1
 2026-07-09,generic,Uničovská - sídliště,0
 2026-07-16,generic,Uničovská - sídliště,0
 2026-07-20,plastics,Uničovská - sídliště,0
@@ -9680,8 +9680,8 @@
 2026-06-22,plastics,Vlašímova,0
 2026-06-24,bio,Vlašímova,0
 2026-06-25,generic,Vlašímova,0
-2026-07-06,paper,Vlašímova,0
 2026-07-08,bio,Vlašímova,0
+2026-07-09,paper,Vlašímova,1
 2026-07-09,generic,Vlašímova,0
 2026-07-20,plastics,Vlašímova,0
 2026-07-22,bio,Vlašímova,0
@@ -9828,8 +9828,8 @@
 2026-06-22,plastics,Vodní,0
 2026-06-24,bio,Vodní,0
 2026-06-25,generic,Vodní,0
-2026-07-06,paper,Vodní,0
 2026-07-08,bio,Vodní,0
+2026-07-09,paper,Vodní,1
 2026-07-09,generic,Vodní,0
 2026-07-20,plastics,Vodní,0
 2026-07-22,bio,Vodní,0
@@ -9977,8 +9977,8 @@
 2026-06-22,plastics,Vítězná,0
 2026-06-24,bio,Vítězná,0
 2026-07-01,generic,Vítězná,0
-2026-07-06,paper,Vítězná,0
 2026-07-08,bio,Vítězná,0
+2026-07-09,paper,Vítězná,1
 2026-07-15,generic,Vítězná,0
 2026-07-20,plastics,Vítězná,0
 2026-07-22,bio,Vítězná,0
@@ -10126,8 +10126,8 @@
 2026-06-25,bio,Wolkerova,0
 2026-06-29,plastics,Wolkerova,0
 2026-07-02,generic,Wolkerova,0
-2026-07-06,paper,Wolkerova,0
 2026-07-09,bio,Wolkerova,0
+2026-07-09,paper,Wolkerova,1
 2026-07-16,generic,Wolkerova,0
 2026-07-23,bio,Wolkerova,0
 2026-07-27,plastics,Wolkerova,0
@@ -10274,8 +10274,8 @@
 2026-06-25,bio,Zahradní,0
 2026-06-29,plastics,Zahradní,0
 2026-07-02,generic,Zahradní,0
-2026-07-06,paper,Zahradní,0
 2026-07-09,bio,Zahradní,0
+2026-07-09,paper,Zahradní,1
 2026-07-16,generic,Zahradní,0
 2026-07-23,bio,Zahradní,0
 2026-07-27,plastics,Zahradní,0
@@ -10422,8 +10422,8 @@
 2026-06-22,plastics,nám. Svobody,0
 2026-06-24,bio,nám. Svobody,0
 2026-07-02,generic,nám. Svobody,0
-2026-07-06,paper,nám. Svobody,0
 2026-07-08,bio,nám. Svobody,0
+2026-07-09,paper,nám. Svobody,1
 2026-07-16,generic,nám. Svobody,0
 2026-07-20,plastics,nám. Svobody,0
 2026-07-22,bio,nám. Svobody,0
@@ -10609,8 +10609,8 @@
 2026-06-24,bio,Vítězná - sídliště,0
 2026-06-25,generic,Vítězná - sídliště,0
 2026-07-02,generic,Vítězná - sídliště,0
-2026-07-06,paper,Vítězná - sídliště,0
 2026-07-08,bio,Vítězná - sídliště,0
+2026-07-09,paper,Vítězná - sídliště,1
 2026-07-09,generic,Vítězná - sídliště,0
 2026-07-16,generic,Vítězná - sídliště,0
 2026-07-20,plastics,Vítězná - sídliště,0
@@ -10769,8 +10769,8 @@
 2026-06-22,plastics,Červenská,0
 2026-06-24,bio,Červenská,0
 2026-06-30,generic,Červenská,0
-2026-07-06,paper,Červenská,0
 2026-07-08,bio,Červenská,0
+2026-07-09,paper,Červenská,1
 2026-07-14,generic,Červenská,0
 2026-07-20,plastics,Červenská,0
 2026-07-22,bio,Červenská,0
@@ -10917,9 +10917,9 @@
 2026-06-22,plastics,Čihadlo,0
 2026-06-22,generic,Čihadlo,0
 2026-06-24,bio,Čihadlo,0
-2026-07-06,paper,Čihadlo,0
 2026-07-06,generic,Čihadlo,0
 2026-07-08,bio,Čihadlo,0
+2026-07-09,paper,Čihadlo,1
 2026-07-20,plastics,Čihadlo,0
 2026-07-20,generic,Čihadlo,0
 2026-07-22,bio,Čihadlo,0
@@ -11065,9 +11065,9 @@
 2026-06-22,plastics,Čs. armády,0
 2026-06-22,generic,Čs. armády,0
 2026-06-24,bio,Čs. armády,0
-2026-07-06,paper,Čs. armády,0
 2026-07-06,generic,Čs. armády,0
 2026-07-08,bio,Čs. armády,0
+2026-07-09,paper,Čs. armády,1
 2026-07-20,plastics,Čs. armády,0
 2026-07-20,generic,Čs. armády,0
 2026-07-22,bio,Čs. armády,0
@@ -11213,8 +11213,8 @@
 2026-06-22,plastics,Šafaříkova,0
 2026-06-24,bio,Šafaříkova,0
 2026-06-25,generic,Šafaříkova,0
-2026-07-06,paper,Šafaříkova,0
 2026-07-08,bio,Šafaříkova,0
+2026-07-09,paper,Šafaříkova,1
 2026-07-09,generic,Šafaříkova,0
 2026-07-20,plastics,Šafaříkova,0
 2026-07-22,bio,Šafaříkova,0
@@ -11361,9 +11361,9 @@
 2026-06-22,plastics,Šargounská,0
 2026-06-22,generic,Šargounská,0
 2026-06-24,bio,Šargounská,0
-2026-07-06,paper,Šargounská,0
 2026-07-06,generic,Šargounská,0
 2026-07-08,bio,Šargounská,0
+2026-07-09,paper,Šargounská,1
 2026-07-20,plastics,Šargounská,0
 2026-07-20,generic,Šargounská,0
 2026-07-22,bio,Šargounská,0
@@ -11509,9 +11509,9 @@
 2026-06-22,plastics,Šemberova,0
 2026-06-22,generic,Šemberova,0
 2026-06-24,bio,Šemberova,0
-2026-07-06,paper,Šemberova,0
 2026-07-06,generic,Šemberova,0
 2026-07-08,bio,Šemberova,0
+2026-07-09,paper,Šemberova,1
 2026-07-20,plastics,Šemberova,0
 2026-07-20,generic,Šemberova,0
 2026-07-22,bio,Šemberova,0
@@ -11618,8 +11618,8 @@
 2026-06-10,bio,Šerhovní,0
 2026-06-22,plastics,Šerhovní,0
 2026-06-24,bio,Šerhovní,0
-2026-07-06,paper,Šerhovní,0
 2026-07-08,bio,Šerhovní,0
+2026-07-09,paper,Šerhovní,1
 2026-07-20,plastics,Šerhovní,0
 2026-07-22,bio,Šerhovní,0
 2026-08-03,paper,Šerhovní,0
@@ -11753,9 +11753,9 @@
 2026-06-22,plastics,Šmakalova,0
 2026-06-22,generic,Šmakalova,0
 2026-06-24,bio,Šmakalova,0
-2026-07-06,paper,Šmakalova,0
 2026-07-06,generic,Šmakalova,0
 2026-07-08,bio,Šmakalova,0
+2026-07-09,paper,Šmakalova,1
 2026-07-20,plastics,Šmakalova,0
 2026-07-20,generic,Šmakalova,0
 2026-07-22,bio,Šmakalova,0
@@ -11901,8 +11901,8 @@
 2026-06-22,plastics,Štefánikova,0
 2026-06-24,bio,Štefánikova,0
 2026-06-29,generic,Štefánikova,0
-2026-07-06,paper,Štefánikova,0
 2026-07-08,bio,Štefánikova,0
+2026-07-09,paper,Štefánikova,1
 2026-07-13,generic,Štefánikova,0
 2026-07-20,plastics,Štefánikova,0
 2026-07-22,bio,Štefánikova,0
@@ -12049,9 +12049,9 @@
 2026-06-22,plastics,Švermova,0
 2026-06-22,generic,Švermova,0
 2026-06-24,bio,Švermova,0
-2026-07-06,paper,Švermova,0
 2026-07-06,generic,Švermova,0
 2026-07-08,bio,Švermova,0
+2026-07-09,paper,Švermova,1
 2026-07-20,plastics,Švermova,0
 2026-07-20,generic,Švermova,0
 2026-07-22,bio,Švermova,0
@@ -12197,8 +12197,8 @@
 2026-06-22,plastics,Švédská,0
 2026-06-24,bio,Švédská,0
 2026-06-25,generic,Švédská,0
-2026-07-06,paper,Švédská,0
 2026-07-08,bio,Švédská,0
+2026-07-09,paper,Švédská,1
 2026-07-09,generic,Švédská,0
 2026-07-20,plastics,Švédská,0
 2026-07-22,bio,Švédská,0
@@ -12345,8 +12345,8 @@
 2026-06-22,plastics,Žerotínova,0
 2026-06-24,bio,Žerotínova,0
 2026-06-30,generic,Žerotínova,0
-2026-07-06,paper,Žerotínova,0
 2026-07-08,bio,Žerotínova,0
+2026-07-09,paper,Žerotínova,1
 2026-07-14,generic,Žerotínova,0
 2026-07-20,plastics,Žerotínova,0
 2026-07-22,bio,Žerotínova,0
@@ -12493,8 +12493,8 @@
 2026-06-22,plastics,Novosady - rodinné domy,0
 2026-06-24,bio,Novosady - rodinné domy,0
 2026-06-30,generic,Novosady - rodinné domy,0
-2026-07-06,paper,Novosady - rodinné domy,0
 2026-07-08,bio,Novosady - rodinné domy,0
+2026-07-09,paper,Novosady - rodinné domy,1
 2026-07-14,generic,Novosady - rodinné domy,0
 2026-07-20,plastics,Novosady - rodinné domy,0
 2026-07-22,bio,Novosady - rodinné domy,0
@@ -12641,8 +12641,8 @@
 2026-06-22,plastics,Severní - rodinné domy,0
 2026-06-24,bio,Severní - rodinné domy,0
 2026-06-30,generic,Severní - rodinné domy,0
-2026-07-06,paper,Severní - rodinné domy,0
 2026-07-08,bio,Severní - rodinné domy,0
+2026-07-09,paper,Severní - rodinné domy,1
 2026-07-14,generic,Severní - rodinné domy,0
 2026-07-20,plastics,Severní - rodinné domy,0
 2026-07-22,bio,Severní - rodinné domy,0
@@ -12938,7 +12938,7 @@
 2026-06-22,bio,Chořelice,0
 2026-06-29,plastics,Chořelice,0
 2026-06-29,generic,Chořelice,0
-2026-07-06,bio,Chořelice,0
+2026-07-07,bio,Chořelice,1
 2026-07-13,paper,Chořelice,0
 2026-07-13,generic,Chořelice,0
 2026-07-20,bio,Chořelice,0
@@ -13088,7 +13088,7 @@
 2026-06-22,bio,Chudobín,0
 2026-06-26,plastics,Chudobín,0
 2026-07-01,generic,Chudobín,0
-2026-07-06,bio,Chudobín,0
+2026-07-07,bio,Chudobín,1
 2026-07-10,paper,Chudobín,0
 2026-07-15,generic,Chudobín,0
 2026-07-20,bio,Chudobín,0
@@ -13238,7 +13238,7 @@
 2026-06-22,bio,Myslechovice,0
 2026-06-26,plastics,Myslechovice,0
 2026-07-03,generic,Myslechovice,0
-2026-07-06,bio,Myslechovice,0
+2026-07-07,bio,Myslechovice,1
 2026-07-10,paper,Myslechovice,0
 2026-07-17,generic,Myslechovice,0
 2026-07-20,bio,Myslechovice,0
@@ -13387,7 +13387,7 @@
 2026-06-22,bio,Nasobůrky,0
 2026-06-29,plastics,Nasobůrky,0
 2026-07-03,generic,Nasobůrky,0
-2026-07-06,bio,Nasobůrky,0
+2026-07-07,bio,Nasobůrky,1
 2026-07-13,paper,Nasobůrky,0
 2026-07-17,generic,Nasobůrky,0
 2026-07-20,bio,Nasobůrky,0
@@ -13536,7 +13536,7 @@
 2026-06-22,bio,Nová Ves,0
 2026-06-26,plastics,Nová Ves,0
 2026-07-01,generic,Nová Ves,0
-2026-07-06,bio,Nová Ves,0
+2026-07-07,bio,Nová Ves,1
 2026-07-10,paper,Nová Ves,0
 2026-07-15,generic,Nová Ves,0
 2026-07-20,bio,Nová Ves,0
@@ -13685,7 +13685,7 @@
 2026-06-22,bio,Unčovice,0
 2026-06-29,plastics,Unčovice,0
 2026-06-30,generic,Unčovice,0
-2026-07-06,bio,Unčovice,0
+2026-07-07,bio,Unčovice,1
 2026-07-13,paper,Unčovice,0
 2026-07-14,generic,Unčovice,0
 2026-07-20,bio,Unčovice,0
@@ -13983,7 +13983,7 @@
 2026-06-22,bio,Savín,0
 2026-06-26,plastics,Savín,0
 2026-07-01,generic,Savín,0
-2026-07-06,bio,Savín,0
+2026-07-07,bio,Savín,1
 2026-07-10,paper,Savín,0
 2026-07-15,generic,Savín,0
 2026-07-20,bio,Savín,0
@@ -14282,7 +14282,7 @@
 2026-06-22,bio,Víska,0
 2026-06-29,plastics,Víska,0
 2026-07-03,generic,Víska,0
-2026-07-06,bio,Víska,0
+2026-07-07,bio,Víska,1
 2026-07-13,paper,Víska,0
 2026-07-17,generic,Víska,0
 2026-07-20,bio,Víska,0

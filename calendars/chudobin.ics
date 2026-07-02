@@ -1147,12 +1147,13 @@ LOCATION:Chudobín\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Bioodpad svoz – Chudobín
-DTSTART;VALUE=DATE:20260706
-DTEND;VALUE=DATE:20260707
+SUMMARY:Změna: Bioodpad svoz – Chudobín
+DTSTART;VALUE=DATE:20260707
+DTEND;VALUE=DATE:20260708
 DTSTAMP:20250101T000000Z
-UID:chudobin-bio-2026-07-06@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Bioodpad) – Chudobín\, Litovel
+UID:chudobin-bio-2026-07-07@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Bioodpad) – Chudobín\, Litovel\nTermín uprave
+ n oproti pravidelnému harmonogramu.
 LOCATION:Chudobín\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT

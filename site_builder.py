@@ -115,6 +115,7 @@ def build_location_list(streets):
       <li>12. 2. 2026 - svoz komunálního odpadu ve městě Litovel (dle harmonogramu) se z provozních důvodů (školení řidičů) přesouvá z pondělí 16. února na úterý 17. února. <a href="https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu.html" target="_blank">Zdroj</a></li>
       <li>30. 3. 2026 - Svoz plastů v místních částech Březové, Chořelice, Nasobůrky, Rozvadovice, Unčovice, Víska se přesouvá z pondělí 6. 4. 2026 na čtvrtek 9. 4. 2026. <a href="https://www.facebook.com/litovel.eu/posts/pfbid0325mgqJ9rzqXcXrhyQSLJ6vvTAkiG8gWd2rbrr7hbzQZ3RZgyGoc5cxFNDpQwrVjql" target="_blank">Zdroj</a></li>
       <li>19. 5. 2026 – aplikace Svoz odpadu Litovel pro Android je dostupná na <a href="https://play.google.com/store/apps/details?id=cz.litovle.svoz">Google Play</a>. Umí upozornění před svozem a zobrazuje i změny termínů.</li>
+      <li>2. 7. 2026 - svoz papíru ve městě Litovel se přesouvá z pondělí 6. 7. na čtvrtek 9. 7. a svoz BIO odpadu v místních částech Chořelice, Myslechovice, Nasobůrky, Unčovice, Víska, Nová Ves, Savín a Chudobín se přesouvá z pondělí 6. 7. na úterý 7. 7. <a href="https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu-v-pondeli-6-cervence.html" target="_blank">Zdroj</a></li>
     </ul>
 </div>
 <div id="locationList">

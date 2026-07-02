@@ -1133,12 +1133,13 @@ LOCATION:Chořelice\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Bioodpad svoz – Chořelice
-DTSTART;VALUE=DATE:20260706
-DTEND;VALUE=DATE:20260707
+SUMMARY:Změna: Bioodpad svoz – Chořelice
+DTSTART;VALUE=DATE:20260707
+DTEND;VALUE=DATE:20260708
 DTSTAMP:20250101T000000Z
-UID:chorelice-bio-2026-07-06@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Bioodpad) – Chořelice\, Litovel
+UID:chorelice-bio-2026-07-07@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Bioodpad) – Chořelice\, Litovel\nTermín uprav
+ en oproti pravidelnému harmonogramu.
 LOCATION:Chořelice\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT

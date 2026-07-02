@@ -1130,22 +1130,23 @@ LOCATION:Kosmonautů\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Papír svoz – Kosmonautů
-DTSTART;VALUE=DATE:20260706
-DTEND;VALUE=DATE:20260707
-DTSTAMP:20250101T000000Z
-UID:kosmonautu-paper-2026-07-06@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – Kosmonautů\, Litovel
-LOCATION:Kosmonautů\, Litovel
-TRANSP:TRANSPARENT
-END:VEVENT
-BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Kosmonautů
 DTSTART;VALUE=DATE:20260709
 DTEND;VALUE=DATE:20260710
 DTSTAMP:20250101T000000Z
 UID:kosmonautu-bio-2026-07-09@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Kosmonautů\, Litovel
+LOCATION:Kosmonautů\, Litovel
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Změna: Papír svoz – Kosmonautů
+DTSTART;VALUE=DATE:20260709
+DTEND;VALUE=DATE:20260710
+DTSTAMP:20250101T000000Z
+UID:kosmonautu-paper-2026-07-09@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Papír) – Kosmonautů\, Litovel\nTermín uprave
+ n oproti pravidelnému harmonogramu.
 LOCATION:Kosmonautů\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT

@@ -1599,22 +1599,23 @@ LOCATION:Uničovská - sídliště\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Papír svoz – Uničovská - sídliště
-DTSTART;VALUE=DATE:20260706
-DTEND;VALUE=DATE:20260707
-DTSTAMP:20250101T000000Z
-UID:unicovska-sidliste-paper-2026-07-06@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – Uničovská - sídliště\, Litovel
-LOCATION:Uničovská - sídliště\, Litovel
-TRANSP:TRANSPARENT
-END:VEVENT
-BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Uničovská - sídliště
 DTSTART;VALUE=DATE:20260708
 DTEND;VALUE=DATE:20260709
 DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-bio-2026-07-08@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Uničovská - sídliště\, Litovel
+LOCATION:Uničovská - sídliště\, Litovel
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Změna: Papír svoz – Uničovská - sídliště
+DTSTART;VALUE=DATE:20260709
+DTEND;VALUE=DATE:20260710
+DTSTAMP:20250101T000000Z
+UID:unicovska-sidliste-paper-2026-07-09@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Papír) – Uničovská - sídliště\, Litovel\n
+ Termín upraven oproti pravidelnému harmonogramu.
 LOCATION:Uničovská - sídliště\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT

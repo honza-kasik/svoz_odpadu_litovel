@@ -251,5 +251,32 @@
     },
     "note": "Migrated from lokace_svozu.py",
     "affected_locations_snapshot": ["Březové", "Chořelice", "Nasobůrky", "Víska", "Rozvadovice", "Unčovice"]
+  },
+  {
+    "id": "2026-07-06-papir-litovel-posun-2026-07-09",
+    "action": "reschedule",
+    "waste_type": "PAPIR",
+    "affected_location_group": "all_streets_litovel",
+    "original_date": "2026-07-06",
+    "new_date": "2026-07-09",
+    "source": {
+      "url": "https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu-v-pondeli-6-cervence.html",
+      "title": "Změna svozu odpadů v pondělí 6. července",
+      "evidence": "Svoz papíru ve městě Litovel se přesouvá z pondělí 6. 7. na čtvrtek 9. 7."
+    }
+  },
+  {
+    "id": "2026-07-06-bio-mistni-casti-posun-2026-07-07",
+    "action": "reschedule",
+    "waste_type": "BIO",
+    "affected_location_group": "bio_pondeli_mistni_casti",
+    "original_date": "2026-07-06",
+    "new_date": "2026-07-07",
+    "source": {
+      "url": "https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu-v-pondeli-6-cervence.html",
+      "title": "Změna svozu odpadů v pondělí 6. července",
+      "evidence": "Svoz BIO odpadu v místních částech Chořelice, Myslechovice, Nasobůrky, Unčovice, Víska, Nová Ves, Savín a Chudobín se přesouvá z pondělí 6. 7. na úterý 7. 7."
+    },
+    "affected_locations_snapshot": ["Chořelice", "Myslechovice", "Nasobůrky", "Unčovice", "Víska", "Nová Ves", "Savín", "Chudobín"]
   }
 ]
