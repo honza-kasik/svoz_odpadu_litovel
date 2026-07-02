@@ -1599,22 +1599,23 @@ LOCATION:Gemerská - sídliště\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Papír svoz – Gemerská - sídliště
-DTSTART;VALUE=DATE:20260706
-DTEND;VALUE=DATE:20260707
-DTSTAMP:20250101T000000Z
-UID:gemerska-sidliste-paper-2026-07-06@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – Gemerská - sídliště\, Litovel
-LOCATION:Gemerská - sídliště\, Litovel
-TRANSP:TRANSPARENT
-END:VEVENT
-BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Gemerská - sídliště
 DTSTART;VALUE=DATE:20260708
 DTEND;VALUE=DATE:20260709
 DTSTAMP:20250101T000000Z
 UID:gemerska-sidliste-bio-2026-07-08@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Gemerská - sídliště\, Litovel
+LOCATION:Gemerská - sídliště\, Litovel
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Změna: Papír svoz – Gemerská - sídliště
+DTSTART;VALUE=DATE:20260709
+DTEND;VALUE=DATE:20260710
+DTSTAMP:20250101T000000Z
+UID:gemerska-sidliste-paper-2026-07-09@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Papír) – Gemerská - sídliště\, Litovel\nTe
+ rmín upraven oproti pravidelnému harmonogramu.
 LOCATION:Gemerská - sídliště\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT

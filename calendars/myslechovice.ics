@@ -1146,12 +1146,13 @@ LOCATION:Myslechovice\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Bioodpad svoz – Myslechovice
-DTSTART;VALUE=DATE:20260706
-DTEND;VALUE=DATE:20260707
+SUMMARY:Změna: Bioodpad svoz – Myslechovice
+DTSTART;VALUE=DATE:20260707
+DTEND;VALUE=DATE:20260708
 DTSTAMP:20250101T000000Z
-UID:myslechovice-bio-2026-07-06@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel
+UID:myslechovice-bio-2026-07-07@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Bioodpad) – Myslechovice\, Litovel\nTermín upr
+ aven oproti pravidelnému harmonogramu.
 LOCATION:Myslechovice\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT

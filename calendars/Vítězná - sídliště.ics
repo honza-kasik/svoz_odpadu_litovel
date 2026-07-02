@@ -1599,22 +1599,23 @@ LOCATION:Vítězná - sídliště\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Papír svoz – Vítězná - sídliště
-DTSTART;VALUE=DATE:20260706
-DTEND;VALUE=DATE:20260707
-DTSTAMP:20250101T000000Z
-UID:vitezna-sidliste-paper-2026-07-06@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – Vítězná - sídliště\, Litovel
-LOCATION:Vítězná - sídliště\, Litovel
-TRANSP:TRANSPARENT
-END:VEVENT
-BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Vítězná - sídliště
 DTSTART;VALUE=DATE:20260708
 DTEND;VALUE=DATE:20260709
 DTSTAMP:20250101T000000Z
 UID:vitezna-sidliste-bio-2026-07-08@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Vítězná - sídliště\, Litovel
+LOCATION:Vítězná - sídliště\, Litovel
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Změna: Papír svoz – Vítězná - sídliště
+DTSTART;VALUE=DATE:20260709
+DTEND;VALUE=DATE:20260710
+DTSTAMP:20250101T000000Z
+UID:vitezna-sidliste-paper-2026-07-09@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Papír) – Vítězná - sídliště\, Litovel\nT
+ ermín upraven oproti pravidelnému harmonogramu.
 LOCATION:Vítězná - sídliště\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT

@@ -1121,16 +1121,6 @@ LOCATION:Čihadlo\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Papír svoz – Čihadlo
-DTSTART;VALUE=DATE:20260706
-DTEND;VALUE=DATE:20260707
-DTSTAMP:20250101T000000Z
-UID:cihadlo-paper-2026-07-06@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – Čihadlo\, Litovel
-LOCATION:Čihadlo\, Litovel
-TRANSP:TRANSPARENT
-END:VEVENT
-BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Čihadlo
 DTSTART;VALUE=DATE:20260706
 DTEND;VALUE=DATE:20260707
@@ -1147,6 +1137,17 @@ DTEND;VALUE=DATE:20260709
 DTSTAMP:20250101T000000Z
 UID:cihadlo-bio-2026-07-08@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Čihadlo\, Litovel
+LOCATION:Čihadlo\, Litovel
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Změna: Papír svoz – Čihadlo
+DTSTART;VALUE=DATE:20260709
+DTEND;VALUE=DATE:20260710
+DTSTAMP:20250101T000000Z
+UID:cihadlo-paper-2026-07-09@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Papír) – Čihadlo\, Litovel\nTermín upraven o
+ proti pravidelnému harmonogramu.
 LOCATION:Čihadlo\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT

@@ -1120,22 +1120,23 @@ LOCATION:Vlašímova\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Papír svoz – Vlašímova
-DTSTART;VALUE=DATE:20260706
-DTEND;VALUE=DATE:20260707
-DTSTAMP:20250101T000000Z
-UID:vlasimova-paper-2026-07-06@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – Vlašímova\, Litovel
-LOCATION:Vlašímova\, Litovel
-TRANSP:TRANSPARENT
-END:VEVENT
-BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Vlašímova
 DTSTART;VALUE=DATE:20260708
 DTEND;VALUE=DATE:20260709
 DTSTAMP:20250101T000000Z
 UID:vlasimova-bio-2026-07-08@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Vlašímova\, Litovel
+LOCATION:Vlašímova\, Litovel
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Změna: Papír svoz – Vlašímova
+DTSTART;VALUE=DATE:20260709
+DTEND;VALUE=DATE:20260710
+DTSTAMP:20250101T000000Z
+UID:vlasimova-paper-2026-07-09@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Papír) – Vlašímova\, Litovel\nTermín uprave
+ n oproti pravidelnému harmonogramu.
 LOCATION:Vlašímova\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT

@@ -1120,22 +1120,23 @@ LOCATION:Nádražní\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Papír svoz – Nádražní
-DTSTART;VALUE=DATE:20260706
-DTEND;VALUE=DATE:20260707
-DTSTAMP:20250101T000000Z
-UID:nadrazni-paper-2026-07-06@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – Nádražní\, Litovel
-LOCATION:Nádražní\, Litovel
-TRANSP:TRANSPARENT
-END:VEVENT
-BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Nádražní
 DTSTART;VALUE=DATE:20260708
 DTEND;VALUE=DATE:20260709
 DTSTAMP:20250101T000000Z
 UID:nadrazni-bio-2026-07-08@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Nádražní\, Litovel
+LOCATION:Nádražní\, Litovel
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Změna: Papír svoz – Nádražní
+DTSTART;VALUE=DATE:20260709
+DTEND;VALUE=DATE:20260710
+DTSTAMP:20250101T000000Z
+UID:nadrazni-paper-2026-07-09@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Papír) – Nádražní\, Litovel\nTermín uprave
+ n oproti pravidelnému harmonogramu.
 LOCATION:Nádražní\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT

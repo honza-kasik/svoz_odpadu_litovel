@@ -1120,22 +1120,23 @@ LOCATION:Švédská\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Papír svoz – Švédská
-DTSTART;VALUE=DATE:20260706
-DTEND;VALUE=DATE:20260707
-DTSTAMP:20250101T000000Z
-UID:svedska-paper-2026-07-06@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – Švédská\, Litovel
-LOCATION:Švédská\, Litovel
-TRANSP:TRANSPARENT
-END:VEVENT
-BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Švédská
 DTSTART;VALUE=DATE:20260708
 DTEND;VALUE=DATE:20260709
 DTSTAMP:20250101T000000Z
 UID:svedska-bio-2026-07-08@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Švédská\, Litovel
+LOCATION:Švédská\, Litovel
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Změna: Papír svoz – Švédská
+DTSTART;VALUE=DATE:20260709
+DTEND;VALUE=DATE:20260710
+DTSTAMP:20250101T000000Z
+UID:svedska-paper-2026-07-09@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Papír) – Švédská\, Litovel\nTermín upraven
+  oproti pravidelnému harmonogramu.
 LOCATION:Švédská\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT

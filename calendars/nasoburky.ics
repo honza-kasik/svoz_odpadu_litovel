@@ -1143,12 +1143,13 @@ LOCATION:Nasobůrky\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Bioodpad svoz – Nasobůrky
-DTSTART;VALUE=DATE:20260706
-DTEND;VALUE=DATE:20260707
+SUMMARY:Změna: Bioodpad svoz – Nasobůrky
+DTSTART;VALUE=DATE:20260707
+DTEND;VALUE=DATE:20260708
 DTSTAMP:20250101T000000Z
-UID:nasoburky-bio-2026-07-06@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Bioodpad) – Nasobůrky\, Litovel
+UID:nasoburky-bio-2026-07-07@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Bioodpad) – Nasobůrky\, Litovel\nTermín uprav
+ en oproti pravidelnému harmonogramu.
 LOCATION:Nasobůrky\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT

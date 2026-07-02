@@ -1159,22 +1159,23 @@ LOCATION:Novosady - rodinné domy\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Papír svoz – Novosady - rodinné domy
-DTSTART;VALUE=DATE:20260706
-DTEND;VALUE=DATE:20260707
-DTSTAMP:20250101T000000Z
-UID:novosady-rodinne-domy-paper-2026-07-06@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – Novosady - rodinné domy\, Litovel
-LOCATION:Novosady - rodinné domy\, Litovel
-TRANSP:TRANSPARENT
-END:VEVENT
-BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Novosady - rodinné domy
 DTSTART;VALUE=DATE:20260708
 DTEND;VALUE=DATE:20260709
 DTSTAMP:20250101T000000Z
 UID:novosady-rodinne-domy-bio-2026-07-08@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Novosady - rodinné domy\, Litovel
+LOCATION:Novosady - rodinné domy\, Litovel
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Změna: Papír svoz – Novosady - rodinné domy
+DTSTART;VALUE=DATE:20260709
+DTEND;VALUE=DATE:20260710
+DTSTAMP:20250101T000000Z
+UID:novosady-rodinne-domy-paper-2026-07-09@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Papír) – Novosady - rodinné domy\, Litovel\nT
+ ermín upraven oproti pravidelnému harmonogramu.
 LOCATION:Novosady - rodinné domy\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT

@@ -1650,17 +1650,6 @@ LOCATION:Karla Sedláka - sídliště\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Papír svoz – Karla Sedláka - sídliště
-DTSTART;VALUE=DATE:20260706
-DTEND;VALUE=DATE:20260707
-DTSTAMP:20250101T000000Z
-UID:karla-sedlaka-sidliste-paper-2026-07-06@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – Karla Sedláka - sídliště\, Litove
- l
-LOCATION:Karla Sedláka - sídliště\, Litovel
-TRANSP:TRANSPARENT
-END:VEVENT
-BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Karla Sedláka - sídliště
 DTSTART;VALUE=DATE:20260708
 DTEND;VALUE=DATE:20260709
@@ -1668,6 +1657,17 @@ DTSTAMP:20250101T000000Z
 UID:karla-sedlaka-sidliste-bio-2026-07-08@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Karla Sedláka - sídliště\, Lito
  vel
+LOCATION:Karla Sedláka - sídliště\, Litovel
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Změna: Papír svoz – Karla Sedláka - sídliště
+DTSTART;VALUE=DATE:20260709
+DTEND;VALUE=DATE:20260710
+DTSTAMP:20250101T000000Z
+UID:karla-sedlaka-sidliste-paper-2026-07-09@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Papír) – Karla Sedláka - sídliště\, Litove
+ l\nTermín upraven oproti pravidelnému harmonogramu.
 LOCATION:Karla Sedláka - sídliště\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT

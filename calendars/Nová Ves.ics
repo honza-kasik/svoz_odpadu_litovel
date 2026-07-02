@@ -1147,12 +1147,13 @@ LOCATION:Nová Ves\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Bioodpad svoz – Nová Ves
-DTSTART;VALUE=DATE:20260706
-DTEND;VALUE=DATE:20260707
+SUMMARY:Změna: Bioodpad svoz – Nová Ves
+DTSTART;VALUE=DATE:20260707
+DTEND;VALUE=DATE:20260708
 DTSTAMP:20250101T000000Z
-UID:nova-ves-bio-2026-07-06@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Bioodpad) – Nová Ves\, Litovel
+UID:nova-ves-bio-2026-07-07@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Bioodpad) – Nová Ves\, Litovel\nTermín uprave
+ n oproti pravidelnému harmonogramu.
 LOCATION:Nová Ves\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT

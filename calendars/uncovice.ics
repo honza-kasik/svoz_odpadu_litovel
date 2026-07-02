@@ -1133,12 +1133,13 @@ LOCATION:Unčovice\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Bioodpad svoz – Unčovice
-DTSTART;VALUE=DATE:20260706
-DTEND;VALUE=DATE:20260707
+SUMMARY:Změna: Bioodpad svoz – Unčovice
+DTSTART;VALUE=DATE:20260707
+DTEND;VALUE=DATE:20260708
 DTSTAMP:20250101T000000Z
-UID:uncovice-bio-2026-07-06@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Bioodpad) – Unčovice\, Litovel
+UID:uncovice-bio-2026-07-07@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Bioodpad) – Unčovice\, Litovel\nTermín uprave
+ n oproti pravidelnému harmonogramu.
 LOCATION:Unčovice\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT

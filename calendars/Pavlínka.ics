@@ -1131,22 +1131,23 @@ LOCATION:Pavlínka\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Papír svoz – Pavlínka
-DTSTART;VALUE=DATE:20260706
-DTEND;VALUE=DATE:20260707
-DTSTAMP:20250101T000000Z
-UID:pavlinka-paper-2026-07-06@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – Pavlínka\, Litovel
-LOCATION:Pavlínka\, Litovel
-TRANSP:TRANSPARENT
-END:VEVENT
-BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Pavlínka
 DTSTART;VALUE=DATE:20260709
 DTEND;VALUE=DATE:20260710
 DTSTAMP:20250101T000000Z
 UID:pavlinka-bio-2026-07-09@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Pavlínka\, Litovel
+LOCATION:Pavlínka\, Litovel
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Změna: Papír svoz – Pavlínka
+DTSTART;VALUE=DATE:20260709
+DTEND;VALUE=DATE:20260710
+DTSTAMP:20250101T000000Z
+UID:pavlinka-paper-2026-07-09@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Papír) – Pavlínka\, Litovel\nTermín upraven 
+ oproti pravidelnému harmonogramu.
 LOCATION:Pavlínka\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT

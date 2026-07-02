@@ -1147,12 +1147,13 @@ LOCATION:Savín\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Bioodpad svoz – Savín
-DTSTART;VALUE=DATE:20260706
-DTEND;VALUE=DATE:20260707
+SUMMARY:Změna: Bioodpad svoz – Savín
+DTSTART;VALUE=DATE:20260707
+DTEND;VALUE=DATE:20260708
 DTSTAMP:20250101T000000Z
-UID:savin-bio-2026-07-06@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Bioodpad) – Savín\, Litovel
+UID:savin-bio-2026-07-07@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Bioodpad) – Savín\, Litovel\nTermín upraven o
+ proti pravidelnému harmonogramu.
 LOCATION:Savín\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT

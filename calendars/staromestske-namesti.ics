@@ -1170,22 +1170,23 @@ LOCATION:Staroměstské náměstí\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Papír svoz – Staroměstské náměstí
-DTSTART;VALUE=DATE:20260706
-DTEND;VALUE=DATE:20260707
-DTSTAMP:20250101T000000Z
-UID:staromestske-namesti-paper-2026-07-06@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – Staroměstské náměstí\, Litovel
-LOCATION:Staroměstské náměstí\, Litovel
-TRANSP:TRANSPARENT
-END:VEVENT
-BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Staroměstské náměstí
 DTSTART;VALUE=DATE:20260708
 DTEND;VALUE=DATE:20260709
 DTSTAMP:20250101T000000Z
 UID:staromestske-namesti-bio-2026-07-08@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Staroměstské náměstí\, Litovel
+LOCATION:Staroměstské náměstí\, Litovel
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Změna: Papír svoz – Staroměstské náměstí
+DTSTART;VALUE=DATE:20260709
+DTEND;VALUE=DATE:20260710
+DTSTAMP:20250101T000000Z
+UID:staromestske-namesti-paper-2026-07-09@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Papír) – Staroměstské náměstí\, Litovel\n
+ Termín upraven oproti pravidelnému harmonogramu.
 LOCATION:Staroměstské náměstí\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
