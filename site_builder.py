@@ -92,6 +92,19 @@ def build_location_list(streets):
 
     return f"""
 <div id="introText">
+    <div class="homepage-app-download">
+      <span>Na Androidu můžete používat aplikaci s upozorněním před svozem.</span>
+      <a class="google-play-badge"
+         href="https://play.google.com/store/apps/details?id=cz.litovle.svoz"
+         target="_blank"
+         rel="noopener"
+         aria-label="Stáhnout aplikaci Svoz odpadu Litovel na Google Play">
+          <img src="https://play.google.com/intl/en_us/badges/static/images/badges/cs_badge_web_generic.png"
+               width="134"
+               height="52"
+               alt="Rozjeďte to Google Play">
+      </a>
+    </div>
     <h2>Co nabízíme?</h2>
     <p>
     Jednoduchý přehled termínů odvozu popelnic v Litovli podle jednotlivých ulic.
