@@ -35,7 +35,7 @@ def render_template(output_path: str, context: dict):
 # INDEX
 # -------------------------------------------------
 
-def build_index(streets):
+def build_index(streets, social_images):
 
     location_list_html = build_location_list(streets)
 
@@ -45,6 +45,7 @@ def build_index(streets):
         "LOCATION_LIST": location_list_html,
         "STREET_NAME": "null",
         "RELATED_STREETS_HTML": "",
+        **build_social_context(social_images["index"]),
         "BREADCRUMBS_JSONLD": build_index_jsonld() + build_index_itemlist_jsonld(streets)
     }
 
@@ -55,7 +56,7 @@ def build_index(streets):
 # STREET PAGES
 # -------------------------------------------------
 
-def build_street_pages(generator, streets):
+def build_street_pages(generator, streets, social_images):
 
     for street in streets:
 
@@ -69,6 +70,7 @@ def build_street_pages(generator, streets):
             "LOCATION_LIST": "",
             "STREET_NAME": f'"{street}"',
             "RELATED_STREETS_HTML": related_html,
+            **build_social_context(social_images[slug]),
             "BREADCRUMBS_JSONLD": build_breadcrumbs_jsonld(street, slug)
         }
 
@@ -82,6 +84,15 @@ def build_street_pages(generator, streets):
 # LOCATION LIST (homepage)
 # -------------------------------------------------
 
+def build_social_context(social_image):
+    return {
+        "SOCIAL_IMAGE": social_image.url,
+        "SOCIAL_IMAGE_ALT": social_image.alt,
+        "SOCIAL_IMAGE_WIDTH": "1200",
+        "SOCIAL_IMAGE_HEIGHT": "630",
+    }
+
+
 def build_location_list(streets):
 
     items = ""
@@ -92,6 +103,19 @@ def build_location_list(streets):
 
     return f"""
 <div id="introText">
+    <div class="homepage-app-download">
+      <span>Na Androidu můžete používat aplikaci s upozorněním před svozem.</span>
+      <a class="google-play-badge"
+         href="https://play.google.com/store/apps/details?id=cz.litovle.svoz"
+         target="_blank"
+         rel="noopener"
+         aria-label="Stáhnout aplikaci Svoz odpadu Litovel na Google Play">
+          <img src="https://play.google.com/intl/en_us/badges/static/images/badges/cs_badge_web_generic.png"
+               width="134"
+               height="52"
+               alt="Rozjeďte to Google Play">
+      </a>
+    </div>
     <h2>Co nabízíme?</h2>
     <p>
     Jednoduchý přehled termínů odvozu popelnic v Litovli podle jednotlivých ulic.

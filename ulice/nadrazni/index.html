@@ -45,7 +45,16 @@
     <meta property="og:description" content="Kdy se v ulici Nádražní v Litovli vyváží plast, papír nebo bioodpad? Podívejte se na aktuální harmonogram svozu pro rok 2026 a stáhněte si kalendář do mobilu.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://svoz.litovle.cz/ulice/nadrazni/">
-    <meta property="og:image" content="https://svoz.litovle.cz/resources/screenshot.png">
+    <meta property="og:image" content="https://svoz.litovle.cz/resources/social/nadrazni-e7d538f34d62.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Svoz odpadu Nádražní, Litovel - nejbližší termíny">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Svoz odpadu Nádražní (Litovel) – Kalendář a termíny 2026">
+    <meta name="twitter:description" content="Kdy se v ulici Nádražní v Litovli vyváží plast, papír nebo bioodpad? Podívejte se na aktuální harmonogram svozu pro rok 2026 a stáhněte si kalendář do mobilu.">
+    <meta name="twitter:image" content="https://svoz.litovle.cz/resources/social/nadrazni-e7d538f34d62.png">
+    <meta name="twitter:image:alt" content="Svoz odpadu Nádražní, Litovel - nejbližší termíny">
 
     <link rel="stylesheet" href="/styles.css">
 
@@ -87,18 +96,28 @@
 
     <div id="footerControls">
         <div id="calendarPrint">
-            <div id="pdfYear" class="button">Vytisknout rok (PDF)</div>
-            <div id="pdfMonth" class="button">Vytisknout měsíc (PDF)</div>
+            <div id="pdfYear" class="button" aria-label="Vytisknout rok jako PDF">Rok (PDF)</div>
+            <div id="pdfMonth" class="button" aria-label="Vytisknout měsíc jako PDF">Měsíc (PDF)</div>
         </div>
         <div id="calendarDownloads">
-            <a class="button" href="webcal://svoz.litovle.cz/calendars/nadrazni.ics">
-                📅 Přidat do Apple / Outlook kalendáře
+            <a class="google-play-badge"
+               href="https://play.google.com/store/apps/details?id=cz.litovle.svoz"
+               target="_blank"
+               rel="noopener"
+               aria-label="Stáhnout aplikaci Svoz odpadu Litovel na Google Play">
+                <img src="https://play.google.com/intl/en_us/badges/static/images/badges/cs_badge_web_generic.png"
+                     width="134"
+                     height="52"
+                     alt="Rozjeďte to Google Play">
             </a>
-            <a class="button google-button" href="https://www.google.com/calendar/render?cid=webcal%3A%2F%2Fsvoz.litovle.cz%2Fcalendars%2Fnadrazni.ics" target="_blank">
-                📅 Přidat do Google Kalendáře
+            <a class="button" href="webcal://svoz.litovle.cz/calendars/nadrazni.ics" aria-label="Přidat do Apple nebo Outlook kalendáře">
+                📅 Apple / Outlook
             </a>
-            <a class="button" href="https://svoz.litovle.cz/calendars/nadrazni.ics" target="_blank">
-                📥 Stáhnout kalendář (ICS)
+            <a class="button google-button" href="https://www.google.com/calendar/render?cid=webcal%3A%2F%2Fsvoz.litovle.cz%2Fcalendars%2Fnadrazni.ics" target="_blank" aria-label="Přidat do Google Kalendáře">
+                📅 Google Kalendář
+            </a>
+            <a class="button" href="https://svoz.litovle.cz/calendars/nadrazni.ics" target="_blank" aria-label="Stáhnout kalendář ve formátu ICS">
+                📥 Stáhnout ICS
             </a>
         </div>
     </div>

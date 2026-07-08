@@ -82,6 +82,7 @@ h2 {
 
 .collection {
   display: block;
+  box-sizing: border-box;
   max-width: 100%;
   padding: 4px 8px;
   border-radius: 8px;
@@ -115,8 +116,32 @@ h2 {
 }
 
 .collection.override {
-  opacity: 0.8;
-  border-left: 3px solid rgba(0,0,0,0.4);
+  border: 2px solid #f97316;
+  border-left-width: 6px;
+  padding: 2px 8px 2px 5px;
+  font-weight: 700;
+}
+
+#seoFallback table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#seoFallback th,
+#seoFallback td {
+  padding: 6px 8px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+}
+
+#seoFallback tr:has(td:last-child:not(:empty)) {
+  background: #fff7ed;
+  color: #7c2d12;
+  font-weight: 600;
+}
+
+#seoFallback tr:has(td:last-child:not(:empty)) td:first-child {
+  border-left: 5px solid #ea580c;
 }
 
 /* ===== OVLÁDÁNÍ ===== */
@@ -250,14 +275,37 @@ input {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     margin-top: 20px;
+    flex-wrap: wrap;
 }
 
 #calendarPrint,
 #calendarDownloads {
     display: flex;
-    gap: 10px;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+#footerControls .button {
+  padding: 0 12px;
+}
+
+.google-play-badge {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  height: 38px;
+  line-height: 0;
+  overflow: hidden;
+}
+
+.google-play-badge img {
+  display: block;
+  width: auto;
+  height: 52px;
 }
 /* ===== SEO FALLBACK ===== */
 
@@ -301,6 +349,13 @@ input {
   margin: 30px auto;
   padding: 0 10px;
   font-size: 0.9em;
+}
+
+.homepage-app-download {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 18px 0 28px;
 }
 
 #locationList ul {
@@ -379,6 +434,7 @@ input {
 
   #footerControls {
     flex-direction: column;
+    align-items: stretch;
     gap: 14px;
   }
 
@@ -392,11 +448,23 @@ input {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    align-items: stretch;
   }
 
   #calendarDownloads .button {
     width: 100%;
     box-sizing: border-box;
+  }
+
+  .google-play-badge {
+    align-self: center;
+  }
+
+  .homepage-app-download {
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
   }
 
 }
