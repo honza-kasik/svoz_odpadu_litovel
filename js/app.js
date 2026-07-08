@@ -85,7 +85,10 @@ function populateFilters() {
     
     function renderLocationOptions(query = "", forceDisplayNone = false) {
         locationOptions.innerHTML = "";
-        const filtered = uniqueLocations.filter(loc => loc.toLowerCase().includes(query.toLowerCase()));
+        const normalizedQuery = slugify(query);
+        const filtered = uniqueLocations.filter(loc =>
+            slugify(loc).includes(normalizedQuery)
+        );
 
         filtered.forEach(location => {
             const optionDiv = document.createElement('div');
