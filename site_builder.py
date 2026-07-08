@@ -35,7 +35,7 @@ def render_template(output_path: str, context: dict):
 # INDEX
 # -------------------------------------------------
 
-def build_index(streets):
+def build_index(streets, social_images):
 
     location_list_html = build_location_list(streets)
 
@@ -45,6 +45,7 @@ def build_index(streets):
         "LOCATION_LIST": location_list_html,
         "STREET_NAME": "null",
         "RELATED_STREETS_HTML": "",
+        **build_social_context(social_images["index"]),
         "BREADCRUMBS_JSONLD": build_index_jsonld() + build_index_itemlist_jsonld(streets)
     }
 
@@ -55,7 +56,7 @@ def build_index(streets):
 # STREET PAGES
 # -------------------------------------------------
 
-def build_street_pages(generator, streets):
+def build_street_pages(generator, streets, social_images):
 
     for street in streets:
 
@@ -69,6 +70,7 @@ def build_street_pages(generator, streets):
             "LOCATION_LIST": "",
             "STREET_NAME": f'"{street}"',
             "RELATED_STREETS_HTML": related_html,
+            **build_social_context(social_images[slug]),
             "BREADCRUMBS_JSONLD": build_breadcrumbs_jsonld(street, slug)
         }
 
@@ -81,6 +83,15 @@ def build_street_pages(generator, streets):
 # -------------------------------------------------
 # LOCATION LIST (homepage)
 # -------------------------------------------------
+
+def build_social_context(social_image):
+    return {
+        "SOCIAL_IMAGE": social_image.url,
+        "SOCIAL_IMAGE_ALT": social_image.alt,
+        "SOCIAL_IMAGE_WIDTH": "1200",
+        "SOCIAL_IMAGE_HEIGHT": "630",
+    }
+
 
 def build_location_list(streets):
 

@@ -11,6 +11,7 @@ from site_builder import (
     build_street_pages,
     generate_sitemap
 )
+from social_preview import build_social_images
 
 date_start = datetime(2025, 1, 1)
 date_end = datetime(2026, 12, 31)
@@ -33,8 +34,10 @@ def main():
     for street in streets:
         generator.generate_ical_file(street, "calendars", date_start, date_end)
 
-    build_index(streets)
-    build_street_pages(generator, streets)
+    social_images = build_social_images(generator, streets)
+
+    build_index(streets, social_images)
+    build_street_pages(generator, streets, social_images)
 
     generate_sitemap(streets)
 

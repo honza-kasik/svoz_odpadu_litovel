@@ -26,7 +26,7 @@ jobs:
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install icalendar
+          pip install icalendar Pillow
 
       - name: Run tests
         run: python tests.py
@@ -43,4 +43,4 @@ jobs:
           PY
 
       - name: Compile Python files
-        run: python -m py_compile lokace_svozu.py svoz_exceptions.py tests.py scripts/watch_litovel_eu.py
+        run: python -m py_compile lokace_svozu.py svoz_exceptions.py social_preview.py site_builder.py generator_svozu_odpadu.py tests.py scripts/watch_litovel_eu.py
