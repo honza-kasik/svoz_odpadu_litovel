@@ -62,6 +62,7 @@ function populateFilters() {
     const yearSelect = document.getElementById('yearSelect');
     const locationSearch = document.getElementById('locationSearch');
     const locationOptions = document.getElementById('locationOptions');
+    const resetFilter = document.getElementById('resetFilter');
     const footerControls = document.getElementById('footerControls');
     const pdfYear = document.getElementById('pdfYear');
     const pdfMonth = document.getElementById('pdfMonth');
@@ -83,28 +84,6 @@ function populateFilters() {
         yearSelect.appendChild(option);
     }
     
-    function renderLocationOptions(query = "", forceDisplayNone = false) {
-        locationOptions.innerHTML = "";
-        const normalizedQuery = slugify(query);
-        const filtered = uniqueLocations.filter(loc =>
-            slugify(loc).includes(normalizedQuery)
-        );
-
-        filtered.forEach(location => {
-            const optionDiv = document.createElement('div');
-            optionDiv.textContent = location;
-
-            optionDiv.addEventListener('click', () => {
-                const slug = slugify(location);
-                window.location.href = `/ulice/${slug}/`;
-            });
-
-            locationOptions.appendChild(optionDiv);
-        });
-
-        locationOptions.style.display = (filtered.length > 0 && !forceDisplayNone) ? "block" : "none";
-    }
-
     locationSearch.addEventListener('input', (e) => {
         renderLocationOptions(e.target.value, false);
     });
@@ -252,7 +231,7 @@ function renderMonthCalendar(renderedLocation = "") {
 
             const locationText = renderedLocation 
                 ? ''
-                : `(${data.locations.size} lokací)`;
+                : `(${formatLocationCount(data.locations.size)})`;
 
             let text = `${WASTE_TYPES[type]} ${locationText}`;
 
@@ -279,15 +258,50 @@ function renderMonthCalendar(renderedLocation = "") {
     calendarContainer.appendChild(grid);
 }
 
+function renderLocationOptions(query = "", forceDisplayNone = false) {
+    const locationOptions = document.getElementById('locationOptions');
+    if (!locationOptions) return;
+
+    locationOptions.innerHTML = "";
+    const normalizedQuery = slugify(query);
+    const filtered = uniqueLocations.filter(loc =>
+        slugify(loc).includes(normalizedQuery)
+    );
+
+    filtered.forEach(location => {
+        const optionDiv = document.createElement('div');
+        optionDiv.textContent = location;
+
+        optionDiv.addEventListener('click', () => {
+            navigateToLocation(location);
+        });
+
+        locationOptions.appendChild(optionDiv);
+    });
+
+    locationOptions.style.display = (filtered.length > 0 && !forceDisplayNone) ? "block" : "none";
+}
+
+function navigateToLocation(location) {
+    const slug = slugify(location);
+    window.location.href = `/ulice/${slug}/`;
+}
+
+function formatLocationCount(count) {
+    if (count >= 1 && count <= 4) return `${count} lokace`;
+    return `${count} lokací`;
+}
+
 function updateDataForInitialLocation(initialLocation, uniqueLocations) {
+    const footerControls = document.getElementById('footerControls');
+
     if (initialLocation && uniqueLocations.includes(initialLocation)) {
         filteredLocation = initialLocation;
         const locationSearch = document.getElementById('locationSearch');
-        const footerControls = document.getElementById('footerControls');
 
         if (locationSearch) locationSearch.value = initialLocation;
  
-    } else {
+    } else if (footerControls) {
         footerControls.style.display = 'none';
     }
 }
