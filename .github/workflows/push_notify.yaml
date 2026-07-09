@@ -6,6 +6,12 @@ on:
       - main
     paths:
       - 'calendars/*.ics'
+      - 'data/svoz_exceptions.json'
+      - 'calendar_generator.py'
+      - 'generator_svozu_odpadu.py'
+      - 'lokace_svozu.py'
+      - 'streets.py'
+      - 'svoz_exceptions.py'
   workflow_dispatch:
 
 jobs:

@@ -31,61 +31,16 @@ jobs:
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install icalendar Pillow
+          pip install -r requirements.txt
 
-      - name: Regenerate site
-        run: python generator_svozu_odpadu.py
+      - name: Validate project
+        run: python scripts/validate_project.py
 
-      - name: Run tests
-        run: python tests.py
-
-      - name: Compile Python files
-        run: python -m py_compile lokace_svozu.py svoz_exceptions.py social_preview.py site_builder.py generator_svozu_odpadu.py tests.py scripts/watch_litovel_eu.py
-
-      - name: Prepare site artifact
-        run: |
-          mkdir -p _site
-          cp -R \
-            CNAME \
-            index.html \
-            styles.css \
-            favicon.png \
-            location_list.html \
-            js \
-            resources \
-            ulice \
-            calendars \
-            docs \
-            waste_schedule.csv \
-            sitemap.xml \
-            _site/
+      - name: Build site artifact
+        run: python scripts/build_site.py --output-dir _site
 
       - name: Validate site artifact
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          from PIL import Image
-
-          site = Path("_site")
-          required = [
-              site / "index.html",
-              site / "styles.css",
-              site / "waste_schedule.csv",
-              site / "sitemap.xml",
-              site / "CNAME",
-              site / "location_list.html",
-              site / "docs/synchronizace-notifikace.html",
-          ]
-          assert all(path.is_file() for path in required)
-
-          pages = [site / "index.html", *site.glob("ulice/*/index.html")]
-          images = list((site / "resources/social").glob("*.png"))
-          assert len(images) == len(pages)
-          assert all(Image.open(path).size == (1200, 630) for path in images)
-          assert not list(site.rglob("*.py"))
-          assert not list(site.rglob("*.yml"))
-          assert not list(site.rglob("*.yaml"))
-          PY
+        run: python scripts/validate_site_artifact.py _site
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v6

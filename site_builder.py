@@ -1,6 +1,6 @@
-import os
 from datetime import datetime
 import hashlib
+from pathlib import Path
 import random
 
 from utils import slugify
@@ -16,18 +16,17 @@ meta_builder = MetaBuilder(config)
 # TEMPLATE RENDER
 # -------------------------------------------------
 
-def render_template(output_path: str, context: dict):
+def render_template(output_path: str | Path, context: dict):
     with open(TEMPLATE_PATH, "r", encoding="utf-8") as f:
         html = f.read()
 
     for key, value in context.items():
         html = html.replace(f"{{{{{key}}}}}", value)
 
-    directory = os.path.dirname(output_path)
-    if directory:
-        os.makedirs(directory, exist_ok=True)
+    output_path = Path(output_path)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
 
-    with open(output_path, "w", encoding="utf-8") as f:
+    with output_path.open("w", encoding="utf-8") as f:
         f.write(html)
 
 
@@ -35,7 +34,7 @@ def render_template(output_path: str, context: dict):
 # INDEX
 # -------------------------------------------------
 
-def build_index(streets, social_images):
+def build_index(streets, social_images, output_dir: str | Path = "."):
 
     location_list_html = build_location_list(streets)
 
@@ -49,14 +48,14 @@ def build_index(streets, social_images):
         "BREADCRUMBS_JSONLD": build_index_jsonld() + build_index_itemlist_jsonld(streets)
     }
 
-    render_template("index.html", context)
+    render_template(Path(output_dir) / "index.html", context)
 
 
 # -------------------------------------------------
 # STREET PAGES
 # -------------------------------------------------
 
-def build_street_pages(generator, streets, social_images):
+def build_street_pages(generator, streets, social_images, output_dir: str | Path = "."):
 
     for street in streets:
 
@@ -75,7 +74,7 @@ def build_street_pages(generator, streets, social_images):
         }
 
         render_template(
-            f"ulice/{slug}/index.html",
+            Path(output_dir) / "ulice" / slug / "index.html",
             context
         )
 
@@ -194,7 +193,7 @@ def build_fallback_table(generator, street):
 # SITEMAP
 # -------------------------------------------------
 
-def generate_sitemap(streets):
+def generate_sitemap(streets, output_path: str | Path = "sitemap.xml"):
 
     today = datetime.utcnow().strftime("%Y-%m-%d")
 
@@ -220,7 +219,9 @@ def generate_sitemap(streets):
 </urlset>
 """
 
-    with open("sitemap.xml", "w", encoding="utf-8") as f:
+    output_path = Path(output_path)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with output_path.open("w", encoding="utf-8") as f:
         f.write(sitemap)
 
 

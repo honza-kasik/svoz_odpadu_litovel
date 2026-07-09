@@ -1,5 +1,7 @@
-from icalendar import Calendar, Event
 from datetime import datetime, timedelta, timezone
+from pathlib import Path
+
+from icalendar import Calendar, Event
 
 from lokace_svozu import LokaceSvozu, CollectionEvent
 from utils import slugify
@@ -65,7 +67,7 @@ class WasteCollectionCalendarGenerator:
         return self._event_cache[street]
 
 
-    def generate_ical_file(self, street: str, directory: str, date_start: datetime, date_end: datetime):
+    def generate_ical_file(self, street: str, directory: str | Path, date_start: datetime, date_end: datetime):
         """
         Vytvori .ics soubor pro zadanou ulici. 
 
@@ -118,14 +120,15 @@ class WasteCollectionCalendarGenerator:
 
             cal.add_component(e)
 
-        #TODO deprecated, to be removed
-        with open(f"{directory}/{street}.ics", "wb") as f:
-            f.write(cal.to_ical())
+        output_dir = Path(directory)
+        output_dir.mkdir(parents=True, exist_ok=True)
+        content = cal.to_ical()
 
-        with open(f"{directory}/{slugified_street}.ics", "wb") as f:
-            f.write(cal.to_ical())
+        # TODO deprecated, to be removed
+        (output_dir / f"{street}.ics").write_bytes(content)
+        (output_dir / f"{slugified_street}.ics").write_bytes(content)
 
-    def generate_csv_file(self, streets: list, date_start: datetime, date_end: datetime):
+    def generate_csv_file(self, streets: list, date_start: datetime, date_end: datetime, output_path: str | Path = "waste_schedule.csv"):
         """
         Vytvori .csv soubor se vsemi terminy svozu ve vsech lokacich, vsech typu odpadu
 
@@ -134,7 +137,9 @@ class WasteCollectionCalendarGenerator:
             date_start (datetime): Datum od ktereho se zacnou porovnavat predikaty v lokacich svozu
             date_end (datetime): Nejzassi datum, ktere se pouzije pro predikat v lokaci svozu
         """
-        with open("waste_schedule.csv", "w") as f:
+        output_file = Path(output_path)
+        output_file.parent.mkdir(parents=True, exist_ok=True)
+        with output_file.open("w", encoding="utf-8") as f:
             for street in streets:
                 for event in self._event_cache[street]:
                     date_string = event.date.strftime("%Y-%m-%d")
