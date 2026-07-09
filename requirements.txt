@@ -1,0 +1,2 @@
+icalendar==7.0.2
+Pillow==12.2.0

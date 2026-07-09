@@ -31,17 +31,24 @@ class SocialImage:
     alt: str
 
 
-def build_social_images(generator, streets: list[str], today: date | None = None) -> dict[str, SocialImage]:
+def build_social_images(
+    generator,
+    streets: list[str],
+    today: date | None = None,
+    card_dir: str | Path | None = None,
+) -> dict[str, SocialImage]:
     """Generate social preview images and return metadata keyed by page."""
 
     reference_date = today or datetime.now(PRAGUE_TZ).date()
-    _reset_card_dir()
+    card_dir = Path(card_dir or CARD_DIR)
+    _reset_card_dir(card_dir)
 
     images = {
         "index": _save_card(
             _draw_home_card(reference_date),
             "home",
             f"Svoz odpadu Litovel {config.year} - kalendář podle ulic",
+            card_dir,
         )
     }
 
@@ -52,14 +59,16 @@ def build_social_images(generator, streets: list[str], today: date | None = None
             _draw_street_card(street, events, reference_date),
             slug,
             f"Svoz odpadu {street}, Litovel - nejbližší termíny",
+            card_dir,
         )
 
     return images
 
 
-def _reset_card_dir() -> None:
-    CARD_DIR.mkdir(parents=True, exist_ok=True)
-    for path in CARD_DIR.glob("*.png"):
+def _reset_card_dir(card_dir: Path | None = None) -> None:
+    card_dir = card_dir or CARD_DIR
+    card_dir.mkdir(parents=True, exist_ok=True)
+    for path in card_dir.glob("*.png"):
         path.unlink()
 
 
@@ -67,13 +76,15 @@ def _upcoming_events(events, reference_date: date, limit: int):
     return [event for event in events if event.date.date() >= reference_date][:limit]
 
 
-def _save_card(image: Image.Image, prefix: str, alt: str) -> SocialImage:
+def _save_card(image: Image.Image, prefix: str, alt: str, card_dir: Path | None = None) -> SocialImage:
     output = BytesIO()
     image.save(output, "PNG", optimize=True)
     content = output.getvalue()
     version = sha256(content).hexdigest()[:12]
     filename = f"{prefix}.png"
-    (CARD_DIR / filename).write_bytes(content)
+    card_dir = card_dir or CARD_DIR
+    card_dir.mkdir(parents=True, exist_ok=True)
+    (card_dir / filename).write_bytes(content)
 
     return SocialImage(url=f"{BASE_IMAGE_URL}/{filename}?v={version}", alt=alt)
 

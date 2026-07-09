@@ -28,6 +28,59 @@ Soubor `ics` lze importovat do Google kalendáře a pravděpodobně i dalších 
 
 Soubor `csv` slouží primárně jako zdroj dat pro link:index.html[index.html] dostupný z https://svoz.litovle.cz
 
+== Lokální build a validace
+
+Projekt používá Python 3.12. Závislosti jsou deklarované v link:requirements.txt[`requirements.txt`].
+
+[source,sh]
+----
+python -m pip install -r requirements.txt
+python scripts/validate_project.py
+python scripts/build_site.py --output-dir _site
+python scripts/validate_site_artifact.py _site
+----
+
+Výsledný deployovatelný web je ve složce `_site/`, která se necommituje. Lokálně ho lze zobrazit například:
+
+[source,sh]
+----
+python -m http.server --directory _site
+----
+
+Původní příkaz `python generator_svozu_odpadu.py` zůstává podporovaný pro aktualizaci trackovaných generated snapshotů v kořeni repozitáře.
+
+=== Co je zdroj a co je generated výstup
+
+Autoritativní zdroj pravidelného harmonogramu je v Pythonu, jednorázové změny jsou v `data/svoz_exceptions.json` a městské podklady jsou v `resources/`.
+
+Repozitář zatím záměrně používá hybridní model:
+
+* trackované generated snapshoty: `index.html`, `ulice/`, `calendars/`, `waste_schedule.csv`, `sitemap.xml`
+* ignorované generated výstupy: `_site/` a `resources/social/*.png`
+
+Trackované snapshoty pomáhají při review změn a drží kompatibilitu s notifikacemi do aplikace. Social preview obrázky se necommitují, protože jsou binární a mění se podle aktuálního data; generují se až do deploy artefaktu. URL obrázků používá stabilní název souboru a query parametr `?v=...`, který se změní při změně obsahu obrázku.
+
+Kalendáře v `calendars/` jsou trackované záměrně. Slouží jako validační snapshoty změn svozu a současně jako veřejné soubory pro existující odběry kalendářů. Pro každou lokaci se zatím generují dvě URL varianty: původní název s diakritikou a stabilní slug bez diakritiky. Web používá slug variantu, ale původní názvy zůstávají kvůli zpětné kompatibilitě s už importovanými kalendáři.
+
+== GitHub Actions
+
+GitHub Pages musí být nastavené na nasazování přes GitHub Actions, ne přímo z větve.
+
+Workflowy:
+
+* `CI` běží na pull requestech, pushi do `main` a ručně. Instaluje závislosti, spouští projektovou validaci, sestaví `_site` a validuje artefakt.
+* `Deploy generated site` běží po pushi do `main`, ručně a denně v `03:17 UTC`. Sestaví aktuální `_site` a nasadí ho přes GitHub Pages artefakt.
+* `Watch Litovel.eu` běží denně v `06:17 UTC` a ručně. Pouze hlásí kandidátní články z webu města, nic nemění.
+* `Notify app on change` běží při pushi do `main`, pokud se změní kalendáře nebo zdrojové soubory ovlivňující harmonogram. Posílá FCM refresh do Android aplikace.
+
+=== Přidání změny svozu
+
+1. Ověřit oficiální zdroj a uložit odkaz včetně archivu.
+2. Přidat jednorázovou změnu do `data/svoz_exceptions.json`; Python logiku měnit jen pokud změna vyžaduje novou skupinu nebo pravidlo.
+3. Spustit `python generator_svozu_odpadu.py`, aby se aktualizovaly trackované snapshoty.
+4. Spustit `python scripts/validate_project.py`.
+5. Pro kontrolu produkčního artefaktu spustit `python scripts/build_site.py --output-dir _site` a `python scripts/validate_site_artifact.py _site`.
+
 == Import ics do Google kalendáře
 
 === Včetně synchronizace a notifikace v mobilu
