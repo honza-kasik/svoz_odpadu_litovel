@@ -1,15 +1,22 @@
-name: Refresh generated site
+name: Deploy generated site
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     - cron: "17 3 * * *"
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
 
 jobs:
-  refresh:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -32,15 +39,73 @@ jobs:
       - name: Run tests
         run: python tests.py
 
-      - name: Commit generated changes
-        run: |
-          if [ -z "$(git status --porcelain)" ]; then
-            echo "No generated changes."
-            exit 0
-          fi
+      - name: Compile Python files
+        run: python -m py_compile lokace_svozu.py svoz_exceptions.py social_preview.py site_builder.py generator_svozu_odpadu.py tests.py scripts/watch_litovel_eu.py
 
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html ulice calendars waste_schedule.csv sitemap.xml resources/social
-          git commit -m "Refresh generated site previews"
-          git push
+      - name: Prepare site artifact
+        run: |
+          mkdir -p _site
+          cp -R \
+            CNAME \
+            index.html \
+            styles.css \
+            favicon.png \
+            location_list.html \
+            js \
+            resources \
+            ulice \
+            calendars \
+            docs \
+            waste_schedule.csv \
+            sitemap.xml \
+            _site/
+
+      - name: Validate site artifact
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+
+          site = Path("_site")
+          required = [
+              site / "index.html",
+              site / "styles.css",
+              site / "waste_schedule.csv",
+              site / "sitemap.xml",
+              site / "CNAME",
+              site / "location_list.html",
+              site / "docs/synchronizace-notifikace.html",
+          ]
+          assert all(path.is_file() for path in required)
+
+          pages = [site / "index.html", *site.glob("ulice/*/index.html")]
+          images = list((site / "resources/social").glob("*.png"))
+          assert len(images) == len(pages)
+          assert all(Image.open(path).size == (1200, 630) for path in images)
+          assert not list(site.rglob("*.py"))
+          assert not list(site.rglob("*.yml"))
+          assert not list(site.rglob("*.yaml"))
+          PY
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v6
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

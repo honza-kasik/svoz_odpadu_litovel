@@ -1,8 +1,8 @@
 from dataclasses import dataclass
 from datetime import date, datetime
 from hashlib import sha256
+from io import BytesIO
 from pathlib import Path
-from tempfile import NamedTemporaryFile
 from zoneinfo import ZoneInfo
 
 from PIL import Image, ImageDraw, ImageFont
@@ -68,20 +68,14 @@ def _upcoming_events(events, reference_date: date, limit: int):
 
 
 def _save_card(image: Image.Image, prefix: str, alt: str) -> SocialImage:
-    with NamedTemporaryFile(dir=CARD_DIR, suffix=".png", delete=False) as temp_file:
-        temp_path = Path(temp_file.name)
+    output = BytesIO()
+    image.save(output, "PNG", optimize=True)
+    content = output.getvalue()
+    version = sha256(content).hexdigest()[:12]
+    filename = f"{prefix}.png"
+    (CARD_DIR / filename).write_bytes(content)
 
-    try:
-        image.save(temp_path, "PNG", optimize=True)
-        digest = sha256(temp_path.read_bytes()).hexdigest()[:12]
-        filename = f"{prefix}-{digest}.png"
-        final_path = CARD_DIR / filename
-        temp_path.replace(final_path)
-    finally:
-        if temp_path.exists():
-            temp_path.unlink()
-
-    return SocialImage(url=f"{BASE_IMAGE_URL}/{filename}", alt=alt)
+    return SocialImage(url=f"{BASE_IMAGE_URL}/{filename}?v={version}", alt=alt)
 
 
 def _draw_home_card(reference_date: date) -> Image.Image:
