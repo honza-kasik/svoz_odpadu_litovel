@@ -15,7 +15,7 @@ from lokace_svozu import (
     lokace_svozu_plast,
     lokace_svozu_smes,
 )
-from streets import all_streets, mistni_casti
+from streets import all_streets, litovel_lokace_bio_0, mistni_casti
 from svoz_exceptions import load_svoz_exceptions
 from scripts.watch_litovel_eu import (
     DEFAULT_URLS,
@@ -248,6 +248,35 @@ class SvozExceptionsTest(unittest.TestCase):
             {waste_type.name for waste_type in WasteType},
             {"SMES", "PLAST", "PAPIR", "BIO"},
         )
+
+    def test_july_bio_collection_moves_to_friday_for_thursday_group(self):
+        streets = all_streets["Litovel"] + mistni_casti
+        generator = calendar_generator.WasteCollectionCalendarGenerator(
+            lokace_svozu_smes,
+            lokace_svozu_plast,
+            lokace_svozu_papir,
+            lokace_svozu_bio,
+            streets,
+            date_start,
+            date_end,
+        )
+
+        for street in litovel_lokace_bio_0:
+            bio_events = {
+                event.date.strftime("%Y-%m-%d"): event
+                for event in generator.get_events_for_street(street)
+                if event.waste_type == WasteType.BIO
+            }
+            self.assertNotIn("2026-07-09", bio_events)
+            self.assertTrue(bio_events["2026-07-10"].is_override)
+
+        unaffected_bio_dates = {
+            event.date.strftime("%Y-%m-%d")
+            for event in generator.get_events_for_street("1. máje")
+            if event.waste_type == WasteType.BIO
+        }
+        self.assertIn("2026-07-08", unaffected_bio_dates)
+        self.assertNotIn("2026-07-10", unaffected_bio_dates)
 
     def test_generated_schedule_matches_checked_in_csv(self):
         streets = all_streets["Litovel"] + mistni_casti

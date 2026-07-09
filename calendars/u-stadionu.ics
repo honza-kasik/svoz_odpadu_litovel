@@ -1130,16 +1130,6 @@ LOCATION:U Stadionu\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Bioodpad svoz – U Stadionu
-DTSTART;VALUE=DATE:20260709
-DTEND;VALUE=DATE:20260710
-DTSTAMP:20250101T000000Z
-UID:u-stadionu-bio-2026-07-09@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Bioodpad) – U Stadionu\, Litovel
-LOCATION:U Stadionu\, Litovel
-TRANSP:TRANSPARENT
-END:VEVENT
-BEGIN:VEVENT
 SUMMARY:Změna: Papír svoz – U Stadionu
 DTSTART;VALUE=DATE:20260709
 DTEND;VALUE=DATE:20260710
@@ -1147,6 +1137,17 @@ DTSTAMP:20250101T000000Z
 UID:u-stadionu-paper-2026-07-09@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – U Stadionu\, Litovel\nTermín upraven
   oproti pravidelnému harmonogramu.
+LOCATION:U Stadionu\, Litovel
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Změna: Bioodpad svoz – U Stadionu
+DTSTART;VALUE=DATE:20260710
+DTEND;VALUE=DATE:20260711
+DTSTAMP:20250101T000000Z
+UID:u-stadionu-bio-2026-07-10@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Bioodpad) – U Stadionu\, Litovel\nTermín uprav
+ en oproti pravidelnému harmonogramu.
 LOCATION:U Stadionu\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT

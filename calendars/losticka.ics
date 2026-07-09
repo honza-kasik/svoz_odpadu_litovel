@@ -1131,16 +1131,6 @@ LOCATION:Loštická\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Bioodpad svoz – Loštická
-DTSTART;VALUE=DATE:20260709
-DTEND;VALUE=DATE:20260710
-DTSTAMP:20250101T000000Z
-UID:losticka-bio-2026-07-09@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Bioodpad) – Loštická\, Litovel
-LOCATION:Loštická\, Litovel
-TRANSP:TRANSPARENT
-END:VEVENT
-BEGIN:VEVENT
 SUMMARY:Změna: Papír svoz – Loštická
 DTSTART;VALUE=DATE:20260709
 DTEND;VALUE=DATE:20260710
@@ -1148,6 +1138,17 @@ DTSTAMP:20250101T000000Z
 UID:losticka-paper-2026-07-09@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Loštická\, Litovel\nTermín upraven
   oproti pravidelnému harmonogramu.
+LOCATION:Loštická\, Litovel
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Změna: Bioodpad svoz – Loštická
+DTSTART;VALUE=DATE:20260710
+DTEND;VALUE=DATE:20260711
+DTSTAMP:20250101T000000Z
+UID:losticka-bio-2026-07-10@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Bioodpad) – Loštická\, Litovel\nTermín uprav
+ en oproti pravidelnému harmonogramu.
 LOCATION:Loštická\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT

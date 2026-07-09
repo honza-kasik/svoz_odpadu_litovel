@@ -278,5 +278,19 @@
       "evidence": "Svoz BIO odpadu v místních částech Chořelice, Myslechovice, Nasobůrky, Unčovice, Víska, Nová Ves, Savín a Chudobín se přesouvá z pondělí 6. 7. na úterý 7. 7."
     },
     "affected_locations_snapshot": ["Chořelice", "Myslechovice", "Nasobůrky", "Unčovice", "Víska", "Nová Ves", "Savín", "Chudobín"]
+  },
+  {
+    "id": "2026-07-09-bio-litovel-ctvrtek-posun-2026-07-10",
+    "action": "reschedule",
+    "waste_type": "BIO",
+    "affected_location_group": "litovel_lokace_bio_0",
+    "original_date": "2026-07-09",
+    "new_date": "2026-07-10",
+    "source": {
+      "url": "https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/svoz-bioodpadu-se-presouva-na-patek-10-7.html",
+      "title": "Svoz bioodpadu se přesouvá na pátek 10. 7.",
+      "evidence": "Svoz BIO odpadu ve městě Litovel se z provozních důvodů přesouvá ze čtvrtka 9. 7. 2026 na pátek 10. 7. 2026."
+    },
+    "affected_locations_snapshot": ["Kosmonautů", "Králova", "Nová", "Pavlínka", "Pošmýlská", "Sadová", "U Stadionu", "Wolkerova", "Zahradní", "Uničovská", "Loštická"]
   }
 ]

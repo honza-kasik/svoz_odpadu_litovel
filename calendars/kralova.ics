@@ -1130,16 +1130,6 @@ LOCATION:Králova\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Bioodpad svoz – Králova
-DTSTART;VALUE=DATE:20260709
-DTEND;VALUE=DATE:20260710
-DTSTAMP:20250101T000000Z
-UID:kralova-bio-2026-07-09@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Bioodpad) – Králova\, Litovel
-LOCATION:Králova\, Litovel
-TRANSP:TRANSPARENT
-END:VEVENT
-BEGIN:VEVENT
 SUMMARY:Změna: Papír svoz – Králova
 DTSTART;VALUE=DATE:20260709
 DTEND;VALUE=DATE:20260710
@@ -1147,6 +1137,17 @@ DTSTAMP:20250101T000000Z
 UID:kralova-paper-2026-07-09@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Králova\, Litovel\nTermín upraven o
  proti pravidelnému harmonogramu.
+LOCATION:Králova\, Litovel
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Změna: Bioodpad svoz – Králova
+DTSTART;VALUE=DATE:20260710
+DTEND;VALUE=DATE:20260711
+DTSTAMP:20250101T000000Z
+UID:kralova-bio-2026-07-10@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Bioodpad) – Králova\, Litovel\nTermín upraven
+  oproti pravidelnému harmonogramu.
 LOCATION:Králova\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT

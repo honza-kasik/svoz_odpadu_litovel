@@ -1130,16 +1130,6 @@ LOCATION:Sadová\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Bioodpad svoz – Sadová
-DTSTART;VALUE=DATE:20260709
-DTEND;VALUE=DATE:20260710
-DTSTAMP:20250101T000000Z
-UID:sadova-bio-2026-07-09@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Bioodpad) – Sadová\, Litovel
-LOCATION:Sadová\, Litovel
-TRANSP:TRANSPARENT
-END:VEVENT
-BEGIN:VEVENT
 SUMMARY:Změna: Papír svoz – Sadová
 DTSTART;VALUE=DATE:20260709
 DTEND;VALUE=DATE:20260710
@@ -1147,6 +1137,17 @@ DTSTAMP:20250101T000000Z
 UID:sadova-paper-2026-07-09@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Sadová\, Litovel\nTermín upraven op
  roti pravidelnému harmonogramu.
+LOCATION:Sadová\, Litovel
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Změna: Bioodpad svoz – Sadová
+DTSTART;VALUE=DATE:20260710
+DTEND;VALUE=DATE:20260711
+DTSTAMP:20250101T000000Z
+UID:sadova-bio-2026-07-10@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Bioodpad) – Sadová\, Litovel\nTermín upraven 
+ oproti pravidelnému harmonogramu.
 LOCATION:Sadová\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
