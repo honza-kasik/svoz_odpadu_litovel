@@ -12,6 +12,7 @@ from typing import Any
 
 from streets import (
     all_streets,
+    litovel_lokace_bio_0,
     litovel_lokace_plast_1,
     litovel_lokace_smes_1,
     litovel_lokace_smes_3,
@@ -43,6 +44,7 @@ ACTION_DATE_FIELDS = {
 }
 LOCATION_GROUPS = {
     "all_streets_litovel": tuple(all_streets["Litovel"]),
+    "litovel_lokace_bio_0": tuple(litovel_lokace_bio_0),
     "litovel_lokace_plast_1": tuple(litovel_lokace_plast_1),
     "litovel_lokace_smes_1": tuple(litovel_lokace_smes_1),
     "litovel_lokace_smes_3": tuple(litovel_lokace_smes_3),

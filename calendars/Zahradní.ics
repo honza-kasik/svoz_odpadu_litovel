@@ -1130,16 +1130,6 @@ LOCATION:Zahradní\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Bioodpad svoz – Zahradní
-DTSTART;VALUE=DATE:20260709
-DTEND;VALUE=DATE:20260710
-DTSTAMP:20250101T000000Z
-UID:zahradni-bio-2026-07-09@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Bioodpad) – Zahradní\, Litovel
-LOCATION:Zahradní\, Litovel
-TRANSP:TRANSPARENT
-END:VEVENT
-BEGIN:VEVENT
 SUMMARY:Změna: Papír svoz – Zahradní
 DTSTART;VALUE=DATE:20260709
 DTEND;VALUE=DATE:20260710
@@ -1147,6 +1137,17 @@ DTSTAMP:20250101T000000Z
 UID:zahradni-paper-2026-07-09@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Zahradní\, Litovel\nTermín upraven 
  oproti pravidelnému harmonogramu.
+LOCATION:Zahradní\, Litovel
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Změna: Bioodpad svoz – Zahradní
+DTSTART;VALUE=DATE:20260710
+DTEND;VALUE=DATE:20260711
+DTSTAMP:20250101T000000Z
+UID:zahradni-bio-2026-07-10@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Bioodpad) – Zahradní\, Litovel\nTermín uprave
+ n oproti pravidelnému harmonogramu.
 LOCATION:Zahradní\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT

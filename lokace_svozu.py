@@ -205,7 +205,8 @@ lokace_svozu_smes = [
 ]
 
 lokace_svozu_bio = [
-    LokaceSvozu(lambda date: is_bio_collection_week(date) and date.weekday() == 3, litovel_lokace_bio_0, WasteType.BIO),
+    LokaceSvozu(lambda date: is_bio_collection_week(date) and date.weekday() == 3, litovel_lokace_bio_0, WasteType.BIO,
+                                *exception_dates(WasteType.BIO, litovel_lokace_bio_0, "litovel_lokace_bio_0")),
     LokaceSvozu(lambda date: is_bio_collection_week(date) and date.weekday() == 2, litovel_lokace_bio_1, WasteType.BIO),
     LokaceSvozu(lambda date: is_bio_collection_week(date) and date.weekday() == 3, ['Březové'], WasteType.BIO),
     LokaceSvozu(lambda date: is_bio_collection_week(date) and date.weekday() == 3, ['Rozvadovice'], WasteType.BIO),
