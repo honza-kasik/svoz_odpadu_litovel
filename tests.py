@@ -3,8 +3,10 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 import calendar_generator
+from PIL import Image
 from generator_svozu_odpadu import date_end, date_start
 from lokace_svozu import (
     WasteType,
@@ -21,6 +23,23 @@ from scripts.watch_litovel_eu import (
     find_candidate_articles,
     find_matched_articles,
 )
+from social_preview import _save_card
+
+
+class SocialPreviewTest(unittest.TestCase):
+    def test_card_path_stays_stable_and_version_tracks_content(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            card_dir = Path(tmpdir)
+            with patch("social_preview.CARD_DIR", card_dir):
+                first = _save_card(Image.new("RGB", (10, 10), "white"), "home", "Preview")
+                unchanged = _save_card(Image.new("RGB", (10, 10), "white"), "home", "Preview")
+                changed = _save_card(Image.new("RGB", (10, 10), "black"), "home", "Preview")
+
+            self.assertEqual(first.url, unchanged.url)
+            self.assertNotEqual(first.url, changed.url)
+            self.assertIn("/home.png?v=", first.url)
+            self.assertEqual(first.url.split("?")[0], changed.url.split("?")[0])
+            self.assertEqual([card_dir / "home.png"], list(card_dir.iterdir()))
 
 
 class SvozExceptionsTest(unittest.TestCase):
