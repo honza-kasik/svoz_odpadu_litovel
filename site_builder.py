@@ -140,6 +140,7 @@ def build_location_list(streets):
       <li>19. 5. 2026 – aplikace Svoz odpadu Litovel pro Android je dostupná na <a href="https://play.google.com/store/apps/details?id=cz.litovle.svoz">Google Play</a>. Umí upozornění před svozem a zobrazuje i změny termínů.</li>
       <li>2. 7. 2026 - svoz papíru ve městě Litovel se přesouvá z pondělí 6. 7. na čtvrtek 9. 7. a svoz BIO odpadu v místních částech Chořelice, Myslechovice, Nasobůrky, Unčovice, Víska, Nová Ves, Savín a Chudobín se přesouvá z pondělí 6. 7. na úterý 7. 7. <a href="https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu-v-pondeli-6-cervence.html" target="_blank">Zdroj</a></li>
       <li>9. 7. 2026 - svoz BIO odpadu ve městě Litovel se z provozních důvodů přesouvá ze čtvrtka 9. 7. na pátek 10. 7. 2026. <a href="https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/svoz-bioodpadu-se-presouva-na-patek-10-7.html" target="_blank">Zdroj</a></li>
+      <li>16. 8. 2026 – Přidán indikátor načítání kalendáře pro přehlednější zobrazení při pomalejším připojení.</li>
     </ul>
 </div>
 <div id="locationList">
