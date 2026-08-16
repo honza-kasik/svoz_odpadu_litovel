@@ -5,6 +5,8 @@ const WASTE_TYPES = {
     paper: 'Papír'
 };
 
+const MIN_LOADING_TIME = 200;
+
 let wasteSchedule = [];
 let uniqueLocations = [];
 let filteredLocation = "";
@@ -24,23 +26,106 @@ const initialLocation =
 const MONTHS = ["Leden", "Únor", "Březen", "Duben", "Květen", "Červen", "Červenec", "Srpen", "Září", "Říjen", "Listopad", "Prosinec"];
 const DAYS = ['Po', 'Út', 'St', 'Čt', 'Pá', 'So', 'Ne'];
 
-fetch('/waste_schedule.csv')
-    .then(response => response.text())
-    .then(csv => {
-        parseCSV(csv);
-        uniqueLocations = [...new Set(wasteSchedule.map(entry => entry.location).filter(loc => loc))];
-        updateDataForInitialLocation(initialLocation, uniqueLocations);
-        renderMonthCalendar(filteredLocation);
+function createLoadingIndicator() {
+    const calendarContainer = document.getElementById('calendarContainer');
 
-        if (isKioskMode) {
-            ["mainHeader", "controls", "footerControls", "locationList", "subtitle", "relatedStreets"].forEach(id =>
-                document.getElementById(id).style.display = "none"
-            )
-        } else {
-            populateFilters();
+    if (!calendarContainer || isKioskMode) {
+        return;
+    }
+
+    const loader = document.createElement('div');
+    loader.id = 'loadingIndicator';
+
+    loader.innerHTML = `
+        <div class="loading-content">
+            <div class="loading-spinner" aria-hidden="true"></div>
+            <div>Načítání dat o odpadech…</div>
+        </div>
+    `;
+
+    calendarContainer.appendChild(loader);
+}
+
+function hideLoadingIndicator() {
+    const loader = document.getElementById('loadingIndicator');
+
+    if (!loader) {
+        return;
+    }
+
+    loader.classList.add('fade-out');
+
+    loader.addEventListener(
+        'transitionend',
+        () => loader.remove(),
+        { once: true }
+    );
+}
+
+const delay = ms =>
+    new Promise(resolve => setTimeout(resolve, ms));
+
+// Initialize the app with proper loading handling
+async function initApp() {
+    createLoadingIndicator();
+
+    try {
+        // Fetch data and ensure minimum loading time
+        const [csv] = await Promise.all([
+            fetch('/waste_schedule.csv').then(response => response.text()),
+            delay(MIN_LOADING_TIME)
+        ]);
+
+        initializeSchedule(csv);
+    } catch (error) {
+        console.error('Failed to load waste schedule:', error);
+        // Even in case of error, hide the loader
+        if (!isKioskMode) {
+            hideLoadingIndicator();
         }
+    }
+}
 
+function initializeSchedule(csv) {
+    parseCSV(csv);
+
+    uniqueLocations = [
+        ...new Set(
+            wasteSchedule
+                .map(entry => entry.location)
+                .filter(Boolean)
+        )
+    ];
+
+    updateDataForInitialLocation(initialLocation, uniqueLocations);
+    renderMonthCalendar(filteredLocation);
+
+    if (isKioskMode) {
+        hideKioskElements();
+    } else {
+        populateFilters();
+    }
+
+    // Hide loading indicator when everything is done
+    if (!isKioskMode) {
+        hideLoadingIndicator();
+    }
+}
+
+function hideKioskElements() {
+    const elementIds = [
+        'mainHeader',
+        'controls',
+        'footerControls',
+        'locationList',
+        'subtitle',
+        'relatedStreets'
+    ];
+
+    elementIds.forEach(id => {
+        document.getElementById(id)?.style.setProperty('display', 'none');
     });
+}
 
 function parseCSV(csv) {
     const lines = csv.split('\n');
@@ -55,6 +140,9 @@ function parseCSV(csv) {
         };
     }).filter(entry => entry);
 }
+
+// Start the app initialization
+initApp();
 function populateFilters() {
     const monthSelect = document.getElementById('monthSelect');
     const prevMonth = document.getElementById('prevMonth');
@@ -165,7 +253,7 @@ function populateFilters() {
 
 function renderMonthCalendar(renderedLocation = "") {
     const calendarContainer = document.getElementById('calendarContainer');
-    calendarContainer.innerHTML = '';
+    calendarContainer.querySelector('.calendar-grid')?.remove();
 
     const today = new Date();
     const daysInMonth = new Date(selectedYear, selectedMonth + 1, 0).getDate();
