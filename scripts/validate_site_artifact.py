@@ -6,10 +6,11 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlparse
 
-from PIL import Image
-
-
 BASE_DOMAINS = {"svoz.litovle.cz", "www.svoz.litovle.cz"}
+SIMPLE_ANALYTICS_SRC = "https://scripts.simpleanalyticscdn.com/sri/v11.js"
+SIMPLE_ANALYTICS_INTEGRITY = (
+    "sha384-rfv15RJy1bBYZ1Mf4xizO26jorXb2myipCvHXy4rkG0SuEET96S+m0sTzu5vfbSI"
+)
 REQUIRED_FILES = (
     "index.html",
     "styles.css",
@@ -24,8 +25,11 @@ class LinkParser(HTMLParser):
     def __init__(self) -> None:
         super().__init__(convert_charrefs=True)
         self.references: list[str] = []
+        self.scripts: list[dict[str, str | None]] = []
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag == "script":
+            self.scripts.append(dict(attrs))
         for name, value in attrs:
             if name in {"href", "src"} and value:
                 self.references.append(value)
@@ -41,6 +45,7 @@ def main() -> int:
     validate_social_images(site_dir)
     validate_no_source_files(site_dir)
     validate_local_links(site_dir)
+    validate_browser_scripts(site_dir)
     return 0
 
 
@@ -51,6 +56,8 @@ def validate_required_files(site_dir: Path) -> None:
 
 
 def validate_social_images(site_dir: Path) -> None:
+    from PIL import Image
+
     pages = [site_dir / "index.html", *sorted(site_dir.glob("ulice/*/index.html"))]
     images = sorted((site_dir / "resources/social").glob("*.png"))
     if len(images) != len(pages):
@@ -86,6 +93,47 @@ def validate_local_links(site_dir: Path) -> None:
     if missing:
         formatted = "\n".join(missing[:20])
         raise SystemExit(f"Missing local links:\n{formatted}")
+
+
+def validate_browser_scripts(site_dir: Path) -> None:
+    violations: list[str] = []
+    pages = [site_dir / "index.html", *sorted(site_dir.glob("ulice/*/index.html"))]
+
+    for html_file in pages:
+        parser = LinkParser()
+        parser.feed(html_file.read_text(encoding="utf-8"))
+        analytics_scripts = []
+
+        for script in parser.scripts:
+            src = script.get("src")
+            if not src:
+                continue
+            if src == SIMPLE_ANALYTICS_SRC:
+                analytics_scripts.append(script)
+                continue
+            if urlparse(src).scheme or src.startswith("//"):
+                violations.append(
+                    f"{html_file.relative_to(site_dir)} uses unapproved remote script {src}"
+                )
+
+        if len(analytics_scripts) != 1:
+            violations.append(
+                f"{html_file.relative_to(site_dir)} must contain exactly one approved analytics script"
+            )
+            continue
+
+        analytics = analytics_scripts[0]
+        if analytics.get("integrity") != SIMPLE_ANALYTICS_INTEGRITY:
+            violations.append(
+                f"{html_file.relative_to(site_dir)} has an invalid analytics integrity hash"
+            )
+        if analytics.get("crossorigin") != "anonymous":
+            violations.append(
+                f"{html_file.relative_to(site_dir)} must use crossorigin=anonymous for analytics"
+            )
+
+    if violations:
+        raise SystemExit("Browser script policy violations:\n" + "\n".join(violations[:20]))
 
 
 def resolve_local_reference(site_dir: Path, reference: str) -> Path | None:

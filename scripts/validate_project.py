@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import py_compile
+import shutil
 import subprocess
 import sys
 import os
@@ -14,6 +15,7 @@ sys.path.insert(0, str(ROOT))
 def main() -> int:
     os.chdir(ROOT)
     run([sys.executable, "tests.py"])
+    validate_browser_dependencies()
     validate_exception_json()
     compile_python_files()
     return 0
@@ -21,6 +23,13 @@ def main() -> int:
 
 def run(command: list[str]) -> None:
     subprocess.run(command, check=True)
+
+
+def validate_browser_dependencies() -> None:
+    node = shutil.which("node")
+    if node is None:
+        raise SystemExit("Node.js is required to validate vendored browser dependencies")
+    run([node, "scripts/validate_browser_dependencies.cjs"])
 
 
 def validate_exception_json() -> None:

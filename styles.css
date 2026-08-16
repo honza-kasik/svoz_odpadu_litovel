@@ -468,3 +468,104 @@ input {
   }
 
 }
+
+#calendarContainer {
+    position: relative;
+    min-height: clamp(420px, 70vh, 700px);
+}
+
+#loadingIndicator {
+    position: absolute;
+    inset: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: white;
+    opacity: 1;
+    transition: opacity 300ms ease;
+}
+
+#loadingIndicator.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.calendar-grid {
+    opacity: 0;
+    animation: calendarFadeIn 300ms ease forwards;
+}
+
+.loading-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.loading-spinner {
+    width: 42px;
+    height: 42px;
+
+    border: 5px solid rgba(52, 152, 219, 0.2);
+    border-top-color: #000000;
+    border-radius: 50%;
+
+    animation: irregularSpin 1.4s linear infinite;
+  }
+
+@keyframes irregularSpin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    /* skoro plynulá otočka */
+    55% {
+        transform: rotate(300deg);
+    }
+
+    /* krátké zpomalení */
+    65% {
+        transform: rotate(320deg);
+    }
+
+    /* první trhnutí */
+    69% {
+        transform: rotate(350deg);
+    }
+
+    /* krátký zásek */
+    76% {
+        transform: rotate(352deg);
+    }
+
+    /* druhé trhnutí */
+    81% {
+        transform: rotate(390deg);
+    }
+
+    /* dojetí */
+    100% {
+        transform: rotate(720deg);
+    }
+}
+
+@keyframes calendarFadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #loadingIndicator,
+    .calendar-grid {
+        transition: height;
+        animation: none;
+        opacity: 1;
+    }
+}
