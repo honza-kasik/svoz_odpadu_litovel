@@ -9,7 +9,7 @@ from zoneinfo import ZoneInfo
 from utils import slugify
 from streets import mistni_casti
 from meta_builder import MetaBuilder, config
-from proximity import find_nearby_bio_placements
+from proximity import find_nearby_bio_options
 from project_config import project_config
 
 BASE_URL = "https://svoz.litovle.cz"
@@ -388,56 +388,49 @@ def build_nearby_bio_html(
     reference_date: date,
     focused: bool = False,
 ) -> str:
-    nearby = find_nearby_bio_placements(
+    options = find_nearby_bio_options(
         street,
         schedule,
         proximity_config,
         reference_date,
     )
-    if not nearby:
+    if not (options.current or options.upcoming or options.unavailable):
         return ""
 
-    cards = []
-    for item in nearby:
-        placement = item.placement
-        if item.status == "current":
-            date_html = f"<span>{format_bio_date_range(placement.date_from, placement.date_through)}</span>"
-            status_label = "Právě přistaveno"
-        elif item.status == "upcoming":
-            date_html = f"<span>{format_bio_date_range(placement.date_from, placement.date_through)}</span>"
-            status_label = "Nadcházející"
-        else:
-            date_html = "<span>Nový termín zatím není zveřejněn</span>"
-            status_label = "Poslední známé stanoviště"
-        map_link = ""
-        if item.site_coordinates.accuracy == "precise":
-            point = item.site_coordinates
-            map_url = (
-                "https://www.openstreetmap.org/"
-                f"?mlat={point.latitude:.6f}&mlon={point.longitude:.6f}"
-                f"#map=18/{point.latitude:.6f}/{point.longitude:.6f}"
-            )
-            map_link = (
-                f'<a class="nearby-bio-map" href="{escape(map_url)}" '
-                'target="_blank" rel="noopener">Mapa</a>'
-            )
-        cards.append(
-            f'''<article class="nearby-bio-card">
-                <div class="nearby-bio-marker" aria-hidden="true">●</div>
-                <div class="nearby-bio-site">
-                    <strong><a href="/bio/stanoviste/{escape(placement.site.id)}/">{escape(placement.site.display_name)}</a></strong>
-                    {date_html}
-                    <span class="nearby-bio-status nearby-bio-status-{item.status}">{status_label}</span>
-                </div>
-                <div class="nearby-bio-distance">{format_distance(item.distance_km, item.approximate)}</div>{map_link}
-            </article>'''
+    current_limit = 3 if focused else 1
+    upcoming_limit = 3 if focused else 2
+
+    def render_cards(items):
+        return "".join(render_nearby_bio_card(item) for item in items)
+
+    groups = []
+    if options.current:
+        groups.append(
+            '<section class="nearby-bio-group">'
+            '<h3>Kam lze bioodpad odvézt nyní</h3>'
+            f'<div class="nearby-bio-list ui-data-list">{render_cards(options.current[:current_limit])}</div>'
+            '</section>'
+        )
+    if options.upcoming:
+        groups.append(
+            '<section class="nearby-bio-group">'
+            '<h3>Kdy bude kontejner blíž</h3>'
+            f'<div class="nearby-bio-list ui-data-list">{render_cards(options.upcoming[:upcoming_limit])}</div>'
+            '</section>'
+        )
+    if options.unavailable:
+        groups.append(
+            '<section class="nearby-bio-group">'
+            '<h3>Nejbližší známá stanoviště</h3>'
+            f'<div class="nearby-bio-list ui-data-list">{render_cards(options.unavailable)}</div>'
+            '</section>'
         )
 
     heading = "" if focused else f'''<div class="nearby-bio-heading">
-            <h2 id="nearbyBioHeading">Nejbližší bio kontejnery</h2>
+            <h2 id="nearbyBioHeading">Bio kontejnery poblíž</h2>
             <a href="/bio/pobliz/{slugify(street)}/">Podrobný přehled</a>
         </div>'''
-    accessible_name = 'aria-label="Nejbližší bio kontejnery"' if focused else 'aria-labelledby="nearbyBioHeading"'
+    accessible_name = 'aria-label="Bio kontejnery poblíž"' if focused else 'aria-labelledby="nearbyBioHeading"'
     street_schedule_link = ""
     if focused:
         street_schedule_link = (
@@ -447,8 +440,41 @@ def build_nearby_bio_html(
         )
     return f'''<section id="nearbyBio" class="nearby-bio ui-panel" {accessible_name}>
         {heading}
-        <div class="nearby-bio-list ui-data-list">{''.join(cards)}</div>
+        {''.join(groups)}
     </section>{street_schedule_link}'''
+
+
+def render_nearby_bio_card(item) -> str:
+    placement = item.placement
+    if item.status == "current":
+        date_html = f"<span>Odvoz: {format_czech_date_with_weekday(placement.date_through)}</span>"
+    elif item.status == "upcoming":
+        date_html = (
+            f"<span>Přistavení: {format_czech_short_date(placement.date_from)}, "
+            f"odvoz: {format_czech_short_date(placement.date_through)}</span>"
+        )
+    else:
+        date_html = "<span>Nový termín zatím není zveřejněn</span>"
+    map_link = ""
+    if item.site_coordinates.accuracy == "precise":
+        point = item.site_coordinates
+        map_url = (
+            "https://www.openstreetmap.org/"
+            f"?mlat={point.latitude:.6f}&mlon={point.longitude:.6f}"
+            f"#map=18/{point.latitude:.6f}/{point.longitude:.6f}"
+        )
+        map_link = (
+            f'<a class="nearby-bio-map" href="{escape(map_url)}" '
+            'target="_blank" rel="noopener">Mapa</a>'
+        )
+    return f'''<article class="nearby-bio-card">
+                <div class="nearby-bio-marker nearby-bio-marker-{item.status}" aria-hidden="true">●</div>
+                <div class="nearby-bio-site">
+                    <strong><a href="/bio/stanoviste/{escape(placement.site.id)}/">{escape(placement.site.display_name)}</a></strong>
+                    {date_html}
+                </div>
+                <div class="nearby-bio-distance">{format_distance(item.distance_km, item.approximate)}</div>{map_link}
+            </article>'''
 
 
 def format_distance(distance_km: float, approximate: bool) -> str:
@@ -521,6 +547,13 @@ def format_bio_date_range(date_from: date, date_through: date) -> str:
 
 def format_czech_short_date(value: date) -> str:
     return f"{value.day}. {value.month}. {value.year}"
+
+
+def format_czech_date_with_weekday(value: date) -> str:
+    weekdays = (
+        "pondělí", "úterý", "středa", "čtvrtek", "pátek", "sobota", "neděle"
+    )
+    return f"{weekdays[value.weekday()]} {format_czech_short_date(value)}"
 
 
 def build_bio_source_links(sources) -> str:

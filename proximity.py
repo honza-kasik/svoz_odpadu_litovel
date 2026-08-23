@@ -35,6 +35,67 @@ class NearbyBioPlacement:
     approximate: bool
 
 
+@dataclass(frozen=True)
+class NearbyBioOptions:
+    current: tuple[NearbyBioPlacement, ...]
+    upcoming: tuple[NearbyBioPlacement, ...]
+    unavailable: tuple[NearbyBioPlacement, ...]
+
+
+def find_nearby_bio_options(
+    street: str,
+    schedule: BioSchedule,
+    config: ProximityConfig,
+    reference_date: date,
+    limit: int = 3,
+) -> NearbyBioOptions:
+    if limit <= 0:
+        return NearbyBioOptions((), (), ())
+    street_point = resolve_street_coordinates(street, config)
+    if street_point is None:
+        return NearbyBioOptions((), (), ())
+
+    current = [
+        placement
+        for placement in schedule.placements
+        if placement.date_from <= reference_date <= placement.date_through
+    ]
+    current_results = _nearest_distinct(
+        current, street_point, config, "current", limit
+    )
+    current_site_ids = {placement.site.id for placement in current}
+
+    next_by_site = {}
+    for placement in schedule.placements:
+        if placement.date_from <= reference_date or placement.site.id in current_site_ids:
+            continue
+        previous = next_by_site.get(placement.site.id)
+        if previous is None or placement.date_from < previous.date_from:
+            next_by_site[placement.site.id] = placement
+    upcoming_results = _nearest_distinct(
+        next_by_site.values(), street_point, config, "upcoming", limit
+    )
+
+    unavailable_results = []
+    if not current_results and not upcoming_results:
+        latest_by_site = {}
+        for placement in schedule.placements:
+            previous = latest_by_site.get(placement.site.id)
+            if previous is None or placement.date_through > previous.date_through:
+                latest_by_site[placement.site.id] = placement
+        unavailable_results = _nearest_distinct(
+            latest_by_site.values(),
+            street_point,
+            config,
+            "schedule-unavailable",
+            limit,
+        )
+
+    return NearbyBioOptions(
+        tuple(current_results), tuple(upcoming_results), tuple(unavailable_results)
+    )
+
+
 def load_proximity_config(
     streets: list[str],
     sites: tuple[BioSite, ...],
@@ -95,38 +156,34 @@ def find_nearby_bio_placements(
     street_point = resolve_street_coordinates(street, config)
     if street_point is None:
         return []
-    active = [
-        placement
-        for placement in schedule.placements
-        if placement.date_from <= reference_date <= placement.date_through
-    ]
-    chosen = _nearest_distinct(active, street_point, config, "current", limit)
-    chosen_site_ids = {item.placement.site.id for item in chosen}
+    relevant_by_site = {}
+    for placement in schedule.placements:
+        if placement.date_from <= reference_date <= placement.date_through:
+            relevant_by_site[placement.site.id] = (placement, "current")
+        elif placement.date_from > reference_date:
+            previous = relevant_by_site.get(placement.site.id)
+            if previous is None or (
+                previous[1] != "current"
+                and placement.date_from < previous[0].date_from
+            ):
+                relevant_by_site[placement.site.id] = (placement, "upcoming")
 
-    if len(chosen) < limit:
-        future = [
-            placement
-            for placement in schedule.placements
-            if placement.date_from > reference_date
-            and placement.site.id not in chosen_site_ids
-        ]
-        while future and len(chosen) < limit:
-            next_date = min(item.date_from for item in future)
-            next_window = [item for item in future if item.date_from == next_date]
-            additions = _nearest_distinct(
-                next_window,
-                street_point,
-                config,
-                "upcoming",
-                limit - len(chosen),
+    chosen = []
+    for placement, status in relevant_by_site.values():
+        site_point = resolve_site_coordinates(placement.site, config)
+        if site_point is None:
+            continue
+        chosen.append(
+            NearbyBioPlacement(
+                placement,
+                site_point,
+                haversine_distance_km(street_point, site_point),
+                status,
+                street_point.accuracy != "precise" or site_point.accuracy != "precise",
             )
-            chosen.extend(additions)
-            chosen_site_ids.update(item.placement.site.id for item in additions)
-            future = [
-                item
-                for item in future
-                if item.date_from > next_date and item.site.id not in chosen_site_ids
-            ]
+        )
+    chosen = sorted(chosen, key=lambda item: item.distance_km)[:limit]
+
     if not chosen:
         latest_by_site = {}
         for placement in schedule.placements:

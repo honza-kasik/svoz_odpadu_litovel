@@ -51,6 +51,8 @@ from proximity import (
     find_nearby_bio_placements,
     haversine_distance_km,
     load_proximity_config,
+    resolve_site_coordinates,
+    resolve_street_coordinates,
 )
 from project_config import project_config, validate_rollover
 
@@ -366,7 +368,7 @@ class BioProximityTest(unittest.TestCase):
 
         self.assertAlmostEqual(1.01, haversine_distance_km(first, second), delta=0.03)
 
-    def test_active_sites_are_first_and_next_window_fills_limit(self):
+    def test_nearby_sites_are_distance_first_with_status_as_context(self):
         schedule = self._schedule()
         nearby = find_nearby_bio_placements(
             "Testovací",
@@ -378,7 +380,7 @@ class BioProximityTest(unittest.TestCase):
         self.assertEqual(["a", "b", "c"], [item.placement.site.id for item in nearby])
         self.assertEqual(["current", "current", "upcoming"], [item.status for item in nearby])
 
-    def test_no_active_sites_uses_earliest_upcoming_window(self):
+    def test_upcoming_sites_are_ranked_by_distance_not_window_date(self):
         schedule = self._schedule()
         nearby = find_nearby_bio_placements(
             "Testovací",
@@ -388,7 +390,7 @@ class BioProximityTest(unittest.TestCase):
             limit=2,
         )
 
-        self.assertEqual(["c", "d"], [item.placement.site.id for item in nearby])
+        self.assertEqual(["a", "c"], [item.placement.site.id for item in nearby])
         self.assertTrue(all(item.status == "upcoming" for item in nearby))
 
     def test_expired_schedule_falls_back_to_nearest_physical_sites(self):
@@ -460,14 +462,26 @@ class BioProximityTest(unittest.TestCase):
         schedule = load_bio_schedule(BIO_2026_PATH)
         streets = all_streets["Litovel"] + mistni_casti
         config = load_proximity_config(streets, schedule.sites)
+        street_point = resolve_street_coordinates("B. Němcové", config)
+        sochova = next(
+            site for site in schedule.sites if site.id == "litovel-sochova"
+        )
+        site_point = resolve_site_coordinates(sochova, config)
+
+        self.assertLess(haversine_distance_km(street_point, site_point), 1)
+
+    def test_uncovice_page_keeps_local_upcoming_site_ahead_of_distant_current_sites(self):
+        schedule = load_bio_schedule(BIO_2026_PATH)
+        streets = all_streets["Litovel"] + mistni_casti
+        config = load_proximity_config(streets, schedule.sites)
+
         nearby = find_nearby_bio_placements(
-            "B. Němcové", schedule, config, date(2026, 8, 20)
+            "Unčovice", schedule, config, date(2026, 8, 23)
         )
 
-        sochova = next(
-            item for item in nearby if item.placement.site.id == "litovel-sochova"
-        )
-        self.assertLess(sochova.distance_km, 1)
+        self.assertEqual("uncovice-u-hasicarny", nearby[0].placement.site.id)
+        self.assertEqual("upcoming", nearby[0].status)
+        self.assertLess(nearby[0].distance_km, 1)
 
 
 class BioSeoPagesTest(unittest.TestCase):
@@ -546,8 +560,8 @@ class BioSeoPagesTest(unittest.TestCase):
             "B. Němcové", schedule, config, date(2026, 8, 22), focused=True
         )
 
-        self.assertIn('/bio/stanoviste/litovel-sochova/', html)
-        self.assertIn('aria-label="Nejbližší bio kontejnery"', html)
+        self.assertIn('/bio/stanoviste/litovel-javoricska/', html)
+        self.assertIn('aria-label="Bio kontejnery poblíž"', html)
         self.assertIn(
             '>Zobrazit pravidelný svoz odpadu pro ulici B. Němcové</a>',
             html,
@@ -565,11 +579,37 @@ class BioSeoPagesTest(unittest.TestCase):
         )
 
         self.assertEqual(3, html.count('class="nearby-bio-card"'))
-        self.assertIn("Poslední známé stanoviště", html)
+        self.assertIn("Nejbližší známá stanoviště", html)
         self.assertIn("Nový termín zatím není zveřejněn", html)
         self.assertNotIn("Nadcházející", html)
         self.assertNotIn("2026</span>", html)
         self.assertIn("Zobrazit pravidelný svoz odpadu", html)
+
+    def test_uncovice_page_separates_available_now_from_local_upcoming_sites(self):
+        schedule = load_bio_schedule(BIO_2026_PATH)
+        streets = all_streets["Litovel"] + mistni_casti
+        config = load_proximity_config(streets, schedule.sites)
+
+        html = build_nearby_bio_html(
+            "Unčovice", schedule, config, date(2026, 8, 23), focused=True
+        )
+
+        current_group, upcoming_group = html.split(
+            "<h3>Kdy bude kontejner blíž</h3>", 1
+        )
+        self.assertIn("<h3>Kam lze bioodpad odvézt nyní</h3>", current_group)
+        self.assertIn("ul. Šargounská", current_group)
+        self.assertIn("Unčovice – u hasičárny", upcoming_group)
+        self.assertIn("Unčovice – před Selikem", upcoming_group)
+        self.assertIn(
+            "Přistavení: 28. 8. 2026, odvoz: 31. 8. 2026",
+            upcoming_group,
+        )
+        self.assertIn("Odvoz: pondělí 24. 8. 2026", current_group)
+        self.assertIn("nearby-bio-marker-upcoming", upcoming_group)
+        self.assertIn("nearby-bio-marker-current", current_group)
+        self.assertNotIn("Právě přistaveno", html)
+        self.assertNotIn("Nadcházející", html)
 
     def test_overview_groups_sites_by_current_and_next_window(self):
         schedule = load_bio_schedule(BIO_2026_PATH)
