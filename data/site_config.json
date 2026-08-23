@@ -1,0 +1,7 @@
+{
+  "target_year": 2026,
+  "waste_active_year": 2026,
+  "bio_active_year": 2026,
+  "calendar_years": [2025, 2026],
+  "bio_schedule_file": "data/bio_containers/2026.json"
+}

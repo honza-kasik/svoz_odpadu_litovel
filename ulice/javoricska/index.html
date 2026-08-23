@@ -9,7 +9,7 @@
     <meta name="author" content="Honza Kašík">
     <meta name="robots" content="index, follow">
 
-    
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -45,7 +45,7 @@
     <meta property="og:description" content="Kdy se v ulici Javoříčská v Litovli vyváží plast, papír nebo bioodpad? Podívejte se na aktuální harmonogram svozu pro rok 2026 a stáhněte si kalendář do mobilu.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://svoz.litovle.cz/ulice/javoricska/">
-    <meta property="og:image" content="https://svoz.litovle.cz/resources/social/javoricska.png?v=074da8d00460">
+    <meta property="og:image" content="https://svoz.litovle.cz/resources/social/javoricska.png?v=94fe3b7a2dde">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -53,10 +53,10 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Svoz odpadu Javoříčská (Litovel) – Kalendář a termíny 2026">
     <meta name="twitter:description" content="Kdy se v ulici Javoříčská v Litovli vyváží plast, papír nebo bioodpad? Podívejte se na aktuální harmonogram svozu pro rok 2026 a stáhněte si kalendář do mobilu.">
-    <meta name="twitter:image" content="https://svoz.litovle.cz/resources/social/javoricska.png?v=074da8d00460">
+    <meta name="twitter:image" content="https://svoz.litovle.cz/resources/social/javoricska.png?v=94fe3b7a2dde">
     <meta name="twitter:image:alt" content="Svoz odpadu Javoříčská, Litovel - nejbližší termíny">
 
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/styles.css?v=db9259ae2e2a">
 
     <!-- zabrání probliknutí SEO fallbacku -->
     <script>
@@ -66,9 +66,22 @@
 
 <body>
 
+    <header id="siteHeader" class="site-header">
+        <div class="site-header-inner">
+            <a class="site-brand" href="/" aria-label="Svoz odpadu Litovel – úvodní stránka">
+                <img src="/favicon.png" width="30" height="30" alt="">
+                <span>Svoz odpadu Litovel</span>
+            </a>
+            <nav class="site-nav" aria-label="Hlavní navigace">
+                <a href="/" aria-current="page">Svoz podle ulice</a>
+                <a href="/bio/">Bio kontejnery</a>
+            </nav>
+        </div>
+    </header>
+
     <h1 id="mainHeader">Svoz odpadu Litovel, Javoříčská</h1>
     <p id="subtitle">Aktuální přehled svozových dnů pro ulici Javoříčská v Litovli. Harmonogram zahrnuje svoz komunálního odpadu, plastů, papíru a bioodpadu. Data jsou platná pro rok 2026.</p>
-    <div id="controls">
+    <div id="controls" class="ui-panel">
         <div id="date-picker">
             <button type="button" id="prevMonth" aria-label="Předchozí měsíc">◀</button>
             <select id="monthSelect" aria-label="Měsíc"></select>
@@ -122,9 +135,41 @@
         </div>
     </div>
 
+<section id="nearbyBio" class="nearby-bio ui-panel" aria-labelledby="nearbyBioHeading">
+        <div class="nearby-bio-heading">
+            <h2 id="nearbyBioHeading">Nejbližší bio kontejnery</h2>
+            <a href="/bio/pobliz/javoricska/">Podrobný přehled</a>
+        </div>
+        <div class="nearby-bio-list ui-data-list"><article class="nearby-bio-card">
+                <div class="nearby-bio-marker" aria-hidden="true">●</div>
+                <div class="nearby-bio-site">
+                    <strong><a href="/bio/stanoviste/litovel-zerotinova/">ul. Žerotínova</a></strong>
+                    <span>21. 8.–24. 8. 2026</span>
+                    <span class="nearby-bio-status nearby-bio-status-current">Právě přistaveno</span>
+                </div>
+                <div class="nearby-bio-distance">cca 600 m</div>
+            </article><article class="nearby-bio-card">
+                <div class="nearby-bio-marker" aria-hidden="true">●</div>
+                <div class="nearby-bio-site">
+                    <strong><a href="/bio/stanoviste/litovel-sochova/">ul. Sochova</a></strong>
+                    <span>21. 8.–24. 8. 2026</span>
+                    <span class="nearby-bio-status nearby-bio-status-current">Právě přistaveno</span>
+                </div>
+                <div class="nearby-bio-distance">cca 1000 m</div>
+            </article><article class="nearby-bio-card">
+                <div class="nearby-bio-marker" aria-hidden="true">●</div>
+                <div class="nearby-bio-site">
+                    <strong><a href="/bio/stanoviste/litovel-sargounska/">ul. Šargounská</a></strong>
+                    <span>21. 8.–24. 8. 2026</span>
+                    <span class="nearby-bio-status nearby-bio-status-current">Právě přistaveno</span>
+                </div>
+                <div class="nearby-bio-distance">cca 1,1 km</div>
+            </article></div>
+    </section>
+
     <!-- SEO fallback (jen pokud JS neběží) -->
     <div id="seoFallback">
-        
+
 <h2>Termíny svozu odpadu – Javoříčská</h2>
 <table>
 <tr>
@@ -286,7 +331,7 @@
     </div>
 
     <!-- Seznam lokací (jen pro homepage) -->
-    
+
 
     <p id="relatedStreets" class="related-streets">Další ulice: <a href="/ulice/stefanikova/">Štefánikova</a> · <a href="/ulice/semberova/">Šemberova</a> · <a href="/ulice/druzstevni/">Družstevní</a> · <a href="/ulice/kralova/">Králova</a></p>
 
@@ -302,6 +347,8 @@
         <a href="/docs/synchronizace-notifikace.html">
             Návod na notifikace a synchronizaci.
         </a>
+        Přibližné polohy: <a href="https://www.openstreetmap.org/copyright"
+        target="_blank" rel="noopener">© OpenStreetMap contributors</a>.
     </p>
 
     <script>

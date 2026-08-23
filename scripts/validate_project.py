@@ -14,11 +14,28 @@ sys.path.insert(0, str(ROOT))
 
 def main() -> int:
     os.chdir(ROOT)
+    validate_active_year()
     run([sys.executable, "tests.py"])
     validate_browser_dependencies()
     validate_exception_json()
+    validate_bio_container_json()
     compile_python_files()
     return 0
+
+
+def validate_active_year() -> None:
+    from bio_containers import load_bio_schedule
+    from lokace_svozu import validate_regular_schedule_years
+    from project_config import project_config, validate_rollover
+
+    validate_rollover(project_config)
+    validate_regular_schedule_years(project_config.calendar_years)
+    schedule = load_bio_schedule()
+    if schedule.year != project_config.bio_active_year:
+        raise ValueError(
+            f"bio active year {project_config.bio_active_year} does not match "
+            f"bio schedule year {schedule.year}"
+        )
 
 
 def run(command: list[str]) -> None:
@@ -39,6 +56,16 @@ def validate_exception_json() -> None:
     load_svoz_exceptions(
         allowed_waste_types={waste_type.name for waste_type in WasteType}
     )
+
+
+def validate_bio_container_json() -> None:
+    from bio_containers import load_bio_schedule
+    from proximity import load_proximity_config
+    from streets import all_streets, mistni_casti
+
+    schedule = load_bio_schedule()
+    streets = all_streets["Litovel"] + mistni_casti
+    load_proximity_config(streets, schedule.sites)
 
 
 def compile_python_files() -> None:

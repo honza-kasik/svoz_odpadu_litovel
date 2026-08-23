@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{TITLE}}</title>
+    <meta name="description" content="{{DESCRIPTION}}">
+    <meta name="author" content="Honza Kašík">
+    <meta name="robots" content="index, follow">
+    {{BREADCRUMBS_JSONLD}}
+    <link rel="canonical" href="{{CANONICAL}}">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <meta property="og:title" content="{{TITLE}}">
+    <meta property="og:description" content="{{DESCRIPTION}}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{CANONICAL}}">
+    <meta property="og:image" content="{{SOCIAL_IMAGE}}">
+    <meta property="og:image:width" content="{{SOCIAL_IMAGE_WIDTH}}">
+    <meta property="og:image:height" content="{{SOCIAL_IMAGE_HEIGHT}}">
+    <meta property="og:image:alt" content="{{SOCIAL_IMAGE_ALT}}">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="/styles.css?v={{CSS_VERSION}}">
+    <script>document.documentElement.classList.add("js");</script>
+</head>
+<body class="bio-page" data-schedule-year="{{SCHEDULE_YEAR}}">
+    <header id="siteHeader" class="site-header">
+        <div class="site-header-inner">
+            <a class="site-brand" href="/" aria-label="Svoz odpadu Litovel – úvodní stránka">
+                <img src="/favicon.png" width="30" height="30" alt="">
+                <span>Svoz odpadu Litovel</span>
+            </a>
+            <nav class="site-nav" aria-label="Hlavní navigace">
+                <a href="/">Svoz podle ulice</a>
+                <a href="/bio/" aria-current="page">Bio kontejnery</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h1>{{H1}}</h1>
+        <p id="subtitle">{{SUBTITLE}}</p>
+
+        {{BIO_YEAR_NOTICE}}
+
+        <p class="bio-intro">
+            Zde najdete dočasně přistavené kontejnery na bioodpad. Pokud hledáte pravidelný svoz bioodpadu od domu,
+            <a href="/">vyberte svou ulici v kalendáři svozu odpadu</a>.
+        </p>
+
+        <section class="bio-finder bio-js-only ui-panel" aria-labelledby="bioFinderHeading">
+            <h2 id="bioFinderHeading">Kde hledáte bio kontejner?</h2>
+            <div id="bioFinder" class="bio-finder-combobox">
+                <input id="bioSearch" type="search"
+                       placeholder="Zadejte ulici, místní část nebo stanoviště"
+                       aria-label="Zadejte ulici, místní část nebo stanoviště"
+                       role="combobox" aria-expanded="false"
+                       aria-controls="bioSuggestions" aria-autocomplete="list"
+                       autocomplete="off">
+                <div id="bioSuggestions" class="bio-suggestions" role="listbox"></div>
+            </div>
+        </section>
+
+        <div class="bio-overview">
+            <section class="bio-overview-section ui-section" aria-labelledby="bioCurrentHeading">
+                <h2 id="bioCurrentHeading">Kde jsou kontejnery nyní</h2>
+                {{CURRENT_PLACEMENTS}}
+            </section>
+            <section class="bio-overview-section ui-section" aria-labelledby="bioNextHeading">
+                <h2 id="bioNextHeading">Kam přijedou příště</h2>
+                {{NEXT_PLACEMENTS}}
+            </section>
+        </div>
+
+        {{GROUPED_SCHEDULE}}
+
+        <aside class="bio-notice">
+            První datum označuje přistavení kontejneru, druhé jeho odvoz. Termíny se mohou změnit.
+        </aside>
+
+        <section class="bio-sources">
+            <h2>Zdroje</h2>
+            <p>{{SOURCE_LINKS}}</p>
+        </section>
+    </main>
+
+    <p class="disclaimer">
+        Kalendář je <a href="https://github.com/honza-kasik/svoz_odpadu_litovel" target="_blank" rel="noopener">nezávislý projekt</a>,
+        který vytvořil a spravuje <a href="https://honzakasik.cz" target="_blank" rel="noopener">Honza Kašík</a>.
+        Zdrojová data poskytuje Město Litovel.
+    </p>
+
+    <script>window.BIO_SEARCH_ITEMS = {{SEARCH_ITEMS_JSON}};</script>
+    <script src="/js/bio.js?v={{BIO_JS_VERSION}}" defer></script>
+    <script async src="https://scripts.simpleanalyticscdn.com/sri/v11.js"
+            integrity="sha384-rfv15RJy1bBYZ1Mf4xizO26jorXb2myipCvHXy4rkG0SuEET96S+m0sTzu5vfbSI"
+            crossorigin="anonymous"></script>
+</body>
+</html>

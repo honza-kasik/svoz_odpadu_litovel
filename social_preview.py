@@ -34,6 +34,7 @@ class SocialImage:
 def build_social_images(
     generator,
     streets: list[str],
+    bio_schedule=None,
     today: date | None = None,
     card_dir: str | Path | None = None,
 ) -> dict[str, SocialImage]:
@@ -51,6 +52,19 @@ def build_social_images(
             card_dir,
         )
     }
+
+    if bio_schedule is not None:
+        upcoming = [
+            placement
+            for placement in bio_schedule.placements
+            if placement.date_through >= reference_date
+        ][:3]
+        images["bio"] = _save_card(
+            _draw_bio_card(upcoming, reference_date),
+            "bio",
+            f"Bio kontejnery Litovel {bio_schedule.year} - termíny přistavení",
+            card_dir,
+        )
 
     for street in streets:
         slug = slugify(street)
@@ -146,6 +160,32 @@ def _draw_street_card(street: str, events, reference_date: date) -> Image.Image:
     _draw_footer(draw, fonts, f"Aktualizováno {format_czech_date(reference_date)}")
     _draw_street_visual(draw, events)
 
+    return image
+
+
+def _draw_bio_card(placements, reference_date: date) -> Image.Image:
+    image, draw = _base_card()
+    fonts = _fonts()
+    _draw_brand(draw, fonts)
+    _draw_text(draw, "Bio kontejnery", (76, 132), fonts["eyebrow"], "#4d8f2a", max_width=600)
+    _draw_text(draw, "Termíny přistavení", (72, 180), fonts["title"], "#111827", max_width=690)
+    y = 310
+    for placement in placements:
+        label = placement.site.display_name
+        date_label = (
+            f"{placement.date_from.day}. {placement.date_from.month}.–"
+            f"{placement.date_through.day}. {placement.date_through.month}."
+        )
+        _draw_text(draw, label, (76, y), fonts["event"], "#1f2937", max_width=420)
+        draw.text((520, y), date_label, font=fonts["event"], fill="#4d8f2a")
+        y += 70
+    if not placements:
+        _draw_text(draw, "Další termín není uveden.", (76, 330), fonts["body"], "#475569", max_width=620)
+    _draw_footer(draw, fonts, f"Aktualizováno {format_czech_date(reference_date)}")
+    draw.ellipse((920, 170, 1080, 330), fill="#dcfce7")
+    draw.ellipse((975, 215, 1025, 280), fill="#4d8f2a")
+    draw.rounded_rectangle((900, 390, 1100, 410), radius=10, fill="#86cb7c")
+    draw.rounded_rectangle((930, 435, 1070, 455), radius=10, fill="#bbf7d0")
     return image
 
 

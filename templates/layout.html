@@ -29,7 +29,7 @@
     <meta name="twitter:image" content="{{SOCIAL_IMAGE}}">
     <meta name="twitter:image:alt" content="{{SOCIAL_IMAGE_ALT}}">
 
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/styles.css?v={{CSS_VERSION}}">
 
     <!-- zabrání probliknutí SEO fallbacku -->
     <script>
@@ -39,9 +39,22 @@
 
 <body>
 
+    <header id="siteHeader" class="site-header">
+        <div class="site-header-inner">
+            <a class="site-brand" href="/" aria-label="Svoz odpadu Litovel – úvodní stránka">
+                <img src="/favicon.png" width="30" height="30" alt="">
+                <span>Svoz odpadu Litovel</span>
+            </a>
+            <nav class="site-nav" aria-label="Hlavní navigace">
+                <a href="/" aria-current="page">Svoz podle ulice</a>
+                <a href="/bio/">Bio kontejnery</a>
+            </nav>
+        </div>
+    </header>
+
     <h1 id="mainHeader">{{H1}}</h1>
     <p id="subtitle">{{SUBTITLE}}</p>
-    <div id="controls">
+    <div id="controls" class="ui-panel">
         <div id="date-picker">
             <button type="button" id="prevMonth" aria-label="Předchozí měsíc">◀</button>
             <select id="monthSelect" aria-label="Měsíc"></select>
@@ -95,6 +108,8 @@
         </div>
     </div>
 
+{{NEARBY_BIO_HTML}}
+
     <!-- SEO fallback (jen pokud JS neběží) -->
     <div id="seoFallback">
         {{SEO_FALLBACK}}
@@ -117,6 +132,8 @@
         <a href="/docs/synchronizace-notifikace.html">
             Návod na notifikace a synchronizaci.
         </a>
+        Přibližné polohy: <a href="https://www.openstreetmap.org/copyright"
+        target="_blank" rel="noopener">© OpenStreetMap contributors</a>.
     </p>
 
     <script>

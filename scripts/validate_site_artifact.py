@@ -4,7 +4,13 @@ from __future__ import annotations
 import argparse
 from html.parser import HTMLParser
 from pathlib import Path
+import sys
 from urllib.parse import unquote, urlparse
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
+from utils import slugify
 
 BASE_DOMAINS = {"svoz.litovle.cz", "www.svoz.litovle.cz"}
 SIMPLE_ANALYTICS_SRC = "https://scripts.simpleanalyticscdn.com/sri/v11.js"
@@ -13,6 +19,7 @@ SIMPLE_ANALYTICS_INTEGRITY = (
 )
 REQUIRED_FILES = (
     "index.html",
+    "bio/index.html",
     "styles.css",
     "waste_schedule.csv",
     "sitemap.xml",
@@ -46,11 +53,19 @@ def main() -> int:
     validate_no_source_files(site_dir)
     validate_local_links(site_dir)
     validate_browser_scripts(site_dir)
+    validate_bio_proximity_sections(site_dir)
+    validate_bio_detail_pages(site_dir)
     return 0
 
 
 def validate_required_files(site_dir: Path) -> None:
-    missing = [path for path in REQUIRED_FILES if not (site_dir / path).is_file()]
+    from bio_containers import load_bio_schedule
+
+    source_files = tuple(source.file.lstrip("/") for source in load_bio_schedule().sources)
+    missing = [
+        path for path in REQUIRED_FILES + source_files
+        if not (site_dir / path).is_file()
+    ]
     if missing:
         raise SystemExit(f"Missing required artifact files: {', '.join(missing)}")
 
@@ -58,10 +73,10 @@ def validate_required_files(site_dir: Path) -> None:
 def validate_social_images(site_dir: Path) -> None:
     from PIL import Image
 
-    pages = [site_dir / "index.html", *sorted(site_dir.glob("ulice/*/index.html"))]
     images = sorted((site_dir / "resources/social").glob("*.png"))
-    if len(images) != len(pages):
-        raise SystemExit(f"Expected {len(pages)} social images, found {len(images)}")
+    expected = len(list(site_dir.glob("ulice/*/index.html"))) + 2
+    if len(images) != expected:
+        raise SystemExit(f"Expected {expected} shared/page social images, found {len(images)}")
 
     for path in images:
         with Image.open(path) as image:
@@ -97,7 +112,13 @@ def validate_local_links(site_dir: Path) -> None:
 
 def validate_browser_scripts(site_dir: Path) -> None:
     violations: list[str] = []
-    pages = [site_dir / "index.html", *sorted(site_dir.glob("ulice/*/index.html"))]
+    pages = [
+        site_dir / "index.html",
+        site_dir / "bio/index.html",
+        *sorted(site_dir.glob("bio/stanoviste/*/index.html")),
+        *sorted(site_dir.glob("bio/pobliz/*/index.html")),
+        *sorted(site_dir.glob("ulice/*/index.html")),
+    ]
 
     for html_file in pages:
         parser = LinkParser()
@@ -134,6 +155,47 @@ def validate_browser_scripts(site_dir: Path) -> None:
 
     if violations:
         raise SystemExit("Browser script policy violations:\n" + "\n".join(violations[:20]))
+
+
+def validate_bio_proximity_sections(site_dir: Path) -> None:
+    violations = []
+    for html_file in sorted(site_dir.glob("ulice/*/index.html")):
+        html = html_file.read_text(encoding="utf-8")
+        section_count = html.count('id="nearbyBio"')
+        card_count = html.count('class="nearby-bio-card"')
+        if section_count not in {0, 1}:
+            violations.append(f"{html_file.relative_to(site_dir)} has duplicate nearby bio sections")
+        if (section_count == 0 and card_count != 0) or (section_count == 1 and card_count != 3):
+            violations.append(f"{html_file.relative_to(site_dir)} has inconsistent nearby bio cards")
+    if violations:
+        raise SystemExit("Bio proximity violations:\n" + "\n".join(violations[:20]))
+
+
+def validate_bio_detail_pages(site_dir: Path) -> None:
+    from bio_containers import load_bio_schedule
+    from proximity import load_proximity_config
+    from streets import all_streets, mistni_casti
+
+    schedule = load_bio_schedule()
+    streets = all_streets["Litovel"] + mistni_casti
+    proximity = load_proximity_config(streets, schedule.sites)
+    expected_site_routes = {site.id for site in schedule.sites}
+    expected_nearby_routes = {
+        slugify(street) for street in streets
+        if street in proximity.street_coordinates
+    }
+    site_pages = sorted(site_dir.glob("bio/stanoviste/*/index.html"))
+    nearby_pages = sorted(site_dir.glob("bio/pobliz/*/index.html"))
+    actual_site_routes = {path.parent.name for path in site_pages}
+    actual_nearby_routes = {path.parent.name for path in nearby_pages}
+    if actual_site_routes != expected_site_routes:
+        raise SystemExit("Generated bio site routes do not match the active schedule")
+    if actual_nearby_routes != expected_nearby_routes:
+        raise SystemExit("Generated nearby routes do not match grounded street coordinates")
+    for path in [*site_pages, *nearby_pages]:
+        html = path.read_text(encoding="utf-8")
+        if "<link rel=\"canonical\"" not in html or "BreadcrumbList" not in html:
+            raise SystemExit(f"Missing SEO metadata in {path.relative_to(site_dir)}")
 
 
 def resolve_local_reference(site_dir: Path, reference: str) -> Path | None:

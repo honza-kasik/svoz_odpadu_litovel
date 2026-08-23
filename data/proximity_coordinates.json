@@ -1,0 +1,578 @@
+{
+  "version": 1,
+  "source": {
+    "name": "OpenStreetMap",
+    "url": "https://www.openstreetmap.org/copyright",
+    "license": "ODbL",
+    "imported": "2026-08-20"
+  },
+  "street_coordinates": {
+    "1. máje": {
+      "latitude": 49.6999736,
+      "longitude": 17.075249,
+      "accuracy": "provisional"
+    },
+    "B. Němcové": {
+      "latitude": 49.7033131,
+      "longitude": 17.0750106,
+      "accuracy": "provisional"
+    },
+    "Bezručova": {
+      "latitude": 49.7002827,
+      "longitude": 17.0860319,
+      "accuracy": "provisional"
+    },
+    "Boskovicova": {
+      "latitude": 49.7010539,
+      "longitude": 17.0748977,
+      "accuracy": "provisional"
+    },
+    "Cholinská": {
+      "latitude": 49.6896873,
+      "longitude": 17.0712318,
+      "accuracy": "provisional"
+    },
+    "Družstevní": {
+      "latitude": 49.6984293,
+      "longitude": 17.0825501,
+      "accuracy": "provisional"
+    },
+    "Dukelská": {
+      "latitude": 49.700544,
+      "longitude": 17.0717702,
+      "accuracy": "provisional"
+    },
+    "G. Frištenského": {
+      "latitude": 49.6958111,
+      "longitude": 17.0763872,
+      "accuracy": "provisional"
+    },
+    "Gemerská - rodinné domy": {
+      "latitude": 49.7073997,
+      "longitude": 17.0760943,
+      "accuracy": "provisional"
+    },
+    "Gemerská - sídliště": {
+      "latitude": 49.7073997,
+      "longitude": 17.0760943,
+      "accuracy": "provisional"
+    },
+    "Havlíčkova": {
+      "latitude": 49.7007738,
+      "longitude": 17.0737371,
+      "accuracy": "provisional"
+    },
+    "Hrnčířská": {
+      "latitude": 49.7062634,
+      "longitude": 17.0766743,
+      "accuracy": "provisional"
+    },
+    "Husova": {
+      "latitude": 49.7013046,
+      "longitude": 17.0786039,
+      "accuracy": "provisional"
+    },
+    "Javoříčská": {
+      "latitude": 49.7045329,
+      "longitude": 17.0713011,
+      "accuracy": "provisional"
+    },
+    "Jiráskova": {
+      "latitude": 49.7005507,
+      "longitude": 17.0842803,
+      "accuracy": "provisional"
+    },
+    "Jungmannova": {
+      "latitude": 49.7011903,
+      "longitude": 17.0772909,
+      "accuracy": "provisional"
+    },
+    "Karla Sedláka - sídliště": {
+      "latitude": 49.7084736,
+      "longitude": 17.075677,
+      "accuracy": "provisional"
+    },
+    "Karlov": {
+      "latitude": 49.6932002,
+      "longitude": 17.0938259,
+      "accuracy": "provisional"
+    },
+    "Karlovská": {
+      "latitude": 49.7003264,
+      "longitude": 17.0819012,
+      "accuracy": "provisional"
+    },
+    "Kollárova": {
+      "latitude": 49.7031972,
+      "longitude": 17.0812658,
+      "accuracy": "provisional"
+    },
+    "Komenského": {
+      "latitude": 49.7019441,
+      "longitude": 17.074051,
+      "accuracy": "provisional"
+    },
+    "Komárov": {
+      "latitude": 49.7028994,
+      "longitude": 17.0693939,
+      "accuracy": "provisional"
+    },
+    "Kosmonautů": {
+      "latitude": 49.7036425,
+      "longitude": 17.0867858,
+      "accuracy": "provisional"
+    },
+    "Kostelní": {
+      "latitude": 49.7020378,
+      "longitude": 17.0747083,
+      "accuracy": "provisional"
+    },
+    "Koupaliště": {
+      "latitude": 49.7036312,
+      "longitude": 17.0697995,
+      "accuracy": "provisional"
+    },
+    "Králova": {
+      "latitude": 49.7079741,
+      "longitude": 17.0718234,
+      "accuracy": "provisional"
+    },
+    "Kysucká": {
+      "latitude": 49.7046285,
+      "longitude": 17.0746048,
+      "accuracy": "provisional"
+    },
+    "Lesní zátiší": {
+      "latitude": 49.7008714,
+      "longitude": 17.0868131,
+      "accuracy": "provisional"
+    },
+    "Lidická": {
+      "latitude": 49.7039372,
+      "longitude": 17.0734411,
+      "accuracy": "provisional"
+    },
+    "Loštická": {
+      "latitude": 49.7105841,
+      "longitude": 17.0681188,
+      "accuracy": "provisional"
+    },
+    "Lužní": {
+      "latitude": 49.7023271,
+      "longitude": 17.0896287,
+      "accuracy": "provisional"
+    },
+    "Masarykova": {
+      "latitude": 49.7021781,
+      "longitude": 17.0759634,
+      "accuracy": "provisional"
+    },
+    "Mlýnská": {
+      "latitude": 49.7018092,
+      "longitude": 17.0733303,
+      "accuracy": "provisional"
+    },
+    "Nasobůrská": {
+      "latitude": 49.6964809,
+      "longitude": 17.0738292,
+      "accuracy": "provisional"
+    },
+    "Novosady - sídliště": {
+      "latitude": 49.7089339,
+      "longitude": 17.0781277,
+      "accuracy": "provisional"
+    },
+    "Nová": {
+      "latitude": 49.7042117,
+      "longitude": 17.0881653,
+      "accuracy": "provisional"
+    },
+    "Nábřežní": {
+      "latitude": 49.6967378,
+      "longitude": 17.0759203,
+      "accuracy": "provisional"
+    },
+    "Nádražní": {
+      "latitude": 49.6939001,
+      "longitude": 17.0721058,
+      "accuracy": "provisional"
+    },
+    "Nám. Př. Otakara": {
+      "latitude": 49.7014533,
+      "longitude": 17.075623,
+      "accuracy": "provisional"
+    },
+    "Olomoucká": {
+      "latitude": 49.689783,
+      "longitude": 17.0763474,
+      "accuracy": "provisional"
+    },
+    "Opletalova": {
+      "latitude": 49.7005211,
+      "longitude": 17.0800769,
+      "accuracy": "provisional"
+    },
+    "Palackého": {
+      "latitude": 49.6959153,
+      "longitude": 17.0742758,
+      "accuracy": "provisional"
+    },
+    "Pavlínka": {
+      "latitude": 49.7074493,
+      "longitude": 17.0867216,
+      "accuracy": "provisional"
+    },
+    "Poděbradova": {
+      "latitude": 49.7008784,
+      "longitude": 17.0760814,
+      "accuracy": "provisional"
+    },
+    "Polní": {
+      "latitude": 49.7088326,
+      "longitude": 17.0806193,
+      "accuracy": "provisional"
+    },
+    "Pošmýlská": {
+      "latitude": 49.705978,
+      "longitude": 17.0869015,
+      "accuracy": "provisional"
+    },
+    "Příčná": {
+      "latitude": 49.6988339,
+      "longitude": 17.0728069,
+      "accuracy": "provisional"
+    },
+    "Revoluční": {
+      "latitude": 49.7027904,
+      "longitude": 17.0744324,
+      "accuracy": "provisional"
+    },
+    "Revúcká": {
+      "latitude": 49.6995093,
+      "longitude": 17.0896975,
+      "accuracy": "provisional"
+    },
+    "Rybníček": {
+      "latitude": 49.7064748,
+      "longitude": 17.0799587,
+      "accuracy": "provisional"
+    },
+    "Sadová": {
+      "latitude": 49.7050653,
+      "longitude": 17.0842969,
+      "accuracy": "provisional"
+    },
+    "Severní": {
+      "latitude": 49.7099999,
+      "longitude": 17.0764181,
+      "accuracy": "provisional"
+    },
+    "Smyčkova": {
+      "latitude": 49.7003043,
+      "longitude": 17.0729868,
+      "accuracy": "provisional"
+    },
+    "Sochova": {
+      "latitude": 49.7014388,
+      "longitude": 17.084336,
+      "accuracy": "provisional"
+    },
+    "Staroměstské náměstí": {
+      "latitude": 49.7075742,
+      "longitude": 17.0732857,
+      "accuracy": "provisional"
+    },
+    "Studentů": {
+      "latitude": 49.7007347,
+      "longitude": 17.0824717,
+      "accuracy": "provisional"
+    },
+    "Sušilova": {
+      "latitude": 49.7065483,
+      "longitude": 17.0781275,
+      "accuracy": "provisional"
+    },
+    "Svatoplukova": {
+      "latitude": 49.6914876,
+      "longitude": 17.0715497,
+      "accuracy": "provisional"
+    },
+    "Třebízského": {
+      "latitude": 49.7022824,
+      "longitude": 17.0768352,
+      "accuracy": "provisional"
+    },
+    "U Stadionu": {
+      "latitude": 49.707198,
+      "longitude": 17.0892505,
+      "accuracy": "provisional"
+    },
+    "Uničovská": {
+      "latitude": 49.7108529,
+      "longitude": 17.0746856,
+      "accuracy": "provisional"
+    },
+    "Uničovská - sídliště": {
+      "latitude": 49.7108529,
+      "longitude": 17.0746856,
+      "accuracy": "provisional"
+    },
+    "Vlašímova": {
+      "latitude": 49.7020541,
+      "longitude": 17.0753168,
+      "accuracy": "provisional"
+    },
+    "Vodní": {
+      "latitude": 49.6995543,
+      "longitude": 17.0737898,
+      "accuracy": "provisional"
+    },
+    "Vítězná": {
+      "latitude": 49.7043698,
+      "longitude": 17.0771869,
+      "accuracy": "provisional"
+    },
+    "Wolkerova": {
+      "latitude": 49.7039353,
+      "longitude": 17.0876636,
+      "accuracy": "provisional"
+    },
+    "Zahradní": {
+      "latitude": 49.7067308,
+      "longitude": 17.0708927,
+      "accuracy": "provisional"
+    },
+    "nám. Svobody": {
+      "latitude": 49.7027661,
+      "longitude": 17.0737086,
+      "accuracy": "provisional"
+    },
+    "Vítězná - sídliště": {
+      "latitude": 49.7043698,
+      "longitude": 17.0771869,
+      "accuracy": "provisional"
+    },
+    "Červenská": {
+      "latitude": 49.7087634,
+      "longitude": 17.0800531,
+      "accuracy": "provisional"
+    },
+    "Čihadlo": {
+      "latitude": 49.6993444,
+      "longitude": 17.0794277,
+      "accuracy": "provisional"
+    },
+    "Čs. armády": {
+      "latitude": 49.7018225,
+      "longitude": 17.0852429,
+      "accuracy": "provisional"
+    },
+    "Šafaříkova": {
+      "latitude": 49.7019248,
+      "longitude": 17.0764592,
+      "accuracy": "provisional"
+    },
+    "Šargounská": {
+      "latitude": 49.6974993,
+      "longitude": 17.0824178,
+      "accuracy": "provisional"
+    },
+    "Šemberova": {
+      "latitude": 49.6999046,
+      "longitude": 17.0849452,
+      "accuracy": "provisional"
+    },
+    "Šerhovní": {
+      "latitude": 49.7017025,
+      "longitude": 17.0744562,
+      "accuracy": "provisional"
+    },
+    "Šmakalova": {
+      "latitude": 49.7022916,
+      "longitude": 17.0851507,
+      "accuracy": "provisional"
+    },
+    "Štefánikova": {
+      "latitude": 49.6902382,
+      "longitude": 17.0742274,
+      "accuracy": "provisional"
+    },
+    "Švermova": {
+      "latitude": 49.7002447,
+      "longitude": 17.0878655,
+      "accuracy": "provisional"
+    },
+    "Švédská": {
+      "latitude": 49.6997901,
+      "longitude": 17.076002,
+      "accuracy": "provisional"
+    },
+    "Žerotínova": {
+      "latitude": 49.7073262,
+      "longitude": 17.0787065,
+      "accuracy": "provisional"
+    },
+    "Novosady - rodinné domy": {
+      "latitude": 49.7089339,
+      "longitude": 17.0781277,
+      "accuracy": "provisional"
+    },
+    "Severní - rodinné domy": {
+      "latitude": 49.7099999,
+      "longitude": 17.0764181,
+      "accuracy": "provisional"
+    },
+    "Březové": {
+      "latitude": 49.680612,
+      "longitude": 17.120041,
+      "accuracy": "provisional"
+    },
+    "Chořelice": {
+      "latitude": 49.6900699,
+      "longitude": 17.0795808,
+      "accuracy": "provisional"
+    },
+    "Chudobín": {
+      "latitude": 49.6887854,
+      "longitude": 17.0374793,
+      "accuracy": "provisional"
+    },
+    "Myslechovice": {
+      "latitude": 49.6736404,
+      "longitude": 17.0455444,
+      "accuracy": "provisional"
+    },
+    "Nasobůrky": {
+      "latitude": 49.6879413,
+      "longitude": 17.0572348,
+      "accuracy": "provisional"
+    },
+    "Nová Ves": {
+      "latitude": 49.6822725,
+      "longitude": 17.0169665,
+      "accuracy": "provisional"
+    },
+    "Unčovice": {
+      "latitude": 49.6669956,
+      "longitude": 17.1063865,
+      "accuracy": "provisional"
+    },
+    "Rozvadovice": {
+      "latitude": 49.6764969,
+      "longitude": 17.0923809,
+      "accuracy": "provisional"
+    },
+    "Savín": {
+      "latitude": 49.6745845,
+      "longitude": 16.986147,
+      "accuracy": "provisional"
+    },
+    "Tři Dvory": {
+      "latitude": 49.7145671,
+      "longitude": 17.1075299,
+      "accuracy": "provisional"
+    },
+    "Víska": {
+      "latitude": 49.6997641,
+      "longitude": 17.0526453,
+      "accuracy": "provisional"
+    }
+  },
+  "site_coordinates": {
+    "litovel-pavlinka": {
+      "latitude": 49.7074493,
+      "longitude": 17.0867216,
+      "accuracy": "provisional"
+    },
+    "litovel-dukelska": {
+      "latitude": 49.700544,
+      "longitude": 17.0717702,
+      "accuracy": "provisional"
+    },
+    "rozvadovice": {
+      "latitude": 49.6764969,
+      "longitude": 17.0923809,
+      "accuracy": "provisional"
+    },
+    "tri-dvory": {
+      "latitude": 49.7145671,
+      "longitude": 17.1075299,
+      "accuracy": "provisional"
+    },
+    "litovel-javoricska": {
+      "latitude": 49.7045329,
+      "longitude": 17.0713011,
+      "accuracy": "provisional"
+    },
+    "litovel-cervenska": {
+      "latitude": 49.7087634,
+      "longitude": 17.0800531,
+      "accuracy": "provisional"
+    },
+    "brezove": {
+      "latitude": 49.680612,
+      "longitude": 17.120041,
+      "accuracy": "provisional"
+    },
+    "chorelice": {
+      "latitude": 49.6900699,
+      "longitude": 17.0795808,
+      "accuracy": "provisional"
+    },
+    "savin": {
+      "latitude": 49.6745845,
+      "longitude": 16.986147,
+      "accuracy": "provisional"
+    },
+    "litovel-komarov": {
+      "latitude": 49.7028994,
+      "longitude": 17.0693939,
+      "accuracy": "provisional"
+    },
+    "litovel-palackeho": {
+      "latitude": 49.6959153,
+      "longitude": 17.0742758,
+      "accuracy": "provisional"
+    },
+    "chudobin": {
+      "latitude": 49.6887854,
+      "longitude": 17.0374793,
+      "accuracy": "provisional"
+    },
+    "myslechovice": {
+      "latitude": 49.6736404,
+      "longitude": 17.0455444,
+      "accuracy": "provisional"
+    },
+    "nova-ves": {
+      "latitude": 49.6822725,
+      "longitude": 17.0169665,
+      "accuracy": "provisional"
+    },
+    "litovel-sargounska": {
+      "latitude": 49.6974993,
+      "longitude": 17.0824178,
+      "accuracy": "provisional"
+    },
+    "litovel-sochova": {
+      "latitude": 49.7014388,
+      "longitude": 17.084336,
+      "accuracy": "provisional"
+    },
+    "litovel-zerotinova": {
+      "latitude": 49.7073262,
+      "longitude": 17.0787065,
+      "accuracy": "provisional"
+    },
+    "nasoburky": {
+      "latitude": 49.6879413,
+      "longitude": 17.0572348,
+      "accuracy": "provisional"
+    },
+    "viska": {
+      "latitude": 49.6997641,
+      "longitude": 17.0526453,
+      "accuracy": "provisional"
+    }
+  }
+}

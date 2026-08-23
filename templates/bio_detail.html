@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{TITLE}}</title>
+    <meta name="description" content="{{DESCRIPTION}}">
+    <meta name="author" content="Honza Kašík">
+    <meta name="robots" content="index, follow">
+    {{BREADCRUMBS_JSONLD}}
+    <link rel="canonical" href="{{CANONICAL}}">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <meta property="og:title" content="{{TITLE}}">
+    <meta property="og:description" content="{{DESCRIPTION}}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{CANONICAL}}">
+    <meta property="og:image" content="{{SOCIAL_IMAGE}}">
+    <meta property="og:image:width" content="{{SOCIAL_IMAGE_WIDTH}}">
+    <meta property="og:image:height" content="{{SOCIAL_IMAGE_HEIGHT}}">
+    <meta property="og:image:alt" content="{{SOCIAL_IMAGE_ALT}}">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="/styles.css?v={{CSS_VERSION}}">
+</head>
+<body class="bio-page bio-detail-page">
+    <header id="siteHeader" class="site-header">
+        <div class="site-header-inner">
+            <a class="site-brand" href="/" aria-label="Svoz odpadu Litovel – úvodní stránka">
+                <img src="/favicon.png" width="30" height="30" alt="">
+                <span>Svoz odpadu Litovel</span>
+            </a>
+            <nav class="site-nav" aria-label="Hlavní navigace">
+                <a href="/">Svoz podle ulice</a>
+                <a href="/bio/" aria-current="page">Bio kontejnery</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <p class="bio-back-link"><a href="{{BACK_LINK}}">← {{BACK_LABEL}}</a></p>
+        <h1>{{H1}}</h1>
+        {{CONTENT}}
+    </main>
+
+    <p class="disclaimer">
+        Kalendář je <a href="https://github.com/honza-kasik/svoz_odpadu_litovel" target="_blank" rel="noopener">nezávislý projekt</a>.
+        Přibližné polohy: <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap contributors</a>.
+    </p>
+
+    <script async src="https://scripts.simpleanalyticscdn.com/sri/v11.js"
+            integrity="sha384-rfv15RJy1bBYZ1Mf4xizO26jorXb2myipCvHXy4rkG0SuEET96S+m0sTzu5vfbSI"
+            crossorigin="anonymous"></script>
+</body>
+</html>
