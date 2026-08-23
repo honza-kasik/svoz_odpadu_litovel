@@ -1205,6 +1205,15 @@ input {
   margin-top: 14px;
 }
 
+.nearby-bio-group + .nearby-bio-group {
+  margin-top: 18px;
+}
+
+.nearby-bio-group h3 {
+  margin: 14px 0 0;
+  font-size: 0.95rem;
+}
+
 .nearby-bio-card {
   display: grid;
   grid-template-columns: 20px 1fr auto;
@@ -1216,7 +1225,15 @@ input {
 }
 
 .nearby-bio-marker {
+  color: #64748b;
+}
+
+.nearby-bio-marker-current {
   color: #4d8f2a;
+}
+
+.nearby-bio-marker-upcoming {
+  color: #b7791f;
 }
 
 .nearby-bio-site {
@@ -1246,14 +1263,6 @@ input {
 
 .nearby-bio-distance {
   white-space: nowrap;
-}
-
-.nearby-bio-status-current {
-  color: #15803d !important;
-}
-
-.nearby-bio-status-upcoming {
-  color: #b45309 !important;
 }
 
 .nearby-bio-map {
