@@ -28,6 +28,8 @@ Soubor `ics` lze importovat do Google kalendáře a pravděpodobně i dalších 
 
 Soubor `csv` slouží primárně jako zdroj dat pro link:index.html[index.html] dostupný z https://svoz.litovle.cz
 
+Vizuální pravidla a povolené prvky rozhraní jsou popsané v link:DESIGN.md[`DESIGN.md`]. Nové obrazovky mají používat sdílené CSS tokeny a komponenty namísto zavádění dalších variant karet, rámečků a štítků.
+
 == Lokální build a validace
 
 Projekt používá Python 3.12. Závislosti jsou deklarované v link:requirements.txt[`requirements.txt`].
@@ -94,6 +96,39 @@ https://support.google.com/calendar/answer/37118?hl=cs&co=GENIE.Platform%3DDeskt
 == Zdrojová data
 
 Zdrojová data se nachází v link:resources/[resources/]. Jsou to letáčky distribuované městem v PDF podobě. Součástí repozitáře jsou proto, aby byly dohledatelné případné změny.
+
+=== Bio kontejnery
+
+Dočasná přistavení velkoobjemových kontejnerů na bioodpad jsou oddělena od pravidelného svozu podle ulic. Roční strojově čitelné harmonogramy jsou v `data/bio_containers/{rok}.json`; aktivní soubor určuje link:data/site_config.json[`data/site_config.json`] a odkazuje na původní městské podklady v `resources/{rok}/`.
+
+Model rozlišuje lokalitu, fyzické stanoviště a termín přistavení. Stanoviště nejsou navázána na seznam ulic. Unčovice proto obsahují dvě samostatná stanoviště (`u hasičárny` a `před Selikem`) a jednotlivé termíny odkazují na správné z nich. Termín je včetně prvního i posledního dne.
+
+Souřadnice stanoviště jsou nepovinné, ale pokud jsou uvedené, musí obsahovat zeměpisnou šířku, délku a údaj o přesnosti. Web nabídne mapu pouze pro stanoviště označené jako přesné. Doplnění souřadnic nemění jednotlivé termíny.
+
+Každá stránka ulice s dostupnou polohou zobrazuje tři nejbližší právě přistavené kontejnery, případně nejbližší stanoviště z následujícího termínu. Vzdálenosti se počítají při sestavení webu a nevytvářejí vazbu mezi ulicí a stanovištěm. Přibližné středy ulic a místních částí pocházejí z OpenStreetMap a jsou uložené v link:data/proximity_coordinates.json[`data/proximity_coordinates.json`]. Pokud pro ulici nebo stanoviště neexistuje geograficky podložená poloha, web vzdálenost nevymýšlí a daný výsledek nezobrazí. Explicitní přesné souřadnice stanoviště automaticky nahradí přibližný bod při příštím sestavení.
+
+Přesné souřadnice mají `accuracy: "precise"`; pouze ty umožní odkaz na mapu. Dočasná data mají `accuracy: "provisional"`.
+
+Přibližné body lze znovu importovat z uloženého Overpass JSON exportu příkazem `python scripts/import_osm_proximity.py export.json`. Importér páruje názvy ulic a místních částí, zapisuje pouze nalezené prvky a vypíše nepřiřazené stránky a stanoviště.
+
+Bio část používá stabilní, na roku nezávislé URL:
+
+* `/bio/stanoviste/{id}/` pro aktuální stav a úplný harmonogram fyzického stanoviště,
+* `/bio/pobliz/{slug-ulice}/` pro nejbližší aktuální nebo nadcházející kontejnery podle ulice či místní části.
+
+Vyhledávání na `/bio/` nabízí obě skupiny odděleně a po výběru přejde na příslušnou staticky vygenerovanou stránku. Hlavní bio stránka zvýrazňuje právě přistavené kontejnery a nejbližší další termín; úplný roční harmonogram je sbalený a seskupený podle termínů.
+
+Při přidání nového ročního harmonogramu:
+
+1. Uložit původní PDF do `resources/{rok}/`.
+2. Zkopírovat předchozí roční JSON do `data/bio_containers/{rok}.json`, ponechat stabilní ID stanovišť a souřadnice a nahradit zdroje a všechna zveřejněná období. Z termínů se nevytvářejí opakující se Python pravidla.
+3. V `lokace_svozu.py` ověřit pravidelný svoz pro nový rok, přidat rok do `REGULAR_SCHEDULE_YEARS` a doplnit jeho explicitní `BIO_COLLECTION_WEEK_RULES`. Starý vzor se nesmí automaticky extrapolovat.
+4. Přidat `data/news/{rok}.html`; soubor může být zpočátku prázdný.
+5. V `data/site_config.json` nastavit veřejný `target_year`, `waste_active_year`, seznam zobrazovaných `calendar_years` a podle dostupnosti samostatně `bio_active_year` a `bio_schedule_file`.
+6. V testech zachovat audit starého roku a přidat nový audit podle zveřejněných PDF.
+7. Spustit projektovou validaci a sestavení webu popsané výše.
+
+`project_config.py` je jediným zdrojem veřejného cílového roku, aktivních datových roků a rozsahu generovaných kalendářů. Pravidelný svoz a bio kontejnery mají nezávislé roky, protože město nemusí oba podklady zveřejnit současně. Pokud je bio harmonogram starší než `target_year`, bio stránky jej označí jako poslední dostupný a výslovně uvedou, že nový harmonogram zatím nebyl zveřejněn. Po vypršení všech jeho termínů stránky podle ulic stále ukazují nejbližší fyzická stanoviště, ale stará data neoznačují jako aktuální ani nadcházející. Build selže, pokud rok bio harmonogramu neodpovídá jeho názvu nebo obsahu, chybí zdrojové PDF či roční novinky nebo pravidelný svoz nebyl pro některý konfigurovaný rok explicitně schválen. Od 1. ledna rovněž selže nasazení se starším cílovým rokem nebo rokem pravidelného svozu, takže denní GitHub Action nemůže tiše publikovat loňský kalendář; starší autoritativní bio harmonogram však nasazení neblokuje.
 
 === Model svozu
 

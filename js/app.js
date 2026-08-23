@@ -119,7 +119,9 @@ function hideKioskElements() {
         'footerControls',
         'locationList',
         'subtitle',
-        'relatedStreets'
+        'relatedStreets',
+        'siteHeader',
+        'nearbyBio'
     ];
 
     elementIds.forEach(id => {

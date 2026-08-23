@@ -8,6 +8,13 @@ from streets import *
 from utils import date_range
 
 
+REGULAR_SCHEDULE_YEARS = {2025, 2026}
+BIO_COLLECTION_WEEK_RULES = {
+    2025: {"parity": "odd", "excluded_weeks": {1, 3, 7, 51, 53}},
+    2026: {"parity": "even", "excluded_weeks": {1, 2, 6, 50, 52}},
+}
+
+
 class WasteType(Enum):
     SMES = ("Směsný odpad", "generic")
     PLAST = ("Plast", "plastics")
@@ -231,8 +238,20 @@ def is_bio_collection_week(date: datetime) -> bool:
     #nektera data v lednu, unoru a prosinci svoz neprobiha
     #returns true if bio waste is not collected in given week, false otherwise
     #week 1 is the week with first Thursday
-    if date.year == 2025:
-        return week(date) % 2 != 0 and week(date) not in [1,3,7,51,53]
-    if date.year == 2026:
-        return week(date) % 2 == 0 and week(date) not in [1,2,6,50,52]
-    return False
+    rule = BIO_COLLECTION_WEEK_RULES.get(date.year)
+    if rule is None:
+        return False
+    expected_parity = 0 if rule["parity"] == "even" else 1
+    return week(date) % 2 == expected_parity and week(date) not in rule["excluded_weeks"]
+
+
+def validate_regular_schedule_years(years) -> None:
+    unsupported = set(years) - REGULAR_SCHEDULE_YEARS
+    missing_bio_rules = set(years) - set(BIO_COLLECTION_WEEK_RULES)
+    if unsupported or missing_bio_rules:
+        problems = []
+        if unsupported:
+            problems.append(f"regular schedule not audited for {sorted(unsupported)}")
+        if missing_bio_rules:
+            problems.append(f"bio week rules missing for {sorted(missing_bio_rules)}")
+        raise ValueError("; ".join(problems))

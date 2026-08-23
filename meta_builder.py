@@ -1,6 +1,8 @@
 from dataclasses import dataclass
 from urllib.parse import quote
 
+from project_config import project_config
+
 @dataclass(frozen=True)
 class MetaConfig:
     city: str
@@ -15,7 +17,7 @@ config = MetaConfig(
     city = "Litovel",
     city_v = "Litovli",
     city_koho = "Litovle",
-    year = 2026,
+    year = project_config.waste_active_year,
     base_url = "https://svoz.litovle.cz",
     base_domain = "svoz.litovle.cz"
 )
@@ -45,6 +47,43 @@ class MetaBuilder:
             "ICS_SUBSCRIPTION_WEBCAL": "",
             "ICS_SUBSCRIPTION_GOOGLE": ""
 
+        }
+
+    def bio(self, year: int):
+        return {
+            "TITLE": f"Svoz bioodpadu Litovel {year} – bio kontejnery a termíny",
+            "DESCRIPTION": (
+                f"Svoz bioodpadu v Litovli {year}: zjistěte, kde jsou bio kontejnery "
+                "právě přistavené, a prohlédněte si další termíny a stanoviště."
+            ),
+            "CANONICAL": f"{self.config.base_url}/bio/",
+            "H1": f"Svoz bioodpadu v Litovli – bio kontejnery {year}",
+            "SUBTITLE": (
+                "Aktuální umístění a harmonogram přistavení velkoobjemových "
+                f"kontejnerů na bioodpad v Litovli a místních částech pro rok {year}."
+            ),
+        }
+
+    def bio_site(self, site_name: str, slug: str, year: int):
+        return {
+            "TITLE": f"Svoz bioodpadu Litovel – bio kontejner {site_name} {year}",
+            "DESCRIPTION": (
+                f"Bio kontejner {site_name}: zjistěte, zda je právě přistavený, "
+                f"a prohlédněte si všechny termíny svozu bioodpadu v Litovli pro rok {year}."
+            ),
+            "CANONICAL": f"{self.config.base_url}/bio/stanoviste/{slug}/",
+            "H1": f"Bio kontejner {site_name}",
+        }
+
+    def bio_nearby(self, street_name: str, slug: str, year: int):
+        return {
+            "TITLE": f"Svoz bioodpadu {street_name}, Litovel – nejbližší bio kontejnery",
+            "DESCRIPTION": (
+                f"Najděte nejbližší bio kontejnery pro lokalitu {street_name} v Litovli, "
+                f"jejich vzdálenost a termíny přistavení v roce {year}."
+            ),
+            "CANONICAL": f"{self.config.base_url}/bio/pobliz/{slug}/",
+            "H1": f"Bio kontejnery poblíž {street_name}",
         }
 
     # -------------------------------------------------

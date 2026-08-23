@@ -1,14 +1,21 @@
-from datetime import datetime
+from datetime import date, datetime
+from html import escape
 import hashlib
+import json
 from pathlib import Path
 import random
+from zoneinfo import ZoneInfo
 
 from utils import slugify
 from streets import mistni_casti
 from meta_builder import MetaBuilder, config
+from proximity import find_nearby_bio_placements
+from project_config import project_config
 
 BASE_URL = "https://svoz.litovle.cz"
 TEMPLATE_PATH = "templates/layout.html"
+BIO_TEMPLATE_PATH = "templates/bio.html"
+BIO_DETAIL_TEMPLATE_PATH = "templates/bio_detail.html"
 
 meta_builder = MetaBuilder(config)
 
@@ -17,17 +24,27 @@ meta_builder = MetaBuilder(config)
 # -------------------------------------------------
 
 def render_template(output_path: str | Path, context: dict):
-    with open(TEMPLATE_PATH, "r", encoding="utf-8") as f:
+    template_path = context.pop("_TEMPLATE_PATH", TEMPLATE_PATH)
+    with open(template_path, "r", encoding="utf-8") as f:
         html = f.read()
+
+    # Keep generated markup and its stylesheet in sync across deployments.
+    context.setdefault("CSS_VERSION", file_digest("styles.css"))
 
     for key, value in context.items():
         html = html.replace(f"{{{{{key}}}}}", value)
+
+    html = "\n".join(line.rstrip() for line in html.splitlines()) + "\n"
 
     output_path = Path(output_path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
     with output_path.open("w", encoding="utf-8") as f:
         f.write(html)
+
+
+def file_digest(path: str | Path) -> str:
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()[:12]
 
 
 # -------------------------------------------------
@@ -44,6 +61,7 @@ def build_index(streets, social_images, output_dir: str | Path = "."):
         "LOCATION_LIST": location_list_html,
         "STREET_NAME": "null",
         "RELATED_STREETS_HTML": "",
+        "NEARBY_BIO_HTML": "",
         **build_social_context(social_images["index"]),
         "BREADCRUMBS_JSONLD": build_index_jsonld() + build_index_itemlist_jsonld(streets)
     }
@@ -55,7 +73,16 @@ def build_index(streets, social_images, output_dir: str | Path = "."):
 # STREET PAGES
 # -------------------------------------------------
 
-def build_street_pages(generator, streets, social_images, output_dir: str | Path = "."):
+def build_street_pages(
+    generator,
+    streets,
+    social_images,
+    bio_schedule,
+    proximity_config,
+    output_dir: str | Path = ".",
+):
+
+    reference_date = datetime.now(ZoneInfo("Europe/Prague")).date()
 
     for street in streets:
 
@@ -69,6 +96,12 @@ def build_street_pages(generator, streets, social_images, output_dir: str | Path
             "LOCATION_LIST": "",
             "STREET_NAME": f'"{street}"',
             "RELATED_STREETS_HTML": related_html,
+            "NEARBY_BIO_HTML": build_nearby_bio_html(
+                street,
+                bio_schedule,
+                proximity_config,
+                reference_date,
+            ),
             **build_social_context(social_images[slug]),
             "BREADCRUMBS_JSONLD": build_breadcrumbs_jsonld(street, slug)
         }
@@ -77,6 +110,482 @@ def build_street_pages(generator, streets, social_images, output_dir: str | Path
             Path(output_dir) / "ulice" / slug / "index.html",
             context
         )
+
+
+def build_bio_pages(
+    schedule,
+    streets,
+    proximity_config,
+    social_image,
+    output_dir: str | Path = ".",
+):
+    validate_bio_routes(schedule, streets)
+    reference_date = datetime.now(ZoneInfo("Europe/Prague")).date()
+    search_items = build_bio_search_items(schedule, streets, proximity_config)
+    overview = build_bio_overview(schedule, reference_date)
+
+    overview_context = {
+        **meta_builder.bio(schedule.year),
+        "_TEMPLATE_PATH": BIO_TEMPLATE_PATH,
+        "SCHEDULE_YEAR": str(schedule.year),
+        "BIO_YEAR_NOTICE": build_bio_year_notice(schedule.year),
+        "CURRENT_PLACEMENTS": overview["current"],
+        "NEXT_PLACEMENTS": overview["next"],
+        "GROUPED_SCHEDULE": overview["schedule"],
+        "SOURCE_LINKS": build_bio_source_links(schedule.sources),
+        "SEARCH_ITEMS_JSON": json.dumps(search_items, ensure_ascii=False).replace("<", "\\u003c"),
+        "BIO_JS_VERSION": file_digest("js/bio.js"),
+        **build_social_context(social_image),
+        "BREADCRUMBS_JSONLD": (
+            build_bio_breadcrumbs_jsonld()
+            + build_bio_collection_jsonld(schedule)
+        ),
+    }
+    render_template(Path(output_dir) / "bio" / "index.html", overview_context)
+
+    for site in schedule.sites:
+        placements = [item for item in schedule.placements if item.site.id == site.id]
+        context = {
+            **meta_builder.bio_site(site.display_name, site.id, schedule.year),
+            "_TEMPLATE_PATH": BIO_DETAIL_TEMPLATE_PATH,
+            "CONTENT": (
+                build_bio_year_notice(schedule.year)
+                + build_bio_site_detail(
+                    site,
+                    placements,
+                    schedule.sources,
+                    reference_date,
+                    schedule.year,
+                )
+            ),
+            "BACK_LINK": "/bio/",
+            "BACK_LABEL": "Všechna stanoviště",
+            **build_social_context(social_image),
+            "BREADCRUMBS_JSONLD": build_bio_detail_breadcrumbs_jsonld(
+                "Stanoviště", site.display_name, f"stanoviste/{site.id}"
+            ),
+        }
+        render_template(
+            Path(output_dir) / "bio" / "stanoviste" / site.id / "index.html",
+            context,
+        )
+
+    for street in streets:
+        if street not in proximity_config.street_coordinates:
+            continue
+        slug = slugify(street)
+        content = build_nearby_bio_html(
+            street,
+            schedule,
+            proximity_config,
+            reference_date,
+            focused=True,
+        )
+        context = {
+            **meta_builder.bio_nearby(street, slug, schedule.year),
+            "_TEMPLATE_PATH": BIO_DETAIL_TEMPLATE_PATH,
+            "CONTENT": build_bio_year_notice(schedule.year) + content,
+            "BACK_LINK": "/bio/",
+            "BACK_LABEL": "Bio kontejnery",
+            **build_social_context(social_image),
+            "BREADCRUMBS_JSONLD": build_bio_detail_breadcrumbs_jsonld(
+                "Poblíž", street, f"pobliz/{slug}"
+            ),
+        }
+        render_template(
+            Path(output_dir) / "bio" / "pobliz" / slug / "index.html",
+            context,
+        )
+
+
+def validate_bio_routes(schedule, streets) -> None:
+    site_slugs = [site.id for site in schedule.sites]
+    street_slugs = [slugify(street) for street in streets]
+    if len(site_slugs) != len(set(site_slugs)):
+        raise ValueError("duplicate bio site route")
+    if len(street_slugs) != len(set(street_slugs)):
+        raise ValueError("duplicate bio nearby route")
+    invalid = [site_id for site_id in site_slugs if slugify(site_id) != site_id]
+    if invalid:
+        raise ValueError(f"bio site ids must be URL-safe slugs: {', '.join(invalid)}")
+
+
+def build_bio_search_items(schedule, streets, proximity_config) -> list[dict]:
+    items = [
+        {
+            "type": "site",
+            "label": site.display_name,
+            "url": f"/bio/stanoviste/{site.id}/",
+        }
+        for site in schedule.sites
+    ]
+    items.extend(
+        {
+            "type": "location",
+            "label": street,
+            "url": f"/bio/pobliz/{slugify(street)}/",
+        }
+        for street in streets
+        if street in proximity_config.street_coordinates
+    )
+    return items
+
+
+def build_bio_overview(schedule, reference_date: date) -> dict[str, str]:
+    windows = group_bio_placements(schedule.placements)
+    current_windows = [
+        window
+        for window in windows
+        if window[0] <= reference_date <= window[1]
+    ]
+    future_windows = [window for window in windows if window[0] > reference_date]
+
+    if current_windows:
+        current_html = "".join(build_bio_window_html(window) for window in current_windows)
+    else:
+        current_html = '<p class="bio-window-empty">Právě nyní není přistaven žádný kontejner.</p>'
+
+    if future_windows:
+        next_date = min(window[0] for window in future_windows)
+        next_html = "".join(
+            build_bio_window_html(window)
+            for window in future_windows
+            if window[0] == next_date
+        )
+    else:
+        next_html = '<p class="bio-window-empty">Další termín zatím není uveden.</p>'
+
+    months = []
+    for month in range(1, 13):
+        month_windows = [window for window in windows if window[0].month == month]
+        if not month_windows:
+            continue
+        month_content = "".join(build_bio_window_html(window) for window in month_windows)
+        months.append(
+            f'''<section class="bio-schedule-month">
+                <h3>{czech_month_name(month)}</h3>
+                <div class="bio-window-list ui-data-list">{month_content}</div>
+            </section>'''
+        )
+    schedule_html = f'''<details class="bio-year-schedule ui-panel">
+        <summary>Celý roční harmonogram</summary>
+        <div class="bio-year-schedule-content">{''.join(months)}</div>
+    </details>'''
+    return {"current": current_html, "next": next_html, "schedule": schedule_html}
+
+
+def group_bio_placements(placements):
+    grouped = {}
+    for placement in placements:
+        key = (placement.date_from, placement.date_through)
+        grouped.setdefault(key, []).append(placement.site)
+    return [
+        (date_from, date_through, tuple(sorted(sites, key=lambda site: site.display_name)))
+        for (date_from, date_through), sites in sorted(grouped.items())
+    ]
+
+
+def build_bio_window_html(window) -> str:
+    date_from, date_through, sites = window
+    site_links = ", ".join(
+        f'<a href="/bio/stanoviste/{escape(site.id)}/">{escape(site.display_name)}</a>'
+        for site in sites
+    )
+    return f'''<article class="bio-window">
+        <div class="bio-window-date"><strong>{format_bio_date_range(date_from, date_through)}</strong></div>
+        <div class="bio-window-sites">{site_links}</div>
+    </article>'''
+
+
+def czech_month_name(month: int) -> str:
+    return (
+        "Leden", "Únor", "Březen", "Duben", "Květen", "Červen",
+        "Červenec", "Srpen", "Září", "Říjen", "Listopad", "Prosinec",
+    )[month - 1]
+
+
+def build_bio_site_detail(
+    site,
+    placements,
+    sources,
+    reference_date: date,
+    schedule_year: int | None = None,
+) -> str:
+    schedule_year = schedule_year or placements[0].date_from.year
+    current = next(
+        (
+            item
+            for item in placements
+            if item.date_from <= reference_date <= item.date_through
+        ),
+        None,
+    )
+    upcoming = next((item for item in placements if item.date_from > reference_date), None)
+    if current:
+        status_html = f'''<section class="bio-answer bio-answer-current ui-status">
+            <span class="bio-answer-kicker">Kontejner je právě přistaven</span>
+            <strong>K dispozici do {format_czech_short_date(current.date_through)}</strong>
+        </section>'''
+    elif upcoming:
+        status_html = f'''<section class="bio-answer bio-answer-upcoming ui-status">
+            <span class="bio-answer-kicker">Kontejner zde nyní není</span>
+            <strong>Další přistavení {format_bio_date_range(upcoming.date_from, upcoming.date_through)}</strong>
+        </section>'''
+    else:
+        status_html = '''<section class="bio-answer ui-status">
+            <span class="bio-answer-kicker">Kontejner zde nyní není</span>
+            <strong>Další termín zatím není uveden.</strong>
+        </section>'''
+
+    map_link = ""
+    if site.coordinates and site.coordinates.accuracy == "precise":
+        point = site.coordinates
+        map_link = (
+            '<p><a class="button bio-detail-map" target="_blank" rel="noopener" '
+            f'href="https://www.openstreetmap.org/?mlat={point.latitude:.6f}&mlon={point.longitude:.6f}#map=18/{point.latitude:.6f}/{point.longitude:.6f}">'
+            "Zobrazit na mapě</a></p>"
+        )
+
+    rows = "".join(build_bio_detail_date_row(item) for item in placements)
+    relevant_source_ids = {item.source.id for item in placements}
+    if site.locality == "Unčovice":
+        relevant_source_ids.add("bio-uncovice")
+    relevant_sources = [item for item in sources if item.id in relevant_source_ids]
+    source_links = build_bio_source_links(relevant_sources)
+    return f'''{status_html}{map_link}
+        <section class="bio-detail-schedule ui-panel">
+            <h2>Termíny v roce {schedule_year}</h2>
+            <ol class="bio-detail-dates ui-data-list">{rows}</ol>
+        </section>
+        <section class="bio-sources"><h2>Zdroje</h2><p>{source_links}</p></section>'''
+
+
+def build_bio_year_notice(schedule_year: int) -> str:
+    if schedule_year >= project_config.target_year:
+        return ""
+    return (
+        '<aside class="bio-notice bio-year-notice">'
+        f'Harmonogram bio kontejnerů pro rok {project_config.target_year} '
+        f'zatím nebyl zveřejněn. Zobrazen je poslední dostupný harmonogram pro rok {schedule_year}.'
+        "</aside>"
+    )
+
+
+def build_bio_detail_date_row(placement) -> str:
+    date_from = placement.date_from
+    date_through = placement.date_through
+    return f'''<li>
+        <time datetime="{date_from.isoformat()}">{date_from.day}.&nbsp;{date_from.month}.</time>
+        <span class="bio-date-separator" aria-hidden="true">–</span>
+        <time datetime="{date_through.isoformat()}">{date_through.day}.&nbsp;{date_through.month}.&nbsp;{date_through.year}</time>
+    </li>'''
+
+
+def build_nearby_bio_html(
+    street,
+    schedule,
+    proximity_config,
+    reference_date: date,
+    focused: bool = False,
+) -> str:
+    nearby = find_nearby_bio_placements(
+        street,
+        schedule,
+        proximity_config,
+        reference_date,
+    )
+    if not nearby:
+        return ""
+
+    cards = []
+    for item in nearby:
+        placement = item.placement
+        if item.status == "current":
+            date_html = f"<span>{format_bio_date_range(placement.date_from, placement.date_through)}</span>"
+            status_label = "Právě přistaveno"
+        elif item.status == "upcoming":
+            date_html = f"<span>{format_bio_date_range(placement.date_from, placement.date_through)}</span>"
+            status_label = "Nadcházející"
+        else:
+            date_html = "<span>Nový termín zatím není zveřejněn</span>"
+            status_label = "Poslední známé stanoviště"
+        map_link = ""
+        if item.site_coordinates.accuracy == "precise":
+            point = item.site_coordinates
+            map_url = (
+                "https://www.openstreetmap.org/"
+                f"?mlat={point.latitude:.6f}&mlon={point.longitude:.6f}"
+                f"#map=18/{point.latitude:.6f}/{point.longitude:.6f}"
+            )
+            map_link = (
+                f'<a class="nearby-bio-map" href="{escape(map_url)}" '
+                'target="_blank" rel="noopener">Mapa</a>'
+            )
+        cards.append(
+            f'''<article class="nearby-bio-card">
+                <div class="nearby-bio-marker" aria-hidden="true">●</div>
+                <div class="nearby-bio-site">
+                    <strong><a href="/bio/stanoviste/{escape(placement.site.id)}/">{escape(placement.site.display_name)}</a></strong>
+                    {date_html}
+                    <span class="nearby-bio-status nearby-bio-status-{item.status}">{status_label}</span>
+                </div>
+                <div class="nearby-bio-distance">{format_distance(item.distance_km, item.approximate)}</div>{map_link}
+            </article>'''
+        )
+
+    heading = "" if focused else f'''<div class="nearby-bio-heading">
+            <h2 id="nearbyBioHeading">Nejbližší bio kontejnery</h2>
+            <a href="/bio/pobliz/{slugify(street)}/">Podrobný přehled</a>
+        </div>'''
+    accessible_name = 'aria-label="Nejbližší bio kontejnery"' if focused else 'aria-labelledby="nearbyBioHeading"'
+    street_schedule_link = ""
+    if focused:
+        street_schedule_link = (
+            '<p class="bio-related-link">'
+            f'<a href="/ulice/{slugify(street)}/">Zobrazit pravidelný svoz odpadu pro ulici {escape(street)}</a>'
+            "</p>"
+        )
+    return f'''<section id="nearbyBio" class="nearby-bio ui-panel" {accessible_name}>
+        {heading}
+        <div class="nearby-bio-list ui-data-list">{''.join(cards)}</div>
+    </section>{street_schedule_link}'''
+
+
+def format_distance(distance_km: float, approximate: bool) -> str:
+    prefix = "cca " if approximate else ""
+    if distance_km < 1:
+        metres = round(distance_km * 1000 / 50) * 50
+        return f"{prefix}{metres} m"
+    return f"{prefix}{distance_km:.1f} km".replace(".", ",")
+
+
+def build_bio_placement_rows(placements, today: date | None = None) -> str:
+    reference_date = today or date.today()
+    rows = []
+    for placement in placements:
+        if placement.date_from <= reference_date <= placement.date_through:
+            status = "Právě přistaveno"
+            status_key = "current"
+        elif placement.date_from > reference_date:
+            status = "Nadcházející"
+            status_key = "upcoming"
+        else:
+            status = "Ukončeno"
+            status_key = "past"
+
+        map_link = ""
+        if (
+            placement.site.coordinates is not None
+            and placement.site.coordinates.accuracy == "precise"
+        ):
+            coordinates = placement.site.coordinates
+            map_url = (
+                "https://www.openstreetmap.org/"
+                f"?mlat={coordinates.latitude:.6f}&mlon={coordinates.longitude:.6f}"
+                f"#map=18/{coordinates.latitude:.6f}/{coordinates.longitude:.6f}"
+            )
+            map_link = (
+                f'<a class="bio-map-link" href="{escape(map_url)}" '
+                'target="_blank" rel="noopener">Zobrazit na mapě</a>'
+            )
+
+        rows.append(
+            f'''<article class="bio-placement" data-date-from="{placement.date_from.isoformat()}"
+                     data-date-through="{placement.date_through.isoformat()}"
+                     data-site-id="{escape(placement.site.id)}"
+                     data-locality="{escape(placement.site.locality)}"
+                     data-search="{escape((placement.site.locality + ' ' + placement.site.name).lower())}">
+                <div class="bio-site-marker" aria-hidden="true">●</div>
+                <div class="bio-site">
+                    <strong><a href="/bio/stanoviste/{escape(placement.site.id)}/">{escape(placement.site.display_name)}</a></strong>
+                    <span>{escape(placement.site.locality)}</span>
+                </div>
+                <div class="bio-dates">
+                    <strong>{format_bio_date_range(placement.date_from, placement.date_through)}</strong>
+                    <span class="bio-status bio-status-{status_key}">{status}</span>
+                </div>
+                <div class="bio-actions">{map_link}</div>
+            </article>'''
+        )
+    return "\n".join(rows)
+
+
+def format_bio_date_range(date_from: date, date_through: date) -> str:
+    if date_from.year == date_through.year:
+        return f"{date_from.day}. {date_from.month}.–{date_through.day}. {date_through.month}. {date_through.year}"
+    return (
+        f"{date_from.day}. {date_from.month}. {date_from.year}–"
+        f"{date_through.day}. {date_through.month}. {date_through.year}"
+    )
+
+
+def format_czech_short_date(value: date) -> str:
+    return f"{value.day}. {value.month}. {value.year}"
+
+
+def build_bio_source_links(sources) -> str:
+    return " · ".join(
+        f'<a href="{escape(source.file)}">{escape(source.title)}</a>'
+        for source in sources
+    )
+
+
+def build_bio_breadcrumbs_jsonld() -> str:
+    return f'''<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {{"@type": "ListItem", "position": 1, "name": "Svoz odpadu Litovel", "item": "{BASE_URL}/"}},
+    {{"@type": "ListItem", "position": 2, "name": "Bio kontejnery", "item": "{BASE_URL}/bio/"}}
+  ]
+}}
+</script>'''
+
+
+def build_bio_collection_jsonld(schedule) -> str:
+    data = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": f"Svoz bioodpadu Litovel – bio kontejnery {schedule.year}",
+        "url": f"{BASE_URL}/bio/",
+        "description": (
+            "Aktuální umístění a termíny přistavení kontejnerů "
+            "na bioodpad v Litovli a místních částech."
+        ),
+        "mainEntity": {
+            "@type": "ItemList",
+            "numberOfItems": len(schedule.sites),
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": position,
+                    "name": site.display_name,
+                    "url": f"{BASE_URL}/bio/stanoviste/{site.id}/",
+                }
+                for position, site in enumerate(schedule.sites, start=1)
+            ],
+        },
+    }
+    return (
+        '<script type="application/ld+json">\n'
+        + json.dumps(data, ensure_ascii=False, indent=2).replace("<", "\\u003c")
+        + "\n</script>"
+    )
+
+
+def build_bio_detail_breadcrumbs_jsonld(section, name, relative_path) -> str:
+    return f'''<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {{"@type": "ListItem", "position": 1, "name": "Svoz odpadu Litovel", "item": "{BASE_URL}/"}},
+    {{"@type": "ListItem", "position": 2, "name": "Bio kontejnery", "item": "{BASE_URL}/bio/"}},
+    {{"@type": "ListItem", "position": 3, "name": "{escape(name)}", "item": "{BASE_URL}/bio/{relative_path}/"}}
+  ]
+}}
+</script>'''
 
 
 # -------------------------------------------------
@@ -99,6 +608,8 @@ def build_location_list(streets):
     for street in sorted(streets):
         slug = slugify(street)
         items += f'<li><a href="/ulice/{slug}/">{street}</a></li>\n'
+
+    news_items = build_year_news(config.year)
 
     return f"""
 <div id="introText">
@@ -134,13 +645,7 @@ def build_location_list(streets):
     <h2>Změny svozu a novinky v roce {config.year}</h2>
     <p>Seznam změn svozu odpadu v Litovli a místních částech v roce {config.year} seřazené dle data oznámení:</p>
     <ul>
-      <li>17. 12. 2025 - svoz komunálního odpadu ve městě Litovel se přesouvá ze čtvrtku 1. 1. 2026 (svátek) na pátek 2. 1. 2026. <a href="https://www.facebook.com/litovel.eu/posts/pfbid02mx6FiHsbQETRC2V9vzuCBQMpQUDh84tfzyz7NspBdy3AL5pMdApFuzaqmGLwSfphl" target="_blank">Zdroj</a></li>
-      <li>12. 2. 2026 - svoz komunálního odpadu ve městě Litovel (dle harmonogramu) se z provozních důvodů (školení řidičů) přesouvá z pondělí 16. února na úterý 17. února. <a href="https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu.html" target="_blank">Zdroj</a></li>
-      <li>30. 3. 2026 - Svoz plastů v místních částech Březové, Chořelice, Nasobůrky, Rozvadovice, Unčovice, Víska se přesouvá z pondělí 6. 4. 2026 na čtvrtek 9. 4. 2026. <a href="https://www.facebook.com/litovel.eu/posts/pfbid0325mgqJ9rzqXcXrhyQSLJ6vvTAkiG8gWd2rbrr7hbzQZ3RZgyGoc5cxFNDpQwrVjql" target="_blank">Zdroj</a></li>
-      <li>19. 5. 2026 – aplikace Svoz odpadu Litovel pro Android je dostupná na <a href="https://play.google.com/store/apps/details?id=cz.litovle.svoz">Google Play</a>. Umí upozornění před svozem a zobrazuje i změny termínů.</li>
-      <li>2. 7. 2026 - svoz papíru ve městě Litovel se přesouvá z pondělí 6. 7. na čtvrtek 9. 7. a svoz BIO odpadu v místních částech Chořelice, Myslechovice, Nasobůrky, Unčovice, Víska, Nová Ves, Savín a Chudobín se přesouvá z pondělí 6. 7. na úterý 7. 7. <a href="https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu-v-pondeli-6-cervence.html" target="_blank">Zdroj</a></li>
-      <li>9. 7. 2026 - svoz BIO odpadu ve městě Litovel se z provozních důvodů přesouvá ze čtvrtka 9. 7. na pátek 10. 7. 2026. <a href="https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/svoz-bioodpadu-se-presouva-na-patek-10-7.html" target="_blank">Zdroj</a></li>
-      <li>16. 8. 2026 – Přidán indikátor načítání kalendáře pro přehlednější zobrazení při pomalejším připojení.</li>
+      {news_items}
     </ul>
 </div>
 <div id="locationList">
@@ -153,6 +658,13 @@ def build_location_list(streets):
     </ul>
 </div>
 """
+
+
+def build_year_news(year: int) -> str:
+    path = Path("data") / "news" / f"{year}.html"
+    if not path.is_file():
+        raise ValueError(f"missing annual news file: {path}")
+    return path.read_text(encoding="utf-8").strip()
 
 
 # -------------------------------------------------
@@ -194,7 +706,12 @@ def build_fallback_table(generator, street):
 # SITEMAP
 # -------------------------------------------------
 
-def generate_sitemap(streets, output_path: str | Path = "sitemap.xml"):
+def generate_sitemap(
+    streets,
+    output_path: str | Path = "sitemap.xml",
+    bio_schedule=None,
+    proximity_config=None,
+):
 
     today = datetime.utcnow().strftime("%Y-%m-%d")
 
@@ -206,11 +723,36 @@ def generate_sitemap(streets, output_path: str | Path = "sitemap.xml"):
     <lastmod>{today}</lastmod>
   </url>""")
 
+    urls.append(f"""
+  <url>
+    <loc>{BASE_URL}/bio/</loc>
+    <lastmod>{today}</lastmod>
+  </url>""")
+
     for street in streets:
         slug = slugify(street)
         urls.append(f"""
   <url>
     <loc>{BASE_URL}/ulice/{slug}/</loc>
+    <lastmod>{today}</lastmod>
+  </url>""")
+
+    if bio_schedule is not None:
+        for site in bio_schedule.sites:
+            urls.append(f"""
+  <url>
+    <loc>{BASE_URL}/bio/stanoviste/{site.id}/</loc>
+    <lastmod>{today}</lastmod>
+  </url>""")
+
+    if proximity_config is not None:
+        for street in streets:
+            if street not in proximity_config.street_coordinates:
+                continue
+            slug = slugify(street)
+            urls.append(f"""
+  <url>
+    <loc>{BASE_URL}/bio/pobliz/{slug}/</loc>
     <lastmod>{today}</lastmod>
   </url>""")
 

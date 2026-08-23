@@ -9,7 +9,7 @@
     <meta name="author" content="Honza Kašík">
     <meta name="robots" content="index, follow">
 
-    
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -618,7 +618,7 @@
     <meta property="og:description" content="Hledáte, kdy se v Litovli v roce 2026 vyváží popelnice? Zadejte svou ulici a získejte aktuální harmonogram svozu plastu, papíru i komunálního odpadu.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://svoz.litovle.cz/">
-    <meta property="og:image" content="https://svoz.litovle.cz/resources/social/home.png?v=932d009f8777">
+    <meta property="og:image" content="https://svoz.litovle.cz/resources/social/home.png?v=7d5702680a7f">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -626,10 +626,10 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Svoz odpadu Litovel 2026 – kalendář podle ulic">
     <meta name="twitter:description" content="Hledáte, kdy se v Litovli v roce 2026 vyváží popelnice? Zadejte svou ulici a získejte aktuální harmonogram svozu plastu, papíru i komunálního odpadu.">
-    <meta name="twitter:image" content="https://svoz.litovle.cz/resources/social/home.png?v=932d009f8777">
+    <meta name="twitter:image" content="https://svoz.litovle.cz/resources/social/home.png?v=7d5702680a7f">
     <meta name="twitter:image:alt" content="Svoz odpadu Litovel 2026 - kalendář podle ulic">
 
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/styles.css?v=db9259ae2e2a">
 
     <!-- zabrání probliknutí SEO fallbacku -->
     <script>
@@ -639,9 +639,22 @@
 
 <body>
 
+    <header id="siteHeader" class="site-header">
+        <div class="site-header-inner">
+            <a class="site-brand" href="/" aria-label="Svoz odpadu Litovel – úvodní stránka">
+                <img src="/favicon.png" width="30" height="30" alt="">
+                <span>Svoz odpadu Litovel</span>
+            </a>
+            <nav class="site-nav" aria-label="Hlavní navigace">
+                <a href="/" aria-current="page">Svoz podle ulice</a>
+                <a href="/bio/">Bio kontejnery</a>
+            </nav>
+        </div>
+    </header>
+
     <h1 id="mainHeader">Kalendář svozu odpadu v Litovli</h1>
     <p id="subtitle">Aktuální přehled svozových dnů pro Litovel. Harmonogram zahrnuje svoz komunálního odpadu, plastů, papíru a bioodpadu. Data jsou platná pro rok 2026.</p>
-    <div id="controls">
+    <div id="controls" class="ui-panel">
         <div id="date-picker">
             <button type="button" id="prevMonth" aria-label="Předchozí měsíc">◀</button>
             <select id="monthSelect" aria-label="Měsíc"></select>
@@ -695,13 +708,15 @@
         </div>
     </div>
 
+
+
     <!-- SEO fallback (jen pokud JS neběží) -->
     <div id="seoFallback">
-        
+
     </div>
 
     <!-- Seznam lokací (jen pro homepage) -->
-    
+
 <div id="introText">
     <div class="homepage-app-download">
       <span>Na Androidu můžete používat aplikaci s upozorněním před svozem.</span>
@@ -720,7 +735,7 @@
     <p>
     Jednoduchý přehled termínů odvozu popelnic v Litovli podle jednotlivých ulic.
     Data vycházejí z veřejných podkladů města a jsou přehledně uspořádána
-    do kalendáře pro konkrétní ulici, nebo místní část. Kalendář vždy zobrazí 
+    do kalendáře pro konkrétní ulici, nebo místní část. Kalendář vždy zobrazí
     konkrétní měsíc se svozem směsného odpadu, plastů, papíru i bioodpadu.
     </p>
 
@@ -736,12 +751,13 @@
     <p>Seznam změn svozu odpadu v Litovli a místních částech v roce 2026 seřazené dle data oznámení:</p>
     <ul>
       <li>17. 12. 2025 - svoz komunálního odpadu ve městě Litovel se přesouvá ze čtvrtku 1. 1. 2026 (svátek) na pátek 2. 1. 2026. <a href="https://www.facebook.com/litovel.eu/posts/pfbid02mx6FiHsbQETRC2V9vzuCBQMpQUDh84tfzyz7NspBdy3AL5pMdApFuzaqmGLwSfphl" target="_blank">Zdroj</a></li>
-      <li>12. 2. 2026 - svoz komunálního odpadu ve městě Litovel (dle harmonogramu) se z provozních důvodů (školení řidičů) přesouvá z pondělí 16. února na úterý 17. února. <a href="https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu.html" target="_blank">Zdroj</a></li>
-      <li>30. 3. 2026 - Svoz plastů v místních částech Březové, Chořelice, Nasobůrky, Rozvadovice, Unčovice, Víska se přesouvá z pondělí 6. 4. 2026 na čtvrtek 9. 4. 2026. <a href="https://www.facebook.com/litovel.eu/posts/pfbid0325mgqJ9rzqXcXrhyQSLJ6vvTAkiG8gWd2rbrr7hbzQZ3RZgyGoc5cxFNDpQwrVjql" target="_blank">Zdroj</a></li>
-      <li>19. 5. 2026 – aplikace Svoz odpadu Litovel pro Android je dostupná na <a href="https://play.google.com/store/apps/details?id=cz.litovle.svoz">Google Play</a>. Umí upozornění před svozem a zobrazuje i změny termínů.</li>
-      <li>2. 7. 2026 - svoz papíru ve městě Litovel se přesouvá z pondělí 6. 7. na čtvrtek 9. 7. a svoz BIO odpadu v místních částech Chořelice, Myslechovice, Nasobůrky, Unčovice, Víska, Nová Ves, Savín a Chudobín se přesouvá z pondělí 6. 7. na úterý 7. 7. <a href="https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu-v-pondeli-6-cervence.html" target="_blank">Zdroj</a></li>
-      <li>9. 7. 2026 - svoz BIO odpadu ve městě Litovel se z provozních důvodů přesouvá ze čtvrtka 9. 7. na pátek 10. 7. 2026. <a href="https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/svoz-bioodpadu-se-presouva-na-patek-10-7.html" target="_blank">Zdroj</a></li>
-      <li>16. 8. 2026 – Přidán indikátor načítání kalendáře pro přehlednější zobrazení při pomalejším připojení.</li>
+<li>12. 2. 2026 - svoz komunálního odpadu ve městě Litovel (dle harmonogramu) se z provozních důvodů (školení řidičů) přesouvá z pondělí 16. února na úterý 17. února. <a href="https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu.html" target="_blank">Zdroj</a></li>
+<li>30. 3. 2026 - Svoz plastů v místních částech Březové, Chořelice, Nasobůrky, Rozvadovice, Unčovice, Víska se přesouvá z pondělí 6. 4. 2026 na čtvrtek 9. 4. 2026. <a href="https://www.facebook.com/litovel.eu/posts/pfbid0325mgqJ9rzqXcXrhyQSLJ6vvTAkiG8gWd2rbrr7hbzQZ3RZgyGoc5cxFNDpQwrVjql" target="_blank">Zdroj</a></li>
+<li>19. 5. 2026 – aplikace Svoz odpadu Litovel pro Android je dostupná na <a href="https://play.google.com/store/apps/details?id=cz.litovle.svoz">Google Play</a>. Umí upozornění před svozem a zobrazuje i změny termínů.</li>
+<li>2. 7. 2026 - svoz papíru ve městě Litovel se přesouvá z pondělí 6. 7. na čtvrtek 9. 7. a svoz BIO odpadu v místních částech Chořelice, Myslechovice, Nasobůrky, Unčovice, Víska, Nová Ves, Savín a Chudobín se přesouvá z pondělí 6. 7. na úterý 7. 7. <a href="https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu-v-pondeli-6-cervence.html" target="_blank">Zdroj</a></li>
+<li>9. 7. 2026 - svoz BIO odpadu ve městě Litovel se z provozních důvodů přesouvá ze čtvrtku 9. 7. na pátek 10. 7. 2026. <a href="https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/svoz-bioodpadu-se-presouva-na-patek-10-7.html" target="_blank">Zdroj</a></li>
+<li>16. 8. 2026 – Přidán indikátor načítání kalendáře pro přehlednější zobrazení při pomalejším připojení.</li>
+<li>23. 8. 2026 – Přidán přehled přistavení bio kontejnerů. Vyhledávání podle ulice nebo místní části ukáže nejbližší stanoviště, jeho vzdálenost a aktuální či následující termín.</li>
     </ul>
 </div>
 <div id="locationList">
@@ -852,7 +868,7 @@
 </div>
 
 
-    
+
 
     <p class="disclaimer">
         Kalendář je
@@ -866,6 +882,8 @@
         <a href="/docs/synchronizace-notifikace.html">
             Návod na notifikace a synchronizaci.
         </a>
+        Přibližné polohy: <a href="https://www.openstreetmap.org/copyright"
+        target="_blank" rel="noopener">© OpenStreetMap contributors</a>.
     </p>
 
     <script>
