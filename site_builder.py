@@ -414,7 +414,7 @@ def build_nearby_bio_html(
     if options.upcoming:
         groups.append(
             '<section class="nearby-bio-group">'
-            '<h3>Kdy bude kontejner blíž</h3>'
+            '<h3>Další přistavení v okolí</h3>'
             f'<div class="nearby-bio-list ui-data-list">{render_cards(options.upcoming[:upcoming_limit])}</div>'
             '</section>'
         )
