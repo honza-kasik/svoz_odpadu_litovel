@@ -595,7 +595,7 @@ class BioSeoPagesTest(unittest.TestCase):
         )
 
         current_group, upcoming_group = html.split(
-            "<h3>Kdy bude kontejner blíž</h3>", 1
+            "<h3>Další přistavení v okolí</h3>", 1
         )
         self.assertIn("<h3>Kam lze bioodpad odvézt nyní</h3>", current_group)
         self.assertIn("ul. Šargounská", current_group)
