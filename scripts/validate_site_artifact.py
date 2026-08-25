@@ -24,6 +24,7 @@ REQUIRED_FILES = (
     "waste_schedule.csv",
     "bio_schedule.json",
     "sitemap.xml",
+    "robots.txt",
     "CNAME",
     "docs/synchronizace-notifikace.html",
 )
@@ -50,6 +51,7 @@ def main() -> int:
 
     site_dir = Path(args.site_dir)
     validate_required_files(site_dir)
+    validate_search_discovery_files(site_dir)
     validate_release_data_files(site_dir)
     validate_calendar_urls(site_dir)
     validate_social_images(site_dir)
@@ -74,6 +76,17 @@ def validate_required_files(site_dir: Path) -> None:
     ]
     if missing:
         raise SystemExit(f"Missing required artifact files: {', '.join(missing)}")
+
+
+def validate_search_discovery_files(site_dir: Path) -> None:
+    sitemap = (site_dir / "sitemap.xml").read_text(encoding="utf-8")
+    robots = (site_dir / "robots.txt").read_text(encoding="utf-8")
+    if "<lastmod>" in sitemap:
+        raise SystemExit("Sitemap must not claim a new lastmod date on every daily build")
+    if "https://svoz.litovle.cz/bio/" not in sitemap:
+        raise SystemExit("Sitemap is missing the bio overview")
+    if "Sitemap: https://svoz.litovle.cz/sitemap.xml" not in robots:
+        raise SystemExit("robots.txt does not advertise the canonical sitemap")
 
 
 def validate_release_data_files(site_dir: Path) -> None:

@@ -36,9 +36,8 @@ class MetaBuilder:
         return {
             "TITLE": f"Svoz odpadu {self.config.city} {self.config.year} – kalendář podle ulic",
             "DESCRIPTION": (
-                f"Hledáte, kdy se v {self.config.city_v} v roce {self.config.year} vyváží popelnice? "
-                "Zadejte svou ulici a získejte aktuální harmonogram "
-                "svozu plastu, papíru i komunálního odpadu."
+                f"Kdy je v {self.config.city_v} svoz bioodpadu, plastu, papíru nebo "
+                f"směsného odpadu? Vyberte ulici a zobrazte aktuální termíny pro rok {self.config.year}."
             ),
             "CANONICAL": f"{self.config.base_url}/",
             "H1": f"Kalendář svozu odpadu v {self.config.city_v}",
@@ -51,25 +50,22 @@ class MetaBuilder:
 
     def bio(self, year: int):
         return {
-            "TITLE": f"Svoz bioodpadu Litovel {year} – bio kontejnery a termíny",
+            "TITLE": f"Svoz bioodpadu Litovel {year} – velkoobjemové kontejnery",
             "DESCRIPTION": (
-                f"Svoz bioodpadu v Litovli {year}: zjistěte, kde jsou bio kontejnery "
-                "právě přistavené, a prohlédněte si další termíny a stanoviště."
+                f"Svoz bioodpadu v Litovli {year}: zjistěte, kde jsou právě přistavené "
+                "velkoobjemové kontejnery, kdy budou odvezeny a kam přijedou příště."
             ),
             "CANONICAL": f"{self.config.base_url}/bio/",
-            "H1": f"Svoz bioodpadu v Litovli – bio kontejnery {year}",
-            "SUBTITLE": (
-                "Aktuální umístění a harmonogram přistavení velkoobjemových "
-                f"kontejnerů na bioodpad v Litovli a místních částech pro rok {year}."
-            ),
+            "H1": f"Velkoobjemové kontejnery na bioodpad v Litovli {year}",
+            "SUBTITLE": "Aktuální stanoviště a termíny přistavení.",
         }
 
     def bio_site(self, site_name: str, slug: str, year: int):
         return {
-            "TITLE": f"Svoz bioodpadu Litovel – bio kontejner {site_name} {year}",
+            "TITLE": f"Bio kontejner {site_name} – termíny přistavení {year} | Litovel",
             "DESCRIPTION": (
                 f"Bio kontejner {site_name}: zjistěte, zda je právě přistavený, "
-                f"a prohlédněte si všechny termíny svozu bioodpadu v Litovli pro rok {year}."
+                f"a prohlédněte si všechny termíny přistavení a odvozu pro rok {year}."
             ),
             "CANONICAL": f"{self.config.base_url}/bio/stanoviste/{slug}/",
             "H1": f"Bio kontejner {site_name}",
@@ -77,13 +73,13 @@ class MetaBuilder:
 
     def bio_nearby(self, street_name: str, slug: str, year: int):
         return {
-            "TITLE": f"Svoz bioodpadu {street_name}, Litovel – nejbližší bio kontejnery",
+            "TITLE": f"Bio kontejnery pro lokalitu {street_name} – aktuální stanoviště {year} | Litovel",
             "DESCRIPTION": (
                 f"Najděte nejbližší bio kontejnery pro lokalitu {street_name} v Litovli, "
                 f"jejich vzdálenost a termíny přistavení v roce {year}."
             ),
             "CANONICAL": f"{self.config.base_url}/bio/pobliz/{slug}/",
-            "H1": f"Bio kontejnery poblíž {street_name}",
+            "H1": f"Bio kontejnery pro lokalitu {street_name}",
         }
 
     # -------------------------------------------------

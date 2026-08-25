@@ -4,9 +4,10 @@ function bioNormalize(value) {
 
 function bioRank(item, query) {
     const label = bioNormalize(item.label);
-    if (label === query) return 0;
-    if (label.startsWith(query)) return 1;
-    return 2;
+    const typeRank = item.type === "location" ? 0 : 1;
+    if (label === query) return typeRank;
+    if (label.startsWith(query)) return 2 + typeRank;
+    return 4 + typeRank;
 }
 
 function initializeBioFinder() {
@@ -23,10 +24,6 @@ function initializeBioFinder() {
         input.setAttribute("aria-expanded", "false");
         input.removeAttribute("aria-activedescendant");
         activeIndex = -1;
-    }
-
-    function select(item) {
-        window.location.href = item.url;
     }
 
     function setActive(index) {
@@ -46,10 +43,12 @@ function initializeBioFinder() {
         const matches = items
             .filter(item => !query || bioNormalize(item.label).includes(query))
             .sort((a, b) => bioRank(a, query) - bioRank(b, query) || a.label.localeCompare(b.label, "cs"));
-        const grouped = ["site", "location"].map(type =>
-            matches.filter(item => item.type === type).slice(0, 10)
-        );
-        rendered = grouped.flat();
+        rendered = query
+            ? matches.slice(0, 20)
+            : [
+                ...matches.filter(item => item.type === "location").slice(0, 10),
+                ...matches.filter(item => item.type === "site").slice(0, 10),
+            ];
         suggestions.innerHTML = "";
         activeIndex = -1;
         if (!rendered.length) {
@@ -58,25 +57,26 @@ function initializeBioFinder() {
             empty.textContent = "Nenalezeno žádné stanoviště ani lokalita.";
             suggestions.appendChild(empty);
         } else {
-            [
-                [grouped[0], "Stanoviště"],
-                [grouped[1], "Ulice a místní části"],
-            ].forEach(([group, heading]) => {
-                if (!group.length) return;
-                const label = document.createElement("div");
-                label.className = "bio-suggestion-group";
-                label.textContent = heading;
-                suggestions.appendChild(label);
-                group.forEach(item => {
-                    const option = document.createElement("div");
-                    option.id = `bio-option-${suggestions.querySelectorAll('[role="option"]').length}`;
-                    option.setAttribute("role", "option");
-                    option.setAttribute("aria-selected", "false");
-                    option.textContent = item.label;
-                    option.addEventListener("mousedown", event => event.preventDefault());
-                    option.addEventListener("click", () => select(item));
-                    suggestions.appendChild(option);
-                });
+            rendered.forEach(item => {
+                const option = document.createElement("a");
+                option.id = `bio-option-${suggestions.querySelectorAll('[role="option"]').length}`;
+                option.href = item.url;
+                option.setAttribute("role", "option");
+                option.setAttribute("aria-selected", "false");
+
+                const label = document.createElement("span");
+                label.className = "bio-suggestion-label";
+                label.textContent = item.label;
+
+                const action = document.createElement("span");
+                action.className = "bio-suggestion-action";
+                action.textContent = item.type === "location"
+                    ? "Najít nejbližší kontejnery v okolí"
+                    : "Zobrazit konkrétní stanoviště a termíny";
+
+                option.append(label, action);
+                option.addEventListener("mousedown", event => event.preventDefault());
+                suggestions.appendChild(option);
             });
         }
         suggestions.hidden = false;

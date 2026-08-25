@@ -91,7 +91,7 @@ def build_street_pages(
     for street in streets:
 
         slug = slugify(street)
-        fallback = build_fallback_table(generator, street)
+        fallback = build_fallback_table(generator, street, config.year)
         related_html = build_related_streets_html(street, streets)
 
         context = {
@@ -190,7 +190,7 @@ def build_bio_pages(
             "_TEMPLATE_PATH": BIO_DETAIL_TEMPLATE_PATH,
             "CONTENT": build_bio_year_notice(schedule.year) + content,
             "BACK_LINK": "/bio/",
-            "BACK_LABEL": "Bio kontejnery",
+            "BACK_LABEL": "Přehled bioodpadu",
             **build_social_context(social_image),
             "BREADCRUMBS_JSONLD": build_bio_detail_breadcrumbs_jsonld(
                 "Poblíž", street, f"pobliz/{slug}"
@@ -249,12 +249,9 @@ def build_bio_overview(
     if current_windows:
         current_html = "".join(build_bio_window_html(window) for window in current_windows)
     else:
-        current_html = (
-            '<p class="bio-window-empty">'
-            "Právě nyní není přistaven žádný kontejner. Bioodpad můžete odevzdat "
-            f'<a href="{collection_yard_map_url(proximity_config)}" target="_blank" rel="noopener">'
-            "ve sběrném dvoře</a>."
-            "</p>"
+        current_html = build_bio_disposal_fallback(
+            proximity_config,
+            "bio-window-empty",
         )
 
     if future_windows:
@@ -280,7 +277,7 @@ def build_bio_overview(
             </section>'''
         )
     schedule_html = f'''<details class="bio-year-schedule ui-panel">
-        <summary>Celý roční harmonogram</summary>
+        <summary>Roční harmonogram {schedule.year}</summary>
         <div class="bio-year-schedule-content">{''.join(months)}</div>
     </details>'''
     return {"current": current_html, "next": next_html, "schedule": schedule_html}
@@ -424,12 +421,10 @@ def build_nearby_bio_html(
         for placement in schedule.placements
     )
     if not has_current_placement:
-        fallback_note = (
-            '<p class="nearby-bio-fallback">'
-            "Právě není přistaven žádný bio kontejner. Bioodpad můžete odevzdat "
-            f'<a href="{collection_yard_map_url(proximity_config)}" target="_blank" rel="noopener">'
-            "ve sběrném dvoře</a>."
-            "</p>"
+        fallback_note = build_bio_disposal_fallback(
+            proximity_config,
+            "nearby-bio-fallback",
+            on_street_calendar=not focused,
         )
     if options.current:
         groups.append(
@@ -462,7 +457,8 @@ def build_nearby_bio_html(
     if focused:
         street_schedule_link = (
             '<p class="bio-related-link">'
-            f'<a href="/ulice/{slugify(street)}/">Zobrazit pravidelný svoz odpadu pro ulici {escape(street)}</a>'
+            f'<a href="/ulice/{slugify(street)}/">'
+            f'Zobrazit termíny pravidelného svozu bioodpadu pro {escape(street)}</a>'
             "</p>"
         )
     return f'''<section id="nearbyBio" class="nearby-bio ui-panel" {accessible_name}>
@@ -522,6 +518,31 @@ def collection_yard_map_url(proximity_config=None) -> str:
         "https://www.openstreetmap.org/"
         f"?mlat={point.latitude:.7f}&mlon={point.longitude:.7f}"
         f"#map=18/{point.latitude:.7f}/{point.longitude:.7f}"
+    )
+
+
+def build_bio_disposal_fallback(
+    proximity_config=None,
+    class_name: str = "",
+    on_street_calendar: bool = False,
+) -> str:
+    class_attribute = f' class="{escape(class_name)}"' if class_name else ""
+    if on_street_calendar:
+        collection_sentence = "Termíny jejího svozu vidíte v kalendáři výše. "
+    else:
+        collection_sentence = (
+            'Termíny svozu najdete <a href="/">'
+            "v kalendáři podle ulice</a>. "
+        )
+    return (
+        f"<p{class_attribute}>"
+        "Žádný velkoobjemový kontejner právě není přistaven. "
+        "Menší množství lze dát do hnědé popelnice. "
+        f"{collection_sentence}"
+        "Větší množství můžete odvézt "
+        f'<a href="{collection_yard_map_url(proximity_config)}" target="_blank" rel="noopener">'
+        "ve sběrném dvoře</a>."
+        "</p>"
     )
 
 
@@ -620,10 +641,10 @@ def build_bio_collection_jsonld(schedule) -> str:
     data = {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
-        "name": f"Svoz bioodpadu Litovel – bio kontejnery {schedule.year}",
+        "name": f"Svoz bioodpadu Litovel – velkoobjemové kontejnery {schedule.year}",
         "url": f"{BASE_URL}/bio/",
         "description": (
-            "Aktuální umístění a termíny přistavení kontejnerů "
+            "Aktuální umístění a termíny přistavení velkoobjemových kontejnerů "
             "na bioodpad v Litovli a místních částech."
         ),
         "mainEntity": {
@@ -701,10 +722,14 @@ def build_location_list(streets):
     </div>
     <h2>Co nabízíme?</h2>
     <p>
-    Jednoduchý přehled termínů odvozu popelnic v Litovli podle jednotlivých ulic.
+    Vyberte ulici a zjistěte, kdy je svoz bioodpadu, plastu, papíru a směsného odpadu.
     Data vycházejí z veřejných podkladů města a jsou přehledně uspořádána
     do kalendáře pro konkrétní ulici, nebo místní část. Kalendář vždy zobrazí 
     konkrétní měsíc se svozem směsného odpadu, plastů, papíru i bioodpadu.
+    </p>
+    <p>
+    Samostatně najdete také <a href="/bio/">aktuální přistavení velkoobjemových
+    kontejnerů na bioodpad v Litovli</a>.
     </p>
 
     <ul>
@@ -744,8 +769,10 @@ def build_year_news(year: int) -> str:
 # SEO FALLBACK TABLE
 # -------------------------------------------------
 
-def build_fallback_table(generator, street):
+def build_fallback_table(generator, street, year: int | None = None):
     events = generator.get_events_for_street(street)
+    if year is not None:
+        events = [event for event in events if event.date.year == year]
 
     rows = ""
 
@@ -763,7 +790,7 @@ def build_fallback_table(generator, street):
         )
 
     return f"""
-<h2>Termíny svozu odpadu – {street}</h2>
+<h2>Termíny svozu odpadu – {street}, {year or config.year}</h2>
 <table>
 <tr>
     <th>Datum</th>
@@ -786,20 +813,16 @@ def generate_sitemap(
     proximity_config=None,
 ):
 
-    today = datetime.utcnow().strftime("%Y-%m-%d")
-
     urls = []
 
     urls.append(f"""
   <url>
     <loc>{BASE_URL}/</loc>
-    <lastmod>{today}</lastmod>
   </url>""")
 
     urls.append(f"""
   <url>
     <loc>{BASE_URL}/bio/</loc>
-    <lastmod>{today}</lastmod>
   </url>""")
 
     for street in streets:
@@ -807,7 +830,6 @@ def generate_sitemap(
         urls.append(f"""
   <url>
     <loc>{BASE_URL}/ulice/{slug}/</loc>
-    <lastmod>{today}</lastmod>
   </url>""")
 
     if bio_schedule is not None:
@@ -815,7 +837,6 @@ def generate_sitemap(
             urls.append(f"""
   <url>
     <loc>{BASE_URL}/bio/stanoviste/{site.id}/</loc>
-    <lastmod>{today}</lastmod>
   </url>""")
 
     if proximity_config is not None:
@@ -826,7 +847,6 @@ def generate_sitemap(
             urls.append(f"""
   <url>
     <loc>{BASE_URL}/bio/pobliz/{slug}/</loc>
-    <lastmod>{today}</lastmod>
   </url>""")
 
     sitemap = f"""<?xml version="1.0" encoding="UTF-8"?>
@@ -839,6 +859,15 @@ def generate_sitemap(
     output_path.parent.mkdir(parents=True, exist_ok=True)
     with output_path.open("w", encoding="utf-8") as f:
         f.write(sitemap)
+
+
+def generate_robots_txt(output_path: str | Path = "robots.txt") -> None:
+    output_path = Path(output_path)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(
+        f"User-agent: *\nAllow: /\n\nSitemap: {BASE_URL}/sitemap.xml\n",
+        encoding="utf-8",
+    )
 
 
 def pick_related_streets(current_street, all_streets, count=5):

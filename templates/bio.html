@@ -38,17 +38,15 @@
 
     <main>
         <h1>{{H1}}</h1>
-        <p id="subtitle">{{SUBTITLE}}</p>
+        <p id="subtitle">
+            {{SUBTITLE}} Pravidelný svoz od domů najdete
+            <a href="/">v kalendáři podle ulice</a>.
+        </p>
 
         {{BIO_YEAR_NOTICE}}
 
-        <p class="bio-intro">
-            Zde najdete dočasně přistavené kontejnery na bioodpad. Pokud hledáte pravidelný svoz bioodpadu od domu,
-            <a href="/">vyberte svou ulici v kalendáři svozu odpadu</a>.
-        </p>
-
         <section class="bio-finder bio-js-only ui-panel" aria-labelledby="bioFinderHeading">
-            <h2 id="bioFinderHeading">Kde hledáte bio kontejner?</h2>
+            <h2 id="bioFinderHeading">Najít bio kontejner</h2>
             <div id="bioFinder" class="bio-finder-combobox">
                 <input id="bioSearch" type="search"
                        placeholder="Zadejte ulici, místní část nebo stanoviště"
@@ -62,7 +60,7 @@
 
         <div class="bio-overview">
             <section class="bio-overview-section ui-section" aria-labelledby="bioCurrentHeading">
-                <h2 id="bioCurrentHeading">Kde jsou kontejnery nyní</h2>
+                <h2 id="bioCurrentHeading">Kde jsou nyní</h2>
                 {{CURRENT_PLACEMENTS}}
             </section>
             <section class="bio-overview-section ui-section" aria-labelledby="bioNextHeading">
@@ -79,7 +77,7 @@
 
         <section class="bio-sources">
             <h2>Zdroje</h2>
-            <p>{{SOURCE_LINKS}}</p>
+            <p>Data vycházejí z harmonogramů zveřejněných Městem Litovel: {{SOURCE_LINKS}}</p>
         </section>
     </main>
 
