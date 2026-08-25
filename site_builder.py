@@ -16,6 +16,10 @@ BASE_URL = "https://svoz.litovle.cz"
 TEMPLATE_PATH = "templates/layout.html"
 BIO_TEMPLATE_PATH = "templates/bio.html"
 BIO_DETAIL_TEMPLATE_PATH = "templates/bio_detail.html"
+COLLECTION_YARD_MAP_URL = (
+    "https://www.openstreetmap.org/"
+    "?mlat=49.6861253&mlon=17.0508742#map=18/49.6861253/17.0508742"
+)
 
 meta_builder = MetaBuilder(config)
 
@@ -243,7 +247,13 @@ def build_bio_overview(schedule, reference_date: date) -> dict[str, str]:
     if current_windows:
         current_html = "".join(build_bio_window_html(window) for window in current_windows)
     else:
-        current_html = '<p class="bio-window-empty">Právě nyní není přistaven žádný kontejner.</p>'
+        current_html = (
+            '<p class="bio-window-empty">'
+            "Právě nyní není přistaven žádný kontejner. Bioodpad můžete odevzdat "
+            f'<a href="{COLLECTION_YARD_MAP_URL}" target="_blank" rel="noopener">'
+            "ve sběrném dvoře</a>."
+            "</p>"
+        )
 
     if future_windows:
         next_date = min(window[0] for window in future_windows)
@@ -398,24 +408,39 @@ def build_nearby_bio_html(
         return ""
 
     current_limit = 3 if focused else 1
-    upcoming_limit = 3 if focused else 2
+    visible_current = options.current[:current_limit]
+    upcoming_limit = 3 if focused else 3 - len(visible_current)
+    visible_upcoming = options.upcoming[:upcoming_limit]
 
     def render_cards(items):
         return "".join(render_nearby_bio_card(item) for item in items)
 
     groups = []
+    fallback_note = ""
+    has_current_placement = any(
+        placement.date_from <= reference_date <= placement.date_through
+        for placement in schedule.placements
+    )
+    if not has_current_placement:
+        fallback_note = (
+            '<p class="nearby-bio-fallback">'
+            "Právě není přistaven žádný bio kontejner. Bioodpad můžete odevzdat "
+            f'<a href="{COLLECTION_YARD_MAP_URL}" target="_blank" rel="noopener">'
+            "ve sběrném dvoře</a>."
+            "</p>"
+        )
     if options.current:
         groups.append(
             '<section class="nearby-bio-group">'
             '<h3>Kam lze bioodpad odvézt nyní</h3>'
-            f'<div class="nearby-bio-list ui-data-list">{render_cards(options.current[:current_limit])}</div>'
+            f'<div class="nearby-bio-list ui-data-list">{render_cards(visible_current)}</div>'
             '</section>'
         )
     if options.upcoming:
         groups.append(
             '<section class="nearby-bio-group">'
             '<h3>Další přistavení v okolí</h3>'
-            f'<div class="nearby-bio-list ui-data-list">{render_cards(options.upcoming[:upcoming_limit])}</div>'
+            f'<div class="nearby-bio-list ui-data-list">{render_cards(visible_upcoming)}</div>'
             '</section>'
         )
     if options.unavailable:
@@ -440,6 +465,7 @@ def build_nearby_bio_html(
         )
     return f'''<section id="nearbyBio" class="nearby-bio ui-panel" {accessible_name}>
         {heading}
+        {fallback_note}
         {''.join(groups)}
     </section>{street_schedule_link}'''
 
