@@ -1209,6 +1209,16 @@ input {
   margin-top: 18px;
 }
 
+.nearby-bio-fallback {
+  margin: 14px 0 4px;
+  color: #475569;
+}
+
+.nearby-bio-fallback a {
+  color: #2563eb;
+  text-underline-offset: 3px;
+}
+
 .nearby-bio-group h3 {
   margin: 14px 0 0;
   font-size: 0.95rem;

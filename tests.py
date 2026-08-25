@@ -611,6 +611,33 @@ class BioSeoPagesTest(unittest.TestCase):
         self.assertNotIn("Právě přistaveno", html)
         self.assertNotIn("Nadcházející", html)
 
+    def test_compact_nearby_section_fills_three_slots_when_nothing_is_current(self):
+        schedule = load_bio_schedule(BIO_2026_PATH)
+        streets = all_streets["Litovel"] + mistni_casti
+        config = load_proximity_config(streets, schedule.sites)
+
+        html = build_nearby_bio_html(
+            "Čs. armády", schedule, config, date(2026, 8, 25)
+        )
+
+        self.assertEqual(3, html.count('class="nearby-bio-card"'))
+        self.assertNotIn("Kam lze bioodpad odvézt nyní", html)
+        self.assertIn("Další přistavení v okolí", html)
+        self.assertIn("Právě není přistaven žádný bio kontejner", html)
+        self.assertIn("ve sběrném dvoře", html)
+        self.assertIn("49.6861253", html)
+
+    def test_collection_yard_note_is_hidden_when_a_container_is_available(self):
+        schedule = load_bio_schedule(BIO_2026_PATH)
+        streets = all_streets["Litovel"] + mistni_casti
+        config = load_proximity_config(streets, schedule.sites)
+
+        html = build_nearby_bio_html(
+            "Čs. armády", schedule, config, date(2026, 8, 23)
+        )
+
+        self.assertNotIn("sběrném dvoře", html)
+
     def test_overview_groups_sites_by_current_and_next_window(self):
         schedule = load_bio_schedule(BIO_2026_PATH)
         overview = build_bio_overview(schedule, date(2026, 8, 22))
@@ -624,6 +651,15 @@ class BioSeoPagesTest(unittest.TestCase):
         self.assertIn("<details", overview["schedule"])
         self.assertEqual(1, overview["schedule"].count("21. 8.–24. 8. 2026"))
         self.assertNotIn('class="bio-placement"', overview["schedule"])
+
+    def test_empty_overview_links_to_collection_yard(self):
+        schedule = load_bio_schedule(BIO_2026_PATH)
+
+        overview = build_bio_overview(schedule, date(2026, 8, 25))
+
+        self.assertIn("Právě nyní není přistaven žádný kontejner", overview["current"])
+        self.assertIn("ve sběrném dvoře", overview["current"])
+        self.assertIn("49.6861253", overview["current"])
 
 
 class SocialPreviewTest(unittest.TestCase):
