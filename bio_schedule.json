@@ -1,0 +1,2588 @@
+{
+  "schema_version": 1,
+  "year": 2026,
+  "sources": [
+    {
+      "id": "bio-litovel",
+      "title": "Kalendář svozů bio odpadů 2026",
+      "file": "/resources/2026/kalendar_svozu_bioodpadu_2026.pdf"
+    },
+    {
+      "id": "bio-uncovice",
+      "title": "BIO odpad Unčovice 2026",
+      "file": "/resources/2026/svoz_bio_uncovice_kontejnery_2026.pdf"
+    }
+  ],
+  "sites": [
+    {
+      "id": "litovel-pavlinka",
+      "locality": "Litovel",
+      "name": "Pavlínka",
+      "coordinates": {
+        "latitude": 49.7074493,
+        "longitude": 17.0867216,
+        "accuracy": "provisional"
+      },
+      "coordinate_origin": "fallback"
+    },
+    {
+      "id": "litovel-dukelska",
+      "locality": "Litovel",
+      "name": "ul. Dukelská",
+      "coordinates": {
+        "latitude": 49.700544,
+        "longitude": 17.0717702,
+        "accuracy": "provisional"
+      },
+      "coordinate_origin": "fallback"
+    },
+    {
+      "id": "rozvadovice",
+      "locality": "Rozvadovice",
+      "name": "Rozvadovice",
+      "coordinates": {
+        "latitude": 49.6797269,
+        "longitude": 17.0944744,
+        "accuracy": "precise"
+      },
+      "coordinate_origin": "direct"
+    },
+    {
+      "id": "tri-dvory",
+      "locality": "Tři Dvory",
+      "name": "Tři Dvory",
+      "coordinates": {
+        "latitude": 49.7134986,
+        "longitude": 17.1080169,
+        "accuracy": "precise"
+      },
+      "coordinate_origin": "direct"
+    },
+    {
+      "id": "uncovice-u-hasicarny",
+      "locality": "Unčovice",
+      "name": "u hasičárny",
+      "coordinates": {
+        "latitude": 49.6678381,
+        "longitude": 17.1074964,
+        "accuracy": "precise"
+      },
+      "coordinate_origin": "direct"
+    },
+    {
+      "id": "uncovice-pred-selikem",
+      "locality": "Unčovice",
+      "name": "před Selikem",
+      "coordinates": {
+        "latitude": 49.6651794,
+        "longitude": 17.1052936,
+        "accuracy": "precise"
+      },
+      "coordinate_origin": "direct"
+    },
+    {
+      "id": "litovel-u-laguny",
+      "locality": "Litovel",
+      "name": "U laguny",
+      "coordinates": {
+        "latitude": 49.70641145181769,
+        "longitude": 17.066887512989975,
+        "accuracy": "precise"
+      },
+      "coordinate_origin": "direct"
+    },
+    {
+      "id": "litovel-javoricska",
+      "locality": "Litovel",
+      "name": "ul. Javoříčská",
+      "coordinates": {
+        "latitude": 49.7045329,
+        "longitude": 17.0713011,
+        "accuracy": "provisional"
+      },
+      "coordinate_origin": "fallback"
+    },
+    {
+      "id": "litovel-cervenska",
+      "locality": "Litovel",
+      "name": "ul. Červenská",
+      "coordinates": {
+        "latitude": 49.7087634,
+        "longitude": 17.0800531,
+        "accuracy": "provisional"
+      },
+      "coordinate_origin": "fallback"
+    },
+    {
+      "id": "brezove",
+      "locality": "Březové",
+      "name": "Březové",
+      "coordinates": {
+        "latitude": 49.67941821890901,
+        "longitude": 17.115419785060006,
+        "accuracy": "precise"
+      },
+      "coordinate_origin": "direct"
+    },
+    {
+      "id": "chorelice",
+      "locality": "Chořelice",
+      "name": "Chořelice",
+      "coordinates": {
+        "latitude": 49.69109,
+        "longitude": 17.0788697,
+        "accuracy": "precise"
+      },
+      "coordinate_origin": "direct"
+    },
+    {
+      "id": "savin",
+      "locality": "Savín",
+      "name": "Savín",
+      "coordinates": {
+        "latitude": 49.6731936,
+        "longitude": 16.9842797,
+        "accuracy": "precise"
+      },
+      "coordinate_origin": "direct"
+    },
+    {
+      "id": "litovel-komarov",
+      "locality": "Litovel",
+      "name": "Komárov",
+      "coordinates": {
+        "latitude": 49.7028994,
+        "longitude": 17.0693939,
+        "accuracy": "provisional"
+      },
+      "coordinate_origin": "fallback"
+    },
+    {
+      "id": "litovel-palackeho",
+      "locality": "Litovel",
+      "name": "ul. Palackého",
+      "coordinates": {
+        "latitude": 49.6959153,
+        "longitude": 17.0742758,
+        "accuracy": "provisional"
+      },
+      "coordinate_origin": "fallback"
+    },
+    {
+      "id": "chudobin",
+      "locality": "Chudobín",
+      "name": "Chudobín",
+      "coordinates": {
+        "latitude": 49.6887854,
+        "longitude": 17.0374793,
+        "accuracy": "provisional"
+      },
+      "coordinate_origin": "fallback"
+    },
+    {
+      "id": "myslechovice",
+      "locality": "Myslechovice",
+      "name": "Myslechovice",
+      "coordinates": {
+        "latitude": 49.6736404,
+        "longitude": 17.0455444,
+        "accuracy": "provisional"
+      },
+      "coordinate_origin": "fallback"
+    },
+    {
+      "id": "nova-ves",
+      "locality": "Nová Ves",
+      "name": "Nová Ves",
+      "coordinates": {
+        "latitude": 49.6822725,
+        "longitude": 17.0169665,
+        "accuracy": "provisional"
+      },
+      "coordinate_origin": "fallback"
+    },
+    {
+      "id": "litovel-sargounska",
+      "locality": "Litovel",
+      "name": "ul. Šargounská",
+      "coordinates": {
+        "latitude": 49.6974993,
+        "longitude": 17.0824178,
+        "accuracy": "provisional"
+      },
+      "coordinate_origin": "fallback"
+    },
+    {
+      "id": "litovel-sochova",
+      "locality": "Litovel",
+      "name": "ul. Sochova",
+      "coordinates": {
+        "latitude": 49.7014388,
+        "longitude": 17.084336,
+        "accuracy": "provisional"
+      },
+      "coordinate_origin": "fallback"
+    },
+    {
+      "id": "litovel-zerotinova",
+      "locality": "Litovel",
+      "name": "ul. Žerotínova",
+      "coordinates": {
+        "latitude": 49.7073262,
+        "longitude": 17.0787065,
+        "accuracy": "provisional"
+      },
+      "coordinate_origin": "fallback"
+    },
+    {
+      "id": "nasoburky",
+      "locality": "Nasobůrky",
+      "name": "Nasobůrky",
+      "coordinates": {
+        "latitude": 49.6879413,
+        "longitude": 17.0572348,
+        "accuracy": "provisional"
+      },
+      "coordinate_origin": "fallback"
+    },
+    {
+      "id": "viska",
+      "locality": "Víska",
+      "name": "Víska",
+      "coordinates": {
+        "latitude": 49.6997641,
+        "longitude": 17.0526453,
+        "accuracy": "provisional"
+      },
+      "coordinate_origin": "fallback"
+    }
+  ],
+  "placements": [
+    {
+      "id": "bio-2026-03-13--litovel-pavlinka",
+      "site_id": "litovel-pavlinka",
+      "date_from": "2026-03-13",
+      "date_through": "2026-03-16",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-03-13--rozvadovice",
+      "site_id": "rozvadovice",
+      "date_from": "2026-03-13",
+      "date_through": "2026-03-16",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-03-13--tri-dvory",
+      "site_id": "tri-dvory",
+      "date_from": "2026-03-13",
+      "date_through": "2026-03-16",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-03-13--uncovice-u-hasicarny",
+      "site_id": "uncovice-u-hasicarny",
+      "date_from": "2026-03-13",
+      "date_through": "2026-03-16",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-03-13--litovel-dukelska",
+      "site_id": "litovel-dukelska",
+      "date_from": "2026-03-13",
+      "date_through": "2026-03-16",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-03-20--brezove",
+      "site_id": "brezove",
+      "date_from": "2026-03-20",
+      "date_through": "2026-03-23",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-03-20--chorelice",
+      "site_id": "chorelice",
+      "date_from": "2026-03-20",
+      "date_through": "2026-03-23",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-03-20--savin",
+      "site_id": "savin",
+      "date_from": "2026-03-20",
+      "date_through": "2026-03-23",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-03-20--litovel-u-laguny",
+      "site_id": "litovel-u-laguny",
+      "date_from": "2026-03-20",
+      "date_through": "2026-03-23",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-03-20--litovel-javoricska",
+      "site_id": "litovel-javoricska",
+      "date_from": "2026-03-20",
+      "date_through": "2026-03-23",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-03-20--litovel-cervenska",
+      "site_id": "litovel-cervenska",
+      "date_from": "2026-03-20",
+      "date_through": "2026-03-23",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-03-27--chudobin",
+      "site_id": "chudobin",
+      "date_from": "2026-03-27",
+      "date_through": "2026-03-30",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-03-27--litovel-komarov",
+      "site_id": "litovel-komarov",
+      "date_from": "2026-03-27",
+      "date_through": "2026-03-30",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-03-27--myslechovice",
+      "site_id": "myslechovice",
+      "date_from": "2026-03-27",
+      "date_through": "2026-03-30",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-03-27--nova-ves",
+      "site_id": "nova-ves",
+      "date_from": "2026-03-27",
+      "date_through": "2026-03-30",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-03-27--litovel-palackeho",
+      "site_id": "litovel-palackeho",
+      "date_from": "2026-03-27",
+      "date_through": "2026-03-30",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-04-03--nasoburky",
+      "site_id": "nasoburky",
+      "date_from": "2026-04-03",
+      "date_through": "2026-04-06",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-04-03--viska",
+      "site_id": "viska",
+      "date_from": "2026-04-03",
+      "date_through": "2026-04-06",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-04-03--litovel-sochova",
+      "site_id": "litovel-sochova",
+      "date_from": "2026-04-03",
+      "date_through": "2026-04-06",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-04-03--litovel-sargounska",
+      "site_id": "litovel-sargounska",
+      "date_from": "2026-04-03",
+      "date_through": "2026-04-06",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-04-03--litovel-zerotinova",
+      "site_id": "litovel-zerotinova",
+      "date_from": "2026-04-03",
+      "date_through": "2026-04-06",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-04-10--litovel-pavlinka",
+      "site_id": "litovel-pavlinka",
+      "date_from": "2026-04-10",
+      "date_through": "2026-04-13",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-04-10--rozvadovice",
+      "site_id": "rozvadovice",
+      "date_from": "2026-04-10",
+      "date_through": "2026-04-13",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-04-10--tri-dvory",
+      "site_id": "tri-dvory",
+      "date_from": "2026-04-10",
+      "date_through": "2026-04-13",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-04-10--uncovice-pred-selikem",
+      "site_id": "uncovice-pred-selikem",
+      "date_from": "2026-04-10",
+      "date_through": "2026-04-13",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-04-10--litovel-dukelska",
+      "site_id": "litovel-dukelska",
+      "date_from": "2026-04-10",
+      "date_through": "2026-04-13",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-04-17--brezove",
+      "site_id": "brezove",
+      "date_from": "2026-04-17",
+      "date_through": "2026-04-20",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-04-17--chorelice",
+      "site_id": "chorelice",
+      "date_from": "2026-04-17",
+      "date_through": "2026-04-20",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-04-17--savin",
+      "site_id": "savin",
+      "date_from": "2026-04-17",
+      "date_through": "2026-04-20",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-04-17--litovel-u-laguny",
+      "site_id": "litovel-u-laguny",
+      "date_from": "2026-04-17",
+      "date_through": "2026-04-20",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-04-17--litovel-javoricska",
+      "site_id": "litovel-javoricska",
+      "date_from": "2026-04-17",
+      "date_through": "2026-04-20",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-04-17--litovel-cervenska",
+      "site_id": "litovel-cervenska",
+      "date_from": "2026-04-17",
+      "date_through": "2026-04-20",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-04-24--chudobin",
+      "site_id": "chudobin",
+      "date_from": "2026-04-24",
+      "date_through": "2026-04-27",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-04-24--litovel-komarov",
+      "site_id": "litovel-komarov",
+      "date_from": "2026-04-24",
+      "date_through": "2026-04-27",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-04-24--myslechovice",
+      "site_id": "myslechovice",
+      "date_from": "2026-04-24",
+      "date_through": "2026-04-27",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-04-24--nova-ves",
+      "site_id": "nova-ves",
+      "date_from": "2026-04-24",
+      "date_through": "2026-04-27",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-04-24--litovel-palackeho",
+      "site_id": "litovel-palackeho",
+      "date_from": "2026-04-24",
+      "date_through": "2026-04-27",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-05-01--nasoburky",
+      "site_id": "nasoburky",
+      "date_from": "2026-05-01",
+      "date_through": "2026-05-04",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-05-01--viska",
+      "site_id": "viska",
+      "date_from": "2026-05-01",
+      "date_through": "2026-05-04",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-05-01--litovel-sochova",
+      "site_id": "litovel-sochova",
+      "date_from": "2026-05-01",
+      "date_through": "2026-05-04",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-05-01--litovel-sargounska",
+      "site_id": "litovel-sargounska",
+      "date_from": "2026-05-01",
+      "date_through": "2026-05-04",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-05-01--litovel-zerotinova",
+      "site_id": "litovel-zerotinova",
+      "date_from": "2026-05-01",
+      "date_through": "2026-05-04",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-05-08--litovel-pavlinka",
+      "site_id": "litovel-pavlinka",
+      "date_from": "2026-05-08",
+      "date_through": "2026-05-11",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-05-08--rozvadovice",
+      "site_id": "rozvadovice",
+      "date_from": "2026-05-08",
+      "date_through": "2026-05-11",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-05-08--tri-dvory",
+      "site_id": "tri-dvory",
+      "date_from": "2026-05-08",
+      "date_through": "2026-05-11",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-05-08--uncovice-u-hasicarny",
+      "site_id": "uncovice-u-hasicarny",
+      "date_from": "2026-05-08",
+      "date_through": "2026-05-11",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-05-08--litovel-dukelska",
+      "site_id": "litovel-dukelska",
+      "date_from": "2026-05-08",
+      "date_through": "2026-05-11",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-05-15--brezove",
+      "site_id": "brezove",
+      "date_from": "2026-05-15",
+      "date_through": "2026-05-18",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-05-15--chorelice",
+      "site_id": "chorelice",
+      "date_from": "2026-05-15",
+      "date_through": "2026-05-18",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-05-15--savin",
+      "site_id": "savin",
+      "date_from": "2026-05-15",
+      "date_through": "2026-05-18",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-05-15--litovel-u-laguny",
+      "site_id": "litovel-u-laguny",
+      "date_from": "2026-05-15",
+      "date_through": "2026-05-18",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-05-15--litovel-javoricska",
+      "site_id": "litovel-javoricska",
+      "date_from": "2026-05-15",
+      "date_through": "2026-05-18",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-05-15--litovel-cervenska",
+      "site_id": "litovel-cervenska",
+      "date_from": "2026-05-15",
+      "date_through": "2026-05-18",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-05-22--chudobin",
+      "site_id": "chudobin",
+      "date_from": "2026-05-22",
+      "date_through": "2026-05-25",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-05-22--litovel-komarov",
+      "site_id": "litovel-komarov",
+      "date_from": "2026-05-22",
+      "date_through": "2026-05-25",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-05-22--myslechovice",
+      "site_id": "myslechovice",
+      "date_from": "2026-05-22",
+      "date_through": "2026-05-25",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-05-22--nova-ves",
+      "site_id": "nova-ves",
+      "date_from": "2026-05-22",
+      "date_through": "2026-05-25",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-05-22--litovel-palackeho",
+      "site_id": "litovel-palackeho",
+      "date_from": "2026-05-22",
+      "date_through": "2026-05-25",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-05-29--nasoburky",
+      "site_id": "nasoburky",
+      "date_from": "2026-05-29",
+      "date_through": "2026-06-01",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-05-29--viska",
+      "site_id": "viska",
+      "date_from": "2026-05-29",
+      "date_through": "2026-06-01",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-05-29--litovel-sochova",
+      "site_id": "litovel-sochova",
+      "date_from": "2026-05-29",
+      "date_through": "2026-06-01",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-05-29--litovel-sargounska",
+      "site_id": "litovel-sargounska",
+      "date_from": "2026-05-29",
+      "date_through": "2026-06-01",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-05-29--litovel-zerotinova",
+      "site_id": "litovel-zerotinova",
+      "date_from": "2026-05-29",
+      "date_through": "2026-06-01",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-06-05--litovel-pavlinka",
+      "site_id": "litovel-pavlinka",
+      "date_from": "2026-06-05",
+      "date_through": "2026-06-08",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-06-05--rozvadovice",
+      "site_id": "rozvadovice",
+      "date_from": "2026-06-05",
+      "date_through": "2026-06-08",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-06-05--tri-dvory",
+      "site_id": "tri-dvory",
+      "date_from": "2026-06-05",
+      "date_through": "2026-06-08",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-06-05--uncovice-pred-selikem",
+      "site_id": "uncovice-pred-selikem",
+      "date_from": "2026-06-05",
+      "date_through": "2026-06-08",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-06-05--litovel-dukelska",
+      "site_id": "litovel-dukelska",
+      "date_from": "2026-06-05",
+      "date_through": "2026-06-08",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-06-12--brezove",
+      "site_id": "brezove",
+      "date_from": "2026-06-12",
+      "date_through": "2026-06-15",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-06-12--chorelice",
+      "site_id": "chorelice",
+      "date_from": "2026-06-12",
+      "date_through": "2026-06-15",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-06-12--savin",
+      "site_id": "savin",
+      "date_from": "2026-06-12",
+      "date_through": "2026-06-15",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-06-12--litovel-u-laguny",
+      "site_id": "litovel-u-laguny",
+      "date_from": "2026-06-12",
+      "date_through": "2026-06-15",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-06-12--litovel-javoricska",
+      "site_id": "litovel-javoricska",
+      "date_from": "2026-06-12",
+      "date_through": "2026-06-15",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-06-12--litovel-cervenska",
+      "site_id": "litovel-cervenska",
+      "date_from": "2026-06-12",
+      "date_through": "2026-06-15",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-06-19--chudobin",
+      "site_id": "chudobin",
+      "date_from": "2026-06-19",
+      "date_through": "2026-06-22",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-06-19--litovel-komarov",
+      "site_id": "litovel-komarov",
+      "date_from": "2026-06-19",
+      "date_through": "2026-06-22",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-06-19--myslechovice",
+      "site_id": "myslechovice",
+      "date_from": "2026-06-19",
+      "date_through": "2026-06-22",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-06-19--nova-ves",
+      "site_id": "nova-ves",
+      "date_from": "2026-06-19",
+      "date_through": "2026-06-22",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-06-19--litovel-palackeho",
+      "site_id": "litovel-palackeho",
+      "date_from": "2026-06-19",
+      "date_through": "2026-06-22",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-06-26--nasoburky",
+      "site_id": "nasoburky",
+      "date_from": "2026-06-26",
+      "date_through": "2026-06-29",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-06-26--viska",
+      "site_id": "viska",
+      "date_from": "2026-06-26",
+      "date_through": "2026-06-29",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-06-26--litovel-sochova",
+      "site_id": "litovel-sochova",
+      "date_from": "2026-06-26",
+      "date_through": "2026-06-29",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-06-26--litovel-sargounska",
+      "site_id": "litovel-sargounska",
+      "date_from": "2026-06-26",
+      "date_through": "2026-06-29",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-06-26--litovel-zerotinova",
+      "site_id": "litovel-zerotinova",
+      "date_from": "2026-06-26",
+      "date_through": "2026-06-29",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-07-03--litovel-pavlinka",
+      "site_id": "litovel-pavlinka",
+      "date_from": "2026-07-03",
+      "date_through": "2026-07-06",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-07-03--rozvadovice",
+      "site_id": "rozvadovice",
+      "date_from": "2026-07-03",
+      "date_through": "2026-07-06",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-07-03--tri-dvory",
+      "site_id": "tri-dvory",
+      "date_from": "2026-07-03",
+      "date_through": "2026-07-06",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-07-03--uncovice-u-hasicarny",
+      "site_id": "uncovice-u-hasicarny",
+      "date_from": "2026-07-03",
+      "date_through": "2026-07-06",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-07-03--litovel-dukelska",
+      "site_id": "litovel-dukelska",
+      "date_from": "2026-07-03",
+      "date_through": "2026-07-06",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-07-10--brezove",
+      "site_id": "brezove",
+      "date_from": "2026-07-10",
+      "date_through": "2026-07-13",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-07-10--chorelice",
+      "site_id": "chorelice",
+      "date_from": "2026-07-10",
+      "date_through": "2026-07-13",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-07-10--savin",
+      "site_id": "savin",
+      "date_from": "2026-07-10",
+      "date_through": "2026-07-13",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-07-10--litovel-u-laguny",
+      "site_id": "litovel-u-laguny",
+      "date_from": "2026-07-10",
+      "date_through": "2026-07-13",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-07-10--litovel-javoricska",
+      "site_id": "litovel-javoricska",
+      "date_from": "2026-07-10",
+      "date_through": "2026-07-13",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-07-10--litovel-cervenska",
+      "site_id": "litovel-cervenska",
+      "date_from": "2026-07-10",
+      "date_through": "2026-07-13",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-07-17--chudobin",
+      "site_id": "chudobin",
+      "date_from": "2026-07-17",
+      "date_through": "2026-07-20",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-07-17--litovel-komarov",
+      "site_id": "litovel-komarov",
+      "date_from": "2026-07-17",
+      "date_through": "2026-07-20",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-07-17--myslechovice",
+      "site_id": "myslechovice",
+      "date_from": "2026-07-17",
+      "date_through": "2026-07-20",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-07-17--nova-ves",
+      "site_id": "nova-ves",
+      "date_from": "2026-07-17",
+      "date_through": "2026-07-20",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-07-17--litovel-palackeho",
+      "site_id": "litovel-palackeho",
+      "date_from": "2026-07-17",
+      "date_through": "2026-07-20",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-07-24--nasoburky",
+      "site_id": "nasoburky",
+      "date_from": "2026-07-24",
+      "date_through": "2026-07-27",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-07-24--viska",
+      "site_id": "viska",
+      "date_from": "2026-07-24",
+      "date_through": "2026-07-27",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-07-24--litovel-sochova",
+      "site_id": "litovel-sochova",
+      "date_from": "2026-07-24",
+      "date_through": "2026-07-27",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-07-24--litovel-sargounska",
+      "site_id": "litovel-sargounska",
+      "date_from": "2026-07-24",
+      "date_through": "2026-07-27",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-07-24--litovel-zerotinova",
+      "site_id": "litovel-zerotinova",
+      "date_from": "2026-07-24",
+      "date_through": "2026-07-27",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-07-31--litovel-pavlinka",
+      "site_id": "litovel-pavlinka",
+      "date_from": "2026-07-31",
+      "date_through": "2026-08-03",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-07-31--rozvadovice",
+      "site_id": "rozvadovice",
+      "date_from": "2026-07-31",
+      "date_through": "2026-08-03",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-07-31--tri-dvory",
+      "site_id": "tri-dvory",
+      "date_from": "2026-07-31",
+      "date_through": "2026-08-03",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-07-31--uncovice-pred-selikem",
+      "site_id": "uncovice-pred-selikem",
+      "date_from": "2026-07-31",
+      "date_through": "2026-08-03",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-07-31--litovel-dukelska",
+      "site_id": "litovel-dukelska",
+      "date_from": "2026-07-31",
+      "date_through": "2026-08-03",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-08-07--brezove",
+      "site_id": "brezove",
+      "date_from": "2026-08-07",
+      "date_through": "2026-08-10",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-08-07--chorelice",
+      "site_id": "chorelice",
+      "date_from": "2026-08-07",
+      "date_through": "2026-08-10",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-08-07--savin",
+      "site_id": "savin",
+      "date_from": "2026-08-07",
+      "date_through": "2026-08-10",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-08-07--litovel-u-laguny",
+      "site_id": "litovel-u-laguny",
+      "date_from": "2026-08-07",
+      "date_through": "2026-08-10",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-08-07--litovel-javoricska",
+      "site_id": "litovel-javoricska",
+      "date_from": "2026-08-07",
+      "date_through": "2026-08-10",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-08-07--litovel-cervenska",
+      "site_id": "litovel-cervenska",
+      "date_from": "2026-08-07",
+      "date_through": "2026-08-10",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-08-14--chudobin",
+      "site_id": "chudobin",
+      "date_from": "2026-08-14",
+      "date_through": "2026-08-17",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-08-14--litovel-komarov",
+      "site_id": "litovel-komarov",
+      "date_from": "2026-08-14",
+      "date_through": "2026-08-17",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-08-14--myslechovice",
+      "site_id": "myslechovice",
+      "date_from": "2026-08-14",
+      "date_through": "2026-08-17",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-08-14--nova-ves",
+      "site_id": "nova-ves",
+      "date_from": "2026-08-14",
+      "date_through": "2026-08-17",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-08-14--litovel-palackeho",
+      "site_id": "litovel-palackeho",
+      "date_from": "2026-08-14",
+      "date_through": "2026-08-17",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-08-21--nasoburky",
+      "site_id": "nasoburky",
+      "date_from": "2026-08-21",
+      "date_through": "2026-08-24",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-08-21--viska",
+      "site_id": "viska",
+      "date_from": "2026-08-21",
+      "date_through": "2026-08-24",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-08-21--litovel-sochova",
+      "site_id": "litovel-sochova",
+      "date_from": "2026-08-21",
+      "date_through": "2026-08-24",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-08-21--litovel-sargounska",
+      "site_id": "litovel-sargounska",
+      "date_from": "2026-08-21",
+      "date_through": "2026-08-24",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-08-21--litovel-zerotinova",
+      "site_id": "litovel-zerotinova",
+      "date_from": "2026-08-21",
+      "date_through": "2026-08-24",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-08-28--litovel-pavlinka",
+      "site_id": "litovel-pavlinka",
+      "date_from": "2026-08-28",
+      "date_through": "2026-08-31",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-08-28--rozvadovice",
+      "site_id": "rozvadovice",
+      "date_from": "2026-08-28",
+      "date_through": "2026-08-31",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-08-28--tri-dvory",
+      "site_id": "tri-dvory",
+      "date_from": "2026-08-28",
+      "date_through": "2026-08-31",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-08-28--uncovice-u-hasicarny",
+      "site_id": "uncovice-u-hasicarny",
+      "date_from": "2026-08-28",
+      "date_through": "2026-08-31",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-08-28--litovel-dukelska",
+      "site_id": "litovel-dukelska",
+      "date_from": "2026-08-28",
+      "date_through": "2026-08-31",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-09-04--brezove",
+      "site_id": "brezove",
+      "date_from": "2026-09-04",
+      "date_through": "2026-09-07",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-09-04--chorelice",
+      "site_id": "chorelice",
+      "date_from": "2026-09-04",
+      "date_through": "2026-09-07",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-09-04--savin",
+      "site_id": "savin",
+      "date_from": "2026-09-04",
+      "date_through": "2026-09-07",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-09-04--litovel-u-laguny",
+      "site_id": "litovel-u-laguny",
+      "date_from": "2026-09-04",
+      "date_through": "2026-09-07",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-09-04--litovel-javoricska",
+      "site_id": "litovel-javoricska",
+      "date_from": "2026-09-04",
+      "date_through": "2026-09-07",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-09-04--litovel-cervenska",
+      "site_id": "litovel-cervenska",
+      "date_from": "2026-09-04",
+      "date_through": "2026-09-07",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-09-11--chudobin",
+      "site_id": "chudobin",
+      "date_from": "2026-09-11",
+      "date_through": "2026-09-14",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-09-11--litovel-komarov",
+      "site_id": "litovel-komarov",
+      "date_from": "2026-09-11",
+      "date_through": "2026-09-14",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-09-11--myslechovice",
+      "site_id": "myslechovice",
+      "date_from": "2026-09-11",
+      "date_through": "2026-09-14",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-09-11--nova-ves",
+      "site_id": "nova-ves",
+      "date_from": "2026-09-11",
+      "date_through": "2026-09-14",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-09-11--litovel-palackeho",
+      "site_id": "litovel-palackeho",
+      "date_from": "2026-09-11",
+      "date_through": "2026-09-14",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-09-18--nasoburky",
+      "site_id": "nasoburky",
+      "date_from": "2026-09-18",
+      "date_through": "2026-09-21",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-09-18--viska",
+      "site_id": "viska",
+      "date_from": "2026-09-18",
+      "date_through": "2026-09-21",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-09-18--litovel-sochova",
+      "site_id": "litovel-sochova",
+      "date_from": "2026-09-18",
+      "date_through": "2026-09-21",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-09-18--litovel-sargounska",
+      "site_id": "litovel-sargounska",
+      "date_from": "2026-09-18",
+      "date_through": "2026-09-21",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-09-18--litovel-zerotinova",
+      "site_id": "litovel-zerotinova",
+      "date_from": "2026-09-18",
+      "date_through": "2026-09-21",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-09-25--litovel-pavlinka",
+      "site_id": "litovel-pavlinka",
+      "date_from": "2026-09-25",
+      "date_through": "2026-09-28",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-09-25--rozvadovice",
+      "site_id": "rozvadovice",
+      "date_from": "2026-09-25",
+      "date_through": "2026-09-28",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-09-25--tri-dvory",
+      "site_id": "tri-dvory",
+      "date_from": "2026-09-25",
+      "date_through": "2026-09-28",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-09-25--uncovice-pred-selikem",
+      "site_id": "uncovice-pred-selikem",
+      "date_from": "2026-09-25",
+      "date_through": "2026-09-28",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-09-25--litovel-dukelska",
+      "site_id": "litovel-dukelska",
+      "date_from": "2026-09-25",
+      "date_through": "2026-09-28",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-10-02--brezove",
+      "site_id": "brezove",
+      "date_from": "2026-10-02",
+      "date_through": "2026-10-05",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-10-02--chorelice",
+      "site_id": "chorelice",
+      "date_from": "2026-10-02",
+      "date_through": "2026-10-05",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-10-02--savin",
+      "site_id": "savin",
+      "date_from": "2026-10-02",
+      "date_through": "2026-10-05",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-10-02--litovel-u-laguny",
+      "site_id": "litovel-u-laguny",
+      "date_from": "2026-10-02",
+      "date_through": "2026-10-05",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-10-02--litovel-javoricska",
+      "site_id": "litovel-javoricska",
+      "date_from": "2026-10-02",
+      "date_through": "2026-10-05",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-10-02--litovel-cervenska",
+      "site_id": "litovel-cervenska",
+      "date_from": "2026-10-02",
+      "date_through": "2026-10-05",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-10-09--chudobin",
+      "site_id": "chudobin",
+      "date_from": "2026-10-09",
+      "date_through": "2026-10-12",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-10-09--litovel-komarov",
+      "site_id": "litovel-komarov",
+      "date_from": "2026-10-09",
+      "date_through": "2026-10-12",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-10-09--myslechovice",
+      "site_id": "myslechovice",
+      "date_from": "2026-10-09",
+      "date_through": "2026-10-12",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-10-09--nova-ves",
+      "site_id": "nova-ves",
+      "date_from": "2026-10-09",
+      "date_through": "2026-10-12",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-10-09--litovel-palackeho",
+      "site_id": "litovel-palackeho",
+      "date_from": "2026-10-09",
+      "date_through": "2026-10-12",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-10-16--nasoburky",
+      "site_id": "nasoburky",
+      "date_from": "2026-10-16",
+      "date_through": "2026-10-19",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-10-16--viska",
+      "site_id": "viska",
+      "date_from": "2026-10-16",
+      "date_through": "2026-10-19",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-10-16--litovel-sochova",
+      "site_id": "litovel-sochova",
+      "date_from": "2026-10-16",
+      "date_through": "2026-10-19",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-10-16--litovel-sargounska",
+      "site_id": "litovel-sargounska",
+      "date_from": "2026-10-16",
+      "date_through": "2026-10-19",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-10-16--litovel-zerotinova",
+      "site_id": "litovel-zerotinova",
+      "date_from": "2026-10-16",
+      "date_through": "2026-10-19",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-10-23--litovel-pavlinka",
+      "site_id": "litovel-pavlinka",
+      "date_from": "2026-10-23",
+      "date_through": "2026-10-26",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-10-23--rozvadovice",
+      "site_id": "rozvadovice",
+      "date_from": "2026-10-23",
+      "date_through": "2026-10-26",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-10-23--tri-dvory",
+      "site_id": "tri-dvory",
+      "date_from": "2026-10-23",
+      "date_through": "2026-10-26",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-10-23--uncovice-u-hasicarny",
+      "site_id": "uncovice-u-hasicarny",
+      "date_from": "2026-10-23",
+      "date_through": "2026-10-26",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-10-23--litovel-dukelska",
+      "site_id": "litovel-dukelska",
+      "date_from": "2026-10-23",
+      "date_through": "2026-10-26",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-10-30--brezove",
+      "site_id": "brezove",
+      "date_from": "2026-10-30",
+      "date_through": "2026-11-02",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-10-30--chorelice",
+      "site_id": "chorelice",
+      "date_from": "2026-10-30",
+      "date_through": "2026-11-02",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-10-30--savin",
+      "site_id": "savin",
+      "date_from": "2026-10-30",
+      "date_through": "2026-11-02",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-10-30--litovel-u-laguny",
+      "site_id": "litovel-u-laguny",
+      "date_from": "2026-10-30",
+      "date_through": "2026-11-02",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-10-30--litovel-javoricska",
+      "site_id": "litovel-javoricska",
+      "date_from": "2026-10-30",
+      "date_through": "2026-11-02",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-10-30--litovel-cervenska",
+      "site_id": "litovel-cervenska",
+      "date_from": "2026-10-30",
+      "date_through": "2026-11-02",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-11-06--chudobin",
+      "site_id": "chudobin",
+      "date_from": "2026-11-06",
+      "date_through": "2026-11-09",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-11-06--litovel-komarov",
+      "site_id": "litovel-komarov",
+      "date_from": "2026-11-06",
+      "date_through": "2026-11-09",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-11-06--myslechovice",
+      "site_id": "myslechovice",
+      "date_from": "2026-11-06",
+      "date_through": "2026-11-09",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-11-06--nova-ves",
+      "site_id": "nova-ves",
+      "date_from": "2026-11-06",
+      "date_through": "2026-11-09",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-11-06--litovel-palackeho",
+      "site_id": "litovel-palackeho",
+      "date_from": "2026-11-06",
+      "date_through": "2026-11-09",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-11-13--nasoburky",
+      "site_id": "nasoburky",
+      "date_from": "2026-11-13",
+      "date_through": "2026-11-16",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-11-13--viska",
+      "site_id": "viska",
+      "date_from": "2026-11-13",
+      "date_through": "2026-11-16",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-11-13--litovel-sochova",
+      "site_id": "litovel-sochova",
+      "date_from": "2026-11-13",
+      "date_through": "2026-11-16",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-11-13--litovel-sargounska",
+      "site_id": "litovel-sargounska",
+      "date_from": "2026-11-13",
+      "date_through": "2026-11-16",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-11-13--litovel-zerotinova",
+      "site_id": "litovel-zerotinova",
+      "date_from": "2026-11-13",
+      "date_through": "2026-11-16",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-11-20--litovel-pavlinka",
+      "site_id": "litovel-pavlinka",
+      "date_from": "2026-11-20",
+      "date_through": "2026-11-23",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-11-20--rozvadovice",
+      "site_id": "rozvadovice",
+      "date_from": "2026-11-20",
+      "date_through": "2026-11-23",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-11-20--tri-dvory",
+      "site_id": "tri-dvory",
+      "date_from": "2026-11-20",
+      "date_through": "2026-11-23",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-11-20--uncovice-pred-selikem",
+      "site_id": "uncovice-pred-selikem",
+      "date_from": "2026-11-20",
+      "date_through": "2026-11-23",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-11-20--litovel-dukelska",
+      "site_id": "litovel-dukelska",
+      "date_from": "2026-11-20",
+      "date_through": "2026-11-23",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-11-27--brezove",
+      "site_id": "brezove",
+      "date_from": "2026-11-27",
+      "date_through": "2026-11-30",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-11-27--chorelice",
+      "site_id": "chorelice",
+      "date_from": "2026-11-27",
+      "date_through": "2026-11-30",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-11-27--savin",
+      "site_id": "savin",
+      "date_from": "2026-11-27",
+      "date_through": "2026-11-30",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-11-27--litovel-u-laguny",
+      "site_id": "litovel-u-laguny",
+      "date_from": "2026-11-27",
+      "date_through": "2026-11-30",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-11-27--litovel-javoricska",
+      "site_id": "litovel-javoricska",
+      "date_from": "2026-11-27",
+      "date_through": "2026-11-30",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-11-27--litovel-cervenska",
+      "site_id": "litovel-cervenska",
+      "date_from": "2026-11-27",
+      "date_through": "2026-11-30",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-12-04--chudobin",
+      "site_id": "chudobin",
+      "date_from": "2026-12-04",
+      "date_through": "2026-12-07",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-12-04--litovel-komarov",
+      "site_id": "litovel-komarov",
+      "date_from": "2026-12-04",
+      "date_through": "2026-12-07",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-12-04--myslechovice",
+      "site_id": "myslechovice",
+      "date_from": "2026-12-04",
+      "date_through": "2026-12-07",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-12-04--nova-ves",
+      "site_id": "nova-ves",
+      "date_from": "2026-12-04",
+      "date_through": "2026-12-07",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-12-04--litovel-palackeho",
+      "site_id": "litovel-palackeho",
+      "date_from": "2026-12-04",
+      "date_through": "2026-12-07",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-12-11--nasoburky",
+      "site_id": "nasoburky",
+      "date_from": "2026-12-11",
+      "date_through": "2026-12-14",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-12-11--viska",
+      "site_id": "viska",
+      "date_from": "2026-12-11",
+      "date_through": "2026-12-14",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-12-11--litovel-sochova",
+      "site_id": "litovel-sochova",
+      "date_from": "2026-12-11",
+      "date_through": "2026-12-14",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-12-11--litovel-sargounska",
+      "site_id": "litovel-sargounska",
+      "date_from": "2026-12-11",
+      "date_through": "2026-12-14",
+      "source_id": "bio-litovel"
+    },
+    {
+      "id": "bio-2026-12-11--litovel-zerotinova",
+      "site_id": "litovel-zerotinova",
+      "date_from": "2026-12-11",
+      "date_through": "2026-12-14",
+      "source_id": "bio-litovel"
+    }
+  ],
+  "reference_locations": [
+    {
+      "name": "1. máje",
+      "slug": "1-maje",
+      "coordinates": {
+        "latitude": 49.6999736,
+        "longitude": 17.075249,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "B. Němcové",
+      "slug": "b-nemcove",
+      "coordinates": {
+        "latitude": 49.7033131,
+        "longitude": 17.0750106,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Bezručova",
+      "slug": "bezrucova",
+      "coordinates": {
+        "latitude": 49.7002827,
+        "longitude": 17.0860319,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Boskovicova",
+      "slug": "boskovicova",
+      "coordinates": {
+        "latitude": 49.7010539,
+        "longitude": 17.0748977,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Cholinská",
+      "slug": "cholinska",
+      "coordinates": {
+        "latitude": 49.6896873,
+        "longitude": 17.0712318,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Družstevní",
+      "slug": "druzstevni",
+      "coordinates": {
+        "latitude": 49.6984293,
+        "longitude": 17.0825501,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Dukelská",
+      "slug": "dukelska",
+      "coordinates": {
+        "latitude": 49.700544,
+        "longitude": 17.0717702,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "G. Frištenského",
+      "slug": "g-fristenskeho",
+      "coordinates": {
+        "latitude": 49.6958111,
+        "longitude": 17.0763872,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Gemerská - rodinné domy",
+      "slug": "gemerska-rodinne-domy",
+      "coordinates": {
+        "latitude": 49.7073997,
+        "longitude": 17.0760943,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Gemerská - sídliště",
+      "slug": "gemerska-sidliste",
+      "coordinates": {
+        "latitude": 49.7073997,
+        "longitude": 17.0760943,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Havlíčkova",
+      "slug": "havlickova",
+      "coordinates": {
+        "latitude": 49.7007738,
+        "longitude": 17.0737371,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Hrnčířská",
+      "slug": "hrncirska",
+      "coordinates": {
+        "latitude": 49.7062634,
+        "longitude": 17.0766743,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Husova",
+      "slug": "husova",
+      "coordinates": {
+        "latitude": 49.7013046,
+        "longitude": 17.0786039,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Javoříčská",
+      "slug": "javoricska",
+      "coordinates": {
+        "latitude": 49.7045329,
+        "longitude": 17.0713011,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Jiráskova",
+      "slug": "jiraskova",
+      "coordinates": {
+        "latitude": 49.7005507,
+        "longitude": 17.0842803,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Jungmannova",
+      "slug": "jungmannova",
+      "coordinates": {
+        "latitude": 49.7011903,
+        "longitude": 17.0772909,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Karla Sedláka - sídliště",
+      "slug": "karla-sedlaka-sidliste",
+      "coordinates": {
+        "latitude": 49.7084736,
+        "longitude": 17.075677,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Karlov",
+      "slug": "karlov",
+      "coordinates": {
+        "latitude": 49.6932002,
+        "longitude": 17.0938259,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Karlovská",
+      "slug": "karlovska",
+      "coordinates": {
+        "latitude": 49.7003264,
+        "longitude": 17.0819012,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Kollárova",
+      "slug": "kollarova",
+      "coordinates": {
+        "latitude": 49.7031972,
+        "longitude": 17.0812658,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Komenského",
+      "slug": "komenskeho",
+      "coordinates": {
+        "latitude": 49.7019441,
+        "longitude": 17.074051,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Komárov",
+      "slug": "komarov",
+      "coordinates": {
+        "latitude": 49.7028994,
+        "longitude": 17.0693939,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Kosmonautů",
+      "slug": "kosmonautu",
+      "coordinates": {
+        "latitude": 49.7036425,
+        "longitude": 17.0867858,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Kostelní",
+      "slug": "kostelni",
+      "coordinates": {
+        "latitude": 49.7020378,
+        "longitude": 17.0747083,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Koupaliště",
+      "slug": "koupaliste",
+      "coordinates": {
+        "latitude": 49.7036312,
+        "longitude": 17.0697995,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Králova",
+      "slug": "kralova",
+      "coordinates": {
+        "latitude": 49.7079741,
+        "longitude": 17.0718234,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Kysucká",
+      "slug": "kysucka",
+      "coordinates": {
+        "latitude": 49.7046285,
+        "longitude": 17.0746048,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Lesní zátiší",
+      "slug": "lesni-zatisi",
+      "coordinates": {
+        "latitude": 49.7008714,
+        "longitude": 17.0868131,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Lidická",
+      "slug": "lidicka",
+      "coordinates": {
+        "latitude": 49.7039372,
+        "longitude": 17.0734411,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Loštická",
+      "slug": "losticka",
+      "coordinates": {
+        "latitude": 49.7105841,
+        "longitude": 17.0681188,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Lužní",
+      "slug": "luzni",
+      "coordinates": {
+        "latitude": 49.7023271,
+        "longitude": 17.0896287,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Masarykova",
+      "slug": "masarykova",
+      "coordinates": {
+        "latitude": 49.7021781,
+        "longitude": 17.0759634,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Mlýnská",
+      "slug": "mlynska",
+      "coordinates": {
+        "latitude": 49.7018092,
+        "longitude": 17.0733303,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Nasobůrská",
+      "slug": "nasoburska",
+      "coordinates": {
+        "latitude": 49.6964809,
+        "longitude": 17.0738292,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Novosady - sídliště",
+      "slug": "novosady-sidliste",
+      "coordinates": {
+        "latitude": 49.7089339,
+        "longitude": 17.0781277,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Nová",
+      "slug": "nova",
+      "coordinates": {
+        "latitude": 49.7042117,
+        "longitude": 17.0881653,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Nábřežní",
+      "slug": "nabrezni",
+      "coordinates": {
+        "latitude": 49.6967378,
+        "longitude": 17.0759203,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Nádražní",
+      "slug": "nadrazni",
+      "coordinates": {
+        "latitude": 49.6939001,
+        "longitude": 17.0721058,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Nám. Př. Otakara",
+      "slug": "nam-pr-otakara",
+      "coordinates": {
+        "latitude": 49.7014533,
+        "longitude": 17.075623,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Olomoucká",
+      "slug": "olomoucka",
+      "coordinates": {
+        "latitude": 49.689783,
+        "longitude": 17.0763474,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Opletalova",
+      "slug": "opletalova",
+      "coordinates": {
+        "latitude": 49.7005211,
+        "longitude": 17.0800769,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Palackého",
+      "slug": "palackeho",
+      "coordinates": {
+        "latitude": 49.6959153,
+        "longitude": 17.0742758,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Pavlínka",
+      "slug": "pavlinka",
+      "coordinates": {
+        "latitude": 49.7074493,
+        "longitude": 17.0867216,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Poděbradova",
+      "slug": "podebradova",
+      "coordinates": {
+        "latitude": 49.7008784,
+        "longitude": 17.0760814,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Polní",
+      "slug": "polni",
+      "coordinates": {
+        "latitude": 49.7088326,
+        "longitude": 17.0806193,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Pošmýlská",
+      "slug": "posmylska",
+      "coordinates": {
+        "latitude": 49.705978,
+        "longitude": 17.0869015,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Příčná",
+      "slug": "pricna",
+      "coordinates": {
+        "latitude": 49.6988339,
+        "longitude": 17.0728069,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Revoluční",
+      "slug": "revolucni",
+      "coordinates": {
+        "latitude": 49.7027904,
+        "longitude": 17.0744324,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Revúcká",
+      "slug": "revucka",
+      "coordinates": {
+        "latitude": 49.6995093,
+        "longitude": 17.0896975,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Rybníček",
+      "slug": "rybnicek",
+      "coordinates": {
+        "latitude": 49.7064748,
+        "longitude": 17.0799587,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Sadová",
+      "slug": "sadova",
+      "coordinates": {
+        "latitude": 49.7050653,
+        "longitude": 17.0842969,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Severní",
+      "slug": "severni",
+      "coordinates": {
+        "latitude": 49.7099999,
+        "longitude": 17.0764181,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Smyčkova",
+      "slug": "smyckova",
+      "coordinates": {
+        "latitude": 49.7003043,
+        "longitude": 17.0729868,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Sochova",
+      "slug": "sochova",
+      "coordinates": {
+        "latitude": 49.7014388,
+        "longitude": 17.084336,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Staroměstské náměstí",
+      "slug": "staromestske-namesti",
+      "coordinates": {
+        "latitude": 49.7075742,
+        "longitude": 17.0732857,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Studentů",
+      "slug": "studentu",
+      "coordinates": {
+        "latitude": 49.7007347,
+        "longitude": 17.0824717,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Sušilova",
+      "slug": "susilova",
+      "coordinates": {
+        "latitude": 49.7065483,
+        "longitude": 17.0781275,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Svatoplukova",
+      "slug": "svatoplukova",
+      "coordinates": {
+        "latitude": 49.6914876,
+        "longitude": 17.0715497,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Třebízského",
+      "slug": "trebizskeho",
+      "coordinates": {
+        "latitude": 49.7022824,
+        "longitude": 17.0768352,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "U Stadionu",
+      "slug": "u-stadionu",
+      "coordinates": {
+        "latitude": 49.707198,
+        "longitude": 17.0892505,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Uničovská",
+      "slug": "unicovska",
+      "coordinates": {
+        "latitude": 49.7108529,
+        "longitude": 17.0746856,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Uničovská - sídliště",
+      "slug": "unicovska-sidliste",
+      "coordinates": {
+        "latitude": 49.7108529,
+        "longitude": 17.0746856,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Vlašímova",
+      "slug": "vlasimova",
+      "coordinates": {
+        "latitude": 49.7020541,
+        "longitude": 17.0753168,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Vodní",
+      "slug": "vodni",
+      "coordinates": {
+        "latitude": 49.6995543,
+        "longitude": 17.0737898,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Vítězná",
+      "slug": "vitezna",
+      "coordinates": {
+        "latitude": 49.7043698,
+        "longitude": 17.0771869,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Wolkerova",
+      "slug": "wolkerova",
+      "coordinates": {
+        "latitude": 49.7039353,
+        "longitude": 17.0876636,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Zahradní",
+      "slug": "zahradni",
+      "coordinates": {
+        "latitude": 49.7067308,
+        "longitude": 17.0708927,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "nám. Svobody",
+      "slug": "nam-svobody",
+      "coordinates": {
+        "latitude": 49.7027661,
+        "longitude": 17.0737086,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Vítězná - sídliště",
+      "slug": "vitezna-sidliste",
+      "coordinates": {
+        "latitude": 49.7043698,
+        "longitude": 17.0771869,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Červenská",
+      "slug": "cervenska",
+      "coordinates": {
+        "latitude": 49.7087634,
+        "longitude": 17.0800531,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Čihadlo",
+      "slug": "cihadlo",
+      "coordinates": {
+        "latitude": 49.6993444,
+        "longitude": 17.0794277,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Čs. armády",
+      "slug": "cs-armady",
+      "coordinates": {
+        "latitude": 49.7018225,
+        "longitude": 17.0852429,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Šafaříkova",
+      "slug": "safarikova",
+      "coordinates": {
+        "latitude": 49.7019248,
+        "longitude": 17.0764592,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Šargounská",
+      "slug": "sargounska",
+      "coordinates": {
+        "latitude": 49.6974993,
+        "longitude": 17.0824178,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Šemberova",
+      "slug": "semberova",
+      "coordinates": {
+        "latitude": 49.6999046,
+        "longitude": 17.0849452,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Šerhovní",
+      "slug": "serhovni",
+      "coordinates": {
+        "latitude": 49.7017025,
+        "longitude": 17.0744562,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Šmakalova",
+      "slug": "smakalova",
+      "coordinates": {
+        "latitude": 49.7022916,
+        "longitude": 17.0851507,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Štefánikova",
+      "slug": "stefanikova",
+      "coordinates": {
+        "latitude": 49.6902382,
+        "longitude": 17.0742274,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Švermova",
+      "slug": "svermova",
+      "coordinates": {
+        "latitude": 49.7002447,
+        "longitude": 17.0878655,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Švédská",
+      "slug": "svedska",
+      "coordinates": {
+        "latitude": 49.6997901,
+        "longitude": 17.076002,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Žerotínova",
+      "slug": "zerotinova",
+      "coordinates": {
+        "latitude": 49.7073262,
+        "longitude": 17.0787065,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Novosady - rodinné domy",
+      "slug": "novosady-rodinne-domy",
+      "coordinates": {
+        "latitude": 49.7089339,
+        "longitude": 17.0781277,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Severní - rodinné domy",
+      "slug": "severni-rodinne-domy",
+      "coordinates": {
+        "latitude": 49.7099999,
+        "longitude": 17.0764181,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Březové",
+      "slug": "brezove",
+      "coordinates": {
+        "latitude": 49.680612,
+        "longitude": 17.120041,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Chořelice",
+      "slug": "chorelice",
+      "coordinates": {
+        "latitude": 49.6900699,
+        "longitude": 17.0795808,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Chudobín",
+      "slug": "chudobin",
+      "coordinates": {
+        "latitude": 49.6887854,
+        "longitude": 17.0374793,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Myslechovice",
+      "slug": "myslechovice",
+      "coordinates": {
+        "latitude": 49.6736404,
+        "longitude": 17.0455444,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Nasobůrky",
+      "slug": "nasoburky",
+      "coordinates": {
+        "latitude": 49.6879413,
+        "longitude": 17.0572348,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Nová Ves",
+      "slug": "nova-ves",
+      "coordinates": {
+        "latitude": 49.6822725,
+        "longitude": 17.0169665,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Unčovice",
+      "slug": "uncovice",
+      "coordinates": {
+        "latitude": 49.6669956,
+        "longitude": 17.1063865,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Rozvadovice",
+      "slug": "rozvadovice",
+      "coordinates": {
+        "latitude": 49.6764969,
+        "longitude": 17.0923809,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Savín",
+      "slug": "savin",
+      "coordinates": {
+        "latitude": 49.6745845,
+        "longitude": 16.986147,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Tři Dvory",
+      "slug": "tri-dvory",
+      "coordinates": {
+        "latitude": 49.7145671,
+        "longitude": 17.1075299,
+        "accuracy": "provisional"
+      }
+    },
+    {
+      "name": "Víska",
+      "slug": "viska",
+      "coordinates": {
+        "latitude": 49.6997641,
+        "longitude": 17.0526453,
+        "accuracy": "provisional"
+      }
+    }
+  ],
+  "collection_yard": {
+    "name": "Sběrný dvůr Litovel",
+    "coordinates": {
+      "latitude": 49.6861253,
+      "longitude": 17.0508742,
+      "accuracy": "precise"
+    }
+  }
+}

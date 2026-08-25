@@ -67,7 +67,15 @@ class WasteCollectionCalendarGenerator:
         return self._event_cache[street]
 
 
-    def generate_ical_file(self, street: str, directory: str | Path, date_start: datetime, date_end: datetime):
+    def generate_ical_file(
+        self,
+        street: str,
+        directory: str | Path,
+        date_start: datetime,
+        date_end: datetime,
+        *,
+        include_legacy_alias: bool = True,
+    ):
         """
         Vytvori .ics soubor pro zadanou ulici. 
 
@@ -124,9 +132,9 @@ class WasteCollectionCalendarGenerator:
         output_dir.mkdir(parents=True, exist_ok=True)
         content = cal.to_ical()
 
-        # TODO deprecated, to be removed
-        (output_dir / f"{street}.ics").write_bytes(content)
         (output_dir / f"{slugified_street}.ics").write_bytes(content)
+        if include_legacy_alias:
+            (output_dir / f"{street}.ics").write_bytes(content)
 
     def generate_csv_file(self, streets: list, date_start: datetime, date_end: datetime, output_path: str | Path = "waste_schedule.csv"):
         """

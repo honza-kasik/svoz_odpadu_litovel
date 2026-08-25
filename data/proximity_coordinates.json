@@ -6,6 +6,14 @@
     "license": "ODbL",
     "imported": "2026-08-20"
   },
+  "collection_yard": {
+    "name": "Sběrný dvůr Litovel",
+    "coordinates": {
+      "latitude": 49.6861253,
+      "longitude": 17.0508742,
+      "accuracy": "precise"
+    }
+  },
   "street_coordinates": {
     "1. máje": {
       "latitude": 49.6999736,

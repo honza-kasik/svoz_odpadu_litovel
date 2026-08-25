@@ -16,7 +16,7 @@ BASE_URL = "https://svoz.litovle.cz"
 TEMPLATE_PATH = "templates/layout.html"
 BIO_TEMPLATE_PATH = "templates/bio.html"
 BIO_DETAIL_TEMPLATE_PATH = "templates/bio_detail.html"
-COLLECTION_YARD_MAP_URL = (
+DEFAULT_COLLECTION_YARD_MAP_URL = (
     "https://www.openstreetmap.org/"
     "?mlat=49.6861253&mlon=17.0508742#map=18/49.6861253/17.0508742"
 )
@@ -126,7 +126,7 @@ def build_bio_pages(
     validate_bio_routes(schedule, streets)
     reference_date = datetime.now(ZoneInfo("Europe/Prague")).date()
     search_items = build_bio_search_items(schedule, streets, proximity_config)
-    overview = build_bio_overview(schedule, reference_date)
+    overview = build_bio_overview(schedule, reference_date, proximity_config)
 
     overview_context = {
         **meta_builder.bio(schedule.year),
@@ -235,7 +235,9 @@ def build_bio_search_items(schedule, streets, proximity_config) -> list[dict]:
     return items
 
 
-def build_bio_overview(schedule, reference_date: date) -> dict[str, str]:
+def build_bio_overview(
+    schedule, reference_date: date, proximity_config=None
+) -> dict[str, str]:
     windows = group_bio_placements(schedule.placements)
     current_windows = [
         window
@@ -250,7 +252,7 @@ def build_bio_overview(schedule, reference_date: date) -> dict[str, str]:
         current_html = (
             '<p class="bio-window-empty">'
             "Právě nyní není přistaven žádný kontejner. Bioodpad můžete odevzdat "
-            f'<a href="{COLLECTION_YARD_MAP_URL}" target="_blank" rel="noopener">'
+            f'<a href="{collection_yard_map_url(proximity_config)}" target="_blank" rel="noopener">'
             "ve sběrném dvoře</a>."
             "</p>"
         )
@@ -425,7 +427,7 @@ def build_nearby_bio_html(
         fallback_note = (
             '<p class="nearby-bio-fallback">'
             "Právě není přistaven žádný bio kontejner. Bioodpad můžete odevzdat "
-            f'<a href="{COLLECTION_YARD_MAP_URL}" target="_blank" rel="noopener">'
+            f'<a href="{collection_yard_map_url(proximity_config)}" target="_blank" rel="noopener">'
             "ve sběrném dvoře</a>."
             "</p>"
         )
@@ -509,6 +511,18 @@ def format_distance(distance_km: float, approximate: bool) -> str:
         metres = round(distance_km * 1000 / 50) * 50
         return f"{prefix}{metres} m"
     return f"{prefix}{distance_km:.1f} km".replace(".", ",")
+
+
+def collection_yard_map_url(proximity_config=None) -> str:
+    yard = getattr(proximity_config, "collection_yard", None)
+    if yard is None:
+        return DEFAULT_COLLECTION_YARD_MAP_URL
+    point = yard.coordinates
+    return (
+        "https://www.openstreetmap.org/"
+        f"?mlat={point.latitude:.7f}&mlon={point.longitude:.7f}"
+        f"#map=18/{point.latitude:.7f}/{point.longitude:.7f}"
+    )
 
 
 def build_bio_placement_rows(placements, today: date | None = None) -> str:

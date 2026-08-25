@@ -16,6 +16,7 @@ def main() -> int:
     os.chdir(ROOT)
     validate_generated_files_are_not_tracked()
     validate_active_year()
+    validate_release_exports()
     run([sys.executable, "tests.py"])
     validate_browser_dependencies()
     validate_exception_json()
@@ -49,6 +50,12 @@ def validate_active_year() -> None:
             f"bio active year {project_config.bio_active_year} does not match "
             f"bio schedule year {schedule.year}"
         )
+
+
+def validate_release_exports() -> None:
+    from scripts.build_site import validate_release_data
+
+    validate_release_data()
 
 
 def run(command: list[str]) -> None:

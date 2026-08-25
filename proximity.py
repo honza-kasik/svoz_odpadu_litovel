@@ -15,15 +15,24 @@ ROOT_FIELDS = {
     "source",
     "street_coordinates",
     "site_coordinates",
+    "collection_yard",
 }
 SOURCE_FIELDS = {"name", "url", "license", "imported"}
 POINT_FIELDS = {"latitude", "longitude", "accuracy"}
+COLLECTION_YARD_FIELDS = {"name", "coordinates"}
+
+
+@dataclass(frozen=True)
+class BioCollectionYard:
+    name: str
+    coordinates: BioCoordinates
 
 
 @dataclass(frozen=True)
 class ProximityConfig:
     street_coordinates: dict[str, BioCoordinates]
     site_coordinates: dict[str, BioCoordinates]
+    collection_yard: BioCollectionYard | None = None
 
 
 @dataclass(frozen=True)
@@ -129,7 +138,8 @@ def load_proximity_config(
     if unknown_sites:
         raise ValueError(f"unknown site coordinate overrides: {', '.join(sorted(unknown_sites))}")
 
-    return ProximityConfig(street_coordinates, site_coordinates)
+    collection_yard = _load_collection_yard(data.get("collection_yard"))
+    return ProximityConfig(street_coordinates, site_coordinates, collection_yard)
 
 
 def resolve_street_coordinates(
@@ -241,6 +251,18 @@ def _load_overrides(raw, label: str) -> dict[str, BioCoordinates]:
     if not isinstance(raw, dict):
         raise ValueError(f"{label} must be an object")
     return {key: _load_point(value, f"{label}.{key}") for key, value in raw.items()}
+
+
+def _load_collection_yard(raw) -> BioCollectionYard:
+    if not isinstance(raw, dict) or set(raw) != COLLECTION_YARD_FIELDS:
+        raise ValueError("collection_yard must contain exactly name and coordinates")
+    name = raw["name"]
+    if not isinstance(name, str) or not name.strip():
+        raise ValueError("collection_yard.name must be a non-empty string")
+    return BioCollectionYard(
+        name.strip(),
+        _load_point(raw["coordinates"], "collection_yard.coordinates"),
+    )
 
 
 def _load_point(raw, label: str, default_accuracy: str | None = None) -> BioCoordinates:

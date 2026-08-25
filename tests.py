@@ -55,12 +55,28 @@ from proximity import (
     resolve_street_coordinates,
 )
 from project_config import project_config, validate_rollover
+from release_data import load_bio_release, load_waste_schedule
 
 
 BIO_2026_PATH = Path("data/bio_containers/2026.json")
+BIO_RELEASE_PATH = Path("bio_schedule.json")
 
 
 class BioContainersTest(unittest.TestCase):
+    def test_released_bio_data_contains_resolved_presentation_inputs(self):
+        released = load_bio_release(BIO_RELEASE_PATH)
+
+        self.assertEqual(2026, released.schedule.year)
+        self.assertEqual(22, len(released.schedule.sites))
+        self.assertEqual(210, len(released.schedule.placements))
+        self.assertTrue(all(site.coordinates for site in released.schedule.sites))
+        self.assertEqual(94, len(released.proximity.street_coordinates))
+        self.assertEqual("Sběrný dvůr Litovel", released.proximity.collection_yard.name)
+        self.assertAlmostEqual(
+            49.6861253,
+            released.proximity.collection_yard.coordinates.latitude,
+        )
+
     def test_active_bio_schedule_matches_project_config(self):
         schedule = load_bio_schedule()
 
@@ -937,6 +953,25 @@ class SvozExceptionsTest(unittest.TestCase):
         expected_lines = Path("waste_schedule.csv").read_text(encoding="utf-8").splitlines()
 
         self.assertEqual(expected_lines, actual_lines)
+
+    def test_checked_in_csv_round_trips_to_collection_events(self):
+        streets = all_streets["Litovel"] + mistni_casti
+        released = load_waste_schedule("waste_schedule.csv", streets)
+        generated = calendar_generator.WasteCollectionCalendarGenerator(
+            lokace_svozu_smes,
+            lokace_svozu_plast,
+            lokace_svozu_papir,
+            lokace_svozu_bio,
+            streets,
+            date_start,
+            date_end,
+        )
+
+        for street in streets:
+            self.assertEqual(
+                generated.get_events_for_street(street),
+                released.get_events_for_street(street),
+            )
 
 
 class LitovelWatcherTest(unittest.TestCase):
