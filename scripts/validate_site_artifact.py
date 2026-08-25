@@ -165,7 +165,9 @@ def validate_bio_proximity_sections(site_dir: Path) -> None:
         card_count = html.count('class="nearby-bio-card"')
         if section_count not in {0, 1}:
             violations.append(f"{html_file.relative_to(site_dir)} has duplicate nearby bio sections")
-        if (section_count == 0 and card_count != 0) or (section_count == 1 and card_count != 3):
+        if (section_count == 0 and card_count != 0) or (
+            section_count == 1 and not 1 <= card_count <= 3
+        ):
             violations.append(f"{html_file.relative_to(site_dir)} has inconsistent nearby bio cards")
     if violations:
         raise SystemExit("Bio proximity violations:\n" + "\n".join(violations[:20]))

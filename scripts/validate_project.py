@@ -14,6 +14,7 @@ sys.path.insert(0, str(ROOT))
 
 def main() -> int:
     os.chdir(ROOT)
+    validate_generated_files_are_not_tracked()
     validate_active_year()
     run([sys.executable, "tests.py"])
     validate_browser_dependencies()
@@ -21,6 +22,18 @@ def main() -> int:
     validate_bio_container_json()
     compile_python_files()
     return 0
+
+
+def validate_generated_files_are_not_tracked() -> None:
+    result = subprocess.run(
+        ["git", "ls-files", "-z", "--", "index.html", "sitemap.xml", "ulice", "bio"],
+        check=True,
+        capture_output=True,
+    )
+    tracked = [path for path in result.stdout.decode().split("\0") if path]
+    if tracked:
+        preview = ", ".join(tracked[:10])
+        raise SystemExit(f"Generated site pages must not be tracked: {preview}")
 
 
 def validate_active_year() -> None:

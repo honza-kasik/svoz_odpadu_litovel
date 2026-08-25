@@ -36,31 +36,33 @@ Projekt používá Python 3.12. Závislosti jsou deklarované v link:requirement
 
 [source,sh]
 ----
+python3.12 -m venv .venv
+source .venv/bin/activate
 python -m pip install -r requirements.txt
 python scripts/validate_project.py
 python scripts/build_site.py --output-dir _site
 python scripts/validate_site_artifact.py _site
 ----
 
-Výsledný deployovatelný web je ve složce `_site/`, která se necommituje. Lokálně ho lze zobrazit například:
+Výsledný deployovatelný web je ve složce `_site/`, která se necommituje. Pro lokální vývoj jej lze jedním příkazem sestavit a spustit na `http://127.0.0.1:8000/`:
 
 [source,sh]
 ----
-python -m http.server --directory _site
+python scripts/serve_site.py
 ----
 
-Původní příkaz `python generator_svozu_odpadu.py` zůstává podporovaný pro aktualizaci trackovaných generated snapshotů v kořeni repozitáře.
+Volby `--host`, `--port` a `--output-dir` umožňují změnit adresu, port a pracovní adresář. Po změně zdrojů je zatím potřeba server ukončit a spustit znovu, aby se web znovu sestavil.
 
 === Co je zdroj a co je generated výstup
 
 Autoritativní zdroj pravidelného harmonogramu je v Pythonu, jednorázové změny jsou v `data/svoz_exceptions.json` a městské podklady jsou v `resources/`.
 
-Repozitář zatím záměrně používá hybridní model:
+Repozitář odděluje autoritativní zdroje od deploy artefaktu:
 
-* trackované generated snapshoty: `index.html`, `ulice/`, `calendars/`, `waste_schedule.csv`, `sitemap.xml`
-* ignorované generated výstupy: `_site/` a `resources/social/*.png`
+* trackované validační snapshoty: `calendars/` a `waste_schedule.csv`
+* ignorované generated stránky: `index.html`, `ulice/`, `bio/`, `sitemap.xml`, `_site/` a `resources/social/*.png`
 
-Trackované snapshoty pomáhají při review změn a drží kompatibilitu s notifikacemi do aplikace. Social preview obrázky se necommitují, protože jsou binární a mění se podle aktuálního data; generují se až do deploy artefaktu. URL obrázků používá stabilní název souboru a query parametr `?v=...`, který se změní při změně obsahu obrázku.
+HTML stránky, sitemap a social preview obrázky se generují až do deploy artefaktu, protože jejich obsah závisí na datu sestavení a změna jedné šablony nebo CSS by jinak vytvářela stovky odvozených změn v Gitu. Jejich správnost kontroluje CI sestavením a validací čistého `_site/`. URL social preview obrázků používá stabilní název souboru a query parametr `?v=...`, který se změní při změně obsahu obrázku.
 
 Kalendáře v `calendars/` jsou trackované záměrně. Slouží jako validační snapshoty změn svozu a současně jako veřejné soubory pro existující odběry kalendářů. Pro každou lokaci se zatím generují dvě URL varianty: původní název s diakritikou a stabilní slug bez diakritiky. Web používá slug variantu, ale původní názvy zůstávají kvůli zpětné kompatibilitě s už importovanými kalendáři.
 
@@ -79,7 +81,7 @@ Workflowy:
 
 1. Ověřit oficiální zdroj a uložit odkaz včetně archivu.
 2. Přidat jednorázovou změnu do `data/svoz_exceptions.json`; Python logiku měnit jen pokud změna vyžaduje novou skupinu nebo pravidlo.
-3. Spustit `python generator_svozu_odpadu.py`, aby se aktualizovaly trackované snapshoty.
+3. Spustit `python generator_svozu_odpadu.py`, aby se aktualizovaly trackované CSV a ICS snapshoty.
 4. Spustit `python scripts/validate_project.py`.
 5. Pro kontrolu produkčního artefaktu spustit `python scripts/build_site.py --output-dir _site` a `python scripts/validate_site_artifact.py _site`.
 
