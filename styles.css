@@ -1283,6 +1283,11 @@ input {
 }
 
 @media (max-width: 700px) {
+  .bio-page main {
+    box-sizing: border-box;
+    padding-inline: 8px;
+  }
+
   .bio-controls,
   .bio-summary {
     flex-direction: column;
