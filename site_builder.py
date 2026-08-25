@@ -539,7 +539,7 @@ def build_bio_disposal_fallback(
         "Žádný velkoobjemový kontejner právě není přistaven. "
         "Menší množství lze dát do hnědé popelnice. "
         f"{collection_sentence}"
-        "Větší množství můžete odvézt "
+        "Větší množství bioodpadu můžete odevzdat "
         f'<a href="{collection_yard_map_url(proximity_config)}" target="_blank" rel="noopener">'
         "ve sběrném dvoře</a>."
         "</p>"

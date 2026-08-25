@@ -672,6 +672,7 @@ class BioSeoPagesTest(unittest.TestCase):
         self.assertIn("hnědé popelnice", html)
         self.assertIn("Termíny jejího svozu vidíte v kalendáři výše.", html)
         self.assertNotIn('href="/">v kalendáři podle ulice</a>', html)
+        self.assertIn("Větší množství bioodpadu můžete odevzdat", html)
         self.assertIn("ve sběrném dvoře", html)
         self.assertIn("49.6861253", html)
 
@@ -715,6 +716,7 @@ class BioSeoPagesTest(unittest.TestCase):
         )
         self.assertIn("hnědé popelnice", overview["current"])
         self.assertIn('href="/">v kalendáři podle ulice</a>', overview["current"])
+        self.assertIn("Větší množství bioodpadu můžete odevzdat", overview["current"])
         self.assertIn("ve sběrném dvoře", overview["current"])
         self.assertIn("49.6861253", overview["current"])
 
