@@ -22,11 +22,11 @@ Kalendář je pak použitelný v různých dashboardech.
 
 == Obsah repozitáře
 
-Velmi jednoduchý a naivní skript pro vygenerování `ics` souborů a `csv` souboru se svozy odpadů pro jednotlivé ulice i místní části.
+Projekt převádí pravidla svozu a ověřené městské podklady na verzovaná strojově čitelná data a z nich sestavuje web.
 
 Soubor `ics` lze importovat do Google kalendáře a pravděpodobně i dalších aplikací. Kalendáře jsou ke stažení ve složce link:calendars/[`calendars`].
 
-Soubor `csv` slouží primárně jako zdroj dat pro link:index.html[index.html] dostupný z https://svoz.litovle.cz
+Soubor `csv` slouží jako zdroj pravidelného svozu pro web a aplikaci. Aktivní harmonogram přistavení bio kontejnerů je publikovaný také jako link:bio_schedule.json[`bio_schedule.json`].
 
 Vizuální pravidla a povolené prvky rozhraní jsou popsané v link:DESIGN.md[`DESIGN.md`]. Nové obrazovky mají používat sdílené CSS tokeny a komponenty namísto zavádění dalších variant karet, rámečků a štítků.
 
@@ -36,33 +36,37 @@ Projekt používá Python 3.12. Závislosti jsou deklarované v link:requirement
 
 [source,sh]
 ----
+python3.12 -m venv .venv
+source .venv/bin/activate
 python -m pip install -r requirements.txt
+python scripts/generate_schedule_exports.py
 python scripts/validate_project.py
 python scripts/build_site.py --output-dir _site
 python scripts/validate_site_artifact.py _site
 ----
 
-Výsledný deployovatelný web je ve složce `_site/`, která se necommituje. Lokálně ho lze zobrazit například:
+Výsledný deployovatelný web je ve složce `_site/`, která se necommituje. Pro lokální vývoj jej lze jedním příkazem sestavit a spustit na `http://127.0.0.1:8000/`:
 
 [source,sh]
 ----
-python -m http.server --directory _site
+python scripts/serve_site.py
 ----
 
-Původní příkaz `python generator_svozu_odpadu.py` zůstává podporovaný pro aktualizaci trackovaných generated snapshotů v kořeni repozitáře.
+Volby `--host`, `--port` a `--output-dir` umožňují změnit adresu, port a pracovní adresář. Po změně zdrojů je zatím potřeba server ukončit a spustit znovu, aby se web znovu sestavil.
 
-=== Co je zdroj a co je generated výstup
+=== Datová a prezentační vrstva
 
-Autoritativní zdroj pravidelného harmonogramu je v Pythonu, jednorázové změny jsou v `data/svoz_exceptions.json` a městské podklady jsou v `resources/`.
+Autoritativní pravidla pravidelného harmonogramu jsou v Pythonu a jednorázové změny v `data/svoz_exceptions.json`. Bio harmonogram se ručně přepisuje a kontroluje podle PDF do `data/bio_containers/{rok}.json`; souřadnicové podklady jsou v `data/proximity_coordinates.json`. Automatické vytěžování PDF se neprovádí.
 
-Repozitář zatím záměrně používá hybridní model:
+Z těchto vstupů se příkazem `python scripts/generate_schedule_exports.py` vytváří verzovaná datová vrstva:
 
-* trackované generated snapshoty: `index.html`, `ulice/`, `calendars/`, `waste_schedule.csv`, `sitemap.xml`
-* ignorované generated výstupy: `_site/` a `resources/social/*.png`
+* `waste_schedule.csv` – všechny události pravidelného svozu,
+* `calendars/*.ics` – jeden kanonický kalendář pojmenovaný slugem pro každou lokalitu,
+* `bio_schedule.json` – aktivní bio harmonogram, zdroje, stanoviště, efektivní souřadnice a referenční body pro výpočet vzdáleností.
 
-Trackované snapshoty pomáhají při review změn a drží kompatibilitu s notifikacemi do aplikace. Social preview obrázky se necommitují, protože jsou binární a mění se podle aktuálního data; generují se až do deploy artefaktu. URL obrázků používá stabilní název souboru a query parametr `?v=...`, který se změní při změně obsahu obrázku.
+Webové stránky čtou pouze tuto vydanou datovou vrstvu. HTML, sitemap a social preview obrázky se generují až do `_site/`, protože závisí na datu sestavení a změna šablony by jinak vytvářela stovky změn v Gitu. Build odmítne pokračovat, pokud vydaná data neodpovídají vstupům.
 
-Kalendáře v `calendars/` jsou trackované záměrně. Slouží jako validační snapshoty změn svozu a současně jako veřejné soubory pro existující odběry kalendářů. Pro každou lokaci se zatím generují dvě URL varianty: původní název s diakritikou a stabilní slug bez diakritiky. Web používá slug variantu, ale původní názvy zůstávají kvůli zpětné kompatibilitě s už importovanými kalendáři.
+Kanonické ICS soubory jsou trackované záměrně jako veřejná verzovaná data. Při sestavení se do `_site/calendars/` doplní také původní názvy s diakritikou kvůli existujícím odběrům. Tyto aliasy jsou byte-for-byte kopie kanonických souborů, ale v Gitu se nedrží; tím se předchází problémům s názvy lišícími se pouze velikostí písmen na macOS. Produkce publikuje přesné kopie trackovaných CSV, kanonických ICS a bio JSON dat.
 
 == GitHub Actions
 
@@ -70,16 +74,17 @@ GitHub Pages musí být nastavené na nasazování přes GitHub Actions, ne př�
 
 Workflowy:
 
-* `CI` běží na pull requestech, pushi do `main` a ručně. Instaluje závislosti, spouští projektovou validaci, sestaví `_site` a validuje artefakt.
-* `Deploy generated site` běží po pushi do `main`, ručně a denně v `03:17 UTC`. Sestaví aktuální `_site` a nasadí ho přes GitHub Pages artefakt.
+* `CI` běží na pull requestech, pushi do `main` a ručně. Ověří, že trackované exporty přesně odpovídají vstupům, sestaví z nich `_site` a validuje celý artefakt. Nepoužívá deploy ani Firebase přístup.
+* `Deploy generated site` běží po pushi do `main`, ručně a denně v `03:17 UTC`. Znovu ověří data, sestaví `_site` a nasadí ho přes GitHub Pages. FCM refresh odešle až po úspěšném nasazení a jen pokud push změnil CSV nebo kanonické ICS. Denní build aplikaci neupozorňuje; ruční spuštění má volitelný přepínač `notify_app`.
 * `Watch Litovel.eu` běží denně v `06:17 UTC` a ručně. Pouze hlásí kandidátní články z webu města, nic nemění.
-* `Notify app on change` běží při pushi do `main`, pokud se změní kalendáře nebo zdrojové soubory ovlivňující harmonogram. Posílá FCM refresh do Android aplikace.
+
+Android aplikace zatím bio data nepoužívá, takže samotná změna `bio_schedule.json` FCM refresh nespouští. Až klient podporu získá, přidá se tento soubor do detekce změny bez nutnosti měnit stávající payload `type=refresh`.
 
 === Přidání změny svozu
 
 1. Ověřit oficiální zdroj a uložit odkaz včetně archivu.
 2. Přidat jednorázovou změnu do `data/svoz_exceptions.json`; Python logiku měnit jen pokud změna vyžaduje novou skupinu nebo pravidlo.
-3. Spustit `python generator_svozu_odpadu.py`, aby se aktualizovaly trackované snapshoty.
+3. Spustit `python scripts/generate_schedule_exports.py`, aby se aktualizovaly trackované CSV, kanonické ICS a bio JSON.
 4. Spustit `python scripts/validate_project.py`.
 5. Pro kontrolu produkčního artefaktu spustit `python scripts/build_site.py --output-dir _site` a `python scripts/validate_site_artifact.py _site`.
 

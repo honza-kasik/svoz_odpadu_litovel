@@ -7,6 +7,12 @@ on:
   schedule:
     - cron: "17 3 * * *"
   workflow_dispatch:
+    inputs:
+      notify_app:
+        description: Send an Android app refresh after a successful deployment
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: read
@@ -18,10 +24,30 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      notify_app: ${{ steps.release_change.outputs.notify_app }}
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Detect app data release
+        id: release_change
+        shell: bash
+        run: |
+          notify_app=false
+          if [[ "${{ github.event_name }}" == "push" ]]; then
+            before="${{ github.event.before }}"
+            if [[ "$before" == "0000000000000000000000000000000000000000" ]] || \
+               ! git diff --quiet "$before" "${{ github.sha }}" -- waste_schedule.csv calendars; then
+              notify_app=true
+            fi
+          elif [[ "${{ github.event_name }}" == "workflow_dispatch" && "${{ inputs.notify_app }}" == "true" ]]; then
+            notify_app=true
+          fi
+          echo "notify_app=$notify_app" >> "$GITHUB_OUTPUT"
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -64,3 +90,33 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+
+  notify:
+    needs:
+      - build
+      - deploy
+    if: ${{ needs.build.outputs.notify_app == 'true' && needs.deploy.result == 'success' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Authenticate with Firebase
+        uses: google-github-actions/auth@v3
+        with:
+          credentials_json: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
+
+      - name: Send app refresh
+        run: |
+          ACCESS_TOKEN=$(gcloud auth print-access-token)
+          curl --fail-with-body --silent --show-error \
+            -X POST \
+            https://fcm.googleapis.com/v1/projects/svoz-litovel/messages:send \
+            -H "Authorization: Bearer $ACCESS_TOKEN" \
+            -H "Content-Type: application/json; UTF-8" \
+            -d '{
+              "message": {
+                "topic": "litovel",
+                "data": {
+                  "type": "refresh"
+                }
+              }
+            }'

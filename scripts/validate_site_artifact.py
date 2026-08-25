@@ -22,6 +22,7 @@ REQUIRED_FILES = (
     "bio/index.html",
     "styles.css",
     "waste_schedule.csv",
+    "bio_schedule.json",
     "sitemap.xml",
     "CNAME",
     "docs/synchronizace-notifikace.html",
@@ -49,6 +50,8 @@ def main() -> int:
 
     site_dir = Path(args.site_dir)
     validate_required_files(site_dir)
+    validate_release_data_files(site_dir)
+    validate_calendar_urls(site_dir)
     validate_social_images(site_dir)
     validate_no_source_files(site_dir)
     validate_local_links(site_dir)
@@ -59,15 +62,40 @@ def main() -> int:
 
 
 def validate_required_files(site_dir: Path) -> None:
-    from bio_containers import load_bio_schedule
+    from release_data import load_bio_release
 
-    source_files = tuple(source.file.lstrip("/") for source in load_bio_schedule().sources)
+    source_files = tuple(
+        source.file.lstrip("/")
+        for source in load_bio_release(site_dir / "bio_schedule.json").schedule.sources
+    )
     missing = [
         path for path in REQUIRED_FILES + source_files
         if not (site_dir / path).is_file()
     ]
     if missing:
         raise SystemExit(f"Missing required artifact files: {', '.join(missing)}")
+
+
+def validate_release_data_files(site_dir: Path) -> None:
+    for relative_path in ("waste_schedule.csv", "bio_schedule.json"):
+        if (ROOT / relative_path).read_bytes() != (site_dir / relative_path).read_bytes():
+            raise SystemExit(f"Artifact release data differs from tracked {relative_path}")
+
+
+def validate_calendar_urls(site_dir: Path) -> None:
+    from streets import all_streets, mistni_casti
+
+    calendars_dir = site_dir / "calendars"
+    for street in all_streets["Litovel"] + mistni_casti:
+        canonical = calendars_dir / f"{slugify(street)}.ics"
+        legacy = calendars_dir / f"{street}.ics"
+        if not canonical.is_file() or not legacy.is_file():
+            raise SystemExit(f"Missing calendar URL pair for {street}")
+        if canonical.read_bytes() != legacy.read_bytes():
+            raise SystemExit(f"Legacy calendar differs from canonical calendar for {street}")
+        tracked = ROOT / "calendars" / canonical.name
+        if tracked.read_bytes() != canonical.read_bytes():
+            raise SystemExit(f"Artifact calendar differs from tracked {canonical.name}")
 
 
 def validate_social_images(site_dir: Path) -> None:
@@ -165,20 +193,22 @@ def validate_bio_proximity_sections(site_dir: Path) -> None:
         card_count = html.count('class="nearby-bio-card"')
         if section_count not in {0, 1}:
             violations.append(f"{html_file.relative_to(site_dir)} has duplicate nearby bio sections")
-        if (section_count == 0 and card_count != 0) or (section_count == 1 and card_count != 3):
+        if (section_count == 0 and card_count != 0) or (
+            section_count == 1 and not 1 <= card_count <= 3
+        ):
             violations.append(f"{html_file.relative_to(site_dir)} has inconsistent nearby bio cards")
     if violations:
         raise SystemExit("Bio proximity violations:\n" + "\n".join(violations[:20]))
 
 
 def validate_bio_detail_pages(site_dir: Path) -> None:
-    from bio_containers import load_bio_schedule
-    from proximity import load_proximity_config
+    from release_data import load_bio_release
     from streets import all_streets, mistni_casti
 
-    schedule = load_bio_schedule()
+    bio_data = load_bio_release(site_dir / "bio_schedule.json")
+    schedule = bio_data.schedule
     streets = all_streets["Litovel"] + mistni_casti
-    proximity = load_proximity_config(streets, schedule.sites)
+    proximity = bio_data.proximity
     expected_site_routes = {site.id for site in schedule.sites}
     expected_nearby_routes = {
         slugify(street) for street in streets

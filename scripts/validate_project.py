@@ -14,13 +14,27 @@ sys.path.insert(0, str(ROOT))
 
 def main() -> int:
     os.chdir(ROOT)
+    validate_generated_files_are_not_tracked()
     validate_active_year()
+    validate_release_exports()
     run([sys.executable, "tests.py"])
     validate_browser_dependencies()
     validate_exception_json()
     validate_bio_container_json()
     compile_python_files()
     return 0
+
+
+def validate_generated_files_are_not_tracked() -> None:
+    result = subprocess.run(
+        ["git", "ls-files", "-z", "--", "index.html", "sitemap.xml", "ulice", "bio"],
+        check=True,
+        capture_output=True,
+    )
+    tracked = [path for path in result.stdout.decode().split("\0") if path]
+    if tracked:
+        preview = ", ".join(tracked[:10])
+        raise SystemExit(f"Generated site pages must not be tracked: {preview}")
 
 
 def validate_active_year() -> None:
@@ -36,6 +50,12 @@ def validate_active_year() -> None:
             f"bio active year {project_config.bio_active_year} does not match "
             f"bio schedule year {schedule.year}"
         )
+
+
+def validate_release_exports() -> None:
+    from scripts.build_site import validate_release_data
+
+    validate_release_data()
 
 
 def run(command: list[str]) -> None:

@@ -178,3 +178,9 @@ cython_debug/
 # Generated social preview images are deployed as a GitHub Pages artifact.
 /resources/social/*.png
 /_site/
+
+# Deployable pages are generated into _site/ by scripts/build_site.py.
+/index.html
+/sitemap.xml
+/ulice/
+/bio/
