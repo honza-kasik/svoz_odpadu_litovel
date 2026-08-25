@@ -680,15 +680,7 @@ input {
   max-width: 1100px;
 }
 
-.bio-intro {
-  max-width: 760px;
-  margin: -10px auto 24px;
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  text-align: center;
-}
-
-.bio-intro a {
+.bio-page #subtitle a {
   color: #2563eb;
   text-underline-offset: 3px;
 }
@@ -757,24 +749,29 @@ input {
   display: none;
 }
 
-.bio-suggestion-group {
-  padding: 9px 12px 5px;
-  color: #64748b;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
 .bio-suggestions [role="option"] {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
   padding: 9px 12px;
+  color: inherit;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .bio-suggestions [role="option"]:hover,
 .bio-suggestions [role="option"].active {
   background: #eff6ff;
   color: #1d4ed8;
+}
+
+.bio-suggestion-label {
+  font-weight: 600;
+}
+
+.bio-suggestion-action {
+  color: var(--text-muted);
+  font-size: 0.85rem;
 }
 
 .bio-suggestion-empty {
@@ -986,7 +983,6 @@ input {
 }
 
 .bio-overview {
-  max-width: 760px;
   margin: 28px 0 38px;
 }
 

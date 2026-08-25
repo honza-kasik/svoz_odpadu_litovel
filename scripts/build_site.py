@@ -13,7 +13,13 @@ sys.path.insert(0, str(ROOT))
 
 from generator_svozu_odpadu import generate_release_data
 from release_data import load_bio_release, load_waste_schedule
-from site_builder import build_bio_pages, build_index, build_street_pages, generate_sitemap
+from site_builder import (
+    build_bio_pages,
+    build_index,
+    build_street_pages,
+    generate_robots_txt,
+    generate_sitemap,
+)
 from social_preview import build_social_images
 from streets import all_streets, mistni_casti
 from utils import slugify
@@ -133,6 +139,7 @@ def build_presentation(output_dir: Path) -> None:
         bio_schedule=bio_data.schedule,
         proximity_config=bio_data.proximity,
     )
+    generate_robots_txt(output_dir / "robots.txt")
 
 
 def create_legacy_calendar_aliases(output_dir: Path) -> None:

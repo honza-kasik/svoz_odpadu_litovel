@@ -1,6 +1,6 @@
 from contextlib import contextmanager
 from dataclasses import replace
-from datetime import date
+from datetime import date, datetime
 import json
 import tempfile
 from types import SimpleNamespace
@@ -20,6 +20,7 @@ from bio_containers import (
 from PIL import Image
 from generator_svozu_odpadu import date_end, date_start
 from lokace_svozu import (
+    CollectionEvent,
     WasteType,
     lokace_svozu_bio,
     lokace_svozu_papir,
@@ -43,9 +44,13 @@ from site_builder import (
     build_bio_search_items,
     build_bio_site_detail,
     build_bio_year_notice,
+    build_fallback_table,
     build_nearby_bio_html,
+    generate_robots_txt,
+    generate_sitemap,
     validate_bio_routes,
 )
+from meta_builder import MetaBuilder, config as meta_config
 from proximity import (
     ProximityConfig,
     find_nearby_bio_placements,
@@ -501,6 +506,29 @@ class BioProximityTest(unittest.TestCase):
 
 
 class BioSeoPagesTest(unittest.TestCase):
+    def test_bio_metadata_keeps_overview_and_detail_pages_container_specific(self):
+        builder = MetaBuilder(meta_config)
+
+        index = builder.index()
+        overview = builder.bio(2026)
+        site = builder.bio_site("Unčovice – u hasičárny", "uncovice-u-hasicarny", 2026)
+        nearby = builder.bio_nearby("Unčovice", "uncovice", 2026)
+
+        self.assertIn("Kdy je v Litovli svoz bioodpadu", index["DESCRIPTION"])
+        self.assertIn("směsného odpadu", index["DESCRIPTION"])
+        self.assertIn("Svoz bioodpadu Litovel 2026", overview["TITLE"])
+        self.assertIn("velkoobjemové kontejnery", overview["TITLE"])
+        self.assertIn("velkoobjemové kontejnery", overview["DESCRIPTION"])
+        self.assertEqual("Aktuální stanoviště a termíny přistavení.", overview["SUBTITLE"])
+        self.assertTrue(site["TITLE"].startswith("Bio kontejner"))
+        self.assertTrue(nearby["TITLE"].startswith("Bio kontejnery pro lokalitu"))
+        self.assertEqual(
+            "Bio kontejnery pro lokalitu Unčovice",
+            nearby["H1"],
+        )
+        self.assertNotIn("Svoz bioodpadu", site["TITLE"])
+        self.assertNotIn("Svoz bioodpadu", nearby["TITLE"])
+
     def test_bio_collection_structured_data_lists_all_sites(self):
         schedule = load_bio_schedule(BIO_2026_PATH)
         markup = build_bio_collection_jsonld(schedule)
@@ -579,7 +607,7 @@ class BioSeoPagesTest(unittest.TestCase):
         self.assertIn('/bio/stanoviste/litovel-javoricska/', html)
         self.assertIn('aria-label="Bio kontejnery poblíž"', html)
         self.assertIn(
-            '>Zobrazit pravidelný svoz odpadu pro ulici B. Němcové</a>',
+            '>Zobrazit termíny pravidelného svozu bioodpadu pro B. Němcové</a>',
             html,
         )
         self.assertIn('href="/ulice/b-nemcove/"', html)
@@ -599,7 +627,8 @@ class BioSeoPagesTest(unittest.TestCase):
         self.assertIn("Nový termín zatím není zveřejněn", html)
         self.assertNotIn("Nadcházející", html)
         self.assertNotIn("2026</span>", html)
-        self.assertIn("Zobrazit pravidelný svoz odpadu", html)
+        self.assertIn('href="/">v kalendáři podle ulice</a>', html)
+        self.assertIn("Zobrazit termíny pravidelného svozu bioodpadu", html)
 
     def test_uncovice_page_separates_available_now_from_local_upcoming_sites(self):
         schedule = load_bio_schedule(BIO_2026_PATH)
@@ -639,7 +668,10 @@ class BioSeoPagesTest(unittest.TestCase):
         self.assertEqual(3, html.count('class="nearby-bio-card"'))
         self.assertNotIn("Kam lze bioodpad odvézt nyní", html)
         self.assertIn("Další přistavení v okolí", html)
-        self.assertIn("Právě není přistaven žádný bio kontejner", html)
+        self.assertIn("Žádný velkoobjemový kontejner právě není přistaven", html)
+        self.assertIn("hnědé popelnice", html)
+        self.assertIn("Termíny jejího svozu vidíte v kalendáři výše.", html)
+        self.assertNotIn('href="/">v kalendáři podle ulice</a>', html)
         self.assertIn("ve sběrném dvoře", html)
         self.assertIn("49.6861253", html)
 
@@ -665,6 +697,10 @@ class BioSeoPagesTest(unittest.TestCase):
         self.assertNotIn("bio-window-status", overview["current"])
         self.assertNotIn("bio-window-status", overview["next"])
         self.assertIn("<details", overview["schedule"])
+        self.assertIn(
+            "Roční harmonogram 2026",
+            overview["schedule"],
+        )
         self.assertEqual(1, overview["schedule"].count("21. 8.–24. 8. 2026"))
         self.assertNotIn('class="bio-placement"', overview["schedule"])
 
@@ -673,9 +709,46 @@ class BioSeoPagesTest(unittest.TestCase):
 
         overview = build_bio_overview(schedule, date(2026, 8, 25))
 
-        self.assertIn("Právě nyní není přistaven žádný kontejner", overview["current"])
+        self.assertIn(
+            "Žádný velkoobjemový kontejner právě není přistaven",
+            overview["current"],
+        )
+        self.assertIn("hnědé popelnice", overview["current"])
+        self.assertIn('href="/">v kalendáři podle ulice</a>', overview["current"])
         self.assertIn("ve sběrném dvoře", overview["current"])
         self.assertIn("49.6861253", overview["current"])
+
+    def test_street_fallback_only_lists_active_year(self):
+        events = [
+            CollectionEvent(datetime(2025, 9, 3), WasteType.BIO, False),
+            CollectionEvent(datetime(2026, 9, 2), WasteType.BIO, False),
+        ]
+        generator = SimpleNamespace(get_events_for_street=lambda street: events)
+
+        html = build_fallback_table(generator, "Palackého", 2026)
+
+        self.assertIn("Termíny svozu odpadu – Palackého, 2026", html)
+        self.assertIn("02.09.2026", html)
+        self.assertNotIn("03.09.2025", html)
+
+    def test_search_discovery_files_are_stable_and_do_not_fake_lastmod(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            sitemap_path = Path(tmpdir) / "sitemap.xml"
+            robots_path = Path(tmpdir) / "robots.txt"
+            generate_sitemap(["Palackého"], sitemap_path)
+            generate_robots_txt(robots_path)
+
+            sitemap = sitemap_path.read_text(encoding="utf-8")
+            robots = robots_path.read_text(encoding="utf-8")
+
+        self.assertIn("https://svoz.litovle.cz/bio/", sitemap)
+        self.assertIn("https://svoz.litovle.cz/ulice/palackeho/", sitemap)
+        self.assertNotIn("<lastmod>", sitemap)
+        self.assertEqual(
+            "User-agent: *\nAllow: /\n\n"
+            "Sitemap: https://svoz.litovle.cz/sitemap.xml\n",
+            robots,
+        )
 
 
 class SocialPreviewTest(unittest.TestCase):

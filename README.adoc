@@ -64,7 +64,7 @@ Z těchto vstupů se příkazem `python scripts/generate_schedule_exports.py` vy
 * `calendars/*.ics` – jeden kanonický kalendář pojmenovaný slugem pro každou lokalitu,
 * `bio_schedule.json` – aktivní bio harmonogram, zdroje, stanoviště, efektivní souřadnice a referenční body pro výpočet vzdáleností.
 
-Webové stránky čtou pouze tuto vydanou datovou vrstvu. HTML, sitemap a social preview obrázky se generují až do `_site/`, protože závisí na datu sestavení a změna šablony by jinak vytvářela stovky změn v Gitu. Build odmítne pokračovat, pokud vydaná data neodpovídají vstupům.
+Webové stránky čtou pouze tuto vydanou datovou vrstvu. HTML, sitemap, `robots.txt` a social preview obrázky se generují až do `_site/`, protože závisí na sestavení a změna šablony by jinak vytvářela stovky změn v Gitu. Build odmítne pokračovat, pokud vydaná data neodpovídají vstupům. Sitemap uvádí pouze kanonické URL; datum `lastmod` se nevytváří, dokud ho nebude možné spolehlivě odvodit ze skutečné změny obsahu.
 
 Kanonické ICS soubory jsou trackované záměrně jako veřejná verzovaná data. Při sestavení se do `_site/calendars/` doplní také původní názvy s diakritikou kvůli existujícím odběrům. Tyto aliasy jsou byte-for-byte kopie kanonických souborů, ale v Gitu se nedrží; tím se předchází problémům s názvy lišícími se pouze velikostí písmen na macOS. Produkce publikuje přesné kopie trackovaných CSV, kanonických ICS a bio JSON dat.
 
