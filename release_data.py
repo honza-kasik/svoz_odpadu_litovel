@@ -6,6 +6,8 @@ from datetime import date, datetime
 import json
 from pathlib import Path
 
+from bio_disposal import validate_bio_disposal_payload
+
 # TODO: Move these shared value types into a source-neutral domain-model module.
 # Release-data loading should not need to import modules that also load source
 # rules, exceptions, or the active annual bio configuration.
@@ -36,6 +38,18 @@ class ReleasedWasteSchedule:
 class ReleasedBioData:
     schedule: BioSchedule
     proximity: ProximityConfig
+
+
+@dataclass(frozen=True)
+class ReleasedBioDisposal:
+    last_verified: date
+    sources: tuple[dict, ...]
+    channels: tuple[dict, ...]
+    items: tuple[dict, ...]
+    collection_yard: dict
+
+    def channel(self, channel_id: str) -> dict:
+        return next(channel for channel in self.channels if channel["id"] == channel_id)
 
 
 def load_waste_schedule(path: str | Path, streets: list[str]) -> ReleasedWasteSchedule:
@@ -128,6 +142,38 @@ def write_bio_release(
     )
 
 
+def write_bio_disposal_release(
+    source: dict,
+    collection_yard: BioCollectionYard,
+    output_path: str | Path,
+) -> None:
+    yard = {
+        **source["collection_yard"],
+        "name": collection_yard.name,
+        "coordinates": _serialize_coordinates(collection_yard.coordinates),
+    }
+    payload = {
+        "schema_version": source["schema_version"],
+        "last_verified": source["last_verified"],
+        "sources": source["sources"],
+        "channels": source["channels"],
+        "items": source["items"],
+        "collection_yard": yard,
+    }
+    validate_bio_disposal_payload(
+        payload,
+        output_path,
+        require_yard_coordinates=True,
+        validate_local_files=False,
+    )
+    output_path = Path(output_path)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+
+
 def load_bio_release(path: str | Path) -> ReleasedBioData:
     path = Path(path)
     raw = json.loads(path.read_text(encoding="utf-8"))
@@ -167,6 +213,24 @@ def load_bio_release(path: str | Path) -> ReleasedBioData:
     )
     schedule = BioSchedule(raw["year"], sources, sites, placements)
     return ReleasedBioData(schedule, ProximityConfig(reference_locations, {}, yard))
+
+
+def load_bio_disposal_release(path: str | Path) -> ReleasedBioDisposal:
+    path = Path(path)
+    raw = json.loads(path.read_text(encoding="utf-8"))
+    validate_bio_disposal_payload(
+        raw,
+        path,
+        require_yard_coordinates=True,
+        validate_local_files=False,
+    )
+    return ReleasedBioDisposal(
+        date.fromisoformat(raw["last_verified"]),
+        tuple(raw["sources"]),
+        tuple(raw["channels"]),
+        tuple(raw["items"]),
+        raw["collection_yard"],
+    )
 
 
 def _serialize_site(site: BioSite, proximity: ProximityConfig) -> dict:

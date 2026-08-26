@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "last_verified": "2026-08-26",
+  "sources": [
+    {
+      "id": "brown-bin-2018",
+      "title": "Jak správně třídit bioodpad (Litovel, 2018)",
+      "published": "2018",
+      "url": "https://www.litovel.eu/filemanager/files/370277.pdf",
+      "file": "/resources/guides/bioodpad-hnede-nadoby-2018.pdf"
+    },
+    {
+      "id": "large-container-2017",
+      "title": "Velkoobjemové kontejnery na bioodpad – pravidla obsahu (Litovel, 2017)",
+      "published": "2017",
+      "url": "https://www.litovel.eu/filemanager/files/356448.pdf",
+      "file": "/resources/guides/bio-kontejnery-pravidla-2017.pdf"
+    },
+    {
+      "id": "large-container-2012",
+      "title": "Sběr biologického odpadu – velkoobjemové kontejnery (Litovel, 2012)",
+      "published": "2012",
+      "url": "https://www.litovel.eu/filemanager/files/62666.pdf",
+      "file": "/resources/guides/bio-kontejnery-pravidla-2012.pdf"
+    },
+    {
+      "id": "bio-definition-2023",
+      "title": "Bioodpad a gastroodpad (Litovelské noviny 10/2023)",
+      "published": "2023-10",
+      "url": "https://www.litovel.eu/filemanager/files/3214100.pdf",
+      "file": "/resources/guides/litovelske-noviny-bioodpad-2023.pdf"
+    },
+    {
+      "id": "collection-yard-litovel",
+      "title": "Sběrný dvůr Litovel, RE-USE, odpadové taxi",
+      "published": "průběžně aktualizováno",
+      "url": "https://www.litovel.eu/cs/urad/informace-pro-obcany/souhrnne-informace-o-odpadech/souhrnne-informace-o-odpadech/sberny-dvur-litovel-re-use-odpadove-taxi.html",
+      "file": null
+    }
+  ],
+  "channels": [
+    {
+      "id": "brown_bin",
+      "name": "Hnědá popelnice",
+      "description": "Pravidelně svážená nádoba u domu je vhodná pro menší množství rostlinného bioodpadu.",
+      "accepted_item_ids": [
+        "grass",
+        "leaves-weeds",
+        "fallen-fruit",
+        "branches"
+      ],
+      "rejected_labels": [
+        "Plastové a mikrotenové sáčky",
+        "Maso, kosti, oleje a tuky",
+        "Pleny, vlhčené ubrousky a stelivo",
+        "Směsný komunální odpad"
+      ],
+      "source_ids": [
+        "brown-bin-2018",
+        "bio-definition-2023"
+      ]
+    },
+    {
+      "id": "large_container",
+      "name": "Velkoobjemový bio kontejner",
+      "description": "Dočasně přistavený kontejner je určený pro větší množství trávy, listí, plevele a spadaného ovoce.",
+      "accepted_item_ids": [
+        "grass",
+        "leaves-weeds",
+        "fallen-fruit"
+      ],
+      "rejected_labels": [
+        "Větve a dřevní odpad",
+        "Kamení a stavební suť",
+        "Plastové a papírové obaly",
+        "Směsný komunální odpad"
+      ],
+      "source_ids": [
+        "large-container-2012",
+        "large-container-2017"
+      ]
+    },
+    {
+      "id": "collection_yard",
+      "name": "Sběrný dvůr",
+      "description": "Sběrný dvůr v Nasobůrkách přijímá mimo jiné doložené druhy odpadu z údržby zeleně.",
+      "accepted_item_ids": [
+        "grass",
+        "leaves-weeds"
+      ],
+      "rejected_labels": [],
+      "source_ids": [
+        "collection-yard-litovel"
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "grass",
+      "name": "Posekaná tráva",
+      "anchor": "trava",
+      "summary": "Menší množství dejte do hnědé popelnice. Větší množství můžete odvézt do právě přistaveného velkoobjemového kontejneru nebo do sběrného dvora.",
+      "source_ids": [
+        "brown-bin-2018",
+        "large-container-2012",
+        "collection-yard-litovel"
+      ]
+    },
+    {
+      "id": "leaves-weeds",
+      "name": "Listí a plevel",
+      "anchor": "listi-a-plevel",
+      "summary": "Menší množství patří do hnědé popelnice. Větší množství lze odvézt do právě přistaveného velkoobjemového kontejneru nebo do sběrného dvora.",
+      "source_ids": [
+        "brown-bin-2018",
+        "large-container-2012",
+        "collection-yard-litovel"
+      ]
+    },
+    {
+      "id": "fallen-fruit",
+      "name": "Spadané ovoce",
+      "anchor": "spadane-ovoce",
+      "summary": "Menší množství patří do hnědé popelnice. Pro větší množství využijte právě přistavený velkoobjemový kontejner; příjem ve sběrném dvoře si před cestou ověřte.",
+      "source_ids": [
+        "brown-bin-2018",
+        "large-container-2012"
+      ]
+    },
+    {
+      "id": "branches",
+      "name": "Větve",
+      "anchor": "vetve",
+      "summary": "Drobné nadrcené větve lze podle městského letáku dát do hnědé popelnice. Větší větve do velkoobjemového kontejneru nepatří; možnost odevzdání ve sběrném dvoře si před cestou ověřte.",
+      "source_ids": [
+        "brown-bin-2018",
+        "large-container-2017"
+      ]
+    }
+  ],
+  "collection_yard": {
+    "locality": "Nasobůrky",
+    "operator": "Technické služby Litovel",
+    "opening_hours": null,
+    "opening_hours_note": "Provozní doba se může o svátcích nebo při mimořádném uzavření změnit. Před cestou ji ověřte na webu města.",
+    "eligibility_note": "Sběrný dvůr mohou využívat občané s trvalým bydlištěm na území města Litovel. Při vjezdu je nutné prokázat se vlastním platným občanským průkazem.",
+    "accepted_note": "Město Litovel mezi přijímanými druhy výslovně uvádí bioodpad. Přijetí konkrétního druhu nebo většího množství si můžete před cestou ověřit u obsluhy.",
+    "source_ids": [
+      "collection-yard-litovel"
+    ],
+    "name": "Sběrný dvůr Litovel",
+    "coordinates": {
+      "latitude": 49.6861253,
+      "longitude": 17.0508742,
+      "accuracy": "precise"
+    }
+  }
+}

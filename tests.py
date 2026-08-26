@@ -17,6 +17,7 @@ from bio_containers import (
     BioSource,
     load_bio_schedule,
 )
+from bio_disposal import load_bio_disposal_source
 from PIL import Image
 from generator_svozu_odpadu import date_end, date_start
 from lokace_svozu import (
@@ -35,10 +36,15 @@ from scripts.watch_litovel_eu import (
     extract_articles,
     find_candidate_articles,
     find_matched_articles,
+    load_known_urls,
+    run as run_litovel_watcher,
+    write_json_report,
 )
 from social_preview import _save_card
 from site_builder import (
     build_bio_placement_rows,
+    build_collection_yard_html,
+    build_garden_waste_guide_html,
     build_bio_overview,
     build_bio_collection_jsonld,
     build_bio_search_items,
@@ -60,11 +66,16 @@ from proximity import (
     resolve_street_coordinates,
 )
 from project_config import project_config, validate_rollover
-from release_data import load_bio_release, load_waste_schedule
+from release_data import (
+    load_bio_disposal_release,
+    load_bio_release,
+    load_waste_schedule,
+)
 
 
 BIO_2026_PATH = Path("data/bio_containers/2026.json")
 BIO_RELEASE_PATH = Path("bio_schedule.json")
+BIO_DISPOSAL_RELEASE_PATH = Path("bio_disposal.json")
 
 
 class BioContainersTest(unittest.TestCase):
@@ -81,6 +92,31 @@ class BioContainersTest(unittest.TestCase):
             49.6861253,
             released.proximity.collection_yard.coordinates.latitude,
         )
+
+    def test_released_bio_disposal_keeps_channels_separate(self):
+        disposal = load_bio_disposal_release(BIO_DISPOSAL_RELEASE_PATH)
+
+        self.assertEqual(date(2026, 8, 26), disposal.last_verified)
+        self.assertIn("branches", disposal.channel("brown_bin")["accepted_item_ids"])
+        self.assertNotIn(
+            "branches", disposal.channel("large_container")["accepted_item_ids"]
+        )
+        self.assertIn(
+            "Větve a dřevní odpad",
+            disposal.channel("large_container")["rejected_labels"],
+        )
+        self.assertIsNone(disposal.collection_yard["opening_hours"])
+        self.assertEqual(
+            49.6861253,
+            disposal.collection_yard["coordinates"]["latitude"],
+        )
+
+    def test_bio_disposal_source_archives_official_documents(self):
+        source = load_bio_disposal_source()
+
+        archived = [item["file"] for item in source["sources"] if item["file"]]
+        self.assertEqual(4, len(archived))
+        self.assertTrue(all((Path(path.lstrip("/"))).is_file() for path in archived))
 
     def test_active_bio_schedule_matches_project_config(self):
         schedule = load_bio_schedule()
@@ -529,6 +565,56 @@ class BioSeoPagesTest(unittest.TestCase):
         self.assertNotIn("Svoz bioodpadu", site["TITLE"])
         self.assertNotIn("Svoz bioodpadu", nearby["TITLE"])
 
+    def test_supporting_page_metadata_targets_distinct_search_intents(self):
+        builder = MetaBuilder(meta_config)
+        guide = builder.garden_waste_guide()
+        yard = builder.collection_yard()
+
+        self.assertIn("Kam s trávou, větvemi a ovocem", guide["TITLE"])
+        self.assertIn("spadaným ovocem", guide["H1"])
+        self.assertEqual(
+            "https://svoz.litovle.cz/kam-se-zahradnim-odpadem-litovel/",
+            guide["CANONICAL"],
+        )
+        self.assertIn("Sběrný dvůr Litovel", yard["TITLE"])
+        self.assertEqual(
+            "https://svoz.litovle.cz/sberny-dvur-litovel/",
+            yard["CANONICAL"],
+        )
+
+    def test_garden_guide_is_action_oriented_and_keeps_branches_out_of_container(self):
+        disposal = load_bio_disposal_release(BIO_DISPOSAL_RELEASE_PATH)
+        html = build_garden_waste_guide_html(disposal)
+
+        self.assertNotIn("Rychlé odpovědi", html)
+        self.assertIn('id="trava"', html)
+        self.assertIn('id="spadane-ovoce"', html)
+        self.assertIn('id="vetve"', html)
+        self.assertIn('id="co-nepatri"', html)
+        self.assertIn("Větve a dřevní odpad", html)
+        self.assertIn('href="/"', html)
+        self.assertIn('href="/bio/"', html)
+        self.assertIn('href="/sberny-dvur-litovel/"', html)
+
+    def test_collection_yard_page_uses_precise_location_without_hours(self):
+        disposal = load_bio_disposal_release(BIO_DISPOSAL_RELEASE_PATH)
+        html = build_collection_yard_html(disposal)
+
+        yard_sources = [
+            source for source in disposal.sources
+            if source["id"] in disposal.collection_yard["source_ids"]
+        ]
+        self.assertTrue(yard_sources)
+        self.assertTrue(all("litovel.eu" in source["url"] for source in yard_sources))
+        self.assertNotIn("hanovice.cz", html)
+        self.assertIn("openstreetmap.org/export/embed.html", html)
+        self.assertIn("marker=49.6861253%2C17.0508742", html)
+        self.assertNotIn("49.6861253 N, 17.0508742 E", html)
+        self.assertIn("Na výjezdu z Nasobůrek směrem na Haňovice", html)
+        self.assertIn("Otevřít v mapě", html)
+        self.assertIn("Provozní doba se může o svátcích", html)
+        self.assertNotIn("Pondělí", html)
+
     def test_bio_collection_structured_data_lists_all_sites(self):
         schedule = load_bio_schedule(BIO_2026_PATH)
         markup = build_bio_collection_jsonld(schedule)
@@ -674,7 +760,7 @@ class BioSeoPagesTest(unittest.TestCase):
         self.assertNotIn('href="/">v kalendáři podle ulice</a>', html)
         self.assertIn("Větší množství bioodpadu můžete odevzdat", html)
         self.assertIn("ve sběrném dvoře", html)
-        self.assertIn("49.6861253", html)
+        self.assertIn('href="/sberny-dvur-litovel/"', html)
 
     def test_collection_yard_note_is_hidden_when_a_container_is_available(self):
         schedule = load_bio_schedule(BIO_2026_PATH)
@@ -718,7 +804,7 @@ class BioSeoPagesTest(unittest.TestCase):
         self.assertIn('href="/">v kalendáři podle ulice</a>', overview["current"])
         self.assertIn("Větší množství bioodpadu můžete odevzdat", overview["current"])
         self.assertIn("ve sběrném dvoře", overview["current"])
-        self.assertIn("49.6861253", overview["current"])
+        self.assertIn('href="/sberny-dvur-litovel/"', overview["current"])
 
     def test_street_fallback_only_lists_active_year(self):
         events = [
@@ -744,6 +830,11 @@ class BioSeoPagesTest(unittest.TestCase):
             robots = robots_path.read_text(encoding="utf-8")
 
         self.assertIn("https://svoz.litovle.cz/bio/", sitemap)
+        self.assertIn(
+            "https://svoz.litovle.cz/kam-se-zahradnim-odpadem-litovel/",
+            sitemap,
+        )
+        self.assertIn("https://svoz.litovle.cz/sberny-dvur-litovel/", sitemap)
         self.assertIn("https://svoz.litovle.cz/ulice/palackeho/", sitemap)
         self.assertNotIn("<lastmod>", sitemap)
         self.assertEqual(
@@ -1168,6 +1259,66 @@ class LitovelWatcherTest(unittest.TestCase):
             ("https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/",),
             DEFAULT_URLS,
         )
+
+    def test_json_report_marks_reviewed_candidates(self):
+        html = """
+        <article>
+          <span>25. 8. 2026</span>
+          <a href="/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-test.html">
+            Změna svozu odpadu
+          </a>
+        </article>
+        """
+        matches = find_matched_articles(extract_articles(html, "https://www.litovel.eu/"))
+        with tempfile.TemporaryDirectory() as tmpdir:
+            known_path = Path(tmpdir) / "known.json"
+            report_path = Path(tmpdir) / "report.json"
+            known_path.write_text(
+                json.dumps({"version": 1, "urls": [matches[0].url]}),
+                encoding="utf-8",
+            )
+            write_json_report(report_path, matches, load_known_urls(known_path), [])
+            report = json.loads(report_path.read_text(encoding="utf-8"))
+
+        self.assertEqual(1, report["schema_version"])
+        self.assertEqual(1, len(report["candidates"]))
+        self.assertTrue(report["candidates"][0]["known"])
+        self.assertEqual([], report["source_errors"])
+
+    def test_fetch_failure_is_reported_and_fails_watcher(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            known_path = Path(tmpdir) / "known.json"
+            report_path = Path(tmpdir) / "report.json"
+            known_path.write_text(
+                json.dumps({"version": 1, "urls": []}),
+                encoding="utf-8",
+            )
+            with patch(
+                "scripts.watch_litovel_eu.fetch_url",
+                side_effect=OSError("source unavailable"),
+            ):
+                status = run_litovel_watcher(
+                    ["https://www.litovel.eu/test/"],
+                    timeout=1,
+                    dry_run=True,
+                    json_output=report_path,
+                    known_urls_path=known_path,
+                )
+            report = json.loads(report_path.read_text(encoding="utf-8"))
+
+        self.assertEqual(1, status)
+        self.assertEqual([], report["candidates"])
+        self.assertEqual("https://www.litovel.eu/test/", report["source_errors"][0]["url"])
+
+    def test_known_url_file_rejects_foreign_and_duplicate_urls(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            path = Path(tmpdir) / "known.json"
+            path.write_text(
+                json.dumps({"version": 1, "urls": ["https://example.com/change"]}),
+                encoding="utf-8",
+            )
+            with self.assertRaises(ValueError):
+                load_known_urls(path)
 
 
 if __name__ == "__main__":

@@ -66,6 +66,19 @@ def build_social_images(
             card_dir,
         )
 
+    images["garden-waste"] = _save_card(
+        _draw_garden_waste_card(reference_date),
+        "kam-se-zahradnim-odpadem-litovel",
+        "Kam s trávou, větvemi a spadaným ovocem v Litovli",
+        card_dir,
+    )
+    images["collection-yard"] = _save_card(
+        _draw_collection_yard_card(reference_date),
+        "sberny-dvur-litovel",
+        "Sběrný dvůr v Nasobůrkách – poloha a ověřené informace",
+        card_dir,
+    )
+
     for street in streets:
         slug = slugify(street)
         events = _upcoming_events(generator.get_events_for_street(street), reference_date, 3)
@@ -186,6 +199,48 @@ def _draw_bio_card(placements, reference_date: date) -> Image.Image:
     draw.ellipse((975, 215, 1025, 280), fill="#4d8f2a")
     draw.rounded_rectangle((900, 390, 1100, 410), radius=10, fill="#86cb7c")
     draw.rounded_rectangle((930, 435, 1070, 455), radius=10, fill="#bbf7d0")
+    return image
+
+
+def _draw_garden_waste_card(reference_date: date) -> Image.Image:
+    image, draw = _base_card()
+    fonts = _fonts()
+    _draw_brand(draw, fonts)
+    _draw_text(draw, "Průvodce bioodpadem", (76, 132), fonts["eyebrow"], "#4d8f2a", max_width=640)
+    _draw_text(draw, "Kam s trávou, větvemi a ovocem?", (72, 180), fonts["title"], "#111827", max_width=700)
+    _draw_text(
+        draw,
+        "Hnědá popelnice · bio kontejner · sběrný dvůr",
+        (76, 360),
+        fonts["body"],
+        "#475569",
+        max_width=680,
+    )
+    _draw_footer(draw, fonts, "Praktický přehled pro Litovel")
+    draw.ellipse((925, 155, 1075, 305), fill="#dcfce7")
+    draw.rounded_rectangle((900, 365, 1100, 385), radius=10, fill="#4d8f2a")
+    draw.rounded_rectangle((930, 420, 1070, 440), radius=10, fill="#86cb7c")
+    return image
+
+
+def _draw_collection_yard_card(reference_date: date) -> Image.Image:
+    image, draw = _base_card()
+    fonts = _fonts()
+    _draw_brand(draw, fonts)
+    _draw_text(draw, "Sběrný dvůr", (76, 132), fonts["eyebrow"], "#2563eb", max_width=620)
+    _draw_text(draw, "v Nasobůrkách", (72, 180), fonts["title"], "#111827", max_width=700)
+    _draw_text(
+        draw,
+        "Poloha, trasa a ověřené informace",
+        (76, 330),
+        fonts["body"],
+        "#475569",
+        max_width=650,
+    )
+    _draw_footer(draw, fonts, "Poloha a cesta na místo")
+    draw.ellipse((915, 155, 1085, 325), fill="#dbeafe")
+    draw.ellipse((970, 205, 1030, 265), fill="#2563eb")
+    draw.polygon(((970, 255), (1030, 255), (1000, 345)), fill="#2563eb")
     return image
 
 

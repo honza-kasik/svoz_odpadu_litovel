@@ -20,12 +20,17 @@ SIMPLE_ANALYTICS_INTEGRITY = (
 REQUIRED_FILES = (
     "index.html",
     "bio/index.html",
+    "kam-se-zahradnim-odpadem-litovel/index.html",
+    "sberny-dvur-litovel/index.html",
     "styles.css",
     "waste_schedule.csv",
     "bio_schedule.json",
+    "bio_disposal.json",
     "sitemap.xml",
     "robots.txt",
     "CNAME",
+    "js/schedule_logic.js",
+    "js/bio_logic.js",
     "docs/synchronizace-notifikace.html",
 )
 
@@ -60,18 +65,26 @@ def main() -> int:
     validate_browser_scripts(site_dir)
     validate_bio_proximity_sections(site_dir)
     validate_bio_detail_pages(site_dir)
+    validate_bio_guide_pages(site_dir)
     return 0
 
 
 def validate_required_files(site_dir: Path) -> None:
-    from release_data import load_bio_release
+    from release_data import load_bio_disposal_release, load_bio_release
 
     source_files = tuple(
         source.file.lstrip("/")
         for source in load_bio_release(site_dir / "bio_schedule.json").schedule.sources
     )
+    disposal_source_files = tuple(
+        source["file"].lstrip("/")
+        for source in load_bio_disposal_release(
+            site_dir / "bio_disposal.json"
+        ).sources
+        if source["file"] is not None
+    )
     missing = [
-        path for path in REQUIRED_FILES + source_files
+        path for path in REQUIRED_FILES + source_files + disposal_source_files
         if not (site_dir / path).is_file()
     ]
     if missing:
@@ -85,12 +98,22 @@ def validate_search_discovery_files(site_dir: Path) -> None:
         raise SystemExit("Sitemap must not claim a new lastmod date on every daily build")
     if "https://svoz.litovle.cz/bio/" not in sitemap:
         raise SystemExit("Sitemap is missing the bio overview")
+    for route in (
+        "kam-se-zahradnim-odpadem-litovel",
+        "sberny-dvur-litovel",
+    ):
+        if f"https://svoz.litovle.cz/{route}/" not in sitemap:
+            raise SystemExit(f"Sitemap is missing {route}")
     if "Sitemap: https://svoz.litovle.cz/sitemap.xml" not in robots:
         raise SystemExit("robots.txt does not advertise the canonical sitemap")
 
 
 def validate_release_data_files(site_dir: Path) -> None:
-    for relative_path in ("waste_schedule.csv", "bio_schedule.json"):
+    for relative_path in (
+        "waste_schedule.csv",
+        "bio_schedule.json",
+        "bio_disposal.json",
+    ):
         if (ROOT / relative_path).read_bytes() != (site_dir / relative_path).read_bytes():
             raise SystemExit(f"Artifact release data differs from tracked {relative_path}")
 
@@ -115,7 +138,7 @@ def validate_social_images(site_dir: Path) -> None:
     from PIL import Image
 
     images = sorted((site_dir / "resources/social").glob("*.png"))
-    expected = len(list(site_dir.glob("ulice/*/index.html"))) + 2
+    expected = len(list(site_dir.glob("ulice/*/index.html"))) + 4
     if len(images) != expected:
         raise SystemExit(f"Expected {expected} shared/page social images, found {len(images)}")
 
@@ -156,6 +179,8 @@ def validate_browser_scripts(site_dir: Path) -> None:
     pages = [
         site_dir / "index.html",
         site_dir / "bio/index.html",
+        site_dir / "kam-se-zahradnim-odpadem-litovel/index.html",
+        site_dir / "sberny-dvur-litovel/index.html",
         *sorted(site_dir.glob("bio/stanoviste/*/index.html")),
         *sorted(site_dir.glob("bio/pobliz/*/index.html")),
         *sorted(site_dir.glob("ulice/*/index.html")),
@@ -213,6 +238,10 @@ def validate_bio_proximity_sections(site_dir: Path) -> None:
     if violations:
         raise SystemExit("Bio proximity violations:\n" + "\n".join(violations[:20]))
 
+    bio_overview = (site_dir / "bio/index.html").read_text(encoding="utf-8")
+    if 'id="bioUseLocation"' not in bio_overview or "/js/bio_logic.js?v=" not in bio_overview:
+        raise SystemExit("Bio overview is missing the opt-in geolocation controls")
+
 
 def validate_bio_detail_pages(site_dir: Path) -> None:
     from release_data import load_bio_release
@@ -239,6 +268,45 @@ def validate_bio_detail_pages(site_dir: Path) -> None:
         html = path.read_text(encoding="utf-8")
         if "<link rel=\"canonical\"" not in html or "BreadcrumbList" not in html:
             raise SystemExit(f"Missing SEO metadata in {path.relative_to(site_dir)}")
+
+
+def validate_bio_guide_pages(site_dir: Path) -> None:
+    from release_data import load_bio_disposal_release
+
+    disposal = load_bio_disposal_release(site_dir / "bio_disposal.json")
+    guide = (
+        site_dir / "kam-se-zahradnim-odpadem-litovel/index.html"
+    ).read_text(encoding="utf-8")
+    yard = (site_dir / "sberny-dvur-litovel/index.html").read_text(encoding="utf-8")
+    bio = (site_dir / "bio/index.html").read_text(encoding="utf-8")
+
+    if "Kam s trávou, větvemi a spadaným ovocem v Litovli" not in guide:
+        raise SystemExit("Garden waste guide is missing its direct answer heading")
+    if 'id="co-nepatri"' not in guide or "Větve a dřevní odpad" not in guide:
+        raise SystemExit("Garden waste guide is missing large-container exclusions")
+    if "branches" in disposal.channel("large_container")["accepted_item_ids"]:
+        raise SystemExit("Large-container release data incorrectly accepts branches")
+    for route in ("/", "/bio/", "/sberny-dvur-litovel/"):
+        if f'href="{route}"' not in guide:
+            raise SystemExit(f"Garden waste guide is missing action link {route}")
+    if (
+        "openstreetmap.org/export/embed.html" not in yard
+        or "marker=49.6861253%2C17.0508742" not in yard
+        or "Otevřít v mapě" not in yard
+    ):
+        raise SystemExit("Collection yard page is missing its precise map location")
+    if "49.6861253 N, 17.0508742 E" in yard:
+        raise SystemExit("Collection yard page exposes raw coordinates to users")
+    if "www.litovel.eu" not in yard or "hanovice.cz" in yard:
+        raise SystemExit("Collection yard page must use Litovel's authoritative source")
+    if '<a href="/bio/">← Bio kontejnery</a>' not in yard:
+        raise SystemExit("Collection yard page is missing its bio overview back link")
+    if "Otevírací doba" in yard or "Pondělí" in yard:
+        raise SystemExit("Collection yard page must not publish unsourced opening hours")
+    if "Place" not in yard or "LocalBusiness" in yard:
+        raise SystemExit("Collection yard structured data must describe a Place")
+    if 'href="/kam-se-zahradnim-odpadem-litovel/"' not in bio:
+        raise SystemExit("Bio overview is missing the contextual garden-waste guide link")
 
 
 def resolve_local_reference(site_dir: Path, reference: str) -> Path | None:

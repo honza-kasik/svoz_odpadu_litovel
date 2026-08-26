@@ -21,13 +21,18 @@ def main() -> int:
     validate_browser_dependencies()
     validate_exception_json()
     validate_bio_container_json()
+    validate_bio_disposal_json()
     compile_python_files()
     return 0
 
 
 def validate_generated_files_are_not_tracked() -> None:
     result = subprocess.run(
-        ["git", "ls-files", "-z", "--", "index.html", "sitemap.xml", "ulice", "bio"],
+        [
+            "git", "ls-files", "-z", "--",
+            "index.html", "sitemap.xml", "ulice", "bio",
+            "kam-se-zahradnim-odpadem-litovel", "sberny-dvur-litovel",
+        ],
         check=True,
         capture_output=True,
     )
@@ -67,6 +72,7 @@ def validate_browser_dependencies() -> None:
     if node is None:
         raise SystemExit("Node.js is required to validate vendored browser dependencies")
     run([node, "scripts/validate_browser_dependencies.cjs"])
+    run([node, "scripts/validate_frontend_logic.cjs"])
 
 
 def validate_exception_json() -> None:
@@ -76,6 +82,8 @@ def validate_exception_json() -> None:
     load_svoz_exceptions(
         allowed_waste_types={waste_type.name for waste_type in WasteType}
     )
+    from scripts.watch_litovel_eu import load_known_urls
+    load_known_urls()
 
 
 def validate_bio_container_json() -> None:
@@ -86,6 +94,12 @@ def validate_bio_container_json() -> None:
     schedule = load_bio_schedule()
     streets = all_streets["Litovel"] + mistni_casti
     load_proximity_config(streets, schedule.sites)
+
+
+def validate_bio_disposal_json() -> None:
+    from bio_disposal import load_bio_disposal_source
+
+    load_bio_disposal_source()
 
 
 def compile_python_files() -> None:
