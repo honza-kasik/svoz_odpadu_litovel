@@ -402,6 +402,14 @@ input {
   display: none;
 }
 
+.js.schedule-load-failed #seoFallback {
+  display: block;
+}
+
+.controls-disabled {
+  opacity: 0.65;
+}
+
 /* ===== RELATED + DISCLAIMER ===== */
 
 .related-streets {
@@ -592,6 +600,15 @@ input {
     transition: opacity 300ms ease;
 }
 
+.schedule-load-error {
+  margin: 24px auto;
+  text-align: center;
+}
+
+.schedule-load-error p {
+  margin: 0 0 12px;
+}
+
 #loadingIndicator.fade-out {
     opacity: 0;
     pointer-events: none;
@@ -685,6 +702,17 @@ input {
   text-underline-offset: 3px;
 }
 
+.bio-help-link {
+  margin: -20px 0 28px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.bio-help-link a {
+  color: #2563eb;
+  text-underline-offset: 3px;
+}
+
 .bio-js-only {
   display: none;
 }
@@ -729,6 +757,56 @@ input {
   min-width: 0;
   height: 46px;
   box-sizing: border-box;
+}
+
+.bio-location-button {
+  align-self: flex-start;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #2563eb;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.9rem;
+  text-decoration: underline;
+  text-decoration-color: #bfdbfe;
+  text-underline-offset: 3px;
+}
+
+.bio-location-button:hover {
+  text-decoration-color: currentColor;
+}
+
+.bio-location-button:disabled {
+  color: var(--text-muted);
+  cursor: wait;
+}
+
+.bio-location-result:empty {
+  display: none;
+}
+
+.bio-location-result {
+  margin-top: 4px;
+}
+
+.bio-location-result.loading,
+.bio-location-result > p {
+  color: #475569;
+  font-size: 0.9rem;
+}
+
+.bio-location-result > p {
+  margin: 6px 0;
+}
+
+.bio-location-result > p a {
+  color: #2563eb;
+}
+
+.bio-location-result h3 {
+  margin: 8px 0 0;
+  font-size: 0.95rem;
 }
 
 .bio-suggestions {
@@ -1165,6 +1243,116 @@ input {
   text-underline-offset: 3px;
 }
 
+/* ===== PRŮVODCE BIOODPADEM A SBĚRNÝ DVŮR ===== */
+
+.content-page main {
+  max-width: 860px;
+}
+
+.content-page h1 {
+  max-width: 780px;
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.content-page h2 {
+  margin-bottom: 10px;
+  font-size: 1.25rem;
+}
+
+.content-page a {
+  text-underline-offset: 3px;
+}
+
+.content-lead {
+  margin: 0 0 28px;
+  color: #475569;
+  font-size: 1.05rem;
+}
+
+.content-action-list a,
+.collection-yard-page main a {
+  color: #2563eb;
+}
+
+.waste-guide-list {
+  display: grid;
+}
+
+.waste-guide-row {
+  display: grid;
+  grid-template-columns: minmax(150px, 190px) 1fr;
+  gap: 24px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  scroll-margin-top: 24px;
+}
+
+.waste-guide-row:first-child {
+  padding-top: 4px;
+}
+
+.waste-guide-row dt {
+  font-weight: 650;
+}
+
+.waste-guide-row dd {
+  margin: 0;
+  color: #475569;
+}
+
+.waste-rejected {
+  scroll-margin-top: 24px;
+}
+
+.waste-rejected ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px 28px;
+  padding-left: 22px;
+}
+
+.content-action-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.content-action-list li:last-child {
+  border-bottom: 0;
+}
+
+.collection-yard-location {
+  margin: 28px 0;
+}
+
+.collection-yard-location h2 {
+  margin-bottom: 2px;
+}
+
+.collection-yard-locality {
+  margin: 0 0 12px;
+}
+
+.collection-yard-map {
+  overflow: hidden;
+  height: 360px;
+  margin-bottom: 12px;
+  border: 1px solid var(--border-subtle);
+  background: #e2e8f0;
+}
+
+.collection-yard-map iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.content-page .button {
+  width: fit-content;
+  color: #fff;
+}
+
 /* ===== NEJBLIŽŠÍ BIO KONTEJNERY NA ULICI ===== */
 
 .nearby-bio {
@@ -1336,5 +1524,28 @@ input {
 
   .nearby-bio-list {
     grid-template-columns: 1fr;
+  }
+
+  .content-page main {
+    box-sizing: border-box;
+    padding-inline: 8px;
+  }
+
+  .waste-guide-row {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+
+  .waste-rejected ul {
+    grid-template-columns: 1fr;
+  }
+
+  .collection-yard-map {
+    height: 280px;
+  }
+
+  .content-page .button {
+    box-sizing: border-box;
+    width: 100%;
   }
 }

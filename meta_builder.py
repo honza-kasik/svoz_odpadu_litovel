@@ -82,6 +82,29 @@ class MetaBuilder:
             "H1": f"Bio kontejnery pro lokalitu {street_name}",
         }
 
+    def garden_waste_guide(self):
+        return {
+            "TITLE": "Kam s trávou, větvemi a ovocem v Litovli | Bioodpad",
+            "DESCRIPTION": (
+                "Kam v Litovli s posekanou trávou, listím, spadaným ovocem nebo "
+                "větvemi? Rozlište hnědou popelnici, velkoobjemový kontejner a "
+                "sběrný dvůr."
+            ),
+            "CANONICAL": f"{self.config.base_url}/kam-se-zahradnim-odpadem-litovel/",
+            "H1": "Kam s trávou, větvemi a spadaným ovocem v Litovli",
+        }
+
+    def collection_yard(self):
+        return {
+            "TITLE": "Sběrný dvůr Litovel – poloha a ověřené informace",
+            "DESCRIPTION": (
+                "Kde najdete sběrný dvůr v Nasobůrkách, jak otevřít mapu "
+                "a kde ověřit provozní dobu a přijímané druhy odpadu."
+            ),
+            "CANONICAL": f"{self.config.base_url}/sberny-dvur-litovel/",
+            "H1": "Sběrný dvůr Litovel",
+        }
+
     # -------------------------------------------------
     # STREET
     # -------------------------------------------------

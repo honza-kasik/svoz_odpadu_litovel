@@ -4,18 +4,22 @@
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import sys
 from dataclasses import dataclass
 from html.parser import HTMLParser
+from pathlib import Path
 from typing import Iterable
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse
 from urllib.request import Request, urlopen
 
 
 DEFAULT_URLS = (
     "https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/",
 )
+ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_KNOWN_URLS_PATH = ROOT / "data" / "litovel_watcher_known.json"
 USER_AGENT = "svoz-odpadu-litovel-monitor/1.0 (+https://svoz.litovle.cz)"
 
 WASTE_PATTERNS = (
@@ -191,19 +195,44 @@ def fetch_url(url: str, timeout: int) -> str:
         return response.read().decode(charset, errors="replace")
 
 
-def run(urls: Iterable[str], timeout: int, dry_run: bool) -> int:
+def load_known_urls(path: str | Path = DEFAULT_KNOWN_URLS_PATH) -> set[str]:
+    path = Path(path)
+    data = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(data, dict) or set(data) != {"version", "urls"}:
+        raise ValueError(f"{path}: expected version and urls")
+    if data["version"] != 1 or not isinstance(data["urls"], list):
+        raise ValueError(f"{path}: unsupported known-URL format")
+    urls = data["urls"]
+    if len(urls) != len(set(urls)):
+        raise ValueError(f"{path}: duplicate known URL")
+    for url in urls:
+        parsed = urlparse(url) if isinstance(url, str) else None
+        if parsed is None or parsed.scheme != "https" or parsed.netloc != "www.litovel.eu":
+            raise ValueError(f"{path}: invalid Litovel.eu URL: {url!r}")
+    return set(urls)
+
+
+def run(
+    urls: Iterable[str],
+    timeout: int,
+    dry_run: bool,
+    json_output: str | Path | None = None,
+    known_urls_path: str | Path = DEFAULT_KNOWN_URLS_PATH,
+) -> int:
     print("Litovel.eu watcher")
     print(f"Mode: {'dry-run' if dry_run else 'dry-run forced'}")
     print("This script does not modify files, commit, push, create issues, or create PRs.")
     print()
 
     all_matches: list[MatchedArticle] = []
+    source_errors = []
     for url in urls:
         print(f"Fetching: {url}")
         try:
             html = fetch_url(url, timeout)
         except Exception as exc:
             print(f"  ERROR: {exc}")
+            source_errors.append({"url": url, "error": str(exc)})
             continue
 
         articles = extract_articles(html, url)
@@ -218,8 +247,39 @@ def run(urls: Iterable[str], timeout: int, dry_run: bool) -> int:
         print(f"  change candidates: {len(change_candidates)}")
 
     print()
-    print_match_summary(_deduplicate_matches(all_matches))
-    return 0
+    matches = _deduplicate_matches(all_matches)
+    print_match_summary(matches)
+    if json_output is not None:
+        write_json_report(json_output, matches, load_known_urls(known_urls_path), source_errors)
+    return 1 if source_errors else 0
+
+
+def write_json_report(path, matches, known_urls, source_errors) -> None:
+    candidates = []
+    for match in matches:
+        if match.decision != "candidate":
+            continue
+        candidates.append(
+            {
+                "title": match.title,
+                "url": match.url,
+                "publication_date": match.publication_date,
+                "topic_reasons": list(match.topic_reasons),
+                "change_reasons": list(match.change_reasons),
+                "known": match.url in known_urls,
+            }
+        )
+    payload = {
+        "schema_version": 1,
+        "candidates": candidates,
+        "source_errors": source_errors,
+    }
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
 
 
 def print_match_summary(matches: list[MatchedArticle]) -> None:
@@ -296,6 +356,15 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     )
     parser.add_argument("--timeout", type=int, default=20)
     parser.add_argument(
+        "--json-output",
+        help="Write a deterministic machine-readable candidate report to this path.",
+    )
+    parser.add_argument(
+        "--known-urls",
+        default=str(DEFAULT_KNOWN_URLS_PATH),
+        help="JSON file containing already reviewed Litovel.eu announcement URLs.",
+    )
+    parser.add_argument(
         "--dry-run",
         action="store_true",
         default=True,
@@ -306,7 +375,13 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
 
 def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv or sys.argv[1:])
-    return run(args.urls or DEFAULT_URLS, timeout=args.timeout, dry_run=True)
+    return run(
+        args.urls or DEFAULT_URLS,
+        timeout=args.timeout,
+        dry_run=True,
+        json_output=args.json_output,
+        known_urls_path=args.known_urls,
+    )
 
 
 if __name__ == "__main__":

@@ -16,10 +16,7 @@ BASE_URL = "https://svoz.litovle.cz"
 TEMPLATE_PATH = "templates/layout.html"
 BIO_TEMPLATE_PATH = "templates/bio.html"
 BIO_DETAIL_TEMPLATE_PATH = "templates/bio_detail.html"
-DEFAULT_COLLECTION_YARD_MAP_URL = (
-    "https://www.openstreetmap.org/"
-    "?mlat=49.6861253&mlon=17.0508742#map=18/49.6861253/17.0508742"
-)
+CONTENT_TEMPLATE_PATH = "templates/content.html"
 
 meta_builder = MetaBuilder(config)
 
@@ -34,6 +31,8 @@ def render_template(output_path: str | Path, context: dict):
 
     # Keep generated markup and its stylesheet in sync across deployments.
     context.setdefault("CSS_VERSION", file_digest("styles.css"))
+    context.setdefault("APP_JS_VERSION", file_digest("js/app.js"))
+    context.setdefault("SCHEDULE_LOGIC_JS_VERSION", file_digest("js/schedule_logic.js"))
 
     for key, value in context.items():
         html = html.replace(f"{{{{{key}}}}}", value)
@@ -139,6 +138,7 @@ def build_bio_pages(
         "SOURCE_LINKS": build_bio_source_links(schedule.sources),
         "SEARCH_ITEMS_JSON": json.dumps(search_items, ensure_ascii=False).replace("<", "\\u003c"),
         "BIO_JS_VERSION": file_digest("js/bio.js"),
+        "BIO_LOGIC_JS_VERSION": file_digest("js/bio_logic.js"),
         **build_social_context(social_image),
         "BREADCRUMBS_JSONLD": (
             build_bio_breadcrumbs_jsonld()
@@ -200,6 +200,191 @@ def build_bio_pages(
             Path(output_dir) / "bio" / "pobliz" / slug / "index.html",
             context,
         )
+
+
+def build_bio_guide_pages(
+    disposal,
+    social_images,
+    output_dir: str | Path = ".",
+) -> None:
+    garden_meta = meta_builder.garden_waste_guide()
+    garden_context = {
+        **garden_meta,
+        "_TEMPLATE_PATH": CONTENT_TEMPLATE_PATH,
+        "BODY_CLASS": "content-page waste-guide-page",
+        "BACK_NAV": (
+            '<p class="bio-back-link"><a href="/bio/">← Bio kontejnery</a></p>'
+        ),
+        "CONTENT": build_garden_waste_guide_html(disposal),
+        **build_social_context(social_images["garden-waste"]),
+        "BREADCRUMBS_JSONLD": build_content_page_jsonld(
+            garden_meta,
+            "Kam se zahradním odpadem",
+            "kam-se-zahradnim-odpadem-litovel",
+            disposal.last_verified,
+        ),
+    }
+    render_template(
+        Path(output_dir) / "kam-se-zahradnim-odpadem-litovel" / "index.html",
+        garden_context,
+    )
+
+    yard_meta = meta_builder.collection_yard()
+    yard_context = {
+        **yard_meta,
+        "_TEMPLATE_PATH": CONTENT_TEMPLATE_PATH,
+        "BODY_CLASS": "content-page collection-yard-page",
+        "BACK_NAV": (
+            '<p class="bio-back-link"><a href="/bio/">← Bio kontejnery</a></p>'
+        ),
+        "CONTENT": build_collection_yard_html(disposal),
+        **build_social_context(social_images["collection-yard"]),
+        "BREADCRUMBS_JSONLD": build_content_page_jsonld(
+            yard_meta,
+            "Sběrný dvůr Litovel",
+            "sberny-dvur-litovel",
+            disposal.last_verified,
+            disposal.collection_yard,
+        ),
+    }
+    render_template(
+        Path(output_dir) / "sberny-dvur-litovel" / "index.html",
+        yard_context,
+    )
+
+
+def build_garden_waste_guide_html(disposal) -> str:
+    item_rows = "".join(
+        f'''<div id="{escape(item["anchor"])}" class="waste-guide-row">
+            <dt>{escape(item["name"])}</dt>
+            <dd>{escape(item["summary"])}</dd>
+        </div>'''
+        for item in disposal.items
+    )
+    large_container = disposal.channel("large_container")
+    rejected = "".join(
+        f"<li>{escape(label)}</li>" for label in large_container["rejected_labels"]
+    )
+    return f'''
+        <p class="content-lead">Pravidla se liší podle toho, zda používáte hnědou
+        popelnici u domu, dočasně přistavený velkoobjemový kontejner nebo sběrný dvůr.</p>
+
+        <section class="ui-section" aria-labelledby="wasteGuideItemsHeading">
+            <h2 id="wasteGuideItemsHeading">Kam s čím</h2>
+            <dl class="waste-guide-list ui-data-list">{item_rows}</dl>
+        </section>
+
+        <section id="co-nepatri" class="ui-section waste-rejected"
+                 aria-labelledby="wasteRejectedHeading">
+            <h2 id="wasteRejectedHeading">Co do velkoobjemového kontejneru nepatří</h2>
+            <p>Kontejner je určený pro trávu, listí, plevel a spadané ovoce.
+            Nevkládejte do něj:</p>
+            <ul>{rejected}</ul>
+            <p>Odpad vysypte bez plastového nebo papírového obalu.</p>
+        </section>
+
+        <section class="ui-section" aria-labelledby="wasteNextHeading">
+            <h2 id="wasteNextHeading">Kam pokračovat</h2>
+            <ul class="content-action-list ui-data-list">
+                <li><a href="/">Zjistit termín svozu hnědé popelnice podle ulice</a></li>
+                <li><a href="/bio/">Najít právě přistavený velkoobjemový kontejner</a></li>
+                <li><a href="/sberny-dvur-litovel/">Zobrazit polohu sběrného dvora Litovel</a></li>
+            </ul>
+        </section>
+
+        {build_disposal_sources_html(disposal)}'''
+
+
+def build_collection_yard_html(disposal) -> str:
+    yard = disposal.collection_yard
+    coordinates = yard["coordinates"]
+    latitude = coordinates["latitude"]
+    longitude = coordinates["longitude"]
+    map_url = coordinates_map_url(latitude, longitude)
+    embed_url = coordinates_embed_url(latitude, longitude)
+    return f'''
+        <p class="content-lead">Sběrný dvůr najdete v Nasobůrkách, místní části
+        Litovle. Stránka uvádí jen informace doložené zveřejněnými podklady.</p>
+
+        <section class="collection-yard-location ui-section"
+                 aria-labelledby="collectionYardLocationHeading">
+            <h2 id="collectionYardLocationHeading">Kde ho najdete</h2>
+            <p class="collection-yard-locality">
+                <strong>{escape(yard["locality"])}</strong><br>
+                Na výjezdu z Nasobůrek směrem na Haňovice, po pravé straně.
+            </p>
+            <div class="collection-yard-map">
+                <iframe src="{escape(embed_url)}"
+                        title="Mapa sběrného dvora v Nasobůrkách"
+                        loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+            <a class="button" href="{escape(map_url)}" target="_blank" rel="noopener">
+                Otevřít v mapě
+            </a>
+        </section>
+
+        <section class="ui-section" aria-labelledby="collectionYardWasteHeading">
+            <h2 id="collectionYardWasteHeading">Kam se zahradním odpadem</h2>
+            <p>{escape(yard["accepted_note"])}</p>
+            <p><a href="/kam-se-zahradnim-odpadem-litovel/">Kam s trávou, větvemi
+            nebo spadaným ovocem?</a></p>
+        </section>
+
+        <section class="ui-section" aria-labelledby="collectionYardBeforeHeading">
+            <h2 id="collectionYardBeforeHeading">Než vyrazíte</h2>
+            <p><strong>Provozovatel:</strong> {escape(yard["operator"])}</p>
+            <p>{escape(yard["opening_hours_note"])}</p>
+            <p>{escape(yard["eligibility_note"])}</p>
+        </section>
+
+        {build_disposal_sources_html(disposal, yard["source_ids"])}'''
+
+
+def build_disposal_sources_html(disposal, source_ids=None) -> str:
+    allowed = set(source_ids) if source_ids is not None else None
+    sources = [
+        source
+        for source in disposal.sources
+        if allowed is None or source["id"] in allowed
+    ]
+    links = []
+    for source in sources:
+        external_attributes = (
+            ' target="_blank" rel="noopener"' if source["file"] is None else ""
+        )
+        links.append(
+            f'<a href="{escape(source["file"] or source["url"])}"'
+            f'{external_attributes}>{escape(source["title"])}</a>'
+        )
+    verified = disposal.last_verified
+    verified_label = f"{verified.day}. {verified.month}. {verified.year}"
+    return f'''<section class="bio-sources">
+        <h2>Zdroje</h2>
+        <p>{" · ".join(links)}. Ověřeno <time datetime="{verified.isoformat()}">{verified_label}</time>.</p>
+    </section>'''
+
+
+def coordinates_map_url(latitude: float, longitude: float) -> str:
+    return (
+        "https://www.openstreetmap.org/"
+        f"?mlat={latitude:.7f}&mlon={longitude:.7f}"
+        f"#map=18/{latitude:.7f}/{longitude:.7f}"
+    )
+
+
+def coordinates_embed_url(latitude: float, longitude: float) -> str:
+    latitude_span = 0.003
+    longitude_span = 0.005
+    return (
+        "https://www.openstreetmap.org/export/embed.html"
+        f"?bbox={longitude - longitude_span:.7f}%2C"
+        f"{latitude - latitude_span:.7f}%2C"
+        f"{longitude + longitude_span:.7f}%2C"
+        f"{latitude + latitude_span:.7f}"
+        "&layer=mapnik"
+        f"&marker={latitude:.7f}%2C{longitude:.7f}"
+    )
 
 
 def validate_bio_routes(schedule, streets) -> None:
@@ -509,18 +694,6 @@ def format_distance(distance_km: float, approximate: bool) -> str:
     return f"{prefix}{distance_km:.1f} km".replace(".", ",")
 
 
-def collection_yard_map_url(proximity_config=None) -> str:
-    yard = getattr(proximity_config, "collection_yard", None)
-    if yard is None:
-        return DEFAULT_COLLECTION_YARD_MAP_URL
-    point = yard.coordinates
-    return (
-        "https://www.openstreetmap.org/"
-        f"?mlat={point.latitude:.7f}&mlon={point.longitude:.7f}"
-        f"#map=18/{point.latitude:.7f}/{point.longitude:.7f}"
-    )
-
-
 def build_bio_disposal_fallback(
     proximity_config=None,
     class_name: str = "",
@@ -540,7 +713,7 @@ def build_bio_disposal_fallback(
         "Menší množství lze dát do hnědé popelnice. "
         f"{collection_sentence}"
         "Větší množství bioodpadu můžete odevzdat "
-        f'<a href="{collection_yard_map_url(proximity_config)}" target="_blank" rel="noopener">'
+        '<a href="/sberny-dvur-litovel/">'
         "ve sběrném dvoře</a>."
         "</p>"
     )
@@ -680,6 +853,69 @@ def build_bio_detail_breadcrumbs_jsonld(section, name, relative_path) -> str:
   ]
 }}
 </script>'''
+
+
+def build_content_page_jsonld(
+    meta,
+    breadcrumb_name: str,
+    slug: str,
+    last_verified: date,
+    place: dict | None = None,
+) -> str:
+    page_id = f"{BASE_URL}/{slug}/#webpage"
+    graph = [
+        {
+            "@type": "WebPage",
+            "@id": page_id,
+            "url": meta["CANONICAL"],
+            "name": meta["H1"],
+            "description": meta["DESCRIPTION"],
+            "dateModified": last_verified.isoformat(),
+        },
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Svoz odpadu Litovel",
+                    "item": f"{BASE_URL}/",
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": breadcrumb_name,
+                    "item": meta["CANONICAL"],
+                },
+            ],
+        },
+    ]
+    if place is not None:
+        place_id = f"{BASE_URL}/{slug}/#place"
+        graph[0]["mainEntity"] = {"@id": place_id}
+        graph.append(
+            {
+                "@type": "Place",
+                "@id": place_id,
+                "name": place["name"],
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": place["locality"],
+                    "addressCountry": "CZ",
+                },
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": place["coordinates"]["latitude"],
+                    "longitude": place["coordinates"]["longitude"],
+                },
+            }
+        )
+    payload = {"@context": "https://schema.org", "@graph": graph}
+    return (
+        '<script type="application/ld+json">\n'
+        + json.dumps(payload, ensure_ascii=False, indent=2).replace("<", "\\u003c")
+        + "\n</script>"
+    )
 
 
 # -------------------------------------------------
@@ -823,6 +1059,15 @@ def generate_sitemap(
     urls.append(f"""
   <url>
     <loc>{BASE_URL}/bio/</loc>
+  </url>""")
+
+    for route in (
+        "kam-se-zahradnim-odpadem-litovel",
+        "sberny-dvur-litovel",
+    ):
+        urls.append(f"""
+  <url>
+    <loc>{BASE_URL}/{route}/</loc>
   </url>""")
 
     for street in streets:

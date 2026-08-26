@@ -14,7 +14,10 @@ from generator_svozu_odpadu import generate_release_data, refresh_release_data
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Generate deterministic CSV, canonical ICS and bio JSON release data."
+        description=(
+            "Generate deterministic CSV, canonical ICS, bio schedule and "
+            "bio disposal release data."
+        )
     )
     parser.add_argument("--output-dir", default=str(ROOT))
     args = parser.parse_args()

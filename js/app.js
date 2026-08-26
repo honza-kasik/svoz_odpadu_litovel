@@ -6,9 +6,11 @@ const WASTE_TYPES = {
 };
 
 const MIN_LOADING_TIME = 200;
+const scheduleLogic = window.SVOZ_SCHEDULE_LOGIC;
 
 let wasteSchedule = [];
 let uniqueLocations = [];
+let scheduleYears = [];
 let filteredLocation = "";
 let selectedYear = new Date().getFullYear();
 let selectedMonth = new Date().getMonth();
@@ -33,6 +35,10 @@ function createLoadingIndicator() {
         return;
     }
 
+    calendarContainer.querySelector('#scheduleLoadError')?.remove();
+    calendarContainer.querySelector('#loadingIndicator')?.remove();
+    document.documentElement.classList.remove('schedule-load-failed');
+
     const loader = document.createElement('div');
     loader.id = 'loadingIndicator';
 
@@ -44,6 +50,43 @@ function createLoadingIndicator() {
     `;
 
     calendarContainer.appendChild(loader);
+}
+
+function setScheduleControlsDisabled(disabled) {
+    const controls = document.getElementById('controls');
+    if (!controls) return;
+    controls.classList.toggle('controls-disabled', disabled);
+    controls.setAttribute('aria-busy', disabled ? 'true' : 'false');
+    controls.querySelectorAll('button, select, input').forEach(control => {
+        control.disabled = disabled;
+    });
+}
+
+function showScheduleLoadError() {
+    const calendarContainer = document.getElementById('calendarContainer');
+    if (!calendarContainer) return;
+    calendarContainer.querySelector('#loadingIndicator')?.remove();
+    calendarContainer.querySelector('#scheduleLoadError')?.remove();
+
+    const error = document.createElement('div');
+    error.id = 'scheduleLoadError';
+    error.className = 'schedule-load-error ui-panel';
+    error.setAttribute('role', 'alert');
+
+    const message = document.createElement('p');
+    message.textContent = window.STREET_NAME
+        ? 'Kalendář se nepodařilo načíst. Níže můžete použít základní přehled termínů.'
+        : 'Kalendář se nepodařilo načíst. Vyberte ulici v seznamu níže a zkuste její přehled termínů.';
+    const retry = document.createElement('button');
+    retry.type = 'button';
+    retry.className = 'button';
+    retry.textContent = 'Zkusit znovu';
+    retry.addEventListener('click', initApp);
+
+    error.append(message, retry);
+    calendarContainer.appendChild(error);
+    document.documentElement.classList.add('schedule-load-failed');
+    setScheduleControlsDisabled(true);
 }
 
 function hideLoadingIndicator() {
@@ -68,26 +111,30 @@ const delay = ms =>
 // Initialize the app with proper loading handling
 async function initApp() {
     createLoadingIndicator();
+    setScheduleControlsDisabled(true);
 
     try {
         // Fetch data and ensure minimum loading time
         const [csv] = await Promise.all([
-            fetch('/waste_schedule.csv').then(response => response.text()),
+            fetch('/waste_schedule.csv', { cache: 'no-cache' }).then(response => {
+                if (!response.ok) throw new Error(`Schedule request failed: ${response.status}`);
+                return response.text();
+            }),
             delay(MIN_LOADING_TIME)
         ]);
 
         initializeSchedule(csv);
     } catch (error) {
         console.error('Failed to load waste schedule:', error);
-        // Even in case of error, hide the loader
-        if (!isKioskMode) {
-            hideLoadingIndicator();
-        }
+        showScheduleLoadError();
     }
 }
 
 function initializeSchedule(csv) {
-    parseCSV(csv);
+    if (!scheduleLogic) throw new Error('Schedule logic is unavailable');
+    wasteSchedule = scheduleLogic.parseScheduleCsv(csv, Object.keys(WASTE_TYPES));
+    scheduleYears = scheduleLogic.availableYears(wasteSchedule);
+    selectedYear = scheduleLogic.initialYear(scheduleYears, new Date().getFullYear());
 
     uniqueLocations = [
         ...new Set(
@@ -99,6 +146,7 @@ function initializeSchedule(csv) {
 
     updateDataForInitialLocation(initialLocation, uniqueLocations);
     renderMonthCalendar(filteredLocation);
+    setScheduleControlsDisabled(false);
 
     if (isKioskMode) {
         hideKioskElements();
@@ -106,7 +154,7 @@ function initializeSchedule(csv) {
         populateFilters();
     }
 
-    // Hide loading indicator when everything is done
+    document.documentElement.classList.remove('schedule-load-failed');
     if (!isKioskMode) {
         hideLoadingIndicator();
     }
@@ -129,20 +177,6 @@ function hideKioskElements() {
     });
 }
 
-function parseCSV(csv) {
-    const lines = csv.split('\n');
-    wasteSchedule = lines.map(line => {
-        const [date, type, location, isOverride] = line.split(',');
-        if (!date || !type) return null;
-        return {
-            date: date.trim(),
-            type: type.trim().toLowerCase(),
-            location: location ? location.trim() : '',
-            isOverride: isOverride === '1'
-        };
-    }).filter(entry => entry);
-}
-
 // Start the app initialization
 initApp();
 function populateFilters() {
@@ -156,7 +190,9 @@ function populateFilters() {
     const footerControls = document.getElementById('footerControls');
     const pdfYear = document.getElementById('pdfYear');
     const pdfMonth = document.getElementById('pdfMonth');
-    const currentYear = new Date().getFullYear();
+
+    monthSelect.innerHTML = '';
+    yearSelect.innerHTML = '';
 
     MONTHS.forEach((month, index) => {
         const option = document.createElement('option');
@@ -166,13 +202,13 @@ function populateFilters() {
         monthSelect.appendChild(option);
     });
 
-    for (let i = currentYear; i <= currentYear + 1; i++) {
+    scheduleYears.forEach(year => {
         const option = document.createElement('option');
-        option.value = i;
-        option.textContent = i;
-        if (i === selectedYear) option.selected = true;
+        option.value = year;
+        option.textContent = year;
+        if (year === selectedYear) option.selected = true;
         yearSelect.appendChild(option);
-    }
+    });
     
     locationSearch.addEventListener('input', (e) => {
         renderLocationOptions(e.target.value, false);
@@ -191,41 +227,33 @@ function populateFilters() {
     monthSelect.addEventListener('change', (e) => {
         selectedMonth = parseInt(e.target.value);
         renderMonthCalendar(filteredLocation);
+        updateMonthNavigation();
     });
 
     prevMonth.addEventListener('click', () => {
-        let month = selectedMonth;
-        let year = selectedYear;
-        month--;
-        if (month < 0) {
-            month = 11;
-            year--;
-        }
-        selectedMonth = month;
+        const shifted = scheduleLogic.shiftMonth(scheduleYears, selectedYear, selectedMonth, -1);
+        selectedMonth = shifted.month;
         monthSelect.value = selectedMonth;
-        selectedYear = year;
+        selectedYear = shifted.year;
         yearSelect.value = selectedYear;
-        renderMonthCalendar(filteredLocation)
+        renderMonthCalendar(filteredLocation);
+        updateMonthNavigation();
     });
 
     nextMonth.addEventListener('click', () => {
-        let month = selectedMonth;
-        let year = selectedYear;
-        month++;
-        if (month > 11) {
-            month = 0;
-            year++;
-        }
-        selectedMonth = month;
+        const shifted = scheduleLogic.shiftMonth(scheduleYears, selectedYear, selectedMonth, 1);
+        selectedMonth = shifted.month;
         monthSelect.value = selectedMonth;
-        selectedYear = year;
+        selectedYear = shifted.year;
         yearSelect.value = selectedYear;
-        renderMonthCalendar(filteredLocation)
+        renderMonthCalendar(filteredLocation);
+        updateMonthNavigation();
     });
 
     yearSelect.addEventListener('change', (e) => {
         selectedYear = parseInt(e.target.value);
         renderMonthCalendar(filteredLocation);
+        updateMonthNavigation();
     });
 
     resetFilter.addEventListener('click', () => {
@@ -251,6 +279,15 @@ function populateFilters() {
     });
 
     renderLocationOptions("", initialLocation);
+    updateMonthNavigation();
+}
+
+function updateMonthNavigation() {
+    const prevMonth = document.getElementById('prevMonth');
+    const nextMonth = document.getElementById('nextMonth');
+    if (!prevMonth || !nextMonth || !scheduleLogic) return;
+    prevMonth.disabled = !scheduleLogic.canShiftMonth(scheduleYears, selectedYear, selectedMonth, -1);
+    nextMonth.disabled = !scheduleLogic.canShiftMonth(scheduleYears, selectedYear, selectedMonth, 1);
 }
 
 function renderMonthCalendar(renderedLocation = "") {

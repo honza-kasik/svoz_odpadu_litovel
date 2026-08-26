@@ -42,6 +42,9 @@
             {{SUBTITLE}} Pravidelný svoz od domů najdete
             <a href="/">v kalendáři podle ulice</a>.
         </p>
+        <p class="bio-help-link">
+            <a href="/kam-se-zahradnim-odpadem-litovel/">Kam patří tráva, větve a spadané ovoce?</a>
+        </p>
 
         {{BIO_YEAR_NOTICE}}
 
@@ -56,6 +59,10 @@
                        autocomplete="off">
                 <div id="bioSuggestions" class="bio-suggestions" role="listbox"></div>
             </div>
+            <button type="button" id="bioUseLocation" class="bio-location-button">
+                Použít moji polohu
+            </button>
+            <div id="bioLocationResult" class="bio-location-result" aria-live="polite"></div>
         </section>
 
         <div class="bio-overview">
@@ -88,6 +95,7 @@
     </p>
 
     <script>window.BIO_SEARCH_ITEMS = {{SEARCH_ITEMS_JSON}};</script>
+    <script src="/js/bio_logic.js?v={{BIO_LOGIC_JS_VERSION}}" defer></script>
     <script src="/js/bio.js?v={{BIO_JS_VERSION}}" defer></script>
     <script async src="https://scripts.simpleanalyticscdn.com/sri/v11.js"
             integrity="sha384-rfv15RJy1bBYZ1Mf4xizO26jorXb2myipCvHXy4rkG0SuEET96S+m0sTzu5vfbSI"

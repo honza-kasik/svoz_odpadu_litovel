@@ -12,8 +12,13 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from generator_svozu_odpadu import generate_release_data
-from release_data import load_bio_release, load_waste_schedule
+from release_data import (
+    load_bio_disposal_release,
+    load_bio_release,
+    load_waste_schedule,
+)
 from site_builder import (
+    build_bio_guide_pages,
     build_bio_pages,
     build_index,
     build_street_pages,
@@ -34,6 +39,7 @@ STATIC_ENTRIES = (
     "docs",
     "waste_schedule.csv",
     "bio_schedule.json",
+    "bio_disposal.json",
     "calendars",
 )
 
@@ -86,11 +92,13 @@ def compare_release_data(expected: Path, actual: Path) -> list[str]:
     expected_files = {
         Path("waste_schedule.csv"),
         Path("bio_schedule.json"),
+        Path("bio_disposal.json"),
         *(path.relative_to(expected) for path in (expected / "calendars").glob("*.ics")),
     }
     actual_files = {
         Path("waste_schedule.csv"),
         Path("bio_schedule.json"),
+        Path("bio_disposal.json"),
         *(path.relative_to(actual) for path in (actual / "calendars").glob("*.ics")),
     }
     differences = [
@@ -111,6 +119,7 @@ def build_presentation(output_dir: Path) -> None:
     streets = all_streets["Litovel"] + mistni_casti
     regular_schedule = load_waste_schedule(ROOT / "waste_schedule.csv", streets)
     bio_data = load_bio_release(ROOT / "bio_schedule.json")
+    bio_disposal = load_bio_disposal_release(ROOT / "bio_disposal.json")
     social_images = build_social_images(
         regular_schedule,
         streets,
@@ -131,6 +140,11 @@ def build_presentation(output_dir: Path) -> None:
         streets,
         bio_data.proximity,
         social_images["bio"],
+        output_dir=output_dir,
+    )
+    build_bio_guide_pages(
+        bio_disposal,
+        social_images,
         output_dir=output_dir,
     )
     generate_sitemap(

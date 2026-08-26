@@ -45,6 +45,8 @@ Hodnoty jsou definované v `:root` v `styles.css`. Komponenty používají prom�
 ## Použití na webu
 
 - Hlavní stránka: panel s volbou měsíce a ulice používá `.ui-panel`; nejbližší bio kontejnery používají jeden `.ui-panel` a uvnitř plochý `.ui-data-list`.
-- Přehled bio kontejnerů: vyhledávání a rozbalovací roční harmonogram používají `.ui-panel`; aktuální a příští umístění jsou běžné `.ui-section`.
+- Přehled bio kontejnerů: vyhledávání, volitelné výsledky podle polohy a rozbalovací roční harmonogram používají `.ui-panel`; výsledky polohy zůstávají plochým `.ui-data-list` uvnitř vyhledávání a aktuální a příští umístění jsou běžné `.ui-section`.
 - Detail stanoviště: přímá odpověď používá `.ui-status`, termíny kombinaci `.ui-panel` a `.ui-data-list`.
+- Průvodce zahradním bioodpadem: rychlé odkazy používají jeden `.ui-panel`; odpovědi podle materiálu a seznam dalších kroků jsou ploché `.ui-data-list`. Seznam zakázaného obsahu je běžná `.ui-section`, ne výstražná karta.
+- Sběrný dvůr: poloha a odkaz na trasu tvoří jeden `.ui-panel`; provozní a zdrojové informace zůstávají běžnými sekcemi.
 - Kalendářní buňky jsou oborová komponenta, nikoli obecný panel. Jejich samostatné pozadí a zaoblení vyjadřuje mřížku jednotlivých dnů.

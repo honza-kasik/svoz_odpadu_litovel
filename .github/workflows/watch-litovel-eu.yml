@@ -11,6 +11,9 @@ permissions:
 jobs:
   watch:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
 
     steps:
       - name: Checkout
@@ -22,4 +25,65 @@ jobs:
           python-version: "3.12"
 
       - name: Run Litovel.eu watcher
-        run: python scripts/watch_litovel_eu.py --dry-run
+        run: |
+          python scripts/watch_litovel_eu.py \
+            --dry-run \
+            --json-output "$RUNNER_TEMP/litovel-candidates.json"
+
+      - name: Create review issues for new announcements
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          label="litovel-source-change"
+          gh label create "$label" \
+            --description "Announcement requiring waste schedule review" \
+            --color "d97706" \
+            --force
+          gh issue list \
+            --state all \
+            --label "$label" \
+            --limit 1000 \
+            --json body > "$RUNNER_TEMP/litovel-existing-issues.json"
+
+          jq -c '.candidates[] | select(.known == false)' \
+            "$RUNNER_TEMP/litovel-candidates.json" |
+          while IFS= read -r candidate; do
+            title=$(jq -r '.title' <<< "$candidate")
+            url=$(jq -r '.url' <<< "$candidate")
+            publication_date=$(jq -r '.publication_date // "neuvedeno"' <<< "$candidate")
+            topic_reasons=$(jq -r '.topic_reasons | join(", ")' <<< "$candidate")
+            change_reasons=$(jq -r '.change_reasons | join(", ")' <<< "$candidate")
+            marker="litovel-watcher:$(printf '%s' "$url" | sha256sum | cut -d ' ' -f 1)"
+
+            if jq -e --arg marker "$marker" \
+              'any(.[]; (.body // "") | contains($marker))' \
+              "$RUNNER_TEMP/litovel-existing-issues.json" > /dev/null; then
+              continue
+            fi
+
+            body_file="$RUNNER_TEMP/litovel-issue-body.md"
+            jq -nr \
+              --arg url "$url" \
+              --arg date "$publication_date" \
+              --arg topics "$topic_reasons" \
+              --arg changes "$change_reasons" \
+              --arg marker "$marker" \
+              '"Automatický monitor našel oznámení, které může měnit harmonogram svozu.\n\n" +
+               "- Odkaz: " + $url + "\n" +
+               "- Datum: " + $date + "\n" +
+               "- Téma: " + $topics + "\n" +
+               "- Signály změny: " + $changes + "\n\n" +
+               "Prověřte zdroj a případnou změnu zapište do autoritativních dat.\n\n" +
+               "<!-- " + $marker + " -->\n"' > "$body_file"
+            gh issue create \
+              --title "Prověřit změnu svozu: $title" \
+              --body-file "$body_file" \
+              --label "$label"
+
+            jq --arg body "<!-- $marker -->" '. + [{body: $body}]' \
+              "$RUNNER_TEMP/litovel-existing-issues.json" \
+              > "$RUNNER_TEMP/litovel-existing-issues.next.json"
+            mv "$RUNNER_TEMP/litovel-existing-issues.next.json" \
+              "$RUNNER_TEMP/litovel-existing-issues.json"
+          done

@@ -6,6 +6,7 @@ import tempfile
 
 import calendar_generator
 from bio_containers import load_bio_schedule
+from bio_disposal import load_bio_disposal_source
 from lokace_svozu import (
     lokace_svozu_bio,
     lokace_svozu_papir,
@@ -15,7 +16,7 @@ from lokace_svozu import (
 )
 from proximity import load_proximity_config
 from project_config import project_config, validate_rollover
-from release_data import write_bio_release
+from release_data import write_bio_disposal_release, write_bio_release
 from streets import all_streets, mistni_casti
 
 
@@ -43,6 +44,7 @@ def generate_release_data(output_dir: str | Path = ".") -> None:
     output_dir = Path(output_dir)
     generator, streets = create_regular_schedule()
     bio_schedule = load_bio_schedule()
+    bio_disposal = load_bio_disposal_source()
     if bio_schedule.year != project_config.bio_active_year:
         raise ValueError(
             f"bio active year {project_config.bio_active_year} does not match "
@@ -70,6 +72,13 @@ def generate_release_data(output_dir: str | Path = ".") -> None:
         streets,
         output_dir / "bio_schedule.json",
     )
+    if proximity_config.collection_yard is None:
+        raise ValueError("bio disposal release requires a collection yard")
+    write_bio_disposal_release(
+        bio_disposal,
+        proximity_config.collection_yard,
+        output_dir / "bio_disposal.json",
+    )
 
 
 def refresh_release_data(output_dir: str | Path = ".") -> None:
@@ -78,7 +87,11 @@ def refresh_release_data(output_dir: str | Path = ".") -> None:
     with tempfile.TemporaryDirectory() as temp_dir:
         generated = Path(temp_dir)
         generate_release_data(generated)
-        for filename in ("waste_schedule.csv", "bio_schedule.json"):
+        for filename in (
+            "waste_schedule.csv",
+            "bio_schedule.json",
+            "bio_disposal.json",
+        ):
             _replace_file(generated / filename, output_dir / filename)
 
         destination_calendars = output_dir / "calendars"
