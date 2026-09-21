@@ -154,6 +154,7 @@ Budoucí automatizace má upravovat pouze datový soubor s jednorázovými změn
 * 2026-02-12 https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu.html, archiv https://archive.is/BOR4n
 * 2026-07-02 https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu-v-pondeli-6-cervence.html, archiv https://web.archive.org/web/20260702141618/https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu-v-pondeli-6-cervence.html
 * 2026-07-09 https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/svoz-bioodpadu-se-presouva-na-patek-10-7.html, archiv https://web.archive.org/web/20260709140452/https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/svoz-bioodpadu-se-presouva-na-patek-10-7.html
+* 2026-09-21 https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu-v-pondeli-28-zari.html, archiv https://archive.is/DiJh3 a https://web.archive.org/web/20260921155639/https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu-v-pondeli-28-zari.html
 
 .Archiv 2025
 [%collapsible]
