@@ -1302,22 +1302,13 @@ LOCATION:Lužní\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Papír svoz – Lužní
-DTSTART;VALUE=DATE:20260928
-DTEND;VALUE=DATE:20260929
+SUMMARY:Změna: Směsný odpad svoz – Lužní
+DTSTART;VALUE=DATE:20260925
+DTEND;VALUE=DATE:20260926
 DTSTAMP:20250101T000000Z
-UID:luzni-paper-2026-09-28@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – Lužní\, Litovel
-LOCATION:Lužní\, Litovel
-TRANSP:TRANSPARENT
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:Směsný odpad svoz – Lužní
-DTSTART;VALUE=DATE:20260928
-DTEND;VALUE=DATE:20260929
-DTSTAMP:20250101T000000Z
-UID:luzni-generic-2026-09-28@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Směsný odpad) – Lužní\, Litovel
+UID:luzni-generic-2026-09-25@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Směsný odpad) – Lužní\, Litovel\nTermín up
+ raven oproti pravidelnému harmonogramu.
 LOCATION:Lužní\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
@@ -1328,6 +1319,17 @@ DTEND;VALUE=DATE:20261001
 DTSTAMP:20250101T000000Z
 UID:luzni-bio-2026-09-30@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Lužní\, Litovel
+LOCATION:Lužní\, Litovel
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Změna: Papír svoz – Lužní
+DTSTART;VALUE=DATE:20261001
+DTEND;VALUE=DATE:20261002
+DTSTAMP:20250101T000000Z
+UID:luzni-paper-2026-10-01@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Papír) – Lužní\, Litovel\nTermín upraven op
+ roti pravidelnému harmonogramu.
 LOCATION:Lužní\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT

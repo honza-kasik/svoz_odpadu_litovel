@@ -1302,22 +1302,13 @@ LOCATION:Husova\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Papír svoz – Husova
-DTSTART;VALUE=DATE:20260928
-DTEND;VALUE=DATE:20260929
+SUMMARY:Změna: Směsný odpad svoz – Husova
+DTSTART;VALUE=DATE:20260925
+DTEND;VALUE=DATE:20260926
 DTSTAMP:20250101T000000Z
-UID:husova-paper-2026-09-28@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – Husova\, Litovel
-LOCATION:Husova\, Litovel
-TRANSP:TRANSPARENT
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:Směsný odpad svoz – Husova
-DTSTART;VALUE=DATE:20260928
-DTEND;VALUE=DATE:20260929
-DTSTAMP:20250101T000000Z
-UID:husova-generic-2026-09-28@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Směsný odpad) – Husova\, Litovel
+UID:husova-generic-2026-09-25@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Směsný odpad) – Husova\, Litovel\nTermín upr
+ aven oproti pravidelnému harmonogramu.
 LOCATION:Husova\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
@@ -1328,6 +1319,17 @@ DTEND;VALUE=DATE:20261001
 DTSTAMP:20250101T000000Z
 UID:husova-bio-2026-09-30@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Husova\, Litovel
+LOCATION:Husova\, Litovel
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Změna: Papír svoz – Husova
+DTSTART;VALUE=DATE:20261001
+DTEND;VALUE=DATE:20261002
+DTSTAMP:20250101T000000Z
+UID:husova-paper-2026-10-01@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Papír) – Husova\, Litovel\nTermín upraven opr
+ oti pravidelnému harmonogramu.
 LOCATION:Husova\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT

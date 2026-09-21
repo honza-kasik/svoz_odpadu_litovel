@@ -1302,22 +1302,13 @@ LOCATION:Šargounská\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Papír svoz – Šargounská
-DTSTART;VALUE=DATE:20260928
-DTEND;VALUE=DATE:20260929
+SUMMARY:Změna: Směsný odpad svoz – Šargounská
+DTSTART;VALUE=DATE:20260925
+DTEND;VALUE=DATE:20260926
 DTSTAMP:20250101T000000Z
-UID:sargounska-paper-2026-09-28@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – Šargounská\, Litovel
-LOCATION:Šargounská\, Litovel
-TRANSP:TRANSPARENT
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:Směsný odpad svoz – Šargounská
-DTSTART;VALUE=DATE:20260928
-DTEND;VALUE=DATE:20260929
-DTSTAMP:20250101T000000Z
-UID:sargounska-generic-2026-09-28@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Směsný odpad) – Šargounská\, Litovel
+UID:sargounska-generic-2026-09-25@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Směsný odpad) – Šargounská\, Litovel\nTerm
+ ín upraven oproti pravidelnému harmonogramu.
 LOCATION:Šargounská\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
@@ -1328,6 +1319,17 @@ DTEND;VALUE=DATE:20261001
 DTSTAMP:20250101T000000Z
 UID:sargounska-bio-2026-09-30@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Šargounská\, Litovel
+LOCATION:Šargounská\, Litovel
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Změna: Papír svoz – Šargounská
+DTSTART;VALUE=DATE:20261001
+DTEND;VALUE=DATE:20261002
+DTSTAMP:20250101T000000Z
+UID:sargounska-paper-2026-10-01@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Papír) – Šargounská\, Litovel\nTermín uprav
+ en oproti pravidelnému harmonogramu.
 LOCATION:Šargounská\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT

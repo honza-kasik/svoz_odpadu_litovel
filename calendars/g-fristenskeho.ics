@@ -1301,22 +1301,23 @@ LOCATION:G. Frištenského\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Papír svoz – G. Frištenského
-DTSTART;VALUE=DATE:20260928
-DTEND;VALUE=DATE:20260929
-DTSTAMP:20250101T000000Z
-UID:g-fristenskeho-paper-2026-09-28@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – G. Frištenského\, Litovel
-LOCATION:G. Frištenského\, Litovel
-TRANSP:TRANSPARENT
-END:VEVENT
-BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – G. Frištenského
 DTSTART;VALUE=DATE:20260930
 DTEND;VALUE=DATE:20261001
 DTSTAMP:20250101T000000Z
 UID:g-fristenskeho-bio-2026-09-30@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – G. Frištenského\, Litovel
+LOCATION:G. Frištenského\, Litovel
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Změna: Papír svoz – G. Frištenského
+DTSTART;VALUE=DATE:20261001
+DTEND;VALUE=DATE:20261002
+DTSTAMP:20250101T000000Z
+UID:g-fristenskeho-paper-2026-10-01@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Papír) – G. Frištenského\, Litovel\nTermín 
+ upraven oproti pravidelnému harmonogramu.
 LOCATION:G. Frištenského\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
