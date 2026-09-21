@@ -1301,22 +1301,23 @@ LOCATION:Palackého\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Papír svoz – Palackého
-DTSTART;VALUE=DATE:20260928
-DTEND;VALUE=DATE:20260929
-DTSTAMP:20250101T000000Z
-UID:palackeho-paper-2026-09-28@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – Palackého\, Litovel
-LOCATION:Palackého\, Litovel
-TRANSP:TRANSPARENT
-END:VEVENT
-BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Palackého
 DTSTART;VALUE=DATE:20260930
 DTEND;VALUE=DATE:20261001
 DTSTAMP:20250101T000000Z
 UID:palackeho-bio-2026-09-30@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Palackého\, Litovel
+LOCATION:Palackého\, Litovel
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Změna: Papír svoz – Palackého
+DTSTART;VALUE=DATE:20261001
+DTEND;VALUE=DATE:20261002
+DTSTAMP:20250101T000000Z
+UID:palackeho-paper-2026-10-01@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Papír) – Palackého\, Litovel\nTermín upraven
+  oproti pravidelnému harmonogramu.
 LOCATION:Palackého\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT

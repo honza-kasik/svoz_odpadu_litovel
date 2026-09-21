@@ -1301,22 +1301,23 @@ LOCATION:Nám. Př. Otakara\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Papír svoz – Nám. Př. Otakara
-DTSTART;VALUE=DATE:20260928
-DTEND;VALUE=DATE:20260929
-DTSTAMP:20250101T000000Z
-UID:nam-pr-otakara-paper-2026-09-28@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – Nám. Př. Otakara\, Litovel
-LOCATION:Nám. Př. Otakara\, Litovel
-TRANSP:TRANSPARENT
-END:VEVENT
-BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Nám. Př. Otakara
 DTSTART;VALUE=DATE:20260930
 DTEND;VALUE=DATE:20261001
 DTSTAMP:20250101T000000Z
 UID:nam-pr-otakara-bio-2026-09-30@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Nám. Př. Otakara\, Litovel
+LOCATION:Nám. Př. Otakara\, Litovel
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Změna: Papír svoz – Nám. Př. Otakara
+DTSTART;VALUE=DATE:20261001
+DTEND;VALUE=DATE:20261002
+DTSTAMP:20250101T000000Z
+UID:nam-pr-otakara-paper-2026-10-01@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Papír) – Nám. Př. Otakara\, Litovel\nTermín
+  upraven oproti pravidelnému harmonogramu.
 LOCATION:Nám. Př. Otakara\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT

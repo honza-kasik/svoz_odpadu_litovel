@@ -851,22 +851,23 @@ LOCATION:Šerhovní\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Papír svoz – Šerhovní
-DTSTART;VALUE=DATE:20260928
-DTEND;VALUE=DATE:20260929
-DTSTAMP:20250101T000000Z
-UID:serhovni-paper-2026-09-28@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – Šerhovní\, Litovel
-LOCATION:Šerhovní\, Litovel
-TRANSP:TRANSPARENT
-END:VEVENT
-BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Šerhovní
 DTSTART;VALUE=DATE:20260930
 DTEND;VALUE=DATE:20261001
 DTSTAMP:20250101T000000Z
 UID:serhovni-bio-2026-09-30@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Šerhovní\, Litovel
+LOCATION:Šerhovní\, Litovel
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Změna: Papír svoz – Šerhovní
+DTSTART;VALUE=DATE:20261001
+DTEND;VALUE=DATE:20261002
+DTSTAMP:20250101T000000Z
+UID:serhovni-paper-2026-10-01@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Papír) – Šerhovní\, Litovel\nTermín upraven
+  oproti pravidelnému harmonogramu.
 LOCATION:Šerhovní\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT

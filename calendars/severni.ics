@@ -1752,22 +1752,13 @@ LOCATION:Severní\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Papír svoz – Severní
-DTSTART;VALUE=DATE:20260928
-DTEND;VALUE=DATE:20260929
+SUMMARY:Změna: Směsný odpad svoz – Severní
+DTSTART;VALUE=DATE:20260925
+DTEND;VALUE=DATE:20260926
 DTSTAMP:20250101T000000Z
-UID:severni-paper-2026-09-28@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – Severní\, Litovel
-LOCATION:Severní\, Litovel
-TRANSP:TRANSPARENT
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:Směsný odpad svoz – Severní
-DTSTART;VALUE=DATE:20260928
-DTEND;VALUE=DATE:20260929
-DTSTAMP:20250101T000000Z
-UID:severni-generic-2026-09-28@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Směsný odpad) – Severní\, Litovel
+UID:severni-generic-2026-09-25@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Směsný odpad) – Severní\, Litovel\nTermín u
+ praven oproti pravidelnému harmonogramu.
 LOCATION:Severní\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
@@ -1778,6 +1769,17 @@ DTEND;VALUE=DATE:20261001
 DTSTAMP:20250101T000000Z
 UID:severni-bio-2026-09-30@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Severní\, Litovel
+LOCATION:Severní\, Litovel
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Změna: Papír svoz – Severní
+DTSTART;VALUE=DATE:20261001
+DTEND;VALUE=DATE:20261002
+DTSTAMP:20250101T000000Z
+UID:severni-paper-2026-10-01@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Papír) – Severní\, Litovel\nTermín upraven o
+ proti pravidelnému harmonogramu.
 LOCATION:Severní\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT

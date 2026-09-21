@@ -1301,22 +1301,23 @@ LOCATION:Jungmannova\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Papír svoz – Jungmannova
-DTSTART;VALUE=DATE:20260928
-DTEND;VALUE=DATE:20260929
-DTSTAMP:20250101T000000Z
-UID:jungmannova-paper-2026-09-28@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – Jungmannova\, Litovel
-LOCATION:Jungmannova\, Litovel
-TRANSP:TRANSPARENT
-END:VEVENT
-BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Jungmannova
 DTSTART;VALUE=DATE:20260930
 DTEND;VALUE=DATE:20261001
 DTSTAMP:20250101T000000Z
 UID:jungmannova-bio-2026-09-30@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Jungmannova\, Litovel
+LOCATION:Jungmannova\, Litovel
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Změna: Papír svoz – Jungmannova
+DTSTART;VALUE=DATE:20261001
+DTEND;VALUE=DATE:20261002
+DTSTAMP:20250101T000000Z
+UID:jungmannova-paper-2026-10-01@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Papír) – Jungmannova\, Litovel\nTermín uprave
+ n oproti pravidelnému harmonogramu.
 LOCATION:Jungmannova\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT

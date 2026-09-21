@@ -1302,22 +1302,13 @@ LOCATION:Sochova\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Papír svoz – Sochova
-DTSTART;VALUE=DATE:20260928
-DTEND;VALUE=DATE:20260929
+SUMMARY:Změna: Směsný odpad svoz – Sochova
+DTSTART;VALUE=DATE:20260925
+DTEND;VALUE=DATE:20260926
 DTSTAMP:20250101T000000Z
-UID:sochova-paper-2026-09-28@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – Sochova\, Litovel
-LOCATION:Sochova\, Litovel
-TRANSP:TRANSPARENT
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:Směsný odpad svoz – Sochova
-DTSTART;VALUE=DATE:20260928
-DTEND;VALUE=DATE:20260929
-DTSTAMP:20250101T000000Z
-UID:sochova-generic-2026-09-28@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Směsný odpad) – Sochova\, Litovel
+UID:sochova-generic-2026-09-25@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Směsný odpad) – Sochova\, Litovel\nTermín up
+ raven oproti pravidelnému harmonogramu.
 LOCATION:Sochova\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
@@ -1328,6 +1319,17 @@ DTEND;VALUE=DATE:20261001
 DTSTAMP:20250101T000000Z
 UID:sochova-bio-2026-09-30@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Sochova\, Litovel
+LOCATION:Sochova\, Litovel
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Změna: Papír svoz – Sochova
+DTSTART;VALUE=DATE:20261001
+DTEND;VALUE=DATE:20261002
+DTSTAMP:20250101T000000Z
+UID:sochova-paper-2026-10-01@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Papír) – Sochova\, Litovel\nTermín upraven op
+ roti pravidelnému harmonogramu.
 LOCATION:Sochova\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
