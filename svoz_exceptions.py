@@ -9,6 +9,7 @@ from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlparse
 
 from streets import (
     all_streets,
@@ -35,8 +36,9 @@ ALLOWED_FIELDS = {
     "date",
     "source",
     "note",
+    "internal_note",
 }
-ALLOWED_SOURCE_FIELDS = {"url", "title", "evidence"}
+ALLOWED_SOURCE_FIELDS = {"url", "title", "evidence", "note", "archive_urls"}
 ACTION_DATE_FIELDS = {
     "reschedule": {"required": {"original_date", "new_date"}, "forbidden": {"date"}},
     "include": {"required": {"date"}, "forbidden": {"original_date", "new_date"}},
@@ -83,9 +85,11 @@ LOCATION_GROUPS = {
 class SvozExceptionSource:
     """Zdroj oznámení změny svozu."""
 
-    url: str | None
-    title: str | None
-    evidence: str | None
+    url: str | None = None
+    title: str | None = None
+    evidence: str | None = None
+    note: str | None = None
+    archive_urls: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -107,6 +111,7 @@ class SvozException:
     date: date | None
     source: SvozExceptionSource
     note: str | None
+    internal_note: str | None = None
 
 
 def load_svoz_exceptions(
@@ -184,7 +189,8 @@ def _parse_exception(
         new_date=new_date,
         date=single_date,
         source=_required_source(item, prefix),
-        note=_optional_string(item, "note", prefix),
+        note=_optional_prose(item, "note", prefix),
+        internal_note=_optional_string(item, "internal_note", prefix),
     )
 
 
@@ -286,15 +292,50 @@ def _required_source(item: dict[str, Any], prefix: str) -> SvozExceptionSource:
         raise ValueError(f"{prefix}: source must be an object")
 
     _validate_allowed_fields(value, ALLOWED_SOURCE_FIELDS, f"{prefix}: source")
-    for required_key in ("url", "title"):
-        if required_key not in value:
-            raise ValueError(f"{prefix}: source.{required_key} is required")
 
     return SvozExceptionSource(
-        url=_optional_string(value, "url", f"{prefix}: source"),
+        url=_optional_url(value, "url", f"{prefix}: source"),
         title=_optional_string(value, "title", f"{prefix}: source"),
-        evidence=_optional_string(value, "evidence", f"{prefix}: source"),
+        evidence=_optional_prose(value, "evidence", f"{prefix}: source"),
+        note=_optional_prose(value, "note", f"{prefix}: source"),
+        archive_urls=tuple(
+            _optional_url_list(value, "archive_urls", f"{prefix}: source")
+        ),
     )
+
+
+def _optional_prose(item: dict[str, Any], key: str, prefix: str) -> str | None:
+    value = _optional_string(item, key, prefix)
+    lowered = value.lower() if value is not None else ""
+    if "http://" in lowered or "https://" in lowered:
+        raise ValueError(
+            f"{prefix}: {key} must not contain URLs; use source.url or source.archive_urls"
+        )
+    return value
+
+
+def _optional_url(item: dict[str, Any], key: str, prefix: str) -> str | None:
+    url = _optional_string(item, key, prefix)
+    if url is not None:
+        _validate_absolute_http_url(url, key, prefix)
+    return url
+
+
+def _optional_url_list(item: dict[str, Any], key: str, prefix: str) -> list[str]:
+    urls = _optional_string_list(item, key, prefix)
+    if len(urls) != len(set(urls)):
+        raise ValueError(f"{prefix}: {key} must not contain duplicate URLs")
+    for url in urls:
+        _validate_absolute_http_url(url, key, prefix)
+    return urls
+
+
+def _validate_absolute_http_url(url: str, key: str, prefix: str) -> None:
+    parsed = urlparse(url)
+    if parsed.scheme not in {"http", "https"} or not parsed.netloc:
+        raise ValueError(
+            f"{prefix}: {key} must contain only absolute HTTP(S) URLs"
+        )
 
 
 def _optional_date(

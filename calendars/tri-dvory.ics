@@ -14,9 +14,15 @@ DTEND;VALUE=DATE:20250104
 DTSTAMP:20250101T000000Z
 UID:tri-dvory-generic-2025-01-03@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Tři Dvory\, Litovel\nTermín
-  upraven oproti pravidelnému harmonogramu.
+  přesunut z 1. 1. 2025 na 3. 1. 2025.
 LOCATION:Tři Dvory\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/tri-dvory/
+X-SVOZ-EXCEPTION-ID:2025-01-01-smes-lokalni-casti-posun-2025-01-03
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20250101
+X-SVOZ-SOURCE-TITLE:Změna svozu odpadu v době vánočních svátků
+X-SVOZ-SOURCE-URL:https://www.litovel.eu/cs/urad/uredni-deska/aktualni-inf
+ ormace/zmena-svozu-odpadu-v-dobe-vanocnich-svatku.html
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Plast svoz – Tři Dvory
@@ -394,10 +400,15 @@ DTSTART;VALUE=DATE:20250709
 DTEND;VALUE=DATE:20250710
 DTSTAMP:20250101T000000Z
 UID:tri-dvory-paper-2025-07-09@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – Tři Dvory\, Litovel\nTermín upraven
-  oproti pravidelnému harmonogramu.
+DESCRIPTION:Svoz odpadu (Papír) – Tři Dvory\, Litovel\nTermín přesun
+ ut z 11. 7. 2025 na 9. 7. 2025.
 LOCATION:Tři Dvory\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/tri-dvory/
+X-SVOZ-EXCEPTION-ID:2025-07-11-papir-savin-skupina-posun-2025-07-09
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20250711
+X-SVOZ-SOURCE-URL:https://www.litovel.eu/redakce/index.php?xuser=234858626
+ 223493812&lanG=cs&slozka=47816&xsekce=43561&clanek=374062
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Tři Dvory
@@ -425,10 +436,15 @@ DTSTART;VALUE=DATE:20250723
 DTEND;VALUE=DATE:20250724
 DTSTAMP:20250101T000000Z
 UID:tri-dvory-plastics-2025-07-23@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Plast) – Tři Dvory\, Litovel\nTermín upraven 
- oproti pravidelnému harmonogramu.
+DESCRIPTION:Svoz odpadu (Plast) – Tři Dvory\, Litovel\nTermín přesunu
+ t z 25. 7. 2025 na 23. 7. 2025.
 LOCATION:Tři Dvory\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/tri-dvory/
+X-SVOZ-EXCEPTION-ID:2025-07-25-plast-savin-skupina-posun-2025-07-23
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20250725
+X-SVOZ-SOURCE-URL:https://www.litovel.eu/redakce/index.php?xuser=234858626
+ 223493812&lanG=cs&slozka=47816&xsekce=43561&clanek=374062
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Tři Dvory
@@ -456,10 +472,15 @@ DTSTART;VALUE=DATE:20250806
 DTEND;VALUE=DATE:20250807
 DTSTAMP:20250101T000000Z
 UID:tri-dvory-paper-2025-08-06@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – Tři Dvory\, Litovel\nTermín upraven
-  oproti pravidelnému harmonogramu.
+DESCRIPTION:Svoz odpadu (Papír) – Tři Dvory\, Litovel\nTermín přesun
+ ut z 8. 8. 2025 na 6. 8. 2025.
 LOCATION:Tři Dvory\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/tri-dvory/
+X-SVOZ-EXCEPTION-ID:2025-08-08-papir-savin-skupina-posun-2025-08-06
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20250808
+X-SVOZ-SOURCE-URL:https://www.litovel.eu/redakce/index.php?xuser=234858626
+ 223493812&lanG=cs&slozka=47816&xsekce=43561&clanek=374062
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Tři Dvory
@@ -487,10 +508,15 @@ DTSTART;VALUE=DATE:20250820
 DTEND;VALUE=DATE:20250821
 DTSTAMP:20250101T000000Z
 UID:tri-dvory-plastics-2025-08-20@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Plast) – Tři Dvory\, Litovel\nTermín upraven 
- oproti pravidelnému harmonogramu.
+DESCRIPTION:Svoz odpadu (Plast) – Tři Dvory\, Litovel\nTermín přesunu
+ t z 22. 8. 2025 na 20. 8. 2025.
 LOCATION:Tři Dvory\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/tri-dvory/
+X-SVOZ-EXCEPTION-ID:2025-08-22-plast-savin-skupina-posun-2025-08-20
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20250822
+X-SVOZ-SOURCE-URL:https://www.litovel.eu/redakce/index.php?xuser=234858626
+ 223493812&lanG=cs&slozka=47816&xsekce=43561&clanek=374062
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Tři Dvory
@@ -518,10 +544,15 @@ DTSTART;VALUE=DATE:20250903
 DTEND;VALUE=DATE:20250904
 DTSTAMP:20250101T000000Z
 UID:tri-dvory-paper-2025-09-03@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – Tři Dvory\, Litovel\nTermín upraven
-  oproti pravidelnému harmonogramu.
+DESCRIPTION:Svoz odpadu (Papír) – Tři Dvory\, Litovel\nTermín přesun
+ ut z 5. 9. 2025 na 3. 9. 2025.
 LOCATION:Tři Dvory\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/tri-dvory/
+X-SVOZ-EXCEPTION-ID:2025-09-05-papir-savin-skupina-posun-2025-09-03
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20250905
+X-SVOZ-SOURCE-URL:https://www.litovel.eu/redakce/index.php?xuser=234858626
+ 223493812&lanG=cs&slozka=47816&xsekce=43561&clanek=374062
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Tři Dvory
@@ -549,10 +580,15 @@ DTSTART;VALUE=DATE:20250917
 DTEND;VALUE=DATE:20250918
 DTSTAMP:20250101T000000Z
 UID:tri-dvory-plastics-2025-09-17@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Plast) – Tři Dvory\, Litovel\nTermín upraven 
- oproti pravidelnému harmonogramu.
+DESCRIPTION:Svoz odpadu (Plast) – Tři Dvory\, Litovel\nTermín přesunu
+ t z 19. 9. 2025 na 17. 9. 2025.
 LOCATION:Tři Dvory\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/tri-dvory/
+X-SVOZ-EXCEPTION-ID:2025-09-19-plast-savin-skupina-posun-2025-09-17
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20250919
+X-SVOZ-SOURCE-URL:https://www.litovel.eu/redakce/index.php?xuser=234858626
+ 223493812&lanG=cs&slozka=47816&xsekce=43561&clanek=374062
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Tři Dvory

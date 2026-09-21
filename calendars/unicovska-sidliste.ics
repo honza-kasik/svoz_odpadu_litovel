@@ -383,9 +383,15 @@ DTEND;VALUE=DATE:20250514
 DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-paper-2025-05-13@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Uničovská - sídliště\, Litovel\n
- Termín upraven oproti pravidelnému harmonogramu.
+ Termín přesunut z 12. 5. 2025 na 13. 5. 2025.
 LOCATION:Uničovská - sídliště\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/unicovska-sidliste/
+X-SVOZ-EXCEPTION-ID:2025-05-12-papir-litovel-posun-2025-05-13
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20250512
+X-SVOZ-SOURCE-TITLE:Změny ve svozu odpadu v měsíci květnu
+X-SVOZ-SOURCE-URL:https://www.litovel.eu/cs/urad/uredni-deska/aktualni-inf
+ ormace/zmeny-ve-svozu-odpadu-v-mesici-kvetnu.html
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
@@ -426,9 +432,15 @@ DTEND;VALUE=DATE:20250528
 DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-plastics-2025-05-27@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Plast) – Uničovská - sídliště\, Litovel\nT
- ermín upraven oproti pravidelnému harmonogramu.
+ ermín přesunut z 26. 5. 2025 na 27. 5. 2025.
 LOCATION:Uničovská - sídliště\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/unicovska-sidliste/
+X-SVOZ-EXCEPTION-ID:2025-05-26-plast-litovel-skupina-1-posun-2025-05-27
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20250526
+X-SVOZ-SOURCE-TITLE:Změna ve svozu odpadu
+X-SVOZ-SOURCE-URL:https://www.litovel.eu/cs/urad/uredni-deska/aktualni-inf
+ ormace/zmena-ve-svozu-odpadu.html
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
@@ -1068,9 +1080,15 @@ DTEND;VALUE=DATE:20260103
 DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-generic-2026-01-02@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Uničovská - sídliště\, L
- itovel\nTermín upraven oproti pravidelnému harmonogramu.
+ itovel\nTermín přesunut z 1. 1. 2026 na 2. 1. 2026.
 LOCATION:Uničovská - sídliště\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/unicovska-sidliste/
+X-SVOZ-EXCEPTION-ID:2026-01-01-smes-litovel-ctvrtek-posun-2026-01-02
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20260101
+X-SVOZ-SOURCE-TITLE:Změny svozu odpadu o vánočních svátcích
+X-SVOZ-SOURCE-URL:https://www.litovel.eu/cs/urad/uredni-deska/aktualni-inf
+ ormace/zmeny-svozu-odpadu-o-vanocnich-svatcich.html
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Plast svoz – Uničovská - sídliště
@@ -1615,9 +1633,18 @@ DTEND;VALUE=DATE:20260710
 DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-paper-2026-07-09@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Uničovská - sídliště\, Litovel\n
- Termín upraven oproti pravidelnému harmonogramu.
+ Termín přesunut z 6. 7. 2026 na 9. 7. 2026.\nSvoz papíru ve městě Lit
+ ovel se přesouvá z pondělí 6. 7. na čtvrtek 9. 7.
 LOCATION:Uničovská - sídliště\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/unicovska-sidliste/
+X-SVOZ-CHANGE-MESSAGE:Svoz papíru ve městě Litovel se přesouvá z pond
+ ělí 6. 7. na čtvrtek 9. 7.
+X-SVOZ-EXCEPTION-ID:2026-07-06-papir-litovel-posun-2026-07-09
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20260706
+X-SVOZ-SOURCE-TITLE:Změna svozu odpadů v pondělí 6. července
+X-SVOZ-SOURCE-URL:https://www.litovel.eu/cs/urad/uredni-deska/aktualni-inf
+ ormace/zmena-svozu-odpadu-v-pondeli-6-cervence.html
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
@@ -1868,9 +1895,23 @@ DTEND;VALUE=DATE:20261002
 DTSTAMP:20250101T000000Z
 UID:unicovska-sidliste-paper-2026-10-01@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Papír) – Uničovská - sídliště\, Litovel\n
- Termín upraven oproti pravidelnému harmonogramu.
+ Termín přesunut z 28. 9. 2026 na 1. 10. 2026.\nSvoz papíru (240 l) ve m
+ ěstě Litovel se přesouvá z pondělí 28. září na čtvrtek 1. říjn
+ a.
 LOCATION:Uničovská - sídliště\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/unicovska-sidliste/
+X-SVOZ-ARCHIVE-URL:https://archive.is/DiJh3
+X-SVOZ-ARCHIVE-URL:https://web.archive.org/web/20260921155639/https://www.
+ litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu-v-po
+ ndeli-28-zari.html
+X-SVOZ-CHANGE-MESSAGE:Svoz papíru (240 l) ve městě Litovel se přesouv
+ á z pondělí 28. září na čtvrtek 1. října.
+X-SVOZ-EXCEPTION-ID:2026-09-28-papir-litovel-posun-2026-10-01
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20260928
+X-SVOZ-SOURCE-TITLE:Změna svozu odpadů v pondělí 28. září
+X-SVOZ-SOURCE-URL:https://www.litovel.eu/cs/urad/uredni-deska/aktualni-inf
+ ormace/zmena-svozu-odpadu-v-pondeli-28-zari.html
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Uničovská - sídliště
