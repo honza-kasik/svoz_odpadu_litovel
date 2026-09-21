@@ -9,6 +9,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 import calendar_generator
+from icalendar import Calendar
 from bio_containers import (
     BioCoordinates,
     BioPlacement,
@@ -22,6 +23,7 @@ from PIL import Image
 from generator_svozu_odpadu import date_end, date_start
 from lokace_svozu import (
     CollectionEvent,
+    LokaceSvozu,
     WasteType,
     lokace_svozu_bio,
     lokace_svozu_papir,
@@ -30,7 +32,7 @@ from lokace_svozu import (
     validate_regular_schedule_years,
 )
 from streets import all_streets, litovel_lokace_bio_0, mistni_casti
-from svoz_exceptions import load_svoz_exceptions
+from svoz_exceptions import SvozException, SvozExceptionSource, load_svoz_exceptions
 from scripts.watch_litovel_eu import (
     DEFAULT_URLS,
     extract_articles,
@@ -992,24 +994,51 @@ class SvozExceptionsTest(unittest.TestCase):
                 "source is required",
             ),
             (
-                "missing source title",
-                {
-                    "id": "missing-source-title",
-                    "action": "include",
-                    "waste_type": "SMES",
-                    "affected_locations": ["Dukelská"],
-                    "date": "2026-02-17",
-                    "source": {"url": None},
-                },
-                "source.title is required",
-            ),
-            (
                 "old flat source field",
                 {
                     **valid_base,
                     "source_url": "https://www.litovel.eu/",
                 },
                 "unknown fields",
+            ),
+            (
+                "URL embedded in prose note",
+                {
+                    **valid_base,
+                    "note": "Archiv: https://archive.example/test",
+                },
+                "must not contain URLs",
+            ),
+            (
+                "invalid archive URL",
+                {
+                    **valid_base,
+                    "source": {
+                        "archive_urls": ["archive.example/test"],
+                    },
+                },
+                r"absolute HTTP\(S\) URLs",
+            ),
+            (
+                "invalid source URL",
+                {
+                    **valid_base,
+                    "source": {"url": "litovel.eu/oznameni"},
+                },
+                r"absolute HTTP\(S\) URLs",
+            ),
+            (
+                "duplicate archive URL",
+                {
+                    **valid_base,
+                    "source": {
+                        "archive_urls": [
+                            "https://archive.example/test",
+                            "https://archive.example/test",
+                        ],
+                    },
+                },
+                "must not contain duplicate URLs",
             ),
         ]
 
@@ -1042,6 +1071,41 @@ class SvozExceptionsTest(unittest.TestCase):
         self.assertEqual("include", exceptions[0].action)
         self.assertEqual(("Dukelská",), exceptions[0].affected_locations_snapshot)
         self.assertEqual("Test evidence", exceptions[0].source.evidence)
+
+    def test_source_metadata_fields_are_optional_and_archives_load(self):
+        data = [
+            {
+                "id": "optional-source-fields",
+                "action": "include",
+                "waste_type": "SMES",
+                "affected_locations": ["Dukelská"],
+                "date": "2026-02-17",
+                "internal_note": "Interní migrační poznámka",
+                "source": {
+                    "note": "Poznámka ke zdroji",
+                    "archive_urls": [
+                        "https://archive.example/one",
+                        "https://archive.example/two",
+                    ],
+                },
+            }
+        ]
+
+        with self._write_exception_file(data) as path:
+            exception = load_svoz_exceptions(path)[0]
+
+        self.assertIsNone(exception.source.url)
+        self.assertIsNone(exception.source.title)
+        self.assertIsNone(exception.source.evidence)
+        self.assertEqual("Poznámka ke zdroji", exception.source.note)
+        self.assertEqual("Interní migrační poznámka", exception.internal_note)
+        self.assertEqual(
+            (
+                "https://archive.example/one",
+                "https://archive.example/two",
+            ),
+            exception.source.archive_urls,
+        )
 
     def test_cancel_exception_loads(self):
         data = [
@@ -1138,6 +1202,288 @@ class SvozExceptionsTest(unittest.TestCase):
                 generated.get_events_for_street(street),
                 released.get_events_for_street(street),
             )
+
+
+class IcsExceptionMetadataTest(unittest.TestCase):
+    def _calendar_events(self, generator, street):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            generator.generate_ical_file(
+                street,
+                tmpdir,
+                datetime(2026, 1, 1),
+                datetime(2027, 1, 1),
+                include_legacy_alias=False,
+            )
+            raw = (Path(tmpdir) / f"{calendar_generator.slugify(street)}.ics").read_bytes()
+
+        parsed = Calendar.from_ical(raw)
+        return raw, parsed.walk("VEVENT")
+
+    def _generator_with_exception(self, exception, street="Zkušební ulice"):
+        resulting_date = exception.new_date or exception.date
+        self.assertIsNotNone(resulting_date)
+        included_date = datetime.combine(resulting_date, datetime.min.time())
+        schedule = LokaceSvozu(
+            lambda value: False,
+            [street],
+            WasteType.SMES,
+            included_dates=[included_date],
+            event_exceptions={included_date: exception},
+        )
+        return calendar_generator.WasteCollectionCalendarGenerator(
+            [schedule], [], [], [], [street], datetime(2026, 1, 1), datetime(2027, 1, 1)
+        )
+
+    def test_sochova_reschedules_include_complete_exception_metadata(self):
+        streets = all_streets["Litovel"] + mistni_casti
+        generator = calendar_generator.WasteCollectionCalendarGenerator(
+            lokace_svozu_smes,
+            lokace_svozu_plast,
+            lokace_svozu_papir,
+            lokace_svozu_bio,
+            streets,
+            date_start,
+            date_end,
+        )
+        _, events = self._calendar_events(generator, "Sochova")
+        by_date = {event.decoded("dtstart"): event for event in events}
+
+        expected = {
+            date(2026, 9, 25): {
+                "id": "2026-09-28-smes-litovel-pondeli-posun-2026-09-25",
+                "evidence": "Svoz komunálního odpadu ve městě Litovel (dle harmonogramu) se přesouvá z pondělí 28. září na pátek 25. září.",
+                "new_date_text": "25. 9. 2026",
+            },
+            date(2026, 10, 1): {
+                "id": "2026-09-28-papir-litovel-posun-2026-10-01",
+                "evidence": "Svoz papíru (240 l) ve městě Litovel se přesouvá z pondělí 28. září na čtvrtek 1. října.",
+                "new_date_text": "1. 10. 2026",
+            },
+        }
+        source_url = "https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu-v-pondeli-28-zari.html"
+        archive_urls = (
+            "https://archive.is/DiJh3",
+            "https://web.archive.org/web/20260921155639/https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu-v-pondeli-28-zari.html",
+        )
+
+        for event_date, values in expected.items():
+            with self.subTest(event_date=event_date):
+                event = by_date[event_date]
+                description = event.decoded("description")
+                self.assertTrue(event.decoded("summary").startswith("Změna:"))
+                self.assertEqual(values["id"], event.decoded("X-SVOZ-EXCEPTION-ID"))
+                self.assertEqual("20260928", event.decoded("X-SVOZ-ORIGINAL-DATE"))
+                self.assertEqual(
+                    "DATE", event["X-SVOZ-ORIGINAL-DATE"].params["VALUE"]
+                )
+                self.assertEqual(
+                    "https://svoz.litovle.cz/ulice/sochova/",
+                    event.decoded("url"),
+                )
+                self.assertEqual(
+                    source_url,
+                    event.decoded("X-SVOZ-SOURCE-URL"),
+                )
+                self.assertEqual(
+                    list(archive_urls),
+                    event.decoded("X-SVOZ-ARCHIVE-URL"),
+                )
+                self.assertEqual(
+                    "Změna svozu odpadů v pondělí 28. září",
+                    event.decoded("X-SVOZ-SOURCE-TITLE"),
+                )
+                self.assertEqual(
+                    values["evidence"],
+                    event.decoded("X-SVOZ-CHANGE-MESSAGE"),
+                )
+                self.assertIn(
+                    f"Termín přesunut z 28. 9. 2026 na {values['new_date_text']}.",
+                    description,
+                )
+                self.assertIn(values["evidence"], description)
+                self.assertNotIn(source_url, description)
+                for archive_url in archive_urls:
+                    self.assertNotIn(archive_url, description)
+                self.assertNotIn("http://", description)
+                self.assertNotIn("https://", description)
+
+        self.assertNotIn(date(2026, 9, 28), by_date)
+
+    def test_reschedule_without_source_metadata_omits_optional_properties(self):
+        exception = SvozException(
+            id="reschedule-without-source",
+            action="reschedule",
+            waste_type="SMES",
+            affected_locations=("Zkušební ulice",),
+            affected_locations_snapshot=(),
+            affected_location_group=None,
+            original_date=date(2026, 4, 6),
+            new_date=date(2026, 4, 9),
+            date=None,
+            source=SvozExceptionSource(),
+            note=None,
+        )
+        _, events = self._calendar_events(
+            self._generator_with_exception(exception), "Zkušební ulice"
+        )
+        event = events[0]
+
+        self.assertEqual("reschedule-without-source", event.decoded("X-SVOZ-EXCEPTION-ID"))
+        self.assertEqual("20260406", event.decoded("X-SVOZ-ORIGINAL-DATE"))
+        self.assertEqual(
+            "https://svoz.litovle.cz/ulice/zkusebni-ulice/",
+            event.decoded("url"),
+        )
+        self.assertNotIn("X-SVOZ-SOURCE-URL", event)
+        self.assertNotIn("X-SVOZ-ARCHIVE-URL", event)
+        self.assertNotIn("X-SVOZ-SOURCE-TITLE", event)
+        self.assertNotIn("X-SVOZ-CHANGE-MESSAGE", event)
+        self.assertIn(
+            "Termín přesunut z 6. 4. 2026 na 9. 4. 2026.",
+            event.decoded("description"),
+        )
+
+    def test_include_exception_has_metadata_without_original_date(self):
+        streets = all_streets["Litovel"] + mistni_casti
+        generator = calendar_generator.WasteCollectionCalendarGenerator(
+            lokace_svozu_smes,
+            lokace_svozu_plast,
+            lokace_svozu_papir,
+            lokace_svozu_bio,
+            streets,
+            date_start,
+            date_end,
+        )
+        _, events = self._calendar_events(generator, "Dukelská")
+        event = next(
+            item
+            for item in events
+            if item.decoded("dtstart") == date(2025, 9, 11)
+            and "Směsný odpad" in item.decoded("summary")
+        )
+
+        self.assertEqual(
+            "2025-09-11-smes-dukelska-mimoradny-svoz",
+            event.decoded("X-SVOZ-EXCEPTION-ID"),
+        )
+        self.assertNotIn("X-SVOZ-ORIGINAL-DATE", event)
+        self.assertEqual(
+            "https://svoz.litovle.cz/ulice/dukelska/",
+            event.decoded("url"),
+        )
+        self.assertEqual(
+            "https://www.facebook.com/litovel.eu/posts/pfbid02af6wuEMQTm3G4xLmkpFG5b8YnTEH2Pk4wSw3oPgbBkovEmRqTb76cfzaDCDs15pFl",
+            event.decoded("X-SVOZ-SOURCE-URL"),
+        )
+        self.assertNotIn("X-SVOZ-ARCHIVE-URL", event)
+        self.assertNotIn("X-SVOZ-SOURCE-TITLE", event)
+        self.assertNotIn("X-SVOZ-CHANGE-MESSAGE", event)
+        self.assertIn(
+            "Termín upraven oproti pravidelnému harmonogramu.",
+            event.decoded("description"),
+        )
+        self.assertNotIn("Migrated from lokace_svozu.py", event.decoded("description"))
+        self.assertNotIn(
+            "https://www.facebook.com/litovel.eu/posts/pfbid02af6wuEMQTm3G4xLmkpFG5b8YnTEH2Pk4wSw3oPgbBkovEmRqTb76cfzaDCDs15pFl",
+            event.decoded("description"),
+        )
+
+    def test_unaffected_event_has_no_change_metadata(self):
+        street = "Zkušební ulice"
+        collection_date = datetime(2026, 3, 2)
+        schedule = LokaceSvozu(
+            lambda value: value == collection_date,
+            [street],
+            WasteType.SMES,
+        )
+        generator = calendar_generator.WasteCollectionCalendarGenerator(
+            [schedule], [], [], [], [street], datetime(2026, 1, 1), datetime(2027, 1, 1)
+        )
+        _, events = self._calendar_events(generator, street)
+        event = events[0]
+
+        self.assertFalse(event.decoded("summary").startswith("Změna:"))
+        self.assertNotIn("X-SVOZ-EXCEPTION-ID", event)
+        self.assertNotIn("X-SVOZ-ORIGINAL-DATE", event)
+        self.assertNotIn("X-SVOZ-SOURCE-URL", event)
+        self.assertNotIn("X-SVOZ-ARCHIVE-URL", event)
+        self.assertNotIn("X-SVOZ-SOURCE-TITLE", event)
+        self.assertNotIn("X-SVOZ-CHANGE-MESSAGE", event)
+        self.assertNotIn("URL", event)
+        self.assertEqual(
+            "Svoz odpadu (Směsný odpad) – Zkušební ulice, Litovel",
+            event.decoded("description"),
+        )
+
+    def test_new_text_fields_are_escaped_and_long_unicode_lines_are_folded(self):
+        street = "Zkušební, ulice; se zpětným\\lomítkem"
+        source_url = "https://example.test/source?a=1,b=2;c=3"
+        source_title = (
+            "Změna, svozu; se zpětným\\lomítkem a novým\nřádkem – "
+            "velmi dlouhý český název oznámení pro ověření skládání řádků"
+        )
+        archive_one = "https://archive.test/prvni"
+        archive_two = "https://archive.test/druhy"
+        exception = SvozException(
+            id="escaped-fields",
+            action="reschedule",
+            waste_type="SMES",
+            affected_locations=(street,),
+            affected_locations_snapshot=(),
+            affected_location_group=None,
+            original_date=date(2026, 9, 28),
+            new_date=date(2026, 9, 25),
+            date=None,
+            source=SvozExceptionSource(
+                url=source_url,
+                title=source_title,
+                evidence="Důkaz, se středníkem; a zpětným\\lomítkem.",
+                note="Doplňující poznámka, se středníkem; a zpětným\\lomítkem.",
+                archive_urls=(archive_one, archive_two),
+            ),
+            note="Doplňující poznámka, se středníkem; a zpětným\\lomítkem.",
+        )
+        raw, events = self._calendar_events(
+            self._generator_with_exception(exception, street), street
+        )
+        event = events[0]
+        description = event.decoded("description")
+
+        self.assertEqual(source_title, event.decoded("X-SVOZ-SOURCE-TITLE"))
+        self.assertEqual(
+            "Důkaz, se středníkem; a zpětným\\lomítkem.",
+            event.decoded("X-SVOZ-CHANGE-MESSAGE"),
+        )
+        self.assertEqual(
+            "https://svoz.litovle.cz/ulice/zkusebni-ulice-se-zpetnymlomitkem/",
+            event.decoded("url"),
+        )
+        self.assertEqual(source_url, event.decoded("X-SVOZ-SOURCE-URL"))
+        self.assertEqual(
+            [archive_one, archive_two],
+            event.decoded("X-SVOZ-ARCHIVE-URL"),
+        )
+        self.assertIn("Důkaz, se středníkem; a zpětným\\lomítkem.", description)
+        self.assertNotIn(source_url, description)
+        self.assertNotIn(archive_one, description)
+        self.assertNotIn(archive_two, description)
+        self.assertEqual(1, description.count("Doplňující poznámka"))
+
+        unfolded = raw.replace(b"\r\n ", b"").decode("utf-8")
+        escaped_title = (
+            source_title.replace("\\", "\\\\")
+            .replace(";", "\\;")
+            .replace(",", "\\,")
+            .replace("\n", "\\n")
+        )
+        self.assertIn(f"X-SVOZ-SOURCE-TITLE:{escaped_title}", unfolded)
+        self.assertIn(
+            "X-SVOZ-CHANGE-MESSAGE:Důkaz\\, se středníkem\\; a zpětným\\\\lomítkem.",
+            unfolded,
+        )
+        self.assertIn("Zkušební\\, ulice\\; se zpětným\\\\lomítkem", unfolded)
+        for line in raw.split(b"\r\n"):
+            self.assertLessEqual(len(line), 75)
 
 
 class LitovelWatcherTest(unittest.TestCase):

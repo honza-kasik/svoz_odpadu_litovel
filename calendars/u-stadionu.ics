@@ -273,10 +273,16 @@ DTSTART;VALUE=DATE:20250513
 DTEND;VALUE=DATE:20250514
 DTSTAMP:20250101T000000Z
 UID:u-stadionu-paper-2025-05-13@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – U Stadionu\, Litovel\nTermín upraven
-  oproti pravidelnému harmonogramu.
+DESCRIPTION:Svoz odpadu (Papír) – U Stadionu\, Litovel\nTermín přesun
+ ut z 12. 5. 2025 na 13. 5. 2025.
 LOCATION:U Stadionu\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/u-stadionu/
+X-SVOZ-EXCEPTION-ID:2025-05-12-papir-litovel-posun-2025-05-13
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20250512
+X-SVOZ-SOURCE-TITLE:Změny ve svozu odpadu v měsíci květnu
+X-SVOZ-SOURCE-URL:https://www.litovel.eu/cs/urad/uredni-deska/aktualni-inf
+ ormace/zmeny-ve-svozu-odpadu-v-mesici-kvetnu.html
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – U Stadionu
@@ -755,9 +761,15 @@ DTEND;VALUE=DATE:20260103
 DTSTAMP:20250101T000000Z
 UID:u-stadionu-generic-2026-01-02@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – U Stadionu\, Litovel\nTermín
-  upraven oproti pravidelnému harmonogramu.
+  přesunut z 1. 1. 2026 na 2. 1. 2026.
 LOCATION:U Stadionu\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/u-stadionu/
+X-SVOZ-EXCEPTION-ID:2026-01-01-smes-litovel-ctvrtek-posun-2026-01-02
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20260101
+X-SVOZ-SOURCE-TITLE:Změny svozu odpadu o vánočních svátcích
+X-SVOZ-SOURCE-URL:https://www.litovel.eu/cs/urad/uredni-deska/aktualni-inf
+ ormace/zmeny-svozu-odpadu-o-vanocnich-svatcich.html
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Plast svoz – U Stadionu
@@ -1135,10 +1147,19 @@ DTSTART;VALUE=DATE:20260709
 DTEND;VALUE=DATE:20260710
 DTSTAMP:20250101T000000Z
 UID:u-stadionu-paper-2026-07-09@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – U Stadionu\, Litovel\nTermín upraven
-  oproti pravidelnému harmonogramu.
+DESCRIPTION:Svoz odpadu (Papír) – U Stadionu\, Litovel\nTermín přesun
+ ut z 6. 7. 2026 na 9. 7. 2026.\nSvoz papíru ve městě Litovel se přesou
+ vá z pondělí 6. 7. na čtvrtek 9. 7.
 LOCATION:U Stadionu\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/u-stadionu/
+X-SVOZ-CHANGE-MESSAGE:Svoz papíru ve městě Litovel se přesouvá z pond
+ ělí 6. 7. na čtvrtek 9. 7.
+X-SVOZ-EXCEPTION-ID:2026-07-06-papir-litovel-posun-2026-07-09
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20260706
+X-SVOZ-SOURCE-TITLE:Změna svozu odpadů v pondělí 6. července
+X-SVOZ-SOURCE-URL:https://www.litovel.eu/cs/urad/uredni-deska/aktualni-inf
+ ormace/zmena-svozu-odpadu-v-pondeli-6-cervence.html
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Změna: Bioodpad svoz – U Stadionu
@@ -1146,10 +1167,20 @@ DTSTART;VALUE=DATE:20260710
 DTEND;VALUE=DATE:20260711
 DTSTAMP:20250101T000000Z
 UID:u-stadionu-bio-2026-07-10@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Bioodpad) – U Stadionu\, Litovel\nTermín uprav
- en oproti pravidelnému harmonogramu.
+DESCRIPTION:Svoz odpadu (Bioodpad) – U Stadionu\, Litovel\nTermín přes
+ unut z 9. 7. 2026 na 10. 7. 2026.\nSvoz BIO odpadu ve městě Litovel se z
+  provozních důvodů přesouvá ze čtvrtka 9. 7. 2026 na pátek 10. 7. 2
+ 026.
 LOCATION:U Stadionu\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/u-stadionu/
+X-SVOZ-CHANGE-MESSAGE:Svoz BIO odpadu ve městě Litovel se z provozních 
+ důvodů přesouvá ze čtvrtka 9. 7. 2026 na pátek 10. 7. 2026.
+X-SVOZ-EXCEPTION-ID:2026-07-09-bio-litovel-ctvrtek-posun-2026-07-10
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20260709
+X-SVOZ-SOURCE-TITLE:Svoz bioodpadu se přesouvá na pátek 10. 7.
+X-SVOZ-SOURCE-URL:https://www.litovel.eu/cs/urad/uredni-deska/aktualni-inf
+ ormace/svoz-bioodpadu-se-presouva-na-patek-10-7.html
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – U Stadionu
@@ -1327,10 +1358,23 @@ DTSTART;VALUE=DATE:20261001
 DTEND;VALUE=DATE:20261002
 DTSTAMP:20250101T000000Z
 UID:u-stadionu-paper-2026-10-01@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – U Stadionu\, Litovel\nTermín upraven
-  oproti pravidelnému harmonogramu.
+DESCRIPTION:Svoz odpadu (Papír) – U Stadionu\, Litovel\nTermín přesun
+ ut z 28. 9. 2026 na 1. 10. 2026.\nSvoz papíru (240 l) ve městě Litovel 
+ se přesouvá z pondělí 28. září na čtvrtek 1. října.
 LOCATION:U Stadionu\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/u-stadionu/
+X-SVOZ-ARCHIVE-URL:https://archive.is/DiJh3
+X-SVOZ-ARCHIVE-URL:https://web.archive.org/web/20260921155639/https://www.
+ litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu-v-po
+ ndeli-28-zari.html
+X-SVOZ-CHANGE-MESSAGE:Svoz papíru (240 l) ve městě Litovel se přesouv
+ á z pondělí 28. září na čtvrtek 1. října.
+X-SVOZ-EXCEPTION-ID:2026-09-28-papir-litovel-posun-2026-10-01
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20260928
+X-SVOZ-SOURCE-TITLE:Změna svozu odpadů v pondělí 28. září
+X-SVOZ-SOURCE-URL:https://www.litovel.eu/cs/urad/uredni-deska/aktualni-inf
+ ormace/zmena-svozu-odpadu-v-pondeli-28-zari.html
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – U Stadionu

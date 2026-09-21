@@ -144,7 +144,9 @@ Při přidání nového ročního harmonogramu:
 
 Pravidelný harmonogram svozu zůstává v Pythonu v souboru link:lokace_svozu.py[`lokace_svozu.py`].
 
-Jednorázové změny svozu jsou v link:data/svoz_exceptions.json[`data/svoz_exceptions.json`]. Každá změna má stabilní `id`, typ odpadu, dotčené lokace nebo skupinu lokací, akci a datum změny. Pokud se používá `affected_location_group`, seznam míst může být přiložen jen jako `affected_locations_snapshot`; samostatné `affected_locations` je autoritativní pouze bez skupiny. Objekt `source` musí obsahovat klíče `url` a `title`; krátký doklad z oznámení lze uložit do `source.evidence`.
+Jednorázové změny svozu jsou v link:data/svoz_exceptions.json[`data/svoz_exceptions.json`]. Každá změna má stabilní `id`, typ odpadu, dotčené lokace nebo skupinu lokací, akci a datum změny. Pokud se používá `affected_location_group`, seznam míst může být přiložen jen jako `affected_locations_snapshot`; samostatné `affected_locations` je autoritativní pouze bez skupiny. Objekt `source` obsahuje podle dostupnosti strukturované položky `url`, `title`, krátký doklad `evidence`, textovou `note` a seznam archivních odkazů `archive_urls`. URL se nesmí ukládat do `evidence` ani poznámek; patří do `source.url` nebo `source.archive_urls`. Uživatelská poznámka patří do `note`; technická poznámka, která se nesmí zobrazit v kalendáři, do `internal_note`.
+
+Změněné události v ICS odkazují standardním polem `URL` na příslušnou stránku lokality na `svoz.litovle.cz`. Původní zdroj a jeho archivy jsou dostupné strojově v `X-SVOZ-SOURCE-URL` a opakovaném `X-SVOZ-ARCHIVE-URL`; `source.evidence` se zároveň zapisuje do `X-SVOZ-CHANGE-MESSAGE`. Do uživatelského `DESCRIPTION` se URL ani `internal_note` nevkládají.
 
 Budoucí automatizace má upravovat pouze datový soubor s jednorázovými změnami, ne Python logiku pravidelného harmonogramu.
 

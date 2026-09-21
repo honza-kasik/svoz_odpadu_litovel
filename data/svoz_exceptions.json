@@ -10,7 +10,7 @@
       "url": "https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu-v-dobe-vanocnich-svatku.html",
       "title": "Změna svozu odpadu v době vánočních svátků"
     },
-    "note": "Migrated from lokace_svozu.py",
+    "internal_note": "Migrated from lokace_svozu.py",
     "affected_locations_snapshot": ["Savín", "Nová Ves", "Chudobín", "Tři Dvory"]
   },
   {
@@ -24,7 +24,7 @@
       "url": "https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu-v-dobe-vanocnich-svatku.html",
       "title": "Změna svozu odpadu v době vánočních svátků"
     },
-    "note": "Migrated from lokace_svozu.py",
+    "internal_note": "Migrated from lokace_svozu.py",
     "affected_locations_snapshot": ["Vítězná", "Lidická", "Kysucká"]
   },
   {
@@ -38,7 +38,7 @@
       "url": "https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-bioodpadu-v-mistnich-castech-z-30-12-na-2-1.html",
       "title": "Změna svozu bioodpadu v místních částech z 30. 12. na 2. 1."
     },
-    "note": "Migrated from lokace_svozu.py",
+    "internal_note": "Migrated from lokace_svozu.py",
     "affected_locations_snapshot": ["Nasobůrky", "Víska", "Chořelice", "Myslechovice", "Savín", "Nová Ves", "Chudobín", "Unčovice"]
   },
   {
@@ -52,7 +52,7 @@
       "url": "https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmeny-svozu-odpadu-behem-velikonoc.html",
       "title": "Změny svozu odpadu během Velikonoc"
     },
-    "note": "Migrated from lokace_svozu.py",
+    "internal_note": "Migrated from lokace_svozu.py",
     "affected_locations_snapshot": ["Březové", "Chořelice", "Nasobůrky", "Víska", "Rozvadovice", "Unčovice"]
   },
   {
@@ -66,7 +66,7 @@
       "url": "https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmeny-svozu-odpadu-behem-velikonoc.html",
       "title": "Změny svozu odpadu během Velikonoc"
     },
-    "note": "Migrated from lokace_svozu.py",
+    "internal_note": "Migrated from lokace_svozu.py",
     "affected_locations_snapshot": ["Nasobůrky", "Víska", "Chořelice", "Myslechovice", "Savín", "Nová Ves", "Chudobín", "Unčovice"]
   },
   {
@@ -80,7 +80,7 @@
       "url": "https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmeny-ve-svozu-odpadu-v-mesici-kvetnu.html",
       "title": "Změny ve svozu odpadu v měsíci květnu"
     },
-    "note": "Migrated from lokace_svozu.py"
+    "internal_note": "Migrated from lokace_svozu.py"
   },
   {
     "id": "2025-05-26-plast-litovel-skupina-1-posun-2025-05-27",
@@ -93,7 +93,7 @@
       "url": "https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-ve-svozu-odpadu.html",
       "title": "Změna ve svozu odpadu"
     },
-    "note": "Migrated from lokace_svozu.py"
+    "internal_note": "Migrated from lokace_svozu.py"
   },
   {
     "id": "2025-07-11-papir-savin-skupina-posun-2025-07-09",
@@ -106,7 +106,7 @@
       "url": "https://www.litovel.eu/redakce/index.php?xuser=234858626223493812&lanG=cs&slozka=47816&xsekce=43561&clanek=374062",
       "title": null
     },
-    "note": "Migrated from lokace_svozu.py"
+    "internal_note": "Migrated from lokace_svozu.py"
   },
   {
     "id": "2025-07-25-plast-savin-skupina-posun-2025-07-23",
@@ -119,7 +119,7 @@
       "url": "https://www.litovel.eu/redakce/index.php?xuser=234858626223493812&lanG=cs&slozka=47816&xsekce=43561&clanek=374062",
       "title": null
     },
-    "note": "Migrated from lokace_svozu.py"
+    "internal_note": "Migrated from lokace_svozu.py"
   },
   {
     "id": "2025-08-08-papir-savin-skupina-posun-2025-08-06",
@@ -132,7 +132,7 @@
       "url": "https://www.litovel.eu/redakce/index.php?xuser=234858626223493812&lanG=cs&slozka=47816&xsekce=43561&clanek=374062",
       "title": null
     },
-    "note": "Migrated from lokace_svozu.py"
+    "internal_note": "Migrated from lokace_svozu.py"
   },
   {
     "id": "2025-08-22-plast-savin-skupina-posun-2025-08-20",
@@ -145,7 +145,7 @@
       "url": "https://www.litovel.eu/redakce/index.php?xuser=234858626223493812&lanG=cs&slozka=47816&xsekce=43561&clanek=374062",
       "title": null
     },
-    "note": "Migrated from lokace_svozu.py"
+    "internal_note": "Migrated from lokace_svozu.py"
   },
   {
     "id": "2025-09-05-papir-savin-skupina-posun-2025-09-03",
@@ -158,7 +158,7 @@
       "url": "https://www.litovel.eu/redakce/index.php?xuser=234858626223493812&lanG=cs&slozka=47816&xsekce=43561&clanek=374062",
       "title": null
     },
-    "note": "Migrated from lokace_svozu.py"
+    "internal_note": "Migrated from lokace_svozu.py"
   },
   {
     "id": "2025-09-11-smes-dukelska-mimoradny-svoz",
@@ -170,7 +170,7 @@
       "url": "https://www.facebook.com/litovel.eu/posts/pfbid02af6wuEMQTm3G4xLmkpFG5b8YnTEH2Pk4wSw3oPgbBkovEmRqTb76cfzaDCDs15pFl",
       "title": null
     },
-    "note": "Migrated from lokace_svozu.py"
+    "internal_note": "Migrated from lokace_svozu.py"
   },
   {
     "id": "2025-09-19-plast-savin-skupina-posun-2025-09-17",
@@ -183,7 +183,7 @@
       "url": "https://www.litovel.eu/redakce/index.php?xuser=234858626223493812&lanG=cs&slozka=47816&xsekce=43561&clanek=374062",
       "title": null
     },
-    "note": "Migrated from lokace_svozu.py"
+    "internal_note": "Migrated from lokace_svozu.py"
   },
   {
     "id": "2025-11-17-plast-pavlinka-posun-2025-11-18",
@@ -196,7 +196,7 @@
       "url": "https://www.facebook.com/litovel.eu/posts/pfbid02qBuwZJERREtkX7ZMeEmobrmRJLbSXmoqLWbAs7DSuNqN8Q72sDggJxGmGAr7iq46l",
       "title": null
     },
-    "note": "Migrated from lokace_svozu.py"
+    "internal_note": "Migrated from lokace_svozu.py"
   },
   {
     "id": "2025-11-17-plast-mistni-casti-posun-2025-11-20",
@@ -209,7 +209,7 @@
       "url": "https://www.facebook.com/litovel.eu/posts/pfbid02qBuwZJERREtkX7ZMeEmobrmRJLbSXmoqLWbAs7DSuNqN8Q72sDggJxGmGAr7iq46l",
       "title": null
     },
-    "note": "Migrated from lokace_svozu.py",
+    "internal_note": "Migrated from lokace_svozu.py",
     "affected_locations_snapshot": ["Březové", "Chořelice", "Nasobůrky", "Víska", "Rozvadovice", "Unčovice"]
   },
   {
@@ -223,7 +223,7 @@
       "url": "https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmeny-svozu-odpadu-o-vanocnich-svatcich.html",
       "title": "Změny svozu odpadu o vánočních svátcích"
     },
-    "note": "Migrated from lokace_svozu.py"
+    "internal_note": "Migrated from lokace_svozu.py"
   },
   {
     "id": "2026-02-16-smes-litovel-pondeli-posun-2026-02-17",
@@ -236,7 +236,7 @@
       "url": "https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu.html",
       "title": "Změna svozu odpadu"
     },
-    "note": "Migrated from lokace_svozu.py"
+    "internal_note": "Migrated from lokace_svozu.py"
   },
   {
     "id": "2026-04-06-plast-mistni-casti-posun-2026-04-09",
@@ -249,7 +249,7 @@
       "url": null,
       "title": null
     },
-    "note": "Migrated from lokace_svozu.py",
+    "internal_note": "Migrated from lokace_svozu.py",
     "affected_locations_snapshot": ["Březové", "Chořelice", "Nasobůrky", "Víska", "Rozvadovice", "Unčovice"]
   },
   {
@@ -303,9 +303,12 @@
     "source": {
       "url": "https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu-v-pondeli-28-zari.html",
       "title": "Změna svozu odpadů v pondělí 28. září",
-      "evidence": "Svoz komunálního odpadu ve městě Litovel (dle harmonogramu) se přesouvá z pondělí 28. září na pátek 25. září."
+      "evidence": "Svoz komunálního odpadu ve městě Litovel (dle harmonogramu) se přesouvá z pondělí 28. září na pátek 25. září.",
+      "archive_urls": [
+        "https://archive.is/DiJh3",
+        "https://web.archive.org/web/20260921155639/https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu-v-pondeli-28-zari.html"
+      ]
     },
-    "note": "Archivy: https://archive.is/DiJh3 a https://web.archive.org/web/20260921155639/https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu-v-pondeli-28-zari.html",
     "affected_locations_snapshot": ["Čihadlo", "Husova", "Karlovská", "Šargounská", "Družstevní", "Sochova", "Jiráskova", "Šemberova", "Bezručova", "Šmakalova", "Lužní", "Švermova", "Revúcká", "Studentů", "Opletalova", "Čs. armády", "Severní"]
   },
   {
@@ -318,8 +321,11 @@
     "source": {
       "url": "https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu-v-pondeli-28-zari.html",
       "title": "Změna svozu odpadů v pondělí 28. září",
-      "evidence": "Svoz papíru (240 l) ve městě Litovel se přesouvá z pondělí 28. září na čtvrtek 1. října."
-    },
-    "note": "Archivy: https://archive.is/DiJh3 a https://web.archive.org/web/20260921155639/https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu-v-pondeli-28-zari.html"
+      "evidence": "Svoz papíru (240 l) ve městě Litovel se přesouvá z pondělí 28. září na čtvrtek 1. října.",
+      "archive_urls": [
+        "https://archive.is/DiJh3",
+        "https://web.archive.org/web/20260921155639/https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu-v-pondeli-28-zari.html"
+      ]
+    }
   }
 ]

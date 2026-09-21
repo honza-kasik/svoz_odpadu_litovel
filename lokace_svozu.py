@@ -1,9 +1,9 @@
 from collections.abc import Callable
 from enum import Enum
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import datetime
 
-from svoz_exceptions import load_svoz_exceptions
+from svoz_exceptions import SvozException, load_svoz_exceptions
 from streets import *
 from utils import date_range
 
@@ -30,6 +30,7 @@ class CollectionEvent:
     date: datetime
     waste_type: WasteType
     is_override: bool = False
+    exception: SvozException | None = field(default=None, compare=False)
 
 class LokaceSvozu:
     """
@@ -40,13 +41,24 @@ class LokaceSvozu:
         locations (list[str]): Seznam lokací ve kterých svoz probíhá, pokud je predicate vyhodnocen na true
         excluded_dates (list[datetime]): Seznam datumů ve kterých svoz neprobíhá i když je pro ně vyhodnoce predicate na true
         included_dates (list[datetime]): Seznam datumů ve kterých svoz probíhá i když je pro ně vyhodnocen predicate na false
+        event_exceptions (dict[datetime, SvozException]): Metadata výjimky pro
+            jednotlivá přidaná data svozu
     """
 
-    def __init__(self, predicate: Callable[[datetime], bool], locations: list[str], waste_type: WasteType, excluded_dates: list[datetime] | None = None, included_dates: list[datetime] | None = None):
+    def __init__(
+        self,
+        predicate: Callable[[datetime], bool],
+        locations: list[str],
+        waste_type: WasteType,
+        excluded_dates: list[datetime] | None = None,
+        included_dates: list[datetime] | None = None,
+        event_exceptions: dict[datetime, SvozException] | None = None,
+    ):
         self.predicate = predicate
         self.locations = locations
         self.excluded_dates = set(excluded_dates or [])
         self.included_dates = set(included_dates or [])
+        self.event_exceptions = event_exceptions or {}
         self.waste_type = waste_type
         self._events_cache = {}
 
@@ -89,9 +101,15 @@ class LokaceSvozu:
 
             predicate = self.predicate(date)
             for street in self.locations:
-                is_override = is_date_active != predicate
+                exception = self.event_exceptions.get(date)
+                is_override = is_date_active != predicate or exception is not None
                 events.setdefault(street, []).append(
-                    CollectionEvent(date, self.waste_type, is_override)
+                    CollectionEvent(
+                        date,
+                        self.waste_type,
+                        is_override,
+                        exception,
+                    )
                 )
 
         self._events_cache[cache_key] = events
@@ -105,17 +123,18 @@ def exception_dates(
     waste_type: WasteType,
     locations: list[str],
     affected_location_group: str | None = None
-) -> tuple[list[datetime], list[datetime]]:
+) -> tuple[list[datetime], list[datetime], dict[datetime, SvozException]]:
     """Vrátí data výjimek pro konkrétní definici svozu.
 
-    Překládá datové výjimky na původní dvojici ``excluded_dates`` a
-    ``included_dates``, kterou používá ``LokaceSvozu``. ``affected_location_group``
-    je interní spojovací klíč pro případy, kdy jedno oznámení města dopadá na
-    více samostatných definic svozu v Pythonu.
+    Překládá datové výjimky na ``excluded_dates``, ``included_dates`` a mapu
+    metadat přidaných událostí, které používá ``LokaceSvozu``.
+    ``affected_location_group`` je interní spojovací klíč pro případy, kdy
+    jedno oznámení města dopadá na více samostatných definic svozu v Pythonu.
     """
 
     excluded_dates = []
     included_dates = []
+    event_exceptions = {}
     location_set = set(locations)
 
     for exception in SVOZ_EXCEPTIONS:
@@ -136,11 +155,15 @@ def exception_dates(
             if exception.original_date is None or exception.new_date is None:
                 raise ValueError(f"{exception.id}: reschedule exception requires dates")
             excluded_dates.append(datetime.combine(exception.original_date, datetime.min.time()))
-            included_dates.append(datetime.combine(exception.new_date, datetime.min.time()))
+            new_date = datetime.combine(exception.new_date, datetime.min.time())
+            included_dates.append(new_date)
+            event_exceptions[new_date] = exception
         elif exception.action == "include":
             if exception.date is None:
                 raise ValueError(f"{exception.id}: include exception requires date")
-            included_dates.append(datetime.combine(exception.date, datetime.min.time()))
+            included_date = datetime.combine(exception.date, datetime.min.time())
+            included_dates.append(included_date)
+            event_exceptions[included_date] = exception
         elif exception.action == "cancel":
             if exception.date is None:
                 raise ValueError(f"{exception.id}: cancel exception requires date")
@@ -148,7 +171,7 @@ def exception_dates(
         else:
             raise ValueError(f"{exception.id}: unsupported action {exception.action!r}")
 
-    return excluded_dates, included_dates
+    return excluded_dates, included_dates, event_exceptions
 
 
 lokace_svozu_plast = [

@@ -273,10 +273,16 @@ DTSTART;VALUE=DATE:20250513
 DTEND;VALUE=DATE:20250514
 DTSTAMP:20250101T000000Z
 UID:sargounska-paper-2025-05-13@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – Šargounská\, Litovel\nTermín uprav
- en oproti pravidelnému harmonogramu.
+DESCRIPTION:Svoz odpadu (Papír) – Šargounská\, Litovel\nTermín přes
+ unut z 12. 5. 2025 na 13. 5. 2025.
 LOCATION:Šargounská\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/sargounska/
+X-SVOZ-EXCEPTION-ID:2025-05-12-papir-litovel-posun-2025-05-13
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20250512
+X-SVOZ-SOURCE-TITLE:Změny ve svozu odpadu v měsíci květnu
+X-SVOZ-SOURCE-URL:https://www.litovel.eu/cs/urad/uredni-deska/aktualni-inf
+ ormace/zmeny-ve-svozu-odpadu-v-mesici-kvetnu.html
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Šargounská
@@ -304,10 +310,16 @@ DTSTART;VALUE=DATE:20250527
 DTEND;VALUE=DATE:20250528
 DTSTAMP:20250101T000000Z
 UID:sargounska-plastics-2025-05-27@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Plast) – Šargounská\, Litovel\nTermín uprave
- n oproti pravidelnému harmonogramu.
+DESCRIPTION:Svoz odpadu (Plast) – Šargounská\, Litovel\nTermín přesu
+ nut z 26. 5. 2025 na 27. 5. 2025.
 LOCATION:Šargounská\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/sargounska/
+X-SVOZ-EXCEPTION-ID:2025-05-26-plast-litovel-skupina-1-posun-2025-05-27
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20250526
+X-SVOZ-SOURCE-TITLE:Změna ve svozu odpadu
+X-SVOZ-SOURCE-URL:https://www.litovel.eu/cs/urad/uredni-deska/aktualni-inf
+ ormace/zmena-ve-svozu-odpadu.html
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Šargounská
@@ -836,9 +848,15 @@ DTEND;VALUE=DATE:20260218
 DTSTAMP:20250101T000000Z
 UID:sargounska-generic-2026-02-17@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Šargounská\, Litovel\nTerm
- ín upraven oproti pravidelnému harmonogramu.
+ ín přesunut z 16. 2. 2026 na 17. 2. 2026.
 LOCATION:Šargounská\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/sargounska/
+X-SVOZ-EXCEPTION-ID:2026-02-16-smes-litovel-pondeli-posun-2026-02-17
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20260216
+X-SVOZ-SOURCE-TITLE:Změna svozu odpadu
+X-SVOZ-SOURCE-URL:https://www.litovel.eu/cs/urad/uredni-deska/aktualni-inf
+ ormace/zmena-svozu-odpadu.html
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Šargounská
@@ -1146,10 +1164,19 @@ DTSTART;VALUE=DATE:20260709
 DTEND;VALUE=DATE:20260710
 DTSTAMP:20250101T000000Z
 UID:sargounska-paper-2026-07-09@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – Šargounská\, Litovel\nTermín uprav
- en oproti pravidelnému harmonogramu.
+DESCRIPTION:Svoz odpadu (Papír) – Šargounská\, Litovel\nTermín přes
+ unut z 6. 7. 2026 na 9. 7. 2026.\nSvoz papíru ve městě Litovel se přes
+ ouvá z pondělí 6. 7. na čtvrtek 9. 7.
 LOCATION:Šargounská\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/sargounska/
+X-SVOZ-CHANGE-MESSAGE:Svoz papíru ve městě Litovel se přesouvá z pond
+ ělí 6. 7. na čtvrtek 9. 7.
+X-SVOZ-EXCEPTION-ID:2026-07-06-papir-litovel-posun-2026-07-09
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20260706
+X-SVOZ-SOURCE-TITLE:Změna svozu odpadů v pondělí 6. července
+X-SVOZ-SOURCE-URL:https://www.litovel.eu/cs/urad/uredni-deska/aktualni-inf
+ ormace/zmena-svozu-odpadu-v-pondeli-6-cervence.html
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Plast svoz – Šargounská
@@ -1308,9 +1335,23 @@ DTEND;VALUE=DATE:20260926
 DTSTAMP:20250101T000000Z
 UID:sargounska-generic-2026-09-25@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Šargounská\, Litovel\nTerm
- ín upraven oproti pravidelnému harmonogramu.
+ ín přesunut z 28. 9. 2026 na 25. 9. 2026.\nSvoz komunálního odpadu ve 
+ městě Litovel (dle harmonogramu) se přesouvá z pondělí 28. září n
+ a pátek 25. září.
 LOCATION:Šargounská\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/sargounska/
+X-SVOZ-ARCHIVE-URL:https://archive.is/DiJh3
+X-SVOZ-ARCHIVE-URL:https://web.archive.org/web/20260921155639/https://www.
+ litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu-v-po
+ ndeli-28-zari.html
+X-SVOZ-CHANGE-MESSAGE:Svoz komunálního odpadu ve městě Litovel (dle ha
+ rmonogramu) se přesouvá z pondělí 28. září na pátek 25. září.
+X-SVOZ-EXCEPTION-ID:2026-09-28-smes-litovel-pondeli-posun-2026-09-25
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20260928
+X-SVOZ-SOURCE-TITLE:Změna svozu odpadů v pondělí 28. září
+X-SVOZ-SOURCE-URL:https://www.litovel.eu/cs/urad/uredni-deska/aktualni-inf
+ ormace/zmena-svozu-odpadu-v-pondeli-28-zari.html
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Šargounská
@@ -1328,10 +1369,23 @@ DTSTART;VALUE=DATE:20261001
 DTEND;VALUE=DATE:20261002
 DTSTAMP:20250101T000000Z
 UID:sargounska-paper-2026-10-01@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – Šargounská\, Litovel\nTermín uprav
- en oproti pravidelnému harmonogramu.
+DESCRIPTION:Svoz odpadu (Papír) – Šargounská\, Litovel\nTermín přes
+ unut z 28. 9. 2026 na 1. 10. 2026.\nSvoz papíru (240 l) ve městě Litove
+ l se přesouvá z pondělí 28. září na čtvrtek 1. října.
 LOCATION:Šargounská\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/sargounska/
+X-SVOZ-ARCHIVE-URL:https://archive.is/DiJh3
+X-SVOZ-ARCHIVE-URL:https://web.archive.org/web/20260921155639/https://www.
+ litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu-v-po
+ ndeli-28-zari.html
+X-SVOZ-CHANGE-MESSAGE:Svoz papíru (240 l) ve městě Litovel se přesouv
+ á z pondělí 28. září na čtvrtek 1. října.
+X-SVOZ-EXCEPTION-ID:2026-09-28-papir-litovel-posun-2026-10-01
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20260928
+X-SVOZ-SOURCE-TITLE:Změna svozu odpadů v pondělí 28. září
+X-SVOZ-SOURCE-URL:https://www.litovel.eu/cs/urad/uredni-deska/aktualni-inf
+ ormace/zmena-svozu-odpadu-v-pondeli-28-zari.html
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Plast svoz – Šargounská

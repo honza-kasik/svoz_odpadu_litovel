@@ -13,10 +13,17 @@ DTSTART;VALUE=DATE:20250102
 DTEND;VALUE=DATE:20250103
 DTSTAMP:20250101T000000Z
 UID:chorelice-bio-2025-01-02@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Bioodpad) – Chořelice\, Litovel\nTermín uprav
- en oproti pravidelnému harmonogramu.
+DESCRIPTION:Svoz odpadu (Bioodpad) – Chořelice\, Litovel\nTermín přes
+ unut z 30. 12. 2024 na 2. 1. 2025.
 LOCATION:Chořelice\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/chorelice/
+X-SVOZ-EXCEPTION-ID:2024-12-30-bio-mistni-casti-posun-2025-01-02
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20241230
+X-SVOZ-SOURCE-TITLE:Změna svozu bioodpadu v místních částech z 30. 12
+ . na 2. 1.
+X-SVOZ-SOURCE-URL:https://www.litovel.eu/cs/urad/uredni-deska/aktualni-inf
+ ormace/zmena-svozu-bioodpadu-v-mistnich-castech-z-30-12-na-2-1.html
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Plast svoz – Chořelice
@@ -224,10 +231,16 @@ DTSTART;VALUE=DATE:20250424
 DTEND;VALUE=DATE:20250425
 DTSTAMP:20250101T000000Z
 UID:chorelice-paper-2025-04-24@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – Chořelice\, Litovel\nTermín upraven
-  oproti pravidelnému harmonogramu.
+DESCRIPTION:Svoz odpadu (Papír) – Chořelice\, Litovel\nTermín přesun
+ ut z 21. 4. 2025 na 24. 4. 2025.
 LOCATION:Chořelice\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/chorelice/
+X-SVOZ-EXCEPTION-ID:2025-04-21-papir-mistni-casti-posun-2025-04-24
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20250421
+X-SVOZ-SOURCE-TITLE:Změny svozu odpadu během Velikonoc
+X-SVOZ-SOURCE-URL:https://www.litovel.eu/cs/urad/uredni-deska/aktualni-inf
+ ormace/zmeny-svozu-odpadu-behem-velikonoc.html
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Změna: Bioodpad svoz – Chořelice
@@ -235,10 +248,16 @@ DTSTART;VALUE=DATE:20250425
 DTEND;VALUE=DATE:20250426
 DTSTAMP:20250101T000000Z
 UID:chorelice-bio-2025-04-25@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Bioodpad) – Chořelice\, Litovel\nTermín uprav
- en oproti pravidelnému harmonogramu.
+DESCRIPTION:Svoz odpadu (Bioodpad) – Chořelice\, Litovel\nTermín přes
+ unut z 21. 4. 2025 na 25. 4. 2025.
 LOCATION:Chořelice\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/chorelice/
+X-SVOZ-EXCEPTION-ID:2025-04-21-bio-mistni-casti-posun-2025-04-25
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20250421
+X-SVOZ-SOURCE-TITLE:Změny svozu odpadu během Velikonoc
+X-SVOZ-SOURCE-URL:https://www.litovel.eu/cs/urad/uredni-deska/aktualni-inf
+ ormace/zmeny-svozu-odpadu-behem-velikonoc.html
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Chořelice
@@ -686,10 +705,15 @@ DTSTART;VALUE=DATE:20251120
 DTEND;VALUE=DATE:20251121
 DTSTAMP:20250101T000000Z
 UID:chorelice-plastics-2025-11-20@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Plast) – Chořelice\, Litovel\nTermín upraven 
- oproti pravidelnému harmonogramu.
+DESCRIPTION:Svoz odpadu (Plast) – Chořelice\, Litovel\nTermín přesunu
+ t z 17. 11. 2025 na 20. 11. 2025.
 LOCATION:Chořelice\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/chorelice/
+X-SVOZ-EXCEPTION-ID:2025-11-17-plast-mistni-casti-posun-2025-11-20
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20251117
+X-SVOZ-SOURCE-URL:https://www.facebook.com/litovel.eu/posts/pfbid02qBuwZJE
+ RREtkX7ZMeEmobrmRJLbSXmoqLWbAs7DSuNqN8Q72sDggJxGmGAr7iq46l
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Chořelice
@@ -947,10 +971,13 @@ DTSTART;VALUE=DATE:20260409
 DTEND;VALUE=DATE:20260410
 DTSTAMP:20250101T000000Z
 UID:chorelice-plastics-2026-04-09@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Plast) – Chořelice\, Litovel\nTermín upraven 
- oproti pravidelnému harmonogramu.
+DESCRIPTION:Svoz odpadu (Plast) – Chořelice\, Litovel\nTermín přesunu
+ t z 6. 4. 2026 na 9. 4. 2026.
 LOCATION:Chořelice\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/chorelice/
+X-SVOZ-EXCEPTION-ID:2026-04-06-plast-mistni-casti-posun-2026-04-09
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20260406
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Chořelice
@@ -1138,10 +1165,21 @@ DTSTART;VALUE=DATE:20260707
 DTEND;VALUE=DATE:20260708
 DTSTAMP:20250101T000000Z
 UID:chorelice-bio-2026-07-07@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Bioodpad) – Chořelice\, Litovel\nTermín uprav
- en oproti pravidelnému harmonogramu.
+DESCRIPTION:Svoz odpadu (Bioodpad) – Chořelice\, Litovel\nTermín přes
+ unut z 6. 7. 2026 na 7. 7. 2026.\nSvoz BIO odpadu v místních částech C
+ hořelice\, Myslechovice\, Nasobůrky\, Unčovice\, Víska\, Nová Ves\, S
+ avín a Chudobín se přesouvá z pondělí 6. 7. na úterý 7. 7.
 LOCATION:Chořelice\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/chorelice/
+X-SVOZ-CHANGE-MESSAGE:Svoz BIO odpadu v místních částech Chořelice\, 
+ Myslechovice\, Nasobůrky\, Unčovice\, Víska\, Nová Ves\, Savín a Chud
+ obín se přesouvá z pondělí 6. 7. na úterý 7. 7.
+X-SVOZ-EXCEPTION-ID:2026-07-06-bio-mistni-casti-posun-2026-07-07
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20260706
+X-SVOZ-SOURCE-TITLE:Změna svozu odpadů v pondělí 6. července
+X-SVOZ-SOURCE-URL:https://www.litovel.eu/cs/urad/uredni-deska/aktualni-inf
+ ormace/zmena-svozu-odpadu-v-pondeli-6-cervence.html
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Papír svoz – Chořelice

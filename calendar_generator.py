@@ -2,9 +2,68 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from icalendar import Calendar, Event
+from icalendar.prop import vDate, vUri
 
 from lokace_svozu import LokaceSvozu, CollectionEvent
 from utils import slugify
+
+
+SITE_BASE_URL = "https://svoz.litovle.cz"
+
+
+def _format_czech_date(value) -> str:
+    return f"{value.day}. {value.month}. {value.year}"
+
+
+def _description_for_event(
+    street: str,
+    event: CollectionEvent,
+) -> str:
+    parts = [f"Svoz odpadu ({event.waste_type.label}) – {street}, Litovel"]
+    exception = event.exception
+
+    if exception is not None:
+        if (
+            exception.action == "reschedule"
+            and exception.original_date is not None
+        ):
+            parts.append(
+                "Termín přesunut z "
+                f"{_format_czech_date(exception.original_date)} na "
+                f"{_format_czech_date(event.date.date())}."
+            )
+        elif event.is_override:
+            parts.append("Termín upraven oproti pravidelnému harmonogramu.")
+
+        parts.extend(
+            value
+            for value in (
+                exception.source.evidence,
+                exception.source.note,
+                exception.note,
+            )
+            if value
+        )
+    elif event.is_override:
+        parts.append("Termín upraven oproti pravidelnému harmonogramu.")
+
+    return "\n".join(_unique_description_parts(parts))
+
+
+def _unique_description_parts(parts: list[str]) -> list[str]:
+    """Remove repeated human-readable description paragraphs."""
+
+    result = []
+    seen_text = set()
+
+    for part in parts:
+        text = part.strip()
+        if not text or text in seen_text:
+            continue
+        seen_text.add(text)
+        result.append(text)
+
+    return result
 
 class WasteCollectionCalendarGenerator:
     """
@@ -118,13 +177,31 @@ class WasteCollectionCalendarGenerator:
 
             e.add("summary", summary)
 
-            description = f"Svoz odpadu ({event.waste_type.label}) – {street}, Litovel"
-            if event.is_override:
-                description += "\nTermín upraven oproti pravidelnému harmonogramu."
-
-            e.add("description", description)
+            e.add("description", _description_for_event(street, event))
             e.add("location", f"{street}, Litovel")
             e.add("transp", "TRANSPARENT")
+
+            if event.exception is not None:
+                exception = event.exception
+                e.add("X-SVOZ-EXCEPTION-ID", exception.id)
+                if (
+                    exception.action == "reschedule"
+                    and exception.original_date is not None
+                ):
+                    e.add(
+                        "X-SVOZ-ORIGINAL-DATE",
+                        vDate(exception.original_date),
+                        parameters={"VALUE": "DATE"},
+                    )
+                e.add("url", f"{SITE_BASE_URL}/ulice/{slugified_street}/")
+                if exception.source.url:
+                    e.add("X-SVOZ-SOURCE-URL", vUri(exception.source.url))
+                for archive_url in exception.source.archive_urls:
+                    e.add("X-SVOZ-ARCHIVE-URL", vUri(archive_url))
+                if exception.source.title:
+                    e.add("X-SVOZ-SOURCE-TITLE", exception.source.title)
+                if exception.source.evidence:
+                    e.add("X-SVOZ-CHANGE-MESSAGE", exception.source.evidence)
 
             cal.add_component(e)
 

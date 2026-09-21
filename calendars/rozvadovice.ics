@@ -223,10 +223,16 @@ DTSTART;VALUE=DATE:20250424
 DTEND;VALUE=DATE:20250425
 DTSTAMP:20250101T000000Z
 UID:rozvadovice-paper-2025-04-24@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – Rozvadovice\, Litovel\nTermín uprave
- n oproti pravidelnému harmonogramu.
+DESCRIPTION:Svoz odpadu (Papír) – Rozvadovice\, Litovel\nTermín přesu
+ nut z 21. 4. 2025 na 24. 4. 2025.
 LOCATION:Rozvadovice\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/rozvadovice/
+X-SVOZ-EXCEPTION-ID:2025-04-21-papir-mistni-casti-posun-2025-04-24
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20250421
+X-SVOZ-SOURCE-TITLE:Změny svozu odpadu během Velikonoc
+X-SVOZ-SOURCE-URL:https://www.litovel.eu/cs/urad/uredni-deska/aktualni-inf
+ ormace/zmeny-svozu-odpadu-behem-velikonoc.html
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Plast svoz – Rozvadovice
@@ -674,10 +680,15 @@ DTSTART;VALUE=DATE:20251120
 DTEND;VALUE=DATE:20251121
 DTSTAMP:20250101T000000Z
 UID:rozvadovice-plastics-2025-11-20@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Plast) – Rozvadovice\, Litovel\nTermín upraven
-  oproti pravidelnému harmonogramu.
+DESCRIPTION:Svoz odpadu (Plast) – Rozvadovice\, Litovel\nTermín přesun
+ ut z 17. 11. 2025 na 20. 11. 2025.
 LOCATION:Rozvadovice\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/rozvadovice/
+X-SVOZ-EXCEPTION-ID:2025-11-17-plast-mistni-casti-posun-2025-11-20
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20251117
+X-SVOZ-SOURCE-URL:https://www.facebook.com/litovel.eu/posts/pfbid02qBuwZJE
+ RREtkX7ZMeEmobrmRJLbSXmoqLWbAs7DSuNqN8Q72sDggJxGmGAr7iq46l
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Papír svoz – Rozvadovice
@@ -935,10 +946,13 @@ DTSTART;VALUE=DATE:20260409
 DTEND;VALUE=DATE:20260410
 DTSTAMP:20250101T000000Z
 UID:rozvadovice-plastics-2026-04-09@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Plast) – Rozvadovice\, Litovel\nTermín upraven
-  oproti pravidelnému harmonogramu.
+DESCRIPTION:Svoz odpadu (Plast) – Rozvadovice\, Litovel\nTermín přesun
+ ut z 6. 4. 2026 na 9. 4. 2026.
 LOCATION:Rozvadovice\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/rozvadovice/
+X-SVOZ-EXCEPTION-ID:2026-04-06-plast-mistni-casti-posun-2026-04-09
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20260406
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Rozvadovice

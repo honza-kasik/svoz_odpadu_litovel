@@ -273,10 +273,16 @@ DTSTART;VALUE=DATE:20250513
 DTEND;VALUE=DATE:20250514
 DTSTAMP:20250101T000000Z
 UID:pavlinka-paper-2025-05-13@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – Pavlínka\, Litovel\nTermín upraven 
- oproti pravidelnému harmonogramu.
+DESCRIPTION:Svoz odpadu (Papír) – Pavlínka\, Litovel\nTermín přesunu
+ t z 12. 5. 2025 na 13. 5. 2025.
 LOCATION:Pavlínka\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/pavlinka/
+X-SVOZ-EXCEPTION-ID:2025-05-12-papir-litovel-posun-2025-05-13
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20250512
+X-SVOZ-SOURCE-TITLE:Změny ve svozu odpadu v měsíci květnu
+X-SVOZ-SOURCE-URL:https://www.litovel.eu/cs/urad/uredni-deska/aktualni-inf
+ ormace/zmeny-ve-svozu-odpadu-v-mesici-kvetnu.html
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Pavlínka
@@ -664,10 +670,15 @@ DTSTART;VALUE=DATE:20251118
 DTEND;VALUE=DATE:20251119
 DTSTAMP:20250101T000000Z
 UID:pavlinka-plastics-2025-11-18@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Plast) – Pavlínka\, Litovel\nTermín upraven o
- proti pravidelnému harmonogramu.
+DESCRIPTION:Svoz odpadu (Plast) – Pavlínka\, Litovel\nTermín přesunut
+  z 17. 11. 2025 na 18. 11. 2025.
 LOCATION:Pavlínka\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/pavlinka/
+X-SVOZ-EXCEPTION-ID:2025-11-17-plast-pavlinka-posun-2025-11-18
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20251117
+X-SVOZ-SOURCE-URL:https://www.facebook.com/litovel.eu/posts/pfbid02qBuwZJE
+ RREtkX7ZMeEmobrmRJLbSXmoqLWbAs7DSuNqN8Q72sDggJxGmGAr7iq46l
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Bioodpad svoz – Pavlínka
@@ -756,9 +767,15 @@ DTEND;VALUE=DATE:20260103
 DTSTAMP:20250101T000000Z
 UID:pavlinka-generic-2026-01-02@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Směsný odpad) – Pavlínka\, Litovel\nTermín 
- upraven oproti pravidelnému harmonogramu.
+ přesunut z 1. 1. 2026 na 2. 1. 2026.
 LOCATION:Pavlínka\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/pavlinka/
+X-SVOZ-EXCEPTION-ID:2026-01-01-smes-litovel-ctvrtek-posun-2026-01-02
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20260101
+X-SVOZ-SOURCE-TITLE:Změny svozu odpadu o vánočních svátcích
+X-SVOZ-SOURCE-URL:https://www.litovel.eu/cs/urad/uredni-deska/aktualni-inf
+ ormace/zmeny-svozu-odpadu-o-vanocnich-svatcich.html
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Plast svoz – Pavlínka
@@ -1136,10 +1153,19 @@ DTSTART;VALUE=DATE:20260709
 DTEND;VALUE=DATE:20260710
 DTSTAMP:20250101T000000Z
 UID:pavlinka-paper-2026-07-09@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – Pavlínka\, Litovel\nTermín upraven 
- oproti pravidelnému harmonogramu.
+DESCRIPTION:Svoz odpadu (Papír) – Pavlínka\, Litovel\nTermín přesunu
+ t z 6. 7. 2026 na 9. 7. 2026.\nSvoz papíru ve městě Litovel se přesouv
+ á z pondělí 6. 7. na čtvrtek 9. 7.
 LOCATION:Pavlínka\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/pavlinka/
+X-SVOZ-CHANGE-MESSAGE:Svoz papíru ve městě Litovel se přesouvá z pond
+ ělí 6. 7. na čtvrtek 9. 7.
+X-SVOZ-EXCEPTION-ID:2026-07-06-papir-litovel-posun-2026-07-09
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20260706
+X-SVOZ-SOURCE-TITLE:Změna svozu odpadů v pondělí 6. července
+X-SVOZ-SOURCE-URL:https://www.litovel.eu/cs/urad/uredni-deska/aktualni-inf
+ ormace/zmena-svozu-odpadu-v-pondeli-6-cervence.html
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Změna: Bioodpad svoz – Pavlínka
@@ -1147,10 +1173,20 @@ DTSTART;VALUE=DATE:20260710
 DTEND;VALUE=DATE:20260711
 DTSTAMP:20250101T000000Z
 UID:pavlinka-bio-2026-07-10@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Bioodpad) – Pavlínka\, Litovel\nTermín uprave
- n oproti pravidelnému harmonogramu.
+DESCRIPTION:Svoz odpadu (Bioodpad) – Pavlínka\, Litovel\nTermín přesu
+ nut z 9. 7. 2026 na 10. 7. 2026.\nSvoz BIO odpadu ve městě Litovel se z 
+ provozních důvodů přesouvá ze čtvrtka 9. 7. 2026 na pátek 10. 7. 20
+ 26.
 LOCATION:Pavlínka\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/pavlinka/
+X-SVOZ-CHANGE-MESSAGE:Svoz BIO odpadu ve městě Litovel se z provozních 
+ důvodů přesouvá ze čtvrtka 9. 7. 2026 na pátek 10. 7. 2026.
+X-SVOZ-EXCEPTION-ID:2026-07-09-bio-litovel-ctvrtek-posun-2026-07-10
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20260709
+X-SVOZ-SOURCE-TITLE:Svoz bioodpadu se přesouvá na pátek 10. 7.
+X-SVOZ-SOURCE-URL:https://www.litovel.eu/cs/urad/uredni-deska/aktualni-inf
+ ormace/svoz-bioodpadu-se-presouva-na-patek-10-7.html
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Pavlínka
@@ -1328,10 +1364,23 @@ DTSTART;VALUE=DATE:20261001
 DTEND;VALUE=DATE:20261002
 DTSTAMP:20250101T000000Z
 UID:pavlinka-paper-2026-10-01@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – Pavlínka\, Litovel\nTermín upraven 
- oproti pravidelnému harmonogramu.
+DESCRIPTION:Svoz odpadu (Papír) – Pavlínka\, Litovel\nTermín přesunu
+ t z 28. 9. 2026 na 1. 10. 2026.\nSvoz papíru (240 l) ve městě Litovel s
+ e přesouvá z pondělí 28. září na čtvrtek 1. října.
 LOCATION:Pavlínka\, Litovel
 TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/pavlinka/
+X-SVOZ-ARCHIVE-URL:https://archive.is/DiJh3
+X-SVOZ-ARCHIVE-URL:https://web.archive.org/web/20260921155639/https://www.
+ litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu-v-po
+ ndeli-28-zari.html
+X-SVOZ-CHANGE-MESSAGE:Svoz papíru (240 l) ve městě Litovel se přesouv
+ á z pondělí 28. září na čtvrtek 1. října.
+X-SVOZ-EXCEPTION-ID:2026-09-28-papir-litovel-posun-2026-10-01
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20260928
+X-SVOZ-SOURCE-TITLE:Změna svozu odpadů v pondělí 28. září
+X-SVOZ-SOURCE-URL:https://www.litovel.eu/cs/urad/uredni-deska/aktualni-inf
+ ormace/zmena-svozu-odpadu-v-pondeli-28-zari.html
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Pavlínka
