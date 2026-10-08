@@ -23,6 +23,20 @@ assert.equal(schedule.canShiftMonth([2025], 2025, 0, -1), false);
 assert.throws(() => schedule.parseScheduleCsv("", ["bio"]));
 assert.throws(() => schedule.parseScheduleCsv("2026-02-30,bio,Palackého,0", ["bio"]));
 assert.throws(() => schedule.parseScheduleCsv("2026-02-02,unknown,Palackého,0", ["bio"]));
+assert.equal(schedule.pragueDate(new Date("2026-12-31T23:30:00Z")), "2027-01-01");
+assert.equal(schedule.pragueDate(new Date("2026-06-30T22:30:00Z")), "2026-07-01");
+assert.deepEqual(schedule.upcomingCollections(events, "Palackého", "2025-12-31"), { bio: events[0], paper: events[1] });
+assert.deepEqual(schedule.upcomingCollections(events, "Palackého", "2026-01-01"), { paper: events[1] });
+assert.deepEqual(schedule.upcomingCollections(events, "Palackého", "2027-01-01"), {});
+assert.deepEqual(schedule.upcomingCollections([], "Nová", "2027-01-01"), {});
+assert.deepEqual(schedule.collectionDateLabels("2026-10-20", "2026-10-08"), {dateLabel: "úterý 20. 10. 2026", relativeLabel: "za 12 dní"});
+assert.equal(schedule.collectionDateLabels("2026-10-08", "2026-10-08").relativeLabel, "dnes");
+assert.equal(schedule.collectionDateLabels("2027-01-01", "2026-12-31").relativeLabel, "zítra");
+assert.equal(schedule.collectionDateLabels("2026-03-30", "2026-03-28").relativeLabel, "za 2 dny");
+assert.equal(schedule.collectionDateLabels("2026-10-26", "2026-10-24").relativeLabel, "za 2 dny");
+assert.equal(schedule.collectionDateLabels("2026-10-30", "2026-10-08").relativeLabel, "za 22 dní");
+assert.throws(() => schedule.collectionDateLabels("2026-10-07", "2026-10-08"));
+assert.throws(() => schedule.collectionDateLabels("2026-02-30", "2026-10-08"));
 
 const release = {
     sites: [

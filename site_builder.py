@@ -11,6 +11,7 @@ from streets import mistni_casti
 from meta_builder import MetaBuilder, config
 from proximity import find_nearby_bio_options
 from project_config import project_config
+from lokace_svozu import WasteType
 
 BASE_URL = "https://svoz.litovle.cz"
 TEMPLATE_PATH = "templates/layout.html"
@@ -65,6 +66,7 @@ def build_index(streets, social_images, output_dir: str | Path = "."):
         "STREET_NAME": "null",
         "RELATED_STREETS_HTML": "",
         "NEARBY_BIO_HTML": "",
+        "UPCOMING_COLLECTIONS": "",
         **build_social_context(social_images["index"]),
         "BREADCRUMBS_JSONLD": build_index_jsonld() + build_index_itemlist_jsonld(streets)
     }
@@ -98,6 +100,7 @@ def build_street_pages(
             "SEO_FALLBACK": fallback,
             "LOCATION_LIST": "",
             "STREET_NAME": f'"{street}"',
+            "UPCOMING_COLLECTIONS": build_upcoming_collections(generator, street, reference_date),
             "RELATED_STREETS_HTML": related_html,
             "NEARBY_BIO_HTML": build_nearby_bio_html(
                 street,
@@ -132,6 +135,7 @@ def build_bio_pages(
         "_TEMPLATE_PATH": BIO_TEMPLATE_PATH,
         "SCHEDULE_YEAR": str(schedule.year),
         "BIO_YEAR_NOTICE": build_bio_year_notice(schedule.year),
+        "REFERENCE_DATE_HTML": build_reference_date_html(reference_date),
         "CURRENT_PLACEMENTS": overview["current"],
         "NEXT_PLACEMENTS": overview["next"],
         "GROUPED_SCHEDULE": overview["schedule"],
@@ -163,6 +167,7 @@ def build_bio_pages(
                 )
             ),
             "BACK_LINK": "/bio/",
+            "REFERENCE_DATE_HTML": build_reference_date_html(reference_date),
             "BACK_LABEL": "Všechna stanoviště",
             **build_social_context(social_image),
             "BREADCRUMBS_JSONLD": build_bio_detail_breadcrumbs_jsonld(
@@ -190,6 +195,7 @@ def build_bio_pages(
             "_TEMPLATE_PATH": BIO_DETAIL_TEMPLATE_PATH,
             "CONTENT": build_bio_year_notice(schedule.year) + content,
             "BACK_LINK": "/bio/",
+            "REFERENCE_DATE_HTML": build_reference_date_html(reference_date),
             "BACK_LABEL": "Přehled bioodpadu",
             **build_social_context(social_image),
             "BREADCRUMBS_JSONLD": build_bio_detail_breadcrumbs_jsonld(
@@ -648,6 +654,7 @@ def build_nearby_bio_html(
         )
     return f'''<section id="nearbyBio" class="nearby-bio ui-panel" {accessible_name}>
         {heading}
+        {build_reference_date_html(reference_date) if not focused else ""}
         {fallback_note}
         {''.join(groups)}
     </section>{street_schedule_link}'''
@@ -958,10 +965,9 @@ def build_location_list(streets):
     </div>
     <h2>Co nabízíme?</h2>
     <p>
-    Vyberte ulici a zjistěte, kdy je svoz bioodpadu, plastu, papíru a směsného odpadu.
-    Data vycházejí z veřejných podkladů města a jsou přehledně uspořádána
-    do kalendáře pro konkrétní ulici, nebo místní část. Kalendář vždy zobrazí 
-    konkrétní měsíc se svozem směsného odpadu, plastů, papíru i bioodpadu.
+    Harmonogram svozu pro Litovel a místní části vám pomůže zjistit, kdy připravit
+    nádoby na odpad. Termíny odvozu odpadu vycházejí
+    z veřejných podkladů města; kalendář si můžete stáhnout do mobilu nebo vytisknout.
     </p>
     <p>
     Samostatně najdete také <a href="/bio/">aktuální přistavení velkoobjemových
@@ -1005,6 +1011,65 @@ def build_year_news(year: int) -> str:
 # SEO FALLBACK TABLE
 # -------------------------------------------------
 
+def upcoming_collections(generator, street: str, reference_date: date) -> dict:
+    """Read released events, including exceptions, without extrapolating rules."""
+    upcoming = {}
+    for event in generator.get_events_for_street(street):
+        if event.date.date() < reference_date:
+            continue
+        previous = upcoming.get(event.waste_type)
+        if previous is None or event.date < previous.date:
+            upcoming[event.waste_type] = event
+    return upcoming
+
+
+def build_reference_date_html(reference_date: date) -> str:
+    return (
+        '<p class="schedule-reference-date">Stav k '
+        f'<time datetime="{reference_date.isoformat()}">'
+        f'{format_czech_short_date(reference_date)}</time>.</p>'
+    )
+
+
+def format_collection_relative_date(value: date, reference_date: date) -> str:
+    days = (value - reference_date).days
+    if days < 0:
+        raise ValueError("Collection date must not be in the past")
+    if days == 0:
+        return "dnes"
+    if days == 1:
+        return "zítra"
+    return f"za {days} {'dny' if days <= 4 else 'dní'}"
+
+
+def build_upcoming_collections(generator, street: str, reference_date: date) -> str:
+    upcoming = upcoming_collections(generator, street, reference_date)
+    rows = []
+    for waste_type in (WasteType.SMES, WasteType.PAPIR, WasteType.PLAST, WasteType.BIO):
+        event = upcoming.get(waste_type)
+        value = 'Další termín zatím není zveřejněn.'
+        if event is not None:
+            value = (
+                f'<time datetime="{event.date.date().isoformat()}">'
+                f'{format_czech_date_with_weekday(event.date.date())}</time>'
+                '<span class="collection-relative">'
+                f'{format_collection_relative_date(event.date.date(), reference_date)}</span>'
+            )
+            if event.is_override:
+                value += '<span class="collection-note">Změna termínu</span>'
+        rows.append(
+            f'<li data-waste-type="{waste_type.key}">'
+            f'<span class="collection-label">{waste_type.label}</span>'
+            f'<span class="collection-value">{value}</span></li>'
+        )
+    return (
+        '<section id="upcomingCollections" aria-labelledby="upcomingHeading">'
+        '<h2 id="upcomingHeading">Nejbližší svoz odpadu</h2>'
+        f'{build_reference_date_html(reference_date)}'
+        f'<ul class="ui-data-list">{"".join(rows)}</ul></section>'
+    )
+
+
 def build_fallback_table(generator, street, year: int | None = None):
     events = generator.get_events_for_street(street)
     if year is not None:
@@ -1019,7 +1084,7 @@ def build_fallback_table(generator, street, year: int | None = None):
 
         rows += (
             f"<tr>"
-            f"<td>{date_str}</td>"
+            f'<td><time datetime="{event.date.date().isoformat()}">{date_str}</time></td>'
             f"<td>{waste_label}</td>"
             f"<td>{note}</td>"
             f"</tr>\n"
@@ -1165,12 +1230,6 @@ def build_breadcrumbs_jsonld(street: str, slug: str) -> str:
     {{
       "@type": "ListItem",
       "position": 2,
-      "name": "Ulice",
-      "item": "{BASE_URL}/ulice/"
-    }},
-    {{
-      "@type": "ListItem",
-      "position": 3,
       "name": "{street}",
       "item": "{BASE_URL}/ulice/{slug}/"
     }}
@@ -1185,9 +1244,14 @@ def build_index_jsonld():
 <script type="application/ld+json">
 {{
   "@context": "https://schema.org",
-  "@type": "WebSite",
+  "@type": ["WebSite", "WebApplication"],
   "name": "Svoz odpadu Litovel",
-  "url": "{BASE_URL}/"
+  "url": "{BASE_URL}/",
+  "inLanguage": "cs",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web browser",
+  "isAccessibleForFree": true,
+  "description": "Bezplatný kalendář svozu odpadu v Litovli a místních částech podle ulic."
 }}
 </script>
 """
