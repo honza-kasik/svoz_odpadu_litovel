@@ -52,6 +52,7 @@
         </div>
     </header>
 
+    <main>
     <h1 id="mainHeader">{{H1}}</h1>
     <p id="subtitle">{{SUBTITLE}}</p>
     <div id="controls" class="ui-panel">
@@ -66,6 +67,7 @@
             <div id="locationDropdown" class="dropdown">
                 <input type="text"
                        id="locationSearch"
+                       aria-label="Vyberte ulici nebo místní část"
                        placeholder="Zadejte svou ulici v Litovli pro zobrazení kalendáře svozu odpadu"
                        autocomplete="off">
                 <div id="locationOptions" class="dropdown-options"></div>
@@ -110,15 +112,21 @@
 
 {{NEARBY_BIO_HTML}}
 
-    <!-- SEO fallback (jen pokud JS neběží) -->
-    <div id="seoFallback">
+    <div id="collectionOverview" class="ui-panel">
+        {{UPCOMING_COLLECTIONS}}
+
+    <!-- Úplný roční přehled dostupný také bez JavaScriptu. -->
+    <details id="seoFallback">
+        <summary>Roční přehled termínů svozu</summary>
         {{SEO_FALLBACK}}
+    </details>
     </div>
 
     <!-- Seznam lokací (jen pro homepage) -->
     {{LOCATION_LIST}}
 
     {{RELATED_STREETS_HTML}}
+    </main>
 
     <p class="disclaimer">
         Kalendář je
