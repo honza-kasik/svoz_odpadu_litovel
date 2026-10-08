@@ -53,42 +53,6 @@
             .sort((a, b) => a - b);
     }
 
-    function upcomingCollections(events, location, today) {
-        if (!isValidIsoDate(today)) throw new Error("Invalid reference date");
-        const upcoming = {};
-        for (const event of events) {
-            if (event.location !== location || event.date < today) continue;
-            if (!upcoming[event.type] || event.date < upcoming[event.type].date) {
-                upcoming[event.type] = event;
-            }
-        }
-        return upcoming;
-    }
-
-    function collectionDateLabels(date, today) {
-        if (!isValidIsoDate(date) || !isValidIsoDate(today)) {
-            throw new Error("Invalid collection or reference date");
-        }
-        // Compare calendar days in UTC so Prague's DST changes cannot alter the count.
-        const parsed = new Date(`${date}T00:00:00Z`);
-        const days = (parsed - new Date(`${today}T00:00:00Z`)) / 86400000;
-        if (days < 0) throw new Error("Collection date must not be in the past");
-        const weekdays = ["neděle", "pondělí", "úterý", "středa", "čtvrtek", "pátek", "sobota"];
-        const [year, month, day] = date.split("-").map(Number);
-        return {
-            dateLabel: `${weekdays[parsed.getUTCDay()]} ${day}. ${month}. ${year}`,
-            relativeLabel: days === 0 ? "dnes" : days === 1 ? "zítra" : `za ${days} ${days <= 4 ? "dny" : "dní"}`
-        };
-    }
-
-    function pragueDate(now = new Date()) {
-        const parts = new Intl.DateTimeFormat("en", {
-            timeZone: "Europe/Prague", year: "numeric", month: "2-digit", day: "2-digit"
-        }).formatToParts(now);
-        const values = Object.fromEntries(parts.map(part => [part.type, part.value]));
-        return `${values.year}-${values.month}-${values.day}`;
-    }
-
     function initialYear(years, currentYear) {
         if (!years.length) throw new Error("No schedule years are available");
         if (years.includes(currentYear)) return currentYear;
@@ -119,9 +83,6 @@
     return {
         parseScheduleCsv,
         availableYears,
-        upcomingCollections,
-        collectionDateLabels,
-        pragueDate,
         initialYear,
         shiftMonth,
         canShiftMonth,

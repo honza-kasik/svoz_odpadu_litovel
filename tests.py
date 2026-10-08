@@ -3,8 +3,6 @@ from dataclasses import replace
 from datetime import date, datetime
 import json
 import tempfile
-import subprocess
-from xml.etree import ElementTree
 from types import SimpleNamespace
 import unittest
 from pathlib import Path
@@ -55,12 +53,6 @@ from site_builder import (
     build_bio_site_detail,
     build_bio_year_notice,
     build_fallback_table,
-    build_upcoming_collections,
-    format_collection_relative_date,
-    format_czech_date_with_weekday,
-    upcoming_collections,
-    build_breadcrumbs_jsonld,
-    build_index_jsonld,
     build_nearby_bio_html,
     generate_robots_txt,
     generate_sitemap,
@@ -852,119 +844,6 @@ class BioSeoPagesTest(unittest.TestCase):
             "Sitemap: https://svoz.litovle.cz/sitemap.xml\n",
             robots,
         )
-
-
-class ScheduleSeoTest(unittest.TestCase):
-    def test_collection_relative_dates_use_calendar_days_and_czech_plurals(self):
-        reference = date(2026, 10, 8)
-        for day, label in ((8, "dnes"), (9, "zítra"), (10, "za 2 dny"), (12, "za 4 dny"), (13, "za 5 dní"), (22, "za 14 dní"), (30, "za 22 dní")):
-            self.assertEqual(label, format_collection_relative_date(date(2026, 10, day), reference))
-        self.assertEqual("zítra", format_collection_relative_date(date(2027, 1, 1), date(2026, 12, 31)))
-        self.assertEqual("za 2 dny", format_collection_relative_date(date(2026, 3, 30), date(2026, 3, 28)))
-        self.assertEqual("za 2 dny", format_collection_relative_date(date(2026, 10, 26), date(2026, 10, 24)))
-        with self.assertRaises(ValueError):
-            format_collection_relative_date(date(2026, 10, 7), reference)
-
-    def test_location_metadata_and_canonical_urls_remain_distinct(self):
-        builder = MetaBuilder(meta_config)
-        titles, descriptions = set(), set()
-        for name, slug, village in (
-            ("Nová", "nova", False),
-            ("Bezručova", "bezrucova", False),
-            ("Družstevní", "druzstevni", False),
-            ("Unčovice", "uncovice", True),
-        ):
-            meta = builder.street(name, slug, village)
-            self.assertEqual(f"https://svoz.litovle.cz/ulice/{slug}/", meta["CANONICAL"])
-            self.assertIn(name, meta["H1"])
-            self.assertIn("místní část" if village else "ulice", meta["H1"])
-            self.assertIn(name, meta["DESCRIPTION"])
-            titles.add(meta["TITLE"])
-            descriptions.add(meta["DESCRIPTION"])
-        self.assertEqual(4, len(titles))
-        self.assertEqual(4, len(descriptions))
-        self.assertEqual(f"Svoz odpadu Litovel {meta_config.year} – kalendář podle ulic", builder.index()["TITLE"])
-
-    def test_metadata_uses_instance_configuration_for_rollover(self):
-        builder = MetaBuilder(replace(meta_config, year=2027, city_v="Testově"))
-        self.assertIn("2027", builder.index()["SUBTITLE"])
-        self.assertIn("Testově", builder.street("Nová", "nova", False)["SUBTITLE"])
-        self.assertEqual("https://svoz.litovle.cz/ulice/nova/", builder.street("Nová", "nova", False)["CANONICAL"])
-
-    def test_breadcrumbs_follow_existing_navigation(self):
-        html = build_breadcrumbs_jsonld("Unčovice", "uncovice")
-        payload = json.loads(html.split('>', 1)[1].split('</script>')[0])
-        self.assertEqual([1, 2], [item["position"] for item in payload["itemListElement"]])
-        self.assertEqual(["https://svoz.litovle.cz/", "https://svoz.litovle.cz/ulice/uncovice/"], [item["item"] for item in payload["itemListElement"]])
-        application = json.loads(build_index_jsonld().split('>', 1)[1].split('</script>')[0])
-        self.assertIn("WebApplication", application["@type"])
-        self.assertTrue(application["isAccessibleForFree"])
-
-    def test_upcoming_includes_today_and_uses_rescheduled_event(self):
-        events = [
-            CollectionEvent(datetime(2026, 10, 9), WasteType.PAPIR),
-            CollectionEvent(datetime(2026, 10, 7), WasteType.SMES),
-            CollectionEvent(datetime(2026, 10, 8), WasteType.SMES, True),
-            CollectionEvent(datetime(2026, 10, 22), WasteType.SMES),
-        ]
-        generator = SimpleNamespace(get_events_for_street=lambda street: events)
-        upcoming = upcoming_collections(generator, "Nová", date(2026, 10, 8))
-        self.assertEqual(events[2], upcoming[WasteType.SMES])
-        html = build_upcoming_collections(generator, "Nová", date(2026, 10, 8))
-        self.assertIn('datetime="2026-10-08"', html)
-        self.assertIn("čtvrtek 8. 10. 2026</time>", html)
-        self.assertIn('class="collection-relative">dnes</span>', html)
-        self.assertIn('class="collection-relative">zítra</span>', html)
-        self.assertIn("Změna termínu", html)
-        self.assertNotIn("7. 10. 2026", html)
-        self.assertEqual(2, html.count("Další termín zatím není zveřejněn."))
-
-    def test_upcoming_month_year_and_missing_data_boundaries(self):
-        events = [
-            CollectionEvent(datetime(2026, 12, 31), WasteType.SMES),
-            CollectionEvent(datetime(2027, 1, 2), WasteType.SMES),
-            CollectionEvent(datetime(2027, 2, 1), WasteType.PAPIR),
-        ]
-        generator = SimpleNamespace(get_events_for_street=lambda street: events)
-        self.assertEqual(events[0], upcoming_collections(generator, "Nová", date(2026, 12, 31))[WasteType.SMES])
-        self.assertEqual(events[1], upcoming_collections(generator, "Nová", date(2027, 1, 1))[WasteType.SMES])
-        self.assertEqual(events[2], upcoming_collections(generator, "Nová", date(2027, 1, 31))[WasteType.PAPIR])
-        self.assertEqual({}, upcoming_collections(generator, "Nová", date(2027, 2, 2)))
-        empty = SimpleNamespace(get_events_for_street=lambda street: [])
-        self.assertEqual(4, build_upcoming_collections(empty, "Nová", date(2027, 1, 1)).count("Další termín zatím není zveřejněn."))
-
-    def test_python_and_browser_summaries_agree_for_all_released_locations(self):
-        streets = all_streets["Litovel"] + mistni_casti
-        released = load_waste_schedule("waste_schedule.csv", streets)
-        references = ["2025-12-31", "2026-01-01", "2026-10-08", "2026-12-31", "2027-01-01"]
-        cases = [{"street": street, "today": today} for street in streets for today in references]
-        script = '''const fs = require("node:fs");
-const logic = require("./js/schedule_logic.js");
-const events = logic.parseScheduleCsv(fs.readFileSync("waste_schedule.csv", "utf8"), ["generic", "paper", "plastics", "bio"]);
-const cases = JSON.parse(fs.readFileSync(0, "utf8"));
-process.stdout.write(JSON.stringify(cases.map(c => Object.fromEntries(Object.entries(logic.upcomingCollections(events, c.street, c.today)).map(([type, event]) => { const labels = logic.collectionDateLabels(event.date, c.today); return [type, [event.date, event.isOverride, labels.dateLabel, labels.relativeLabel]]; })))));'''
-        result = subprocess.run(["node", "-e", script], input=json.dumps(cases), text=True, capture_output=True, check=True)
-        for case, actual in zip(cases, json.loads(result.stdout), strict=True):
-            expected = upcoming_collections(released, case["street"], date.fromisoformat(case["today"]))
-            self.assertEqual({kind.key: [event.date.date().isoformat(), event.is_override, format_czech_date_with_weekday(event.date.date()), format_collection_relative_date(event.date.date(), date.fromisoformat(case["today"]))] for kind, event in expected.items()}, actual, case)
-
-    def test_bio_windows_include_last_day_and_expire_afterwards(self):
-        schedule = load_bio_schedule(BIO_2026_PATH)
-        for reference, current in ((date(2026, 8, 21), True), (date(2026, 8, 24), True), (date(2026, 8, 25), False)):
-            overview = build_bio_overview(schedule, reference)
-            self.assertEqual(current, "21. 8.–24. 8. 2026" in overview["current"])
-        expired = build_bio_overview(schedule, date(2027, 1, 1))
-        self.assertNotIn('<time', expired["next"])
-        self.assertIn("Další termín zatím není uveden", expired["next"])
-
-    def test_sitemap_xml_covers_preserved_urls(self):
-        with tempfile.TemporaryDirectory() as tmpdir:
-            path = Path(tmpdir) / "sitemap.xml"
-            generate_sitemap(["Nová", "Bezručova", "Družstevní", "Unčovice"], path)
-            urls = [node.text for node in ElementTree.parse(path).findall("{*}url/{*}loc")]
-        self.assertEqual(len(urls), len(set(urls)))
-        for slug in ("nova", "bezrucova", "druzstevni", "uncovice"):
-            self.assertIn(f"https://svoz.litovle.cz/ulice/{slug}/", urls)
 
 
 class SocialPreviewTest(unittest.TestCase):

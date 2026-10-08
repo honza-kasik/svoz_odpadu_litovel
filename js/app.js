@@ -86,8 +86,6 @@ function showScheduleLoadError() {
     error.append(message, retry);
     calendarContainer.appendChild(error);
     document.documentElement.classList.add('schedule-load-failed');
-    const fallback = document.getElementById('seoFallback');
-    if (fallback) fallback.open = true;
     setScheduleControlsDisabled(true);
 }
 
@@ -148,9 +146,6 @@ function initializeSchedule(csv) {
 
     updateDataForInitialLocation(initialLocation, uniqueLocations);
     renderMonthCalendar(filteredLocation);
-    const summary = document.getElementById('upcomingCollections');
-    if (summary) delete summary.dataset.refreshedDate;
-    refreshUpcomingCollections();
     setScheduleControlsDisabled(false);
 
     if (isKioskMode) {
@@ -174,10 +169,7 @@ function hideKioskElements() {
         'subtitle',
         'relatedStreets',
         'siteHeader',
-        'nearbyBio',
-        'collectionOverview',
-        'upcomingCollections',
-        'seoFallback'
+        'nearbyBio'
     ];
 
     elementIds.forEach(id => {
@@ -187,52 +179,6 @@ function hideKioskElements() {
 
 // Start the app initialization
 initApp();
-
-// Refresh after midnight and when a sleeping tab becomes visible again.
-setInterval(refreshUpcomingCollections, 60000);
-document.addEventListener('visibilitychange', refreshUpcomingCollections);
-
-function refreshUpcomingCollections() {
-    const summary = document.getElementById('upcomingCollections');
-    if (!summary || !wasteSchedule.length || isKioskMode) return;
-    const today = scheduleLogic.pragueDate();
-    const reference = summary.querySelector('.schedule-reference-date time');
-    if (summary.dataset.refreshedDate === today) return;
-    const formatDate = date => {
-        const [year, month, day] = date.split('-').map(Number);
-        return `${day}. ${month}. ${year}`;
-    };
-    const upcoming = scheduleLogic.upcomingCollections(wasteSchedule, filteredLocation, today);
-    summary.querySelectorAll('[data-waste-type]').forEach(row => {
-        const type = row.dataset.wasteType;
-        const event = upcoming[type];
-        const value = row.querySelector('.collection-value');
-        value.textContent = '';
-        if (!event) {
-            value.append('Další termín zatím není zveřejněn.');
-            return;
-        }
-        const time = document.createElement('time');
-        const labels = scheduleLogic.collectionDateLabels(event.date, today);
-        time.dateTime = event.date;
-        time.textContent = labels.dateLabel;
-        value.append(time);
-        const relative = document.createElement('span');
-        relative.className = 'collection-relative';
-        relative.textContent = labels.relativeLabel;
-        value.append(relative);
-        if (event.isOverride) {
-            const note = document.createElement('span');
-            note.className = 'collection-note';
-            note.textContent = 'Změna termínu';
-            value.append(note);
-        }
-    });
-    reference.dateTime = today;
-    reference.textContent = formatDate(today);
-    summary.dataset.refreshedDate = today;
-}
-
 function populateFilters() {
     const monthSelect = document.getElementById('monthSelect');
     const prevMonth = document.getElementById('prevMonth');
@@ -450,9 +396,12 @@ function renderLocationOptions(query = "", forceDisplayNone = false) {
     );
 
     filtered.forEach(location => {
-        const optionDiv = document.createElement('a');
+        const optionDiv = document.createElement('div');
         optionDiv.textContent = location;
-        optionDiv.href = `/ulice/${slugify(location)}/`;
+
+        optionDiv.addEventListener('click', () => {
+            navigateToLocation(location);
+        });
 
         locationOptions.appendChild(optionDiv);
     });

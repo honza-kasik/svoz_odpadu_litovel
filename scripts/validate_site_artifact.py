@@ -2,12 +2,10 @@
 from __future__ import annotations
 
 import argparse
-import json
 from html.parser import HTMLParser
 from pathlib import Path
 import sys
 from urllib.parse import unquote, urlparse
-from xml.etree import ElementTree
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
@@ -42,47 +40,13 @@ class LinkParser(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.references: list[str] = []
         self.scripts: list[dict[str, str | None]] = []
-        self.title = ""
-        self.in_title = False
-        self.h1_count = 0
-        self.canonicals = []
-        self.meta = {}
-        self.language = None
-        self.jsonld = []
-        self.in_jsonld = False
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
-        attributes = dict(attrs)
-        if tag == "html":
-            self.language = attributes.get("lang")
-        if tag == "title":
-            self.in_title = True
-        if tag == "h1":
-            self.h1_count += 1
-        if tag == "meta":
-            self.meta[attributes.get("name")] = attributes.get("content", "")
-        if tag == "link" and attributes.get("rel") == "canonical":
-            self.canonicals.append(attributes.get("href"))
         if tag == "script":
             self.scripts.append(dict(attrs))
-            if attributes.get("type") == "application/ld+json":
-                self.in_jsonld = True
-                self.jsonld.append("")
         for name, value in attrs:
             if name in {"href", "src"} and value:
                 self.references.append(value)
-
-    def handle_data(self, data: str) -> None:
-        if self.in_title:
-            self.title += data
-        if self.in_jsonld:
-            self.jsonld[-1] += data
-
-    def handle_endtag(self, tag: str) -> None:
-        if tag == "title":
-            self.in_title = False
-        if tag == "script":
-            self.in_jsonld = False
 
 
 def main() -> int:
@@ -93,7 +57,6 @@ def main() -> int:
     site_dir = Path(args.site_dir)
     validate_required_files(site_dir)
     validate_search_discovery_files(site_dir)
-    validate_indexable_metadata(site_dir)
     validate_release_data_files(site_dir)
     validate_calendar_urls(site_dir)
     validate_social_images(site_dir)
@@ -143,39 +106,6 @@ def validate_search_discovery_files(site_dir: Path) -> None:
             raise SystemExit(f"Sitemap is missing {route}")
     if "Sitemap: https://svoz.litovle.cz/sitemap.xml" not in robots:
         raise SystemExit("robots.txt does not advertise the canonical sitemap")
-
-
-def validate_indexable_metadata(site_dir: Path) -> None:
-    namespace = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
-    urls = [node.text for node in ElementTree.parse(site_dir / "sitemap.xml").findall("sm:url/sm:loc", namespace)]
-    if len(urls) != len(set(urls)):
-        raise SystemExit("Sitemap contains duplicate URLs")
-    titles, descriptions = set(), set()
-    for url in urls:
-        parsed = urlparse(url)
-        if parsed.scheme != "https" or parsed.netloc != "svoz.litovle.cz" or parsed.query or parsed.fragment or not parsed.path.endswith("/"):
-            raise SystemExit(f"Noncanonical sitemap URL: {url}")
-        path = site_dir / parsed.path.lstrip("/") / "index.html"
-        parser = LinkParser()
-        html = path.read_text(encoding="utf-8")
-        parser.feed(html)
-        if "{{" in html or parser.canonicals != [url]:
-            raise SystemExit(f"Invalid canonical or unresolved template: {url}")
-        if parser.language != "cs" or parser.h1_count != 1 or not parser.meta.get("viewport"):
-            raise SystemExit(f"Invalid language, H1 or viewport: {url}")
-        if "noindex" in parser.meta.get("robots", "").lower():
-            raise SystemExit(f"Sitemap includes noindex page: {url}")
-        description = parser.meta.get("description", "")
-        if not parser.title or not description or parser.title in titles or description in descriptions:
-            raise SystemExit(f"Missing or duplicate title/description: {url}")
-        titles.add(parser.title)
-        descriptions.add(description)
-        for raw in parser.jsonld:
-            payload = json.loads(raw)
-            if payload.get("@type") == "BreadcrumbList":
-                for item in payload["itemListElement"]:
-                    if item["item"] not in urls:
-                        raise SystemExit(f"Breadcrumb points outside canonical sitemap: {item['item']}")
 
 
 def validate_release_data_files(site_dir: Path) -> None:

@@ -133,7 +133,7 @@ h2 {
 
 .calendar-grid {
   display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-template-columns: repeat(7, 1fr);
   gap: 2px;
   padding: 2px;
   border-radius: 12px;
@@ -175,7 +175,6 @@ h2 {
   padding: 4px 8px;
   border-radius: 8px;
   white-space: normal;
-  overflow-wrap: anywhere;
   margin-top: 6px;
   border-radius: 4px;
   padding: 4px 10px;
@@ -321,17 +320,13 @@ input {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
-.dropdown-options a {
-  display: block;
-  color: inherit;
-  text-decoration: none;
+.dropdown-options div {
   padding: 8px;
   cursor: pointer;
   font-size: 0.9rem;
 }
 
-.dropdown-options a:hover,
-.dropdown-options a:focus-visible {
+.dropdown-options div:hover {
   background: #f3f4f6;
 }
 
@@ -403,68 +398,12 @@ input {
   display: block;
 }
 
-#seoFallback:not(:has(table)) {
+.js #seoFallback {
   display: none;
 }
 
-#collectionOverview:not(:has(table)) {
-  display: none;
-}
-
-#collectionOverview {
-  margin-block: var(--space-section);
-}
-
-.schedule-reference-date {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-}
-
-#upcomingCollections h2 {
-  margin: 0;
-  font-size: 1.1rem;
-}
-
-#upcomingCollections .schedule-reference-date {
-  margin: 4px 0 var(--space-panel-vertical);
-}
-
-#upcomingCollections li {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: var(--space-panel);
-  padding-block: 8px;
-  font-variant-numeric: tabular-nums;
-}
-
-#upcomingCollections li + li {
-  border-top: 1px solid var(--border-subtle);
-}
-
-#upcomingCollections .collection-value {
-  text-align: right;
-}
-
-#upcomingCollections .collection-value time,
-#upcomingCollections .collection-relative,
-#upcomingCollections .collection-note {
+.js.schedule-load-failed #seoFallback {
   display: block;
-}
-
-#upcomingCollections .collection-relative,
-#upcomingCollections .collection-note {
-  color: var(--text-muted);
-  font-size: 0.85rem;
-}
-
-#collectionOverview #seoFallback {
-  margin-top: var(--space-panel-vertical);
-  padding-top: var(--space-panel-vertical);
-  border-top: 1px solid var(--border-subtle);
-}
-
-#seoFallback summary {
-  cursor: pointer;
 }
 
 .controls-disabled {
@@ -573,7 +512,7 @@ input {
 
   .collection {
     border-radius: 6px;
-    padding: 2px 3px;
+    padding: 2px 6px;
     font-size: 0.65rem;
   }
 
