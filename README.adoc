@@ -89,6 +89,14 @@ Android aplikace zatím bio data nepoužívá, takže samotná změna `bio_sched
 4. Spustit `python scripts/validate_project.py`.
 5. Pro kontrolu produkčního artefaktu spustit `python scripts/build_site.py --output-dir _site` a `python scripts/validate_site_artifact.py _site`.
 
+=== Grafika pro Facebook
+
+Čtvercový příspěvek 1080 × 1080 se tvoří přímo z `data/svoz_exceptions.json` a je oddělený od OpenGraph obrázků webu. Podporuje přesuny svozu (`action: reschedule`) všech čtyř druhů odpadu. Pro jednu změnu spusťte `python scripts/generate_social_posts.py --event ID_ZMENY`, pro všechny přesuny `python scripts/generate_social_posts.py --all`. Ostatní akce se při `--all` výslovně přeskočí; při výběru přes `--event` skončí chybou. PNG vznikají v ignorované složce `_social/` a neukládají se do Gitu. Workflow `Generate social posts` je při změně vstupních dat nebo rendereru vytváří jako GitHub Actions artifact.
+
+U změn omezených na vybrané lokality se v záhlaví zobrazují jejich názvy z existující skupiny výjimek. U velmi velkých skupin záhlaví místo nečitelného seznamu uvádí počet dotčených lokalit.
+
+Renderer používá PNG `resources/branding/litovle_logo_current.png`, vyexportované z aktuálního loga `assets/img/logo_cele.svg` v repozitáři `litovle.cz`, a statické řezy Inter z `resources/fonts/`. Tyto fonty pocházejí z oficiálního vydání link:https://github.com/rsms/inter/releases/tag/v4.1[Inter 4.1] a jejich licence je v `resources/fonts/LICENSE.txt`.
+
 == Import ics do Google kalendáře
 
 === Včetně synchronizace a notifikace v mobilu

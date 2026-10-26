@@ -32,6 +32,7 @@ def validate_generated_files_are_not_tracked() -> None:
             "git", "ls-files", "-z", "--",
             "index.html", "sitemap.xml", "ulice", "bio",
             "kam-se-zahradnim-odpadem-litovel", "sberny-dvur-litovel",
+            "_social",
         ],
         check=True,
         capture_output=True,
