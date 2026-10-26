@@ -43,6 +43,16 @@ from scripts.watch_litovel_eu import (
     write_json_report,
 )
 from social_preview import _save_card
+from social_post import (
+    POST_SIZE,
+    SAFE_BOTTOM,
+    affected_location_names,
+    find_exception,
+    format_czech_day,
+    render_post,
+    save_post,
+    waste_name_genitive,
+)
 from site_builder import (
     build_bio_placement_rows,
     build_collection_yard_html,
@@ -78,6 +88,95 @@ from release_data import (
 BIO_2026_PATH = Path("data/bio_containers/2026.json")
 BIO_RELEASE_PATH = Path("bio_schedule.json")
 BIO_DISPOSAL_RELEASE_PATH = Path("bio_disposal.json")
+
+
+class SocialPostTest(unittest.TestCase):
+    EVENT_ID = "2026-10-26-papir-litovel-posun-2026-10-28"
+
+    def test_czech_day_uses_genitive_month_names_without_locale(self):
+        expected = (
+            "ledna", "února", "března", "dubna", "května", "června",
+            "července", "srpna", "září", "října", "listopadu", "prosince",
+        )
+        for month, name in enumerate(expected, 1):
+            with self.subTest(month=month):
+                self.assertEqual(f"26. {name}", format_czech_day(date(2026, month, 26)))
+
+    def test_waste_names_are_genitive(self):
+        self.assertEqual(
+            {key: waste_name_genitive(key) for key in ("PAPIR", "PLAST", "SMES", "BIO")},
+            {"PAPIR": "papíru", "PLAST": "plastu", "SMES": "směsného odpadu", "BIO": "bioodpadu"},
+        )
+
+    def test_exception_lookup_by_id(self):
+        exception = find_exception(self.EVENT_ID)
+        self.assertEqual(date(2026, 10, 26), exception.original_date)
+        self.assertEqual(date(2026, 10, 28), exception.new_date)
+        with self.assertRaisesRegex(ValueError, "not found"):
+            find_exception("missing-event")
+
+    def test_header_locations_come_from_exception_group(self):
+        self.assertEqual((), affected_location_names(find_exception(self.EVENT_ID)))
+        selected = find_exception("2026-07-09-bio-litovel-ctvrtek-posun-2026-07-10")
+        self.assertEqual("Kosmonautů", affected_location_names(selected)[0])
+        self.assertEqual("Loštická", affected_location_names(selected)[-1])
+
+    def test_all_reschedule_posts_fit_safe_bounds(self):
+        for exception in load_svoz_exceptions():
+            if exception.action != "reschedule":
+                continue
+            with self.subTest(event=exception.id):
+                result = render_post(exception)
+                self.assertEqual(POST_SIZE, result.image.size)
+                for element in result.elements:
+                    left, top, right, bottom = element.bounds
+                    self.assertGreaterEqual(left, 70)
+                    self.assertLessEqual(right, 1010)
+                    self.assertGreaterEqual(top, 55)
+                    self.assertLessEqual(bottom, SAFE_BOTTOM)
+
+    def test_logo_has_clear_space_below_footer_text(self):
+        result = render_post(find_exception(self.EVENT_ID))
+        logo_top = next(element.bounds[1] for element in result.elements if element.kind == "logo")
+        footer_bottom = max(
+            element.bounds[3]
+            for element in result.elements
+            if element.kind == "text" and element.bounds[1] >= 800
+        )
+        self.assertGreaterEqual(logo_top - footer_bottom, 30)
+
+    def test_main_lines_use_one_font_size(self):
+        for exception in load_svoz_exceptions():
+            if exception.action != "reschedule":
+                continue
+            with self.subTest(event=exception.id):
+                result = render_post(exception)
+                sizes = [element.font_size for element in result.elements if element.kind == "main_text"]
+                self.assertIn(len(sizes), (4, 5))
+                self.assertEqual(1, len(set(sizes)))
+
+    def test_missing_logo_and_fonts_fail_clearly(self):
+        exception = find_exception(self.EVENT_ID)
+        with tempfile.TemporaryDirectory() as temp_dir:
+            missing = Path(temp_dir) / "missing.png"
+            with self.assertRaisesRegex(FileNotFoundError, "Litovle.cz logo PNG"):
+                render_post(exception, logo_path=missing)
+            with self.assertRaisesRegex(FileNotFoundError, "Inter regular font"):
+                render_post(exception, font_dir=Path(temp_dir))
+
+    def test_png_bytes_are_repeatable(self):
+        exception = find_exception(self.EVENT_ID)
+        with tempfile.TemporaryDirectory() as temp_dir:
+            first = Path(temp_dir) / "first.png"
+            second = Path(temp_dir) / "second.png"
+            save_post(render_post(exception), first)
+            save_post(render_post(exception), second)
+            self.assertEqual(first.read_bytes(), second.read_bytes())
+
+    def test_unsupported_action_fails_clearly(self):
+        exception = replace(find_exception(self.EVENT_ID), action="include")
+        with self.assertRaisesRegex(ValueError, "supports action 'reschedule'"):
+            render_post(exception)
 
 
 class BioContainersTest(unittest.TestCase):
