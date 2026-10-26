@@ -327,5 +327,21 @@
         "https://web.archive.org/web/20260921155639/https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/zmena-svozu-odpadu-v-pondeli-28-zari.html"
       ]
     }
+  },
+  {
+    "id": "2026-10-26-papir-litovel-posun-2026-10-28",
+    "action": "reschedule",
+    "waste_type": "PAPIR",
+    "affected_location_group": "all_streets_litovel",
+    "original_date": "2026-10-26",
+    "new_date": "2026-10-28",
+    "source": {
+      "url": "https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/svoz-papiru-v-litovli-dne-26-rijna-presunut-na-stredu-28-rijna.html",
+      "title": "Svoz papíru v Litovli dne 26. října přesunut na středu 28. října",
+      "evidence": "Svoz papíru (modré popelnice 240 l) ve městě Litovel se z provozních důvodů přesouvá z 26. října na středu 28. října.",
+      "archive_urls": [
+        "https://web.archive.org/web/20261026070603/https://www.litovel.eu/cs/urad/uredni-deska/aktualni-informace/svoz-papiru-v-litovli-dne-26-rijna-presunut-na-stredu-28-rijna.html"
+      ]
+    }
   }
 ]

@@ -977,7 +977,7 @@ def build_location_list(streets):
     <li>označené změněné termíny svozu v kalendáři</li>
     </ul>
     <h2>Změny svozu a novinky v roce {config.year}</h2>
-    <p>Seznam změn svozu odpadu v Litovli a místních částech v roce {config.year} seřazené dle data oznámení:</p>
+    <p>Seznam změn svozu odpadu v Litovli a místních částech v roce {config.year}, seřazený od nejnovějších oznámení:</p>
     <ul>
       {news_items}
     </ul>
