@@ -1418,16 +1418,6 @@ LOCATION:Šmakalova\, Litovel
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Papír svoz – Šmakalova
-DTSTART;VALUE=DATE:20261026
-DTEND;VALUE=DATE:20261027
-DTSTAMP:20250101T000000Z
-UID:smakalova-paper-2026-10-26@svoz.litovle.cz
-DESCRIPTION:Svoz odpadu (Papír) – Šmakalova\, Litovel
-LOCATION:Šmakalova\, Litovel
-TRANSP:TRANSPARENT
-END:VEVENT
-BEGIN:VEVENT
 SUMMARY:Směsný odpad svoz – Šmakalova
 DTSTART;VALUE=DATE:20261026
 DTEND;VALUE=DATE:20261027
@@ -1446,6 +1436,32 @@ UID:smakalova-bio-2026-10-28@svoz.litovle.cz
 DESCRIPTION:Svoz odpadu (Bioodpad) – Šmakalova\, Litovel
 LOCATION:Šmakalova\, Litovel
 TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Změna: Papír svoz – Šmakalova
+DTSTART;VALUE=DATE:20261028
+DTEND;VALUE=DATE:20261029
+DTSTAMP:20250101T000000Z
+UID:smakalova-paper-2026-10-28@svoz.litovle.cz
+DESCRIPTION:Svoz odpadu (Papír) – Šmakalova\, Litovel\nTermín přesun
+ ut z 26. 10. 2026 na 28. 10. 2026.\nSvoz papíru (modré popelnice 240 l) 
+ ve městě Litovel se z provozních důvodů přesouvá z 26. října na s
+ tředu 28. října.
+LOCATION:Šmakalova\, Litovel
+TRANSP:TRANSPARENT
+URL:https://svoz.litovle.cz/ulice/smakalova/
+X-SVOZ-ARCHIVE-URL:https://web.archive.org/web/20261026070603/https://www.
+ litovel.eu/cs/urad/uredni-deska/aktualni-informace/svoz-papiru-v-litovli-d
+ ne-26-rijna-presunut-na-stredu-28-rijna.html
+X-SVOZ-CHANGE-MESSAGE:Svoz papíru (modré popelnice 240 l) ve městě Lit
+ ovel se z provozních důvodů přesouvá z 26. října na středu 28. ř
+ íjna.
+X-SVOZ-EXCEPTION-ID:2026-10-26-papir-litovel-posun-2026-10-28
+X-SVOZ-ORIGINAL-DATE;VALUE=DATE:20261026
+X-SVOZ-SOURCE-TITLE:Svoz papíru v Litovli dne 26. října přesunut na st
+ ředu 28. října
+X-SVOZ-SOURCE-URL:https://www.litovel.eu/cs/urad/uredni-deska/aktualni-inf
+ ormace/svoz-papiru-v-litovli-dne-26-rijna-presunut-na-stredu-28-rijna.html
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Plast svoz – Šmakalova
