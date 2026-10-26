@@ -12,6 +12,7 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
 
+from streets import mistni_casti
 from svoz_exceptions import LOCATION_GROUPS, SvozException, load_svoz_exceptions
 
 
@@ -78,6 +79,13 @@ def affected_location_names(exception: SvozException) -> tuple[str, ...]:
     return exception.affected_locations
 
 
+def location_heading(exception: SvozException) -> str | None:
+    locations = affected_location_names(exception)
+    if locations and set(locations) <= set(mistni_casti):
+        return None
+    return "LITOVEL"
+
+
 def render_post(
     exception: SvozException,
     *,
@@ -98,10 +106,14 @@ def render_post(
     draw = ImageDraw.Draw(image)
     elements: list[PostElement] = []
 
-    _text(draw, elements, "LITOVEL", (SIDE_MARGIN, 70), fonts["regular"](31), MUTED)
+    heading = location_heading(exception)
+    if heading:
+        _text(draw, elements, heading, (SIDE_MARGIN, 70), fonts["regular"](31), MUTED)
     locations = affected_location_names(exception)
-    location_rows = _draw_locations(draw, elements, locations, fonts["semibold"]) if locations else 0
-    vertical_offset = {0: -28, 1: -15, 2: 0}[location_rows]
+    location_rows = _draw_locations(
+        draw, elements, locations, fonts["semibold"], top=111 if heading else 70,
+    ) if locations else 0
+    vertical_offset = {0: -28, 1: -15, 2: 0}[location_rows] - (40 if not heading else 0)
 
     # Fit one shared font size to every main line so dates and status have the
     # same visual weight while even the longest waste label stays in bounds.
@@ -224,7 +236,7 @@ def _rich_text(draw, elements, xy, segments, fonts, size) -> None:
         x += draw.textlength(value, font=font)
 
 
-def _draw_locations(draw, elements, locations, font_at_size) -> int:
+def _draw_locations(draw, elements, locations, font_at_size, *, top: int) -> int:
     width = POST_SIZE[0] - 2 * SIDE_MARGIN
     for size in range(22, 15, -1):
         font = font_at_size(size)
@@ -237,7 +249,7 @@ def _draw_locations(draw, elements, locations, font_at_size) -> int:
         lines = [f"{len(locations)} VYBRANÝCH LOKALIT LITOVLE"]
         font = font_at_size(22)
     for index, line in enumerate(lines):
-        _text(draw, elements, line, (SIDE_MARGIN, 111 + index * 27), font, MUTED)
+        _text(draw, elements, line, (SIDE_MARGIN, top + index * 27), font, MUTED)
     return len(lines)
 
 

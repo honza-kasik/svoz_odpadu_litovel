@@ -49,6 +49,7 @@ from social_post import (
     affected_location_names,
     find_exception,
     format_czech_day,
+    location_heading,
     render_post,
     save_post,
     waste_name_genitive,
@@ -117,9 +118,13 @@ class SocialPostTest(unittest.TestCase):
 
     def test_header_locations_come_from_exception_group(self):
         self.assertEqual((), affected_location_names(find_exception(self.EVENT_ID)))
+        self.assertEqual("LITOVEL", location_heading(find_exception(self.EVENT_ID)))
         selected = find_exception("2026-07-09-bio-litovel-ctvrtek-posun-2026-07-10")
+        self.assertEqual("LITOVEL", location_heading(selected))
         self.assertEqual("Kosmonautů", affected_location_names(selected)[0])
         self.assertEqual("Loštická", affected_location_names(selected)[-1])
+        local_parts = find_exception("2026-07-06-bio-mistni-casti-posun-2026-07-07")
+        self.assertIsNone(location_heading(local_parts))
 
     def test_all_reschedule_posts_fit_safe_bounds(self):
         for exception in load_svoz_exceptions():
