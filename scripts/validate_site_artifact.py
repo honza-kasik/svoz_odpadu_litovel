@@ -13,10 +13,8 @@ sys.path.insert(0, str(ROOT))
 from utils import slugify
 
 BASE_DOMAINS = {"svoz.litovle.cz", "www.svoz.litovle.cz"}
-SIMPLE_ANALYTICS_SRC = "https://scripts.simpleanalyticscdn.com/sri/v11.js"
-SIMPLE_ANALYTICS_INTEGRITY = (
-    "sha384-rfv15RJy1bBYZ1Mf4xizO26jorXb2myipCvHXy4rkG0SuEET96S+m0sTzu5vfbSI"
-)
+GOATCOUNTER_SRC = "//gc.zgo.at/count.js"
+GOATCOUNTER_ENDPOINT = "https://svoz-litovle.goatcounter.com/count"
 REQUIRED_FILES = (
     "index.html",
     "bio/index.html",
@@ -195,7 +193,7 @@ def validate_browser_scripts(site_dir: Path) -> None:
             src = script.get("src")
             if not src:
                 continue
-            if src == SIMPLE_ANALYTICS_SRC:
+            if src == GOATCOUNTER_SRC:
                 analytics_scripts.append(script)
                 continue
             if urlparse(src).scheme or src.startswith("//"):
@@ -210,13 +208,13 @@ def validate_browser_scripts(site_dir: Path) -> None:
             continue
 
         analytics = analytics_scripts[0]
-        if analytics.get("integrity") != SIMPLE_ANALYTICS_INTEGRITY:
+        if analytics.get("data-goatcounter") != GOATCOUNTER_ENDPOINT:
             violations.append(
-                f"{html_file.relative_to(site_dir)} has an invalid analytics integrity hash"
+                f"{html_file.relative_to(site_dir)} has an invalid GoatCounter endpoint"
             )
-        if analytics.get("crossorigin") != "anonymous":
+        if "async" not in analytics:
             violations.append(
-                f"{html_file.relative_to(site_dir)} must use crossorigin=anonymous for analytics"
+                f"{html_file.relative_to(site_dir)} must load GoatCounter asynchronously"
             )
 
     if violations:
@@ -311,7 +309,7 @@ def validate_bio_guide_pages(site_dir: Path) -> None:
 
 def resolve_local_reference(site_dir: Path, reference: str) -> Path | None:
     parsed = urlparse(reference)
-    if parsed.scheme in {"http", "https"} and parsed.netloc not in BASE_DOMAINS:
+    if parsed.netloc and parsed.netloc not in BASE_DOMAINS:
         return None
     if parsed.scheme and parsed.scheme not in {"http", "https"}:
         return None
