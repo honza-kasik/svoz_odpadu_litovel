@@ -173,6 +173,16 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 
+# macOS metadata
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100/
+.Trashes/
+.fseventsd/
+.TemporaryItems/
+
 .vscode/settings.json
 
 # Generated social preview images are deployed as a GitHub Pages artifact.
