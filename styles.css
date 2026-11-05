@@ -535,9 +535,14 @@ input {
   }
 
   #locationSearch {
-    flex: 1;          /* zabere všechen volný prostor */
-    min-width: 0;     /* KRITICKÉ pro správné zmenšování */
-    width: auto;      /* zruší pevnou šířku 220px */
+    box-sizing: border-box;
+    min-width: 0;
+    width: 100%;
+  }
+
+  #locationDropdown {
+    flex: 1;
+    min-width: 0;
   }
 
   #resetFilter {
