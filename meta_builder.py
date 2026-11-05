@@ -41,7 +41,7 @@ class MetaBuilder:
             ),
             "CANONICAL": f"{self.config.base_url}/",
             "H1": f"Kalendář svozu odpadu v {self.config.city_v}",
-            "SUBTITLE": f"Aktuální přehled svozových dnů pro {config.city}. Harmonogram zahrnuje svoz komunálního odpadu, plastů, papíru a bioodpadu. Data jsou platná pro rok {config.year}.",
+            "SUBTITLE": f"Aktuální přehled svozových dnů pro {self.config.city}. Harmonogram zahrnuje svoz komunálního odpadu, plastů, papíru a bioodpadu. Data jsou platná pro rok {self.config.year}.",
             "ICS_DOWNLOAD": "",
             "ICS_SUBSCRIPTION_WEBCAL": "",
             "ICS_SUBSCRIPTION_GOOGLE": ""
@@ -119,14 +119,14 @@ class MetaBuilder:
                 f"Kdy se v místní části {street_name} v {self.config.city_v} vyváží plast, papír nebo bioodpad? Podívejte se na aktuální harmonogram svozu pro rok {self.config.year} a stáhněte si kalendář do mobilu."
             )
             h1 = f"Svoz odpadu {city}, místní část {street_name}"
-            subtitle =  f"Aktuální přehled svozových dnů pro obec {street_name} (místní část {config.city_koho}). Harmonogram zahrnuje svoz komunálního odpadu, plastů, papíru a bioodpadu. Data jsou platná pro rok {year}."
+            subtitle =  f"Aktuální přehled svozových dnů pro obec {street_name} (místní část {self.config.city_koho}). Harmonogram zahrnuje svoz komunálního odpadu, plastů, papíru a bioodpadu. Data jsou platná pro rok {year}."
         else:
             description = (
                 f"Kdy se v ulici {street_name} v {self.config.city_v} vyváží plast, papír nebo bioodpad? Podívejte se na aktuální harmonogram svozu pro rok {self.config.year} a stáhněte si kalendář do mobilu."
 
             )
             h1 = f"Svoz odpadu {city}, {street_name}"
-            subtitle =  f"Aktuální přehled svozových dnů pro ulici {street_name} v {config.city_v}. Harmonogram zahrnuje svoz komunálního odpadu, plastů, papíru a bioodpadu. Data jsou platná pro rok {year}."
+            subtitle =  f"Aktuální přehled svozových dnů pro ulici {street_name} v {self.config.city_v}. Harmonogram zahrnuje svoz komunálního odpadu, plastů, papíru a bioodpadu. Data jsou platná pro rok {year}."
 
 
         ics_path = f"{self.config.base_domain}/calendars/{slug}.ics"

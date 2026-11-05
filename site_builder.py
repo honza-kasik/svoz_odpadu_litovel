@@ -1,9 +1,9 @@
 from datetime import date, datetime
 from html import escape
 import hashlib
-import json
 from pathlib import Path
 import random
+import re
 from zoneinfo import ZoneInfo
 
 from utils import slugify
@@ -11,8 +11,9 @@ from streets import mistni_casti
 from meta_builder import MetaBuilder, config
 from proximity import find_nearby_bio_options
 from project_config import project_config
+from seo import TEXT_TEMPLATE_KEYS, breadcrumbs_jsonld, jsonld_script, page_jsonld, script_json
 
-BASE_URL = "https://svoz.litovle.cz"
+BASE_URL = config.base_url.rstrip('/')
 TEMPLATE_PATH = "templates/layout.html"
 BIO_TEMPLATE_PATH = "templates/bio.html"
 BIO_DETAIL_TEMPLATE_PATH = "templates/bio_detail.html"
@@ -25,6 +26,7 @@ meta_builder = MetaBuilder(config)
 # -------------------------------------------------
 
 def render_template(output_path: str | Path, context: dict):
+    context = dict(context)
     template_path = context.pop("_TEMPLATE_PATH", TEMPLATE_PATH)
     with open(template_path, "r", encoding="utf-8") as f:
         html = f.read()
@@ -34,8 +36,12 @@ def render_template(output_path: str | Path, context: dict):
     context.setdefault("APP_JS_VERSION", file_digest("js/app.js"))
     context.setdefault("SCHEDULE_LOGIC_JS_VERSION", file_digest("js/schedule_logic.js"))
 
-    for key, value in context.items():
-        html = html.replace(f"{{{{{key}}}}}", value)
+    context['PAGE_JSONLD'] = page_jsonld(context, BASE_URL)
+    values = {
+        key: escape(value, quote=True) if key in TEXT_TEMPLATE_KEYS else value
+        for key, value in context.items()
+    }
+    html = re.sub(r'\{\{([A-Z][A-Z0-9_]*)\}\}', lambda match: values.get(match[1], match[0]), html)
 
     html = "\n".join(line.rstrip() for line in html.splitlines()) + "\n"
 
@@ -97,7 +103,7 @@ def build_street_pages(
             **meta_builder.street(street, slug, street in mistni_casti),
             "SEO_FALLBACK": fallback,
             "LOCATION_LIST": "",
-            "STREET_NAME": f'"{street}"',
+            "STREET_NAME": script_json(street),
             "RELATED_STREETS_HTML": related_html,
             "NEARBY_BIO_HTML": build_nearby_bio_html(
                 street,
@@ -136,7 +142,7 @@ def build_bio_pages(
         "NEXT_PLACEMENTS": overview["next"],
         "GROUPED_SCHEDULE": overview["schedule"],
         "SOURCE_LINKS": build_bio_source_links(schedule.sources),
-        "SEARCH_ITEMS_JSON": json.dumps(search_items, ensure_ascii=False).replace("<", "\\u003c"),
+        "SEARCH_ITEMS_JSON": script_json(search_items),
         "BIO_JS_VERSION": file_digest("js/bio.js"),
         "BIO_LOGIC_JS_VERSION": file_digest("js/bio_logic.js"),
         **build_social_context(social_image),
@@ -798,22 +804,17 @@ def build_bio_source_links(sources) -> str:
 
 
 def build_bio_breadcrumbs_jsonld() -> str:
-    return f'''<script type="application/ld+json">
-{{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {{"@type": "ListItem", "position": 1, "name": "Svoz odpadu Litovel", "item": "{BASE_URL}/"}},
-    {{"@type": "ListItem", "position": 2, "name": "Bio kontejnery", "item": "{BASE_URL}/bio/"}}
-  ]
-}}
-</script>'''
+    return breadcrumbs_jsonld([
+        ('Svoz odpadu Litovel', f'{BASE_URL}/'),
+        ('Bio kontejnery', f'{BASE_URL}/bio/'),
+    ])
 
 
 def build_bio_collection_jsonld(schedule) -> str:
     data = {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
+        "@id": f"{BASE_URL}/bio/#webpage",
         "name": f"Svoz bioodpadu Litovel – velkoobjemové kontejnery {schedule.year}",
         "url": f"{BASE_URL}/bio/",
         "description": (
@@ -834,25 +835,15 @@ def build_bio_collection_jsonld(schedule) -> str:
             ],
         },
     }
-    return (
-        '<script type="application/ld+json">\n'
-        + json.dumps(data, ensure_ascii=False, indent=2).replace("<", "\\u003c")
-        + "\n</script>"
-    )
+    return jsonld_script(data)
 
 
 def build_bio_detail_breadcrumbs_jsonld(section, name, relative_path) -> str:
-    return f'''<script type="application/ld+json">
-{{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {{"@type": "ListItem", "position": 1, "name": "Svoz odpadu Litovel", "item": "{BASE_URL}/"}},
-    {{"@type": "ListItem", "position": 2, "name": "Bio kontejnery", "item": "{BASE_URL}/bio/"}},
-    {{"@type": "ListItem", "position": 3, "name": "{escape(name)}", "item": "{BASE_URL}/bio/{relative_path}/"}}
-  ]
-}}
-</script>'''
+    return breadcrumbs_jsonld([
+        ('Svoz odpadu Litovel', f'{BASE_URL}/'),
+        ('Bio kontejnery', f'{BASE_URL}/bio/'),
+        (name, f'{BASE_URL}/bio/{relative_path}/'),
+    ])
 
 
 def build_content_page_jsonld(
@@ -911,11 +902,7 @@ def build_content_page_jsonld(
             }
         )
     payload = {"@context": "https://schema.org", "@graph": graph}
-    return (
-        '<script type="application/ld+json">\n'
-        + json.dumps(payload, ensure_ascii=False, indent=2).replace("<", "\\u003c")
-        + "\n</script>"
-    )
+    return jsonld_script(payload)
 
 
 # -------------------------------------------------
@@ -937,7 +924,7 @@ def build_location_list(streets):
 
     for street in sorted(streets):
         slug = slugify(street)
-        items += f'<li><a href="/ulice/{slug}/">{street}</a></li>\n'
+        items += f'<li><a href="/ulice/{slug}/">{escape(street)}</a></li>\n'
 
     news_items = build_year_news(config.year)
 
@@ -1026,7 +1013,7 @@ def build_fallback_table(generator, street, year: int | None = None):
         )
 
     return f"""
-<h2>Termíny svozu odpadu – {street}, {year or config.year}</h2>
+<h2>Termíny svozu odpadu – {escape(street)}, {year or config.year}</h2>
 <table>
 <tr>
     <th>Datum</th>
@@ -1138,7 +1125,7 @@ def build_related_streets_html(current_street, all_streets):
     for street in related:
         slug = slugify(street)
         links.append(
-            f'<a href="/ulice/{slug}/">{street}</a>'
+            f'<a href="/ulice/{slug}/">{escape(street)}</a>'
         )
 
     return (
@@ -1150,69 +1137,27 @@ def build_related_streets_html(current_street, all_streets):
 
 
 def build_breadcrumbs_jsonld(street: str, slug: str) -> str:
-    return f"""
-<script type="application/ld+json">
-{{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {{
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Svoz odpadu Litovel",
-      "item": "{BASE_URL}/"
-    }},
-    {{
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Ulice",
-      "item": "{BASE_URL}/ulice/"
-    }},
-    {{
-      "@type": "ListItem",
-      "position": 3,
-      "name": "{street}",
-      "item": "{BASE_URL}/ulice/{slug}/"
-    }}
-  ]
-}}
-</script>
-"""
+    return breadcrumbs_jsonld([
+        ('Svoz odpadu Litovel', f'{BASE_URL}/'),
+        (street, f'{BASE_URL}/ulice/{slug}/'),
+    ])
 
 
 def build_index_jsonld():
-    return f"""
-<script type="application/ld+json">
-{{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Svoz odpadu Litovel",
-  "url": "{BASE_URL}/"
-}}
-</script>
-"""
+    return jsonld_script({
+        '@context': 'https://schema.org', '@type': 'CollectionPage',
+        '@id': f'{BASE_URL}/#webpage', 'mainEntity': {'@id': f'{BASE_URL}/#locations'},
+    })
 
 
 def build_index_itemlist_jsonld(streets):
-    items = []
-
-    for i, street in enumerate(sorted(streets), start=1):
-        slug = slugify(street)
-        items.append(f"""
-        {{
-          "@type": "ListItem",
-          "position": {i},
-          "name": "{street}",
-          "url": "{BASE_URL}/ulice/{slug}/"
-        }}""")
-
-    return f"""
-<script type="application/ld+json">
-{{
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "name": "Ulice svozu odpadu Litovel",
-  "itemListElement": [{','.join(items)}]
-}}
-</script>
-"""
+    return jsonld_script({
+        '@context': 'https://schema.org', '@type': 'ItemList',
+        '@id': f'{BASE_URL}/#locations', 'name': 'Ulice a místní části Litovle',
+        'numberOfItems': len(streets),
+        'itemListElement': [
+            {'@type': 'ListItem', 'position': position, 'name': street,
+             'url': f'{BASE_URL}/ulice/{slugify(street)}/'}
+            for position, street in enumerate(sorted(streets), start=1)
+        ],
+    })

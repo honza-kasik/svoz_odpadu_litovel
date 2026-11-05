@@ -2,9 +2,11 @@
 from __future__ import annotations
 
 import argparse
+import json
 from html.parser import HTMLParser
 from pathlib import Path
 import sys
+import xml.etree.ElementTree as ET
 from urllib.parse import unquote, urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -55,6 +57,7 @@ def main() -> int:
     site_dir = Path(args.site_dir)
     validate_required_files(site_dir)
     validate_search_discovery_files(site_dir)
+    validate_seo_metadata(site_dir)
     validate_release_data_files(site_dir)
     validate_calendar_urls(site_dir)
     validate_social_images(site_dir)
@@ -104,6 +107,120 @@ def validate_search_discovery_files(site_dir: Path) -> None:
             raise SystemExit(f"Sitemap is missing {route}")
     if "Sitemap: https://svoz.litovle.cz/sitemap.xml" not in robots:
         raise SystemExit("robots.txt does not advertise the canonical sitemap")
+    namespace = {'s': 'http://www.sitemaps.org/schemas/sitemap/0.9'}
+    urls = [node.text for node in ET.fromstring(sitemap).findall('s:url/s:loc', namespace)]
+    expected = {
+        'https://svoz.litovle.cz/' + str(path.relative_to(site_dir)).removesuffix('index.html')
+        for path in site_dir.rglob('index.html')
+    }
+    if len(urls) != len(set(urls)) or set(urls) != expected:
+        raise SystemExit('Sitemap must contain every generated page exactly once, using its clean canonical URL')
+
+
+class SeoParser(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.titles: list[str] = []
+        self.canonicals: list[str | None] = []
+        self.meta: dict[str, list[str | None]] = {}
+        self.structured: list[dict] = []
+        self.headings: list[str] = []
+        self.heading: str | None = None
+        self.title: str | None = None
+        self.script: str | None = None
+
+    def handle_starttag(self, tag, attrs):
+        values = dict(attrs)
+        if tag == 'title':
+            self.title = ''
+        if tag == 'h1':
+            self.heading = ''
+        if tag == 'link' and values.get('rel') == 'canonical':
+            self.canonicals.append(values.get('href'))
+        if tag == 'meta':
+            name = values.get('name') or values.get('property')
+            if name:
+                self.meta.setdefault(name, []).append(values.get('content'))
+        if tag == 'script' and values.get('type') == 'application/ld+json':
+            self.script = ''
+
+    def handle_data(self, value):
+        if self.heading is not None:
+            self.heading += value
+        if self.title is not None:
+            self.title += value
+        if self.script is not None:
+            self.script += value
+
+    def handle_endtag(self, tag):
+        if tag == 'h1' and self.heading is not None:
+            self.headings.append(' '.join(self.heading.split()))
+            self.heading = None
+        if tag == 'title' and self.title is not None:
+            self.titles.append(self.title.strip())
+            self.title = None
+        if tag == 'script' and self.script is not None:
+            self.structured.append(json.loads(self.script))
+            self.script = None
+
+
+def structured_nodes(value):
+    if isinstance(value, dict):
+        yield value
+        for child in value.values():
+            yield from structured_nodes(child)
+    elif isinstance(value, list):
+        for child in value:
+            yield from structured_nodes(child)
+
+
+def validate_seo_metadata(site_dir: Path) -> None:
+    origin = 'https://' + (site_dir / 'CNAME').read_text().strip()
+    titles = set()
+    violations = []
+    for page in sorted(site_dir.rglob('index.html')):
+        relative = page.relative_to(site_dir)
+        canonical = origin + '/' + str(relative).removesuffix('index.html')
+        parser = SeoParser()
+        try:
+            parser.feed(page.read_text(encoding='utf-8'))
+        except (ValueError, TypeError) as error:
+            violations.append(f'{relative}: invalid JSON-LD: {error}')
+            continue
+        if parser.canonicals != [canonical]:
+            violations.append(f'{relative}: expected one canonical URL {canonical}')
+        if len(parser.titles) != 1 or not parser.titles[0]:
+            violations.append(f'{relative}: missing or duplicate title')
+        elif parser.titles[0] in titles:
+            violations.append(f'{relative}: title duplicates another page')
+        else:
+            titles.add(parser.titles[0])
+        description = parser.meta.get('description', [])
+        if len(description) != 1 or not description[0]:
+            violations.append(f'{relative}: missing or duplicate description')
+        for key, expected in {
+            'og:url': [canonical], 'og:title': parser.titles,
+            'twitter:title': parser.titles, 'og:description': description,
+            'twitter:description': description, 'og:locale': ['cs_CZ'],
+        }.items():
+            if parser.meta.get(key) != expected:
+                violations.append(f'{relative}: inconsistent {key}')
+        nodes = list(structured_nodes(parser.structured))
+        webpage = next((node for node in nodes if node.get('@id') == canonical + '#webpage' and node.get('url') == canonical), None)
+        if webpage is None:
+            violations.append(f'{relative}: missing canonical WebPage structured data')
+        elif parser.headings != [' '.join(webpage.get('name', '').split())]:
+            violations.append(f'{relative}: main heading must match the page structured data')
+        for node in nodes:
+            for key in ('item', 'url'):
+                value = node.get(key)
+                if not isinstance(value, str):
+                    continue
+                target = resolve_local_reference(site_dir, value)
+                if target is not None and not target.is_file():
+                    violations.append(f'{relative}: structured data links to missing page {value}')
+    if violations:
+        raise SystemExit('SEO metadata violations:\n' + '\n'.join(violations[:20]))
 
 
 def validate_release_data_files(site_dir: Path) -> None:

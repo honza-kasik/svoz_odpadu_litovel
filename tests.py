@@ -70,6 +70,12 @@ from site_builder import (
     validate_bio_routes,
 )
 from meta_builder import MetaBuilder, config as meta_config
+from site_builder import (
+    build_breadcrumbs_jsonld, build_bio_detail_breadcrumbs_jsonld,
+    build_index_itemlist_jsonld, build_social_context, render_template,
+)
+from seo import script_json
+from scripts.validate_site_artifact import SeoParser, validate_seo_metadata
 from proximity import (
     ProximityConfig,
     find_nearby_bio_placements,
@@ -645,6 +651,108 @@ class BioProximityTest(unittest.TestCase):
         self.assertEqual("uncovice-u-hasicarny", nearby[0].placement.site.id)
         self.assertEqual("upcoming", nearby[0].status)
         self.assertLess(nearby[0].distance_km, 1)
+
+
+class SeoMetadataTest(unittest.TestCase):
+    def render(self, root, name='Svoz odpadu "A & B" <test> {{TITLE}}'):
+        image = SimpleNamespace(url=meta_config.base_url + '/resources/social/test.png', alt=name)
+        context = {
+            **MetaBuilder(meta_config).index(), 'TITLE': name, 'H1': name,
+            'DESCRIPTION': 'Termíny pro "A & B" <lokalitu> v Litovli.',
+            'SEO_FALLBACK': '<p>Static schedule.</p>', 'LOCATION_LIST': '',
+            'STREET_NAME': script_json(name), 'RELATED_STREETS_HTML': '',
+            'NEARBY_BIO_HTML': '', 'BREADCRUMBS_JSONLD': '',
+            **build_social_context(image),
+        }
+        original = dict(context)
+        path = root / 'index.html'
+        render_template(path, context)
+        self.assertEqual(context, original, 'Rendering must not alter caller metadata')
+        (root / 'CNAME').write_text('svoz.litovle.cz\n')
+        return path
+
+    def test_metadata_round_trips_quotes_ampersands_and_placeholder_like_text(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            path = self.render(root)
+            parser = SeoParser()
+            parser.feed(path.read_text().split('</head>', 1)[0])
+            self.assertEqual(parser.titles, ['Svoz odpadu "A & B" <test> {{TITLE}}'])
+            self.assertEqual(parser.meta['description'], ['Termíny pro "A & B" <lokalitu> v Litovli.'])
+            full = SeoParser()
+            full.feed(path.read_text())
+            self.assertEqual(full.headings, parser.titles)
+            self.assertIn('<p>Static schedule.</p>', path.read_text())
+            self.assertEqual(parser.structured[0]['@graph'][-1]['name'], parser.titles[0])
+            validate_seo_metadata(root)
+
+    def test_script_like_text_cannot_close_jsonld_or_street_name_script(self):
+        name = 'Ulice </script><script>alert("x")</script> & "název"'
+        with tempfile.TemporaryDirectory() as directory:
+            path = self.render(Path(directory), name)
+            text = path.read_text()
+            self.assertNotIn('</script><script>alert', text)
+            self.assertNotIn(name, text)
+            self.assertIn(script_json(name), text)
+            parser = SeoParser()
+            parser.feed(text.split('</head>', 1)[0])
+            self.assertEqual(parser.structured[0]['@graph'][-1]['name'], name)
+
+    def test_breadcrumb_names_are_json_text_and_street_hierarchy_has_no_missing_index(self):
+        name = 'Ulice "A & B" </script>'
+        for markup in [build_breadcrumbs_jsonld(name, 'a-b'),
+                       build_bio_detail_breadcrumbs_jsonld('Stanoviště', name, 'stanoviste/a-b')]:
+            parser = SeoParser()
+            parser.feed(markup)
+            items = parser.structured[0]['itemListElement']
+            self.assertEqual(items[-1]['name'], name)
+            self.assertNotIn(meta_config.base_url + '/ulice/', [item['item'] for item in items])
+            self.assertNotIn('</script><script>', markup)
+        parser = SeoParser()
+        parser.feed(build_index_itemlist_jsonld([name]))
+        self.assertEqual(parser.structured[0]['itemListElement'][0]['name'], name)
+
+    def test_metadata_uses_the_builders_year_and_city_consistently(self):
+        builder = MetaBuilder(replace(meta_config, year=2030, city='Testov', city_v='Testově', city_koho='Testova'))
+        for data in [builder.index(), builder.street('Ulice', 'ulice', False), builder.street('Část', 'cast', True)]:
+            self.assertIn('2030', data['TITLE'])
+            self.assertIn('2030', data['DESCRIPTION'])
+            self.assertIn('2030', data['SUBTITLE'])
+            self.assertNotIn('Litovel', data['SUBTITLE'])
+
+    def test_street_description_does_not_promise_missing_mixed_waste_dates(self):
+        streets = all_streets['Litovel'] + mistni_casti
+        schedule = load_waste_schedule(Path('waste_schedule.csv'), streets)
+        builder = MetaBuilder(replace(meta_config, year=2026))
+        for street in ['Karlov', 'Koupaliště', 'Lesní zátiší', 'Sovova', 'Tichá', 'Třídvorská', 'Šerhovní']:
+            with self.subTest(street=street):
+                self.assertFalse(any(
+                    event.date.year == 2026 and event.waste_type == WasteType.SMES
+                    for event in schedule.get_events_for_street(street)
+                ))
+                description = builder.street(street, 'street', False)['DESCRIPTION']
+                self.assertIn(street, description)
+                self.assertIn('2026', description)
+                self.assertNotIn('směsného odpadu', description)
+
+    def test_artifact_validation_rejects_localhost_broken_json_and_missing_breadcrumb_targets(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            path = self.render(root)
+            good = path.read_text()
+            path.write_text(good.replace('<h1 id="mainHeader">', '<h2 id="mainHeader">').replace('</h1>', '</h2>'))
+            with self.assertRaisesRegex(SystemExit, 'main heading must match'):
+                validate_seo_metadata(root)
+            path.write_text(good.replace('rel="canonical" id="canonicalLink" href="https://svoz.litovle.cz/"',
+                                         'rel="canonical" id="canonicalLink" href="http://localhost:8000/"'))
+            with self.assertRaisesRegex(SystemExit, 'expected one canonical URL'):
+                validate_seo_metadata(root)
+            path.write_text(good.replace('"@context": "https://schema.org"', '"@context": broken'))
+            with self.assertRaisesRegex(SystemExit, 'invalid JSON-LD'):
+                validate_seo_metadata(root)
+            path.write_text(good.replace('</head>', build_breadcrumbs_jsonld('Missing', 'missing') + '</head>'))
+            with self.assertRaisesRegex(SystemExit, 'structured data links to missing page'):
+                validate_seo_metadata(root)
 
 
 class BioSeoPagesTest(unittest.TestCase):
