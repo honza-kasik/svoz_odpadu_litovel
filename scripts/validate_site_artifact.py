@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from utils import slugify
+from collection_changes import FEED_NAME, load_collection_changes
 
 BASE_DOMAINS = {"svoz.litovle.cz", "www.svoz.litovle.cz"}
 GOATCOUNTER_SRC = "//gc.zgo.at/count.js"
@@ -26,6 +27,7 @@ REQUIRED_FILES = (
     "waste_schedule.csv",
     "bio_schedule.json",
     "bio_disposal.json",
+    FEED_NAME,
     "sitemap.xml",
     "robots.txt",
     "CNAME",
@@ -59,6 +61,7 @@ def main() -> int:
     validate_search_discovery_files(site_dir)
     validate_seo_metadata(site_dir)
     validate_release_data_files(site_dir)
+    load_collection_changes(site_dir / FEED_NAME, site_dir / "calendars")
     validate_calendar_urls(site_dir)
     validate_social_images(site_dir)
     validate_no_source_files(site_dir)

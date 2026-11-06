@@ -113,6 +113,17 @@ class SvozException:
     note: str | None
     internal_note: str | None = None
 
+    @property
+    def resolved_locations(self) -> tuple[str, ...]:
+        """Return the authoritative targets shared by schedules and presentation.
+
+        A named group uses its current membership. The historical snapshot is
+        source context and never selects which locations receive the change.
+        """
+        if self.affected_location_group is not None:
+            return LOCATION_GROUPS[self.affected_location_group]
+        return self.affected_locations
+
 
 def load_svoz_exceptions(
     path: Path = EXCEPTION_DATA_PATH,

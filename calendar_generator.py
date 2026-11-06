@@ -5,6 +5,8 @@ from icalendar import Calendar, Event
 from icalendar.prop import vDate, vUri
 
 from lokace_svozu import LokaceSvozu, CollectionEvent
+from schedule_exceptions import apply_schedule_exceptions
+from svoz_exceptions import SvozException
 from utils import slugify
 
 
@@ -69,6 +71,11 @@ class WasteCollectionCalendarGenerator:
     """
     Generator jednotlivych datovych podkladu (.ics a .csv)
 
+    Pravidelný rozvrh se sestaví jednou a poté se na jednotlivé ulice aplikují
+    explicitně předané výjimky. CSV i ICS používají tento společný výsledek;
+    ``applied_exceptions`` obsahuje výjimky v rozsahu [date_start, date_end)
+    pro export oznámení změn.
+
     Args:
         lokace_svozu_smes: list[LokaceSvozu]: Vsechny lokace svozu smesneho odpadu, ktere se maji pouzit v generatoru
         lokace_svozu_plast: list[LokaceSvozu]: Vsechny lokace svozu plastoveho odpadu, ktere se maji pouzit v generatoru
@@ -84,9 +91,11 @@ class WasteCollectionCalendarGenerator:
         lokace_svozu_bio: list[LokaceSvozu],
         streets: list[str],
         date_start: datetime,
-        date_end: datetime
+        date_end: datetime,
+        *,
+        exceptions: tuple[SvozException, ...],
     ):
-        self._event_cache = self._build_event_cache(
+        regular = self._build_event_cache(
             lokace_svozu_smes
             + lokace_svozu_plast
             + lokace_svozu_papir
@@ -94,6 +103,9 @@ class WasteCollectionCalendarGenerator:
             streets,
             date_start,
             date_end
+        )
+        self._event_cache, self.applied_exceptions = apply_schedule_exceptions(
+            regular, exceptions, date_start, date_end
         )
 
     def _build_event_cache(

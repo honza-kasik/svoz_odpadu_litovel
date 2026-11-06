@@ -41,7 +41,7 @@ jobs:
           if [[ "${{ github.event_name }}" == "push" ]]; then
             before="${{ github.event.before }}"
             if [[ "$before" == "0000000000000000000000000000000000000000" ]] || \
-               ! git diff --quiet "$before" "${{ github.sha }}" -- waste_schedule.csv calendars; then
+               ! git diff --quiet "$before" "${{ github.sha }}" -- waste_schedule.csv calendars collection_changes.json; then
               notify_app=true
             fi
           elif [[ "${{ github.event_name }}" == "workflow_dispatch" && "${{ inputs.notify_app }}" == "true" ]]; then

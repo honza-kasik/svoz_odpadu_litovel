@@ -62,12 +62,13 @@ Z těchto vstupů se příkazem `python scripts/generate_schedule_exports.py` vy
 
 * `waste_schedule.csv` – všechny události pravidelného svozu,
 * `calendars/*.ics` – jeden kanonický kalendář pojmenovaný slugem pro každou lokalitu,
+* `collection_changes.json` – oznámené změny aplikované na harmonogram, včetně dotčených ulic a hashů jejich kanonických ICS,
 * `bio_schedule.json` – aktivní bio harmonogram, zdroje, stanoviště, efektivní souřadnice a referenční body pro výpočet vzdáleností.
 * `bio_disposal.json` – zdrojově doložené rozdíly mezi hnědou popelnicí, velkoobjemovým kontejnerem a sběrným dvorem včetně data posledního ověření.
 
 Webové stránky čtou pouze tuto vydanou datovou vrstvu. HTML, sitemap, `robots.txt` a social preview obrázky se generují až do `_site/`, protože závisí na sestavení a změna šablony by jinak vytvářela stovky změn v Gitu. Build odmítne pokračovat, pokud vydaná data neodpovídají vstupům. Sitemap uvádí pouze kanonické URL; datum `lastmod` se nevytváří, dokud ho nebude možné spolehlivě odvodit ze skutečné změny obsahu.
 
-Kanonické ICS soubory jsou trackované záměrně jako veřejná verzovaná data. Při sestavení se do `_site/calendars/` doplní také původní názvy s diakritikou kvůli existujícím odběrům. Tyto aliasy jsou byte-for-byte kopie kanonických souborů, ale v Gitu se nedrží; tím se předchází problémům s názvy lišícími se pouze velikostí písmen na macOS. Produkce publikuje přesné kopie trackovaných CSV, kanonických ICS a obou bio JSON dat.
+Kanonické ICS soubory jsou trackované záměrně jako veřejná verzovaná data. Při sestavení se do `_site/calendars/` doplní také původní názvy s diakritikou kvůli existujícím odběrům. Tyto aliasy jsou byte-for-byte kopie kanonických souborů, ale v Gitu se nedrží; tím se předchází problémům s názvy lišícími se pouze velikostí písmen na macOS. Produkce publikuje přesné kopie trackovaných CSV, kanonických ICS, oznámení změn a obou bio JSON dat.
 
 == GitHub Actions
 
@@ -76,7 +77,7 @@ GitHub Pages musí být nastavené na nasazování přes GitHub Actions, ne př�
 Workflowy:
 
 * `CI` běží na pull requestech, pushi do `main` a ručně. Ověří, že trackované exporty přesně odpovídají vstupům, sestaví z nich `_site` a validuje celý artefakt. Nepoužívá deploy ani Firebase přístup.
-* `Deploy generated site` běží po pushi do `main`, ručně a denně v `03:17 UTC`. Znovu ověří data, sestaví `_site` a nasadí ho přes GitHub Pages. FCM refresh odešle až po úspěšném nasazení a jen pokud push změnil CSV nebo kanonické ICS. Denní build aplikaci neupozorňuje; ruční spuštění má volitelný přepínač `notify_app`.
+* `Deploy generated site` běží po pushi do `main`, ručně a denně v `03:17 UTC`. Znovu ověří data, sestaví `_site` a nasadí ho přes GitHub Pages. FCM refresh odešle až po úspěšném nasazení a jen pokud push změnil CSV, kanonické ICS nebo `collection_changes.json`. Denní build aplikaci neupozorňuje; ruční spuštění má volitelný přepínač `notify_app`.
 * `Watch Litovel.eu` běží denně v `06:17 UTC` a ručně. Nový kandidátní článek založí jako deduplikovaný GitHub issue k ručnímu prověření; harmonogram ani zdrojová data sám nemění. Již prověřené historické odkazy jsou v `data/litovel_watcher_known.json`. Nedostupný městský zdroj workflow záměrně shodí, aby výpadek monitoringu nebyl skrytý.
 
 Android aplikace zatím bio data nepoužívá, takže samotná změna `bio_schedule.json` nebo `bio_disposal.json` FCM refresh nespouští. Až klient podporu získá, přidají se tyto soubory do detekce změny bez nutnosti měnit stávající payload `type=refresh`.
@@ -85,7 +86,7 @@ Android aplikace zatím bio data nepoužívá, takže samotná změna `bio_sched
 
 1. Ověřit oficiální zdroj a uložit odkaz včetně archivu.
 2. Přidat jednorázovou změnu do `data/svoz_exceptions.json`; Python logiku měnit jen pokud změna vyžaduje novou skupinu nebo pravidlo.
-3. Spustit `python scripts/generate_schedule_exports.py`, aby se aktualizovaly trackované CSV, kanonické ICS a bio JSON.
+3. Spustit `python scripts/generate_schedule_exports.py`, aby se aktualizovaly trackované CSV, kanonické ICS, oznámení změn a bio JSON.
 4. Spustit `python scripts/validate_project.py`.
 5. Pro kontrolu produkčního artefaktu spustit `python scripts/build_site.py --output-dir _site` a `python scripts/validate_site_artifact.py _site`.
 
@@ -153,6 +154,14 @@ Při přidání nového ročního harmonogramu:
 Pravidelný harmonogram svozu zůstává v Pythonu v souboru link:lokace_svozu.py[`lokace_svozu.py`].
 
 Jednorázové změny svozu jsou v link:data/svoz_exceptions.json[`data/svoz_exceptions.json`]. Každá změna má stabilní `id`, typ odpadu, dotčené lokace nebo skupinu lokací, akci a datum změny. Pokud se používá `affected_location_group`, seznam míst může být přiložen jen jako `affected_locations_snapshot`; samostatné `affected_locations` je autoritativní pouze bez skupiny. Objekt `source` obsahuje podle dostupnosti strukturované položky `url`, `title`, krátký doklad `evidence`, textovou `note` a seznam archivních odkazů `archive_urls`. URL se nesmí ukládat do `evidence` ani poznámek; patří do `source.url` nebo `source.archive_urls`. Uživatelská poznámka patří do `note`; technická poznámka, která se nesmí zobrazit v kalendáři, do `internal_note`.
+
+Generátor nejprve sestaví pravidelný rozvrh a potom link:schedule_exceptions.py[`schedule_exceptions.py`] aplikuje výjimky na jednotlivé dvojice ulice a druhu odpadu. Výjimka může zasáhnout jedinou ulici, část skupiny i několik pravidelných tras. Neznámá ulice, duplicitní ID nebo překryv dvou výjimek pro stejnou ulici, druh odpadu a den zastaví generování. Rozsah je `[date_start, date_end)`; přesun přes jeho hranici upraví pouze stranu ležící uvnitř rozsahu.
+
+Lokality a konflikty se kontrolují nad úplnými výjimkami, včetně dat mimo exportované období. Teprve po validaci se vyberou operace spadající do rozsahu kalendáře. Výjimky ležící celé mimo období se do oznámení neexportují.
+
+Překlad `affected_location_group` nebo `affected_locations` na skutečné lokality má jediné místo: `SvozException.resolved_locations`. Používá ho aplikování výjimek, veřejná oznámení i grafika příspěvků. `affected_locations_snapshot` je historický kontext zdroje; pro výběr lokalit se nepoužívá. Definice pravidelných tras a členství ve skupinách zůstávají oddělené od jednorázových změn, takže přidání výjimky nevyžaduje ruční napojování jednotlivých pravidel.
+
+CSV a ICS vycházejí ze společného výsledku. `collection_changes.json` dostává stejný seznam použitých výjimek, načtený jednou při generování. Export a validace artefaktu kromě hashů ověřují i obsah: přidaný nebo přesunutý svoz musí v ICS existovat s odpovídajícím ID výjimky, původní nebo zrušený termín musí chybět.
 
 Změněné události v ICS odkazují standardním polem `URL` na příslušnou stránku lokality na `svoz.litovle.cz`. Původní zdroj a jeho archivy jsou dostupné strojově v `X-SVOZ-SOURCE-URL` a opakovaném `X-SVOZ-ARCHIVE-URL`; `source.evidence` se zároveň zapisuje do `X-SVOZ-CHANGE-MESSAGE`. Do uživatelského `DESCRIPTION` se URL ani `internal_note` nevkládají.
 
