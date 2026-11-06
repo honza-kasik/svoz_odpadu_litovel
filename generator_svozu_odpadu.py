@@ -5,6 +5,7 @@ import shutil
 import tempfile
 
 import calendar_generator
+from collection_changes import FEED_NAME, write_collection_changes
 from bio_containers import load_bio_schedule
 from bio_disposal import load_bio_disposal_source
 from lokace_svozu import (
@@ -18,13 +19,17 @@ from proximity import load_proximity_config
 from project_config import project_config, validate_rollover
 from release_data import write_bio_disposal_release, write_bio_release
 from streets import all_streets, mistni_casti
+from svoz_exceptions import SvozException, load_svoz_exceptions
 
 
 date_start = project_config.date_start
 date_end = project_config.date_end
 
 
-def create_regular_schedule() -> tuple[calendar_generator.WasteCollectionCalendarGenerator, list[str]]:
+def create_regular_schedule(
+    exceptions: tuple[SvozException, ...] | None = None,
+) -> tuple[calendar_generator.WasteCollectionCalendarGenerator, list[str]]:
+    """Build the corrected schedule, loading source exceptions once by default."""
     validate_rollover(project_config)
     validate_regular_schedule_years(project_config.calendar_years)
     streets = all_streets["Litovel"] + mistni_casti
@@ -36,13 +41,17 @@ def create_regular_schedule() -> tuple[calendar_generator.WasteCollectionCalenda
         streets,
         date_start,
         date_end,
+        exceptions=load_svoz_exceptions() if exceptions is None else exceptions,
     )
     return generator, streets
 
 
-def generate_release_data(output_dir: str | Path = ".") -> None:
+def generate_release_data(
+    output_dir: str | Path = ".", *, exceptions: tuple[SvozException, ...] | None = None,
+) -> None:
+    """Export CSV, ICS and announcements from one corrected schedule."""
     output_dir = Path(output_dir)
-    generator, streets = create_regular_schedule()
+    generator, streets = create_regular_schedule(exceptions)
     bio_schedule = load_bio_schedule()
     bio_disposal = load_bio_disposal_source()
     if bio_schedule.year != project_config.bio_active_year:
@@ -79,6 +88,7 @@ def generate_release_data(output_dir: str | Path = ".") -> None:
         proximity_config.collection_yard,
         output_dir / "bio_disposal.json",
     )
+    write_collection_changes(output_dir, streets, generator.applied_exceptions)
 
 
 def refresh_release_data(output_dir: str | Path = ".") -> None:
@@ -91,6 +101,7 @@ def refresh_release_data(output_dir: str | Path = ".") -> None:
             "waste_schedule.csv",
             "bio_schedule.json",
             "bio_disposal.json",
+            FEED_NAME,
         ):
             _replace_file(generated / filename, output_dir / filename)
 

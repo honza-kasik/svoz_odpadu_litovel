@@ -1,6 +1,8 @@
 from contextlib import contextmanager
+import hashlib
 from dataclasses import replace
 from datetime import date, datetime
+from itertools import product
 import json
 import tempfile
 from types import SimpleNamespace
@@ -9,7 +11,8 @@ from pathlib import Path
 from unittest.mock import patch
 
 import calendar_generator
-from icalendar import Calendar
+from collection_changes import change_record, content_hash, load_collection_changes, write_collection_changes
+from icalendar import Calendar, Event
 from bio_containers import (
     BioCoordinates,
     BioPlacement,
@@ -20,7 +23,7 @@ from bio_containers import (
 )
 from bio_disposal import load_bio_disposal_source
 from PIL import Image
-from generator_svozu_odpadu import date_end, date_start
+from generator_svozu_odpadu import date_end, date_start, generate_release_data
 from lokace_svozu import (
     CollectionEvent,
     LokaceSvozu,
@@ -32,7 +35,9 @@ from lokace_svozu import (
     validate_regular_schedule_years,
 )
 from streets import all_streets, litovel_lokace_bio_0, mistni_casti
+from schedule_exceptions import apply_schedule_exceptions
 from svoz_exceptions import SvozException, SvozExceptionSource, load_svoz_exceptions
+from utils import slugify
 from scripts.watch_litovel_eu import (
     DEFAULT_URLS,
     extract_articles,
@@ -1074,6 +1079,361 @@ class SocialPreviewTest(unittest.TestCase):
             self.assertEqual([card_dir / "home.png"], list(card_dir.iterdir()))
 
 
+class CollectionChangesFeedTest(unittest.TestCase):
+    def test_public_records_have_explicit_actions_and_no_internal_notes(self):
+        original = load_svoz_exceptions()[0]
+        for action in ("reschedule", "include", "cancel"):
+            item = replace(original, action=action, date=date(2026, 12, 24))
+            record = change_record(item)
+            self.assertEqual(action, record["action"])
+            self.assertTrue(record["street_slugs"])
+            self.assertNotIn("internal_note", record)
+            self.assertNotIn("note", record["source"])
+            self.assertEqual(action == "reschedule", "original_date" in record)
+            self.assertEqual(action != "reschedule", "date" in record)
+
+    def test_semantic_revision_ignores_sources_and_membership_but_tracks_dates(self):
+        original = load_svoz_exceptions()[0]
+        changed_source = replace(original, source=SvozExceptionSource(title="New title", evidence="New text"))
+        changed_membership = replace(original, affected_location_group=None, affected_locations=("Sochova",))
+        changed_date = replace(original, new_date=date(2026, 12, 25))
+        self.assertEqual(change_record(original)["revision"], change_record(changed_source)["revision"])
+        self.assertEqual(change_record(original)["revision"], change_record(changed_membership)["revision"])
+        self.assertNotEqual(change_record(original)["revision"], change_record(changed_date)["revision"])
+
+    def test_feed_matches_canonical_calendars_and_public_exception_data(self):
+        payload = load_collection_changes(Path("collection_changes.json"), Path("calendars"))
+        self.assertEqual(len(all_streets["Litovel"] + mistni_casti), len(payload["calendars"]))
+        self.assertEqual(len(load_svoz_exceptions()), len(payload["changes"]))
+        self.assertEqual(payload["changes"], [change_record(item) for item in sorted(load_svoz_exceptions(), key=lambda item: item.id)])
+
+    def test_feed_is_deterministic_and_calendar_mismatch_is_rejected(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            (root / "calendars").mkdir()
+            calendar = root / "calendars/sochova.ics"
+            original = replace(load_svoz_exceptions()[0], affected_location_group=None, affected_locations=("Sochova",))
+            sample = Calendar()
+            sample.add("version", "2.0")
+            event = Event()
+            event.add("dtstart", original.new_date or original.date)
+            event.add("summary", f"Změna: {WasteType[original.waste_type].label} svoz – Sochova")
+            event.add("X-SVOZ-EXCEPTION-ID", original.id)
+            sample.add_component(event)
+            calendar.write_bytes(sample.to_ical())
+            write_collection_changes(root, ["Sochova"], (original,))
+            before = (root / "collection_changes.json").read_bytes()
+            write_collection_changes(root, ["Sochova"], (original,))
+            self.assertEqual(before, (root / "collection_changes.json").read_bytes())
+            payload = load_collection_changes(root / "collection_changes.json", root / "calendars")
+            self.assertEqual(hashlib.sha256(calendar.read_bytes()).hexdigest(), payload["calendars"]["sochova"])
+            calendar.write_bytes(b"different calendar")
+            with self.assertRaisesRegex(ValueError, "hash mismatch"):
+                load_collection_changes(root / "collection_changes.json", root / "calendars")
+
+    def test_invalid_schema_unknown_streets_and_internal_fields_are_rejected(self):
+        payload = json.loads(Path("collection_changes.json").read_text())
+        for mutation in ("schema", "street", "internal"):
+            candidate = json.loads(json.dumps(payload))
+            if mutation == "schema": candidate["schema_version"] = 2
+            elif mutation == "street": candidate["changes"][0]["street_slugs"] = ["unknown-street"]
+            else: candidate["changes"][0]["internal_note"] = "private"
+            candidate["revision"] = content_hash({k: v for k, v in candidate.items() if k != "revision"})
+            with tempfile.TemporaryDirectory() as folder:
+                path = Path(folder) / "feed.json"
+                path.write_text(json.dumps(candidate))
+                with self.assertRaises(ValueError): load_collection_changes(path)
+
+    def test_matching_hashes_do_not_hide_a_calendar_that_contradicts_a_change(self):
+        original_day = date(2026, 12, 14)
+        moved_day = date(2026, 12, 15)
+        cases = (
+            ("include", ()),
+            ("include", ((moved_day, None),)),
+            ("cancel", ((moved_day, None),)),
+            ("reschedule", ((original_day, None), (moved_day, "test-change"))),
+            ("reschedule", ()),
+        )
+        for action, events in cases:
+            with self.subTest(action=action, events=events), tempfile.TemporaryDirectory() as folder:
+                root = Path(folder)
+                (root / "calendars").mkdir()
+                change = replace(
+                    load_svoz_exceptions()[0], id="test-change", action=action,
+                    waste_type="SMES", affected_location_group=None, affected_locations=("Sochova",),
+                    original_date=original_day if action == "reschedule" else None,
+                    new_date=moved_day if action == "reschedule" else None,
+                    date=moved_day if action != "reschedule" else None,
+                )
+                calendar = Calendar()
+                calendar.add("version", "2.0")
+                for day, exception_id in events:
+                    event = Event()
+                    event.add("dtstart", day)
+                    event.add("summary", "Směsný odpad svoz – Sochova")
+                    if exception_id:
+                        event.add("X-SVOZ-EXCEPTION-ID", exception_id)
+                    calendar.add_component(event)
+                encoded = calendar.to_ical()
+                (root / "calendars/sochova.ics").write_bytes(encoded)
+                payload = {
+                    "schema_version": 1,
+                    "calendars": {"sochova": hashlib.sha256(encoded).hexdigest()},
+                    "changes": [change_record(change)],
+                }
+                payload["revision"] = content_hash(payload)
+                (root / "collection_changes.json").write_text(json.dumps(payload))
+                with self.assertRaisesRegex(ValueError, "test-change contradicts calendar sochova"):
+                    load_collection_changes(root / "collection_changes.json", root / "calendars")
+                with self.assertRaisesRegex(ValueError, "test-change contradicts calendar sochova"):
+                    write_collection_changes(root, ["Sochova"], (change,))
+
+
+class ScheduleExceptionsTest(unittest.TestCase):
+    def setUp(self):
+        self.start = datetime(2026, 12, 1)
+        self.end = datetime(2027, 1, 1)
+        self.original = datetime(2026, 12, 14)
+        self.moved = datetime(2026, 12, 15)
+        self.regular = {
+            street: [CollectionEvent(self.original, WasteType.SMES)]
+            for street in ("A", "B", "C")
+        }
+        self.regular["A"].append(CollectionEvent(self.original, WasteType.PAPIR))
+
+    def exception(self, action="reschedule", streets=("A",), **overrides):
+        fields = dict(
+            id="test-change", action=action, waste_type="SMES",
+            affected_locations=streets, affected_locations_snapshot=(),
+            affected_location_group=None,
+            original_date=self.original.date() if action == "reschedule" else None,
+            new_date=self.moved.date() if action == "reschedule" else None,
+            date=self.original.date() if action == "cancel" else self.moved.date() if action == "include" else None,
+            source=SvozExceptionSource(), note=None,
+        )
+        return SvozException(**(fields | overrides))
+
+    def apply(self, *exceptions):
+        return apply_schedule_exceptions(self.regular, exceptions, self.start, self.end)
+
+    def test_include_only_adds_to_selected_street_and_preserves_input(self):
+        change = self.exception("include")
+        corrected, applied = self.apply(change)
+        self.assertEqual((change,), applied)
+        self.assertEqual(CollectionEvent(self.moved, WasteType.SMES, True), corrected["A"][-1])
+        self.assertIs(change, corrected["A"][-1].exception)
+        self.assertEqual(self.regular["B"], corrected["B"])
+        self.assertEqual(self.regular["C"], corrected["C"])
+        self.assertEqual(2, len(self.regular["A"]))
+        self.assertTrue(all(not event.is_override for events in self.regular.values() for event in events))
+
+    def test_cancel_subset_keeps_other_streets_and_waste_types(self):
+        corrected, _ = self.apply(self.exception("cancel", ("A", "C")))
+        self.assertEqual([CollectionEvent(self.original, WasteType.PAPIR)], corrected["A"])
+        self.assertEqual(self.regular["B"], corrected["B"])
+        self.assertEqual([], corrected["C"])
+
+    def test_reschedule_subset_keeps_other_streets_and_waste_types(self):
+        change = self.exception(streets=("A", "C"))
+        corrected, _ = self.apply(change)
+        self.assertEqual([self.original, self.moved], [item.date for item in corrected["A"]])
+        self.assertEqual(WasteType.PAPIR, corrected["A"][0].waste_type)
+        self.assertEqual([self.moved], [item.date for item in corrected["C"]])
+        self.assertEqual(self.regular["B"], corrected["B"])
+
+    def test_named_group_can_span_multiple_regular_rules(self):
+        streets = ["Savín", "Nová Ves", "Chudobín", "Tři Dvory"]
+        rules = [LokaceSvozu(lambda day: day == self.original, names, WasteType.SMES)
+                 for names in (streets[:2], streets[2:])]
+        change = self.exception(streets=(), affected_location_group="smes_streda_mistni_casti")
+        generator = calendar_generator.WasteCollectionCalendarGenerator(
+            rules, [], [], [], streets, self.start, self.end, exceptions=(change,),
+        )
+        for street in streets:
+            with self.subTest(street=street):
+                events = generator.get_events_for_street(street)
+                self.assertEqual([self.moved], [item.date for item in events])
+                self.assertIs(change, events[0].exception)
+
+    def test_half_open_range_handles_moves_across_both_boundaries(self):
+        entering = self.exception(original_date=date(2026, 11, 30), new_date=self.start.date())
+        leaving = self.exception(id="leaving", streets=("C",), new_date=self.end.date())
+        outside = self.exception("include", id="outside", date=self.end.date())
+        corrected, applied = self.apply(outside, leaving, entering)
+        self.assertEqual([self.start, self.original, self.original], [item.date for item in corrected["A"]])
+        self.assertEqual([], corrected["C"])
+        self.assertEqual({entering.id, leaving.id}, {item.id for item in applied})
+        self.assertTrue(all(self.start <= item.date < self.end for events in corrected.values() for item in events))
+
+    def test_independent_changes_are_order_independent(self):
+        include = self.exception("include", id="added")
+        cancel = self.exception("cancel", ("B",), id="removed")
+        self.assertEqual(self.apply(include, cancel), self.apply(cancel, include))
+
+    def test_overlapping_changes_fail_with_both_ids_before_mutating_input(self):
+        first = self.exception("include", id="first")
+        second = self.exception("cancel", id="second", date=self.moved.date())
+        with self.assertRaisesRegex(ValueError, "first and second: A, SMES, 2026-12-15"):
+            self.apply(second, first)
+        self.assertEqual(2, len(self.regular["A"]))
+        self.assertTrue(all(not event.is_override for events in self.regular.values() for event in events))
+
+    def test_shared_original_date_is_checked_outside_the_export_range(self):
+        cases = (
+            (date(2026, 11, 30), self.moved.date(), date(2026, 12, 16)),
+            (date(2027, 1, 2), self.moved.date(), date(2026, 12, 16)),
+            (date(2026, 11, 28), date(2026, 11, 29), date(2026, 11, 30)),
+        )
+        for original, first_day, second_day in cases:
+            with self.subTest(original=original, first=first_day, second=second_day):
+                first = self.exception(id="first", original_date=original, new_date=first_day)
+                second = replace(first, id="second", new_date=second_day)
+                with self.assertRaisesRegex(ValueError, f"first and second: A, SMES, {original}"):
+                    self.apply(first, second)
+
+    def test_shared_destination_is_checked_outside_the_export_range(self):
+        self.regular["A"].append(CollectionEvent(self.moved, WasteType.SMES))
+        first = self.exception(id="first", new_date=self.end.date())
+        second = replace(first, id="second", original_date=self.moved.date())
+        with self.assertRaisesRegex(ValueError, "first and second: A, SMES, 2027-01-01"):
+            self.apply(first, second)
+
+    def test_unknown_street_is_rejected_even_when_the_change_is_outside_range(self):
+        for day in (date(2026, 11, 30), self.end.date()):
+            with self.subTest(day=day):
+                with self.assertRaisesRegex(ValueError, "unknown.*Missing"):
+                    self.apply(self.exception("include", streets=("Missing",), date=day))
+
+    def test_disjoint_streets_can_split_a_collection_from_outside_the_range(self):
+        first = self.exception(id="first", original_date=date(2026, 11, 30), new_date=self.start.date())
+        second = replace(first, id="second", affected_locations=("B",), new_date=self.moved.date())
+        corrected, applied = apply_schedule_exceptions(
+            {"A": [], "B": []}, (first, second), self.start, self.end,
+        )
+        self.assertEqual([self.start], [item.date for item in corrected["A"]])
+        self.assertEqual([self.moved], [item.date for item in corrected["B"]])
+        self.assertEqual((first, second), applied)
+
+    def test_release_rejects_conflicting_boundary_moves_before_writing_exports(self):
+        exceptions = load_svoz_exceptions()
+        original = next(item for item in exceptions
+                        if item.id == "2024-12-30-bio-mistni-casti-posun-2025-01-02")
+        conflict = replace(original, id="conflicting-boundary-move", new_date=date(2025, 1, 3))
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            with self.assertRaisesRegex(ValueError, "Conflicting collection exceptions.*2024-12-30"):
+                generate_release_data(root, exceptions=exceptions + (conflict,))
+            self.assertEqual([], list(root.iterdir()))
+
+    def test_duplicate_identity_and_unknown_street_fail(self):
+        change = self.exception("include")
+        with self.assertRaisesRegex(ValueError, "Duplicate collection exception ID"):
+            self.apply(change, replace(change, affected_locations=("B",)))
+        with self.assertRaisesRegex(ValueError, "unknown.*Missing"):
+            self.apply(self.exception(streets=("Missing",)))
+
+    def test_group_and_explicit_street_overlap_is_rejected(self):
+        streets = {name: [] for name in ("Savín", "Nová Ves", "Chudobín", "Tři Dvory")}
+        group = self.exception("include", id="group", streets=(), affected_location_group="smes_streda_mistni_casti")
+        local = self.exception("include", id="local", streets=("Savín",))
+        with self.assertRaisesRegex(ValueError, "group and local: Savín"):
+            apply_schedule_exceptions(streets, (group, local), self.start, self.end)
+
+    def test_single_street_exception_reaches_csv_ics_and_feed(self):
+        change = self.exception("include", streets=("Sochova",))
+        streets = all_streets["Litovel"] + mistni_casti
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            generate_release_data(root, exceptions=())
+            before = {path.name: path.read_bytes() for path in (root / "calendars").glob("*.ics")}
+            baseline = load_waste_schedule(root / "waste_schedule.csv", streets)
+            self.assertFalse(any(item.date == self.moved and item.waste_type == WasteType.SMES
+                                 for item in baseline.get_events_for_street("Sochova")))
+            generate_release_data(root, exceptions=(change,))
+            updated = load_waste_schedule(root / "waste_schedule.csv", streets)
+            matches = [item for item in updated.get_events_for_street("Sochova")
+                       if item.date == self.moved and item.waste_type == WasteType.SMES]
+            self.assertEqual(1, len(matches))
+            self.assertTrue(matches[0].is_override)
+            for path in (root / "calendars").glob("*.ics"):
+                with self.subTest(calendar=path.name):
+                    if path.name != "sochova.ics":
+                        self.assertEqual(before[path.name], path.read_bytes())
+            calendar = Calendar.from_ical((root / "calendars/sochova.ics").read_bytes())
+            event = next(item for item in calendar.walk("VEVENT")
+                         if str(item.get("X-SVOZ-EXCEPTION-ID", "")) == change.id)
+            self.assertEqual(self.moved.date(), event.decoded("DTSTART"))
+            feed = load_collection_changes(root / "collection_changes.json", root / "calendars")
+            self.assertEqual([change_record(change)], feed["changes"])
+
+    def test_all_actions_and_target_scopes_agree_across_exports(self):
+        streets = ["Sochova", "Jiráskova", "Savín", "Nová Ves", "Chudobín", "Tři Dvory"]
+        routes = [streets[:2], streets[2:4], streets[4:]]
+        scopes = (
+            ("single", {"affected_locations": streets[:1]}, streets[:1]),
+            ("subset-across-routes", {"affected_locations": [streets[0], streets[2]]}, [streets[0], streets[2]]),
+            ("whole-route", {"affected_locations": streets[:2]}, streets[:2]),
+            ("explicit-group", {"affected_locations": streets[2:]}, streets[2:]),
+            ("named-group", {
+                "affected_location_group": "smes_streda_mistni_casti",
+                "affected_locations_snapshot": ["Sochova"],
+            }, streets[2:]),
+        )
+        for waste_type, action in product(WasteType, ("include", "cancel", "reschedule")):
+            control = WasteType.PAPIR if waste_type != WasteType.PAPIR else WasteType.PLAST
+            rules = {
+                waste_type: [LokaceSvozu(lambda day: day == self.original, route, waste_type)
+                             for route in routes],
+                control: [LokaceSvozu(lambda day: day == self.original, streets, control)],
+            }
+            for label, target, selected in scopes:
+                with self.subTest(waste=waste_type.name, action=action, scope=label), tempfile.TemporaryDirectory() as folder:
+                    root = Path(folder)
+                    dates = (
+                        {"original_date": self.original.date().isoformat(), "new_date": self.moved.date().isoformat()}
+                        if action == "reschedule" else
+                        {"date": (self.moved if action == "include" else self.original).date().isoformat()}
+                    )
+                    record = {
+                        "id": f"test-{action}-{label}", "action": action, "waste_type": waste_type.name,
+                        **target, **dates, "source": {"title": "Zkušební změna"},
+                    }
+                    source = root / "exceptions.json"
+                    source.write_text(json.dumps([record]), encoding="utf-8")
+                    exceptions = load_svoz_exceptions(source)
+                    self.assertEqual(set(selected), set(exceptions[0].resolved_locations))
+                    self.assertEqual(set(selected), set(affected_location_names(exceptions[0])))
+                    generator = calendar_generator.WasteCollectionCalendarGenerator(
+                        rules.get(WasteType.SMES, []), rules.get(WasteType.PLAST, []),
+                        rules.get(WasteType.PAPIR, []), rules.get(WasteType.BIO, []),
+                        streets, self.start, self.end, exceptions=exceptions,
+                    )
+                    generator.generate_csv_file(streets, self.start, self.end, root / "waste_schedule.csv")
+                    released = load_waste_schedule(root / "waste_schedule.csv", streets)
+                    for street in streets:
+                        expected = {(self.original, control)}
+                        if street not in selected or action == "include":
+                            expected.add((self.original, waste_type))
+                        if street in selected and action != "cancel":
+                            expected.add((self.moved, waste_type))
+                        self.assertEqual(expected, {(item.date, item.waste_type)
+                                                    for item in released.get_events_for_street(street)})
+                        generator.generate_ical_file(
+                            street, root / "calendars", self.start, self.end, include_legacy_alias=False,
+                        )
+                        calendar = Calendar.from_ical((root / "calendars" / f"{slugify(street)}.ics").read_bytes())
+                        self.assertEqual(
+                            {(day.date(), f"{waste.label} svoz – {street}") for day, waste in expected},
+                            {(event.decoded("DTSTART"), str(event["SUMMARY"]).removeprefix("Změna: "))
+                             for event in calendar.walk("VEVENT")},
+                        )
+                    write_collection_changes(root, streets, generator.applied_exceptions)
+                    feed = load_collection_changes(root / "collection_changes.json", root / "calendars")
+                    self.assertEqual(1, len(feed["changes"]))
+                    self.assertEqual(record["id"], feed["changes"][0]["id"])
+                    self.assertEqual({slugify(street) for street in selected}, set(feed["changes"][0]["street_slugs"]))
+
+
 class SvozExceptionsTest(unittest.TestCase):
     @contextmanager
     def _write_exception_file(self, data):
@@ -1353,6 +1713,7 @@ class SvozExceptionsTest(unittest.TestCase):
             streets,
             date_start,
             date_end,
+            exceptions=load_svoz_exceptions(),
         )
 
         for street in litovel_lokace_bio_0:
@@ -1382,6 +1743,7 @@ class SvozExceptionsTest(unittest.TestCase):
             streets,
             date_start,
             date_end,
+            exceptions=load_svoz_exceptions(),
         )
 
         actual_lines = []
@@ -1407,6 +1769,7 @@ class SvozExceptionsTest(unittest.TestCase):
             streets,
             date_start,
             date_end,
+            exceptions=load_svoz_exceptions(),
         )
 
         for street in streets:
@@ -1434,16 +1797,14 @@ class IcsExceptionMetadataTest(unittest.TestCase):
     def _generator_with_exception(self, exception, street="Zkušební ulice"):
         resulting_date = exception.new_date or exception.date
         self.assertIsNotNone(resulting_date)
-        included_date = datetime.combine(resulting_date, datetime.min.time())
         schedule = LokaceSvozu(
             lambda value: False,
             [street],
             WasteType.SMES,
-            included_dates=[included_date],
-            event_exceptions={included_date: exception},
         )
         return calendar_generator.WasteCollectionCalendarGenerator(
-            [schedule], [], [], [], [street], datetime(2026, 1, 1), datetime(2027, 1, 1)
+            [schedule], [], [], [], [street], datetime(2026, 1, 1), datetime(2027, 1, 1),
+            exceptions=(exception,),
         )
 
     def test_sochova_reschedules_include_complete_exception_metadata(self):
@@ -1456,6 +1817,7 @@ class IcsExceptionMetadataTest(unittest.TestCase):
             streets,
             date_start,
             date_end,
+            exceptions=load_svoz_exceptions(),
         )
         _, events = self._calendar_events(generator, "Sochova")
         by_date = {event.decoded("dtstart"): event for event in events}
@@ -1565,6 +1927,7 @@ class IcsExceptionMetadataTest(unittest.TestCase):
             streets,
             date_start,
             date_end,
+            exceptions=load_svoz_exceptions(),
         )
         _, events = self._calendar_events(generator, "Dukelská")
         event = next(
@@ -1609,7 +1972,8 @@ class IcsExceptionMetadataTest(unittest.TestCase):
             WasteType.SMES,
         )
         generator = calendar_generator.WasteCollectionCalendarGenerator(
-            [schedule], [], [], [], [street], datetime(2026, 1, 1), datetime(2027, 1, 1)
+            [schedule], [], [], [], [street], datetime(2026, 1, 1), datetime(2027, 1, 1),
+            exceptions=()
         )
         _, events = self._calendar_events(generator, street)
         event = events[0]

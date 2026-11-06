@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from generator_svozu_odpadu import generate_release_data
+from collection_changes import FEED_NAME
 from release_data import (
     load_bio_disposal_release,
     load_bio_release,
@@ -40,6 +41,7 @@ STATIC_ENTRIES = (
     "waste_schedule.csv",
     "bio_schedule.json",
     "bio_disposal.json",
+    FEED_NAME,
     "calendars",
 )
 
@@ -93,12 +95,14 @@ def compare_release_data(expected: Path, actual: Path) -> list[str]:
         Path("waste_schedule.csv"),
         Path("bio_schedule.json"),
         Path("bio_disposal.json"),
+        Path(FEED_NAME),
         *(path.relative_to(expected) for path in (expected / "calendars").glob("*.ics")),
     }
     actual_files = {
         Path("waste_schedule.csv"),
         Path("bio_schedule.json"),
         Path("bio_disposal.json"),
+        Path(FEED_NAME),
         *(path.relative_to(actual) for path in (actual / "calendars").glob("*.ics")),
     }
     differences = [

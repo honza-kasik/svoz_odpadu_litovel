@@ -13,7 +13,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
 from streets import mistni_casti
-from svoz_exceptions import LOCATION_GROUPS, SvozException, load_svoz_exceptions
+from svoz_exceptions import SvozException, load_svoz_exceptions
 
 
 ROOT = Path(__file__).resolve().parent
@@ -74,9 +74,7 @@ def affected_location_names(exception: SvozException) -> tuple[str, ...]:
     """Read the effective locations from the same groups used by exceptions."""
     if exception.affected_location_group == "all_streets_litovel":
         return ()
-    if exception.affected_location_group:
-        return LOCATION_GROUPS[exception.affected_location_group]
-    return exception.affected_locations
+    return exception.resolved_locations
 
 
 def location_heading(exception: SvozException) -> str | None:
